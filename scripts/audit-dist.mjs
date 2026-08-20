@@ -23,7 +23,7 @@ import path from 'node:path';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const DIST = path.join(ROOT, 'dist');
-const SITE = 'https://chocky95.github.io';
+const SITE = 'https://chocky.dev';
 
 /* ── Inventaire attendu ──────────────────────────────────────────────────── */
 

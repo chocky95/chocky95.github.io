@@ -4,7 +4,7 @@ Site statique multilingue présentant les cinq applications de Chocky Dev.
 Construit pour être référencé : une URL HTML réelle par application et par
 langue, zéro JavaScript côté client, hreflang calculés par machine.
 
-**En ligne** : https://chocky95.github.io
+**En ligne** : https://chocky.dev
 **Contact** : djchocky@gmail.com
 
 ## Démarrer
@@ -135,7 +135,12 @@ jsdelivr. Le build est passé de 5 min 25 s à 1,3 s.
 
 Push sur `main` → `.github/workflows/deploy.yml` → GitHub Pages.
 
-Dépôt **user-site** (`chocky95.github.io`), donc `base: '/'`. Ce choix n'est pas
+Dépôt **user-site** (`chocky95.github.io`), servi sur **`chocky.dev`**, donc
+`base: '/'`. Le domaine est déclaré dans `public/CNAME` — avec un déploiement par
+Actions, son absence de l'artefact peut réinitialiser le réglage côté GitHub.
+GitHub pose automatiquement une redirection 301 depuis l'ancienne adresse.
+
+Le choix du dépôt user-site n'est pas
 qu'un confort : `robots.txt` n'est lu qu'à la racine de l'hôte. Dans un dépôt de
 projet, il serait servi sur `/mon-repo/robots.txt`, que personne ne lit.
 

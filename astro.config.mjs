@@ -16,13 +16,27 @@ export const HREFLANG = /** @type {const} */ ({
   da: 'da', nb: 'nb', pl: 'pl', ro: 'ro', ru: 'ru', ko: 'ko', cs: 'cs',
 });
 
-const SITE = 'https://chocky95.github.io';
+/*
+ * Domaine du site.
+ *
+ * Cette constante pilote a elle seule les 94 canonicals, tous les clusters
+ * hreflang, le sitemap et le Sitemap: de robots.txt. C'est pourquoi elle est
+ * declaree ici plutot que semee dans les composants.
+ *
+ * chocky95.github.io redirige en 301 vers ce domaine, redirection posee
+ * automatiquement par GitHub. Le capital de referencement accumule sur
+ * l'ancienne adresse est donc transfere.
+ *
+ * Le domaine lui-meme est declare dans public/CNAME : avec un deploiement par
+ * GitHub Actions, l'absence de ce fichier dans l'artefact peut reinitialiser le
+ * reglage cote GitHub au deploiement suivant.
+ */
+const SITE = 'https://chocky.dev';
 
 export default defineConfig({
   site: SITE,
-  // Depot user-site (chocky95.github.io) => base '/'. Inchange meme apres
-  // passage a un domaine propre : il suffira d'ajouter public/CNAME et de
-  // changer SITE ci-dessus.
+  // Depot user-site => base '/'. Inchange par le passage a chocky.dev :
+  // le domaine remplace l'hote, pas le chemin.
   base: '/',
 
   // GitHub Pages sert dist/apps/papayoo/index.html sur /apps/papayoo/ et
