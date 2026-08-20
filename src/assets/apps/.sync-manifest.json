@@ -1,9 +1,4 @@
 {
-  "molkky-score/icon-512.png": {
-    "from": "molkkyScore/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_1024.png",
-    "stamp": "102994:1761115178193",
-    "spec": "png 512 palette"
-  },
   "papayoo/icon-512.png": {
     "from": "Papayoo/assets/icons/icon-papayoo2.png",
     "stamp": "6123771:1766155671662",
@@ -23,6 +18,11 @@
     "from": "scangratuit/store_assets/icon_512.png",
     "stamp": "4866:1785863141235",
     "spec": "png 512 palette"
+  },
+  "molkky-score/icon-512.png": {
+    "from": "molkkyScore/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_adaptive_back.png + molkkyScore/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_adaptive_fore.png",
+    "stamp": "55447:1763130954828+57170:1763130954833",
+    "spec": "composite png 512 palette"
   },
   "papayoo/banner-1600.webp": {
     "from": "Papayoo/assets/banniere_papayoo.png",

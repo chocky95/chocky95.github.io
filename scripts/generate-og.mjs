@@ -108,10 +108,26 @@ for (const app of APPS) {
 
   let image = sharp(Buffer.from(svg));
 
-  // Si l'icône de l'app a été synchronisée, on la compose en haut à droite.
+  // Si l'icône de l'app a été synchronisée, on la compose en haut à droite,
+  // aux angles arrondis — comme la présentent les boutiques. Un carré net
+  // ressortirait comme un collage.
   const icon = path.join(ICONS, app.slug, 'icon-512.png');
   if (existsSync(icon)) {
-    const badge = await sharp(icon).resize(220, 220, { fit: 'contain' }).png().toBuffer();
+    const SIZE = 220;
+    const RADIUS = 48;
+
+    const mask = Buffer.from(
+      `<svg width="${SIZE}" height="${SIZE}">` +
+        `<rect width="${SIZE}" height="${SIZE}" rx="${RADIUS}" ry="${RADIUS}" fill="#fff"/>` +
+        `</svg>`,
+    );
+
+    const badge = await sharp(icon)
+      .resize(SIZE, SIZE, { fit: 'cover' })
+      .composite([{ input: mask, blend: 'dest-in' }])
+      .png()
+      .toBuffer();
+
     image = sharp(await image.png().toBuffer()).composite([{ input: badge, top: 90, left: 860 }]);
   }
 

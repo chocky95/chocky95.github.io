@@ -100,8 +100,16 @@ const breadcrumbs = [
   { name: app.name, url: canonical },
 ];
 
-/** Libellé lisible d'une boutique, pour la fiche technique. */
-const STORE_LABEL: Record<string, string> = { play: 'Google Play', web: t('cta.webApp') };
+/**
+ * Les boutiques où l'application est réellement disponible, avec leur lien.
+ *
+ * « Google Play » dans le bloc de caractéristiques renvoie donc vers la fiche,
+ * exactement comme le bouton de téléchargement — un visiteur qui lit les
+ * caractéristiques n'a pas à remonter la page pour cliquer.
+ */
+const stores: { label: string; url: string }[] = [];
+if (app.playUrl) stores.push({ label: 'Google Play', url: app.playUrl });
+if (app.webAppUrl) stores.push({ label: t('cta.webApp'), url: app.webAppUrl });
 ---
 
 <BaseLayout
@@ -177,6 +185,44 @@ const STORE_LABEL: Record<string, string> = { play: 'Google Play', web: t('cta.w
           }
           {app.status === 'coming-soon' && <span class="badge">{t('apps.comingSoon')}</span>}
         </p>
+
+        {/*
+          Bloc de caractéristiques, placé sous le titre plutôt qu'en bas de page :
+          version, boutiques et langues sont ce qu'un visiteur vérifie avant de
+          lire quoi que ce soit. Chaque boutique est un lien vers sa fiche.
+
+          Le titre est masqué visuellement mais présent pour les lecteurs
+          d'écran : les intitulés du <dl> se suffisent à l'œil, mais la structure
+          du document doit rester complète.
+        */}
+        <section class="specs">
+          <h2 class="visually-hidden">{t('apps.availableOn')}</h2>
+          <dl class="spec-list">
+            <dt>{t('apps.version')}</dt>
+            <dd>{app.version}</dd>
+
+            <dt>{t('apps.availableOn')}</dt>
+            <dd>
+              {
+                stores.length > 0 ? (
+                  stores.map((store, i) => (
+                    <>
+                      {i > 0 && <span aria-hidden="true"> · </span>}
+                      <a href={store.url} rel="noopener">
+                        {store.label}
+                      </a>
+                    </>
+                  ))
+                ) : (
+                  <span>{t('apps.comingSoon')}</span>
+                )
+              }
+            </dd>
+
+            <dt>{t('lang.label')}</dt>
+            <dd>{app.locales.map((l) => LOCALE_NAMES[l]).join(', ')}</dd>
+          </dl>
+        </section>
       </header>
     </div>
 
@@ -289,26 +335,6 @@ const STORE_LABEL: Record<string, string> = { play: 'Google Play', web: t('cta.w
           </section>
         )
       }
-
-      <section class="specs">
-        <h2>{t('apps.availableOn')}</h2>
-        <dl class="spec-list">
-          <dt>{t('apps.version')}</dt>
-          <dd>{app.version}</dd>
-
-          <dt>{t('apps.availableOn')}</dt>
-          <dd>
-            {
-              app.stores.length > 0
-                ? app.stores.map((s) => STORE_LABEL[s] ?? s).join(' · ')
-                : t('apps.comingSoon')
-            }
-          </dd>
-
-          <dt>{t('lang.label')}</dt>
-          <dd>{app.locales.map((l) => LOCALE_NAMES[l]).join(', ')}</dd>
-        </dl>
-      </section>
 
       {
         siblings.length > 0 && (
@@ -482,12 +508,21 @@ const STORE_LABEL: Record<string, string> = { play: 'Google Play', web: t('cta.w
     max-inline-size: var(--measure);
   }
 
+  /*
+   * Bloc de caractéristiques dans l'en-tête : bande compacte, séparée du titre
+   * par un filet, avec les intitulés en retrait de couleur atténuée.
+   */
+  .specs {
+    margin-block-start: var(--space-4);
+    padding-block-start: var(--space-3);
+    border-block-start: 1px solid var(--glass-border);
+  }
+
   .body,
   .guides,
   .shots,
   .diagrams,
   .faq,
-  .specs,
   .siblings {
     margin-block-start: var(--space-5);
   }
@@ -510,12 +545,25 @@ const STORE_LABEL: Record<string, string> = { play: 'Google Play', web: t('cta.w
 
   .spec-list {
     display: grid;
-    grid-template-columns: auto 1fr;
-    gap: var(--space-1) var(--space-3);
-    margin-block-start: var(--space-2);
+    grid-template-columns: minmax(6rem, auto) 1fr;
+    gap: 0.45rem var(--space-3);
+    font-size: var(--step--1);
   }
   .spec-list dt {
     color: var(--text-500);
+  }
+  .spec-list dd {
+    margin-inline-start: 0;
+    color: var(--text-300);
+  }
+  @media (max-width: 26rem) {
+    .spec-list {
+      grid-template-columns: 1fr;
+      gap: 0.15rem;
+    }
+    .spec-list dd {
+      margin-block-end: 0.5rem;
+    }
   }
 
   .qa + .qa {

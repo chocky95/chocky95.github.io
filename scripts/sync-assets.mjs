@@ -48,11 +48,6 @@ const MAX_BYTES = 300 * 1024;
  * `to`   est relatif à `src/assets/apps/`.
  */
 const ICONS = [
-  // 1024 px, 101 Ko — le plus propre des fichiers Mölkky disponibles.
-  {
-    from: ['molkkyScore', 'macos', 'Runner', 'Assets.xcassets', 'AppIcon.appiconset', 'app_icon_1024.png'],
-    to: ['molkky-score', 'icon-512.png'],
-  },
   // 2048 px, 5,9 Mo -> impératif de redimensionner avant tout commit.
   {
     from: ['Papayoo', 'assets', 'icons', 'icon-papayoo2.png'],
@@ -70,6 +65,35 @@ const ICONS = [
   {
     from: ['scangratuit', 'store_assets', 'icon_512.png'],
     to: ['scanfree', 'icon-512.png'],
+  },
+];
+
+/**
+ * Icônes à composer depuis deux couches.
+ *
+ * ── Le cas Mölkky Score ───────────────────────────────────────────────────
+ * Ses icônes iOS et macOS (`Icon-App-1024x1024@1x.png`,
+ * `app_icon_1024.png`) n'ont JAMAIS été personnalisées : ce sont les logos
+ * Flutter par défaut. Seule la plateforme Android porte la vraie icône — le
+ * cercle orange aux 12 quilles numérotées.
+ *
+ * Or `mipmap-xxxhdpi/ic_launcher.png` ne fait que 192 px, trop peu pour la
+ * sortie en 512. On recompose donc l'icône adaptative : le fond orange
+ * (`_adaptive_back`) et l'avant-plan aux quilles (`_adaptive_fore`), tous deux
+ * en 432 px. Le résultat est net, et c'est exactement ce que voit l'utilisateur
+ * sur son écran d'accueil.
+ */
+const COMPOSITE_ICONS = [
+  {
+    background: [
+      'molkkyScore', 'android', 'app', 'src', 'main', 'res',
+      'mipmap-xxxhdpi', 'ic_launcher_adaptive_back.png',
+    ],
+    foreground: [
+      'molkkyScore', 'android', 'app', 'src', 'main', 'res',
+      'mipmap-xxxhdpi', 'ic_launcher_adaptive_fore.png',
+    ],
+    to: ['molkky-score', 'icon-512.png'],
   },
 ];
 
@@ -246,6 +270,41 @@ for (const { from, to } of ICONS) {
     }),
     'png 512 palette',
   );
+}
+
+console.log('\nIcônes composées depuis les couches adaptatives Android :');
+for (const { background, foreground, to } of COMPOSITE_ICONS) {
+  const back = path.join(FLUTTER, ...background);
+  const fore = path.join(FLUTTER, ...foreground);
+  const dest = path.join(OUT, ...to);
+  const key = to.join('/');
+
+  if (!existsSync(back) || !existsSync(fore)) {
+    results.missing.push(`${background.join('/')} + ${foreground.join('/')} -> ${key}`);
+    continue;
+  }
+
+  const spec = 'composite png 512 palette';
+  const stamp = `${await sourceStamp(back)}+${await sourceStamp(fore)}`;
+  manifest[key] = { from: `${background.join('/')} + ${foreground.join('/')}`, stamp, spec };
+
+  if (previous[key]?.stamp === stamp && previous[key]?.spec === spec && existsSync(dest)) {
+    results.skipped += 1;
+  } else {
+    await mkdir(path.dirname(dest), { recursive: true });
+
+    const layer = await sharp(await readFile(fore)).resize(512, 512).png().toBuffer();
+    await sharp(await readFile(back))
+      .resize(512, 512)
+      .composite([{ input: layer }])
+      .png({ compressionLevel: 9, palette: true })
+      .toFile(dest);
+
+    const size = (await stat(dest)).size;
+    if (size > MAX_BYTES) results.tooBig.push(`${key} — ${(size / 1024).toFixed(0)} Ko`);
+    results.written += 1;
+    console.log(`  · ${key.padEnd(46)} ${(size / 1024).toFixed(0)} Ko`);
+  }
 }
 
 console.log('\nBannières (1600 px de large, WebP) :');
