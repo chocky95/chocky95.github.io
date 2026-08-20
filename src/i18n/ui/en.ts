@@ -6,9 +6,9 @@ import type { UiDict } from './fr';
  * manquante fait échouer `astro check`.
  */
 const en: UiDict = {
-  'site.name': 'Chocky Studio',
+  'site.name': 'Chocky Dev',
   'site.wordmark': 'chocky.',
-  'site.tagline': 'Useful apps. A little more human.',
+  'site.tagline': 'Useful apps, fun games',
   'site.description':
     'Two board games, a document scanner and accounting for the self-employed. Built by one independent developer.',
 
@@ -36,16 +36,15 @@ const en: UiDict = {
   'cta.webApp': 'Open in your browser',
   'cta.discover': 'Discover',
   'cta.readRules': 'Read the rules',
-  'cta.seeAllApps': 'See all apps',
 
   'breadcrumb.label': 'Breadcrumb',
 
   'footer.tagline': 'Digital products that do you good.',
-  'footer.otherApps': 'More apps from Chocky Studio',
+  'footer.otherApps': 'More apps from Chocky Dev',
   'footer.legal': 'Legal notice',
   'footer.privacy': 'Privacy',
   'footer.contact': 'Contact',
-  'footer.rights': '© 2026 Chocky Studio',
+  'footer.rights': '© 2026 Chocky Dev',
 
   'meta.updatedOn': 'Updated on',
   'faq.title': 'Frequently asked questions',

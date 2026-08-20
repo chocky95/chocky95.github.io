@@ -1,6 +1,6 @@
-# Chocky Studio — site vitrine
+# Chocky Dev — site vitrine
 
-Site statique multilingue présentant les cinq applications de Chocky Studio.
+Site statique multilingue présentant les cinq applications de Chocky Dev.
 Construit pour être référencé : une URL HTML réelle par application et par
 langue, zéro JavaScript côté client, hreflang calculés par machine.
 

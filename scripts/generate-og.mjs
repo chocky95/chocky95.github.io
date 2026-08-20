@@ -85,9 +85,9 @@ await mkdir(OUT, { recursive: true });
 /* ── Image par défaut ────────────────────────────────────────────────────── */
 
 const defaultSvg = card({
-  kicker: 'Studio indépendant',
-  title: 'Des apps utiles.',
-  subtitle: 'Deux jeux, un scanner, une compta de micro-entrepreneur.',
+  kicker: 'Développeur indépendant',
+  title: 'Des applis utiles',
+  subtitle: 'des jeux Fun, un scanner, une compta de micro-entrepreneur.',
   accent: '#16a37f',
   accentText: '#16a37f',
 });
@@ -101,7 +101,7 @@ for (const app of APPS) {
   const svg = card({
     kicker: app.kicker,
     title: app.name,
-    subtitle: 'Chocky Studio',
+    subtitle: 'Chocky Dev',
     accent: app.accent,
     accentText: app.accentText,
   });

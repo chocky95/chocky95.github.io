@@ -2,6 +2,7 @@
 import { Font } from 'astro:assets';
 
 import { CJK_LOCALES, OG_LOCALE, type Locale } from '~/i18n/locales';
+import { useTranslations } from '~/i18n/t';
 import { absolute, alternates, requireSite, type LocalePaths } from '~/i18n/routes';
 
 interface Props {
@@ -37,6 +38,10 @@ const {
   noindex = false,
   updatedOn,
 } = Astro.props;
+
+// Le nom du site vient du dictionnaire, jamais en dur : un nom de marque en
+// dur dans un composant est exactement ce qui finit par diverger du reste.
+const t = useTranslations(locale);
 
 const site = requireSite(Astro.site);
 
@@ -78,7 +83,7 @@ const usesWebFont = !CJK_LOCALES.has(locale);
 
 {/* Open Graph */}
 <meta property="og:type" content={ogType} />
-<meta property="og:site_name" content="Chocky Studio" />
+<meta property="og:site_name" content={t('site.name')} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:url" content={canonical} />

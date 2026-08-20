@@ -3,7 +3,7 @@
   "type": "module",
   "version": "1.0.0",
   "private": true,
-  "description": "Site vitrine multilingue de Chocky Studio",
+  "description": "Site vitrine multilingue de Chocky Dev",
   "engines": {
     "node": ">=22"
   },

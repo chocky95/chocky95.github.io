@@ -36,7 +36,6 @@ const title = `${t('site.name')} — ${t('site.tagline')}`;
     <p class="eyebrow">{t('site.name')}</p>
     <h1>{t('site.tagline')}</h1>
     <p class="lead prose">{t('site.description')}</p>
-    <a class="cta" href={href(locale, 'apps')}>{t('cta.seeAllApps')}</a>
   </section>
 
   <section class="wrap">
@@ -74,16 +73,6 @@ const title = `${t('site.name')} — ${t('site.tagline')}`;
     margin-block-start: var(--space-3);
     font-size: var(--step-1);
     color: var(--text-300);
-  }
-  .cta {
-    display: inline-block;
-    margin-block-start: var(--space-4);
-    padding: 0.7em 1.4em;
-    border-radius: 999px;
-    background: var(--accent-text, var(--accent));
-    color: var(--ink-900);
-    font-weight: 700;
-    text-decoration: none;
   }
   .grid {
     display: grid;

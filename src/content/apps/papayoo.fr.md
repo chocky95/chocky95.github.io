@@ -7,15 +7,15 @@ h1: 'Papayoo : le jeu de cartes en solo contre l’IA ou en ligne entre amis'
 lead: >-
   Pas de 7, pas de Payoos. Le principe du Papayoo est de survivre : cumulez le
   MOINS de points possible, fuyez les Payoos et surtout le Papayoo, qui en vaut
-  40 à lui seul. Jouez en solo contre trois niveaux de bots, ou en ligne avec
-  vos amis.
+  40 à lui seul. Jouez en solo contre quatre niveaux de bots, du Facile à
+  l'Expert, ou en ligne avec vos amis.
 translationStatus: authored
 updatedOn: 2026-08-20
 heroAlt: >-
   Papayoo — illustration du jeu de cartes avec le 7 couronné et le dé des
   couleurs
 highlights:
-  - Mode solo contre des bots, avec trois niveaux de difficulté
+  - 'Mode solo contre des bots : Facile, Moyen, Difficile et Expert'
   - Multijoueur en ligne, invitations et partage de profil par QR code
   - 'Jokers à débloquer : Sonar, Indice IA, Défense, Changement de main'
   - Classement mensuel et ELO, séparés entre solo et multijoueur
@@ -36,8 +36,10 @@ faq:
       marque le moins.
   - q: Peut-on jouer au Papayoo tout seul ?
     a: >-
-      Oui, contre des bots, avec trois niveaux de difficulté. C'est le meilleur
-      moyen d'apprendre les règles avant de jouer en ligne.
+      Oui, contre des bots, avec quatre niveaux de difficulté : Facile, Moyen,
+      Difficile et Expert. Les niveaux supérieurs se débloquent en progressant —
+      l'Expert demande trois victoires en Difficile. C'est le meilleur moyen
+      d'apprendre les règles avant de jouer en ligne.
   - q: Peut-on jouer en ligne avec ses amis ?
     a: >-
       Oui. Vous créez ou rejoignez une partie, invitez vos amis et partagez
@@ -57,7 +59,7 @@ faq:
   - q: Cette application est-elle le Papayoo officiel ?
     a: >-
       Non. C'est une adaptation indépendante du jeu de cartes, développée par
-      Chocky Studio. Elle n'est affiliée ni à l'éditeur du jeu, ni au détenteur
+      Chocky Dev. Elle n'est affiliée ni à l'éditeur du jeu, ni au détenteur
       de la marque.
 ---
 
@@ -75,8 +77,12 @@ Payoos, puis le jeu des plis.
 
 ### Mode solo contre des bots
 
-Trois niveaux de difficulté. Le niveau facile pardonne les erreurs de débutant,
-le niveau difficile compte les cartes.
+Quatre niveaux : **Facile**, **Moyen**, **Difficile** et **Expert**. Le Facile
+pardonne les erreurs de débutant, le Difficile compte les cartes.
+
+Les niveaux supérieurs ne sont pas accessibles d'emblée : ils se débloquent en
+progressant, et l'**Expert** demande trois victoires en Difficile. Les
+difficultés élevées rapportent aussi plus d'XP.
 
 ### Multijoueur en ligne
 

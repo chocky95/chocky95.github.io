@@ -10,9 +10,9 @@
  */
 const fr = {
   // Marque
-  'site.name': 'Chocky Studio',
+  'site.name': 'Chocky Dev',
   'site.wordmark': 'chocky.',
-  'site.tagline': 'Des apps utiles. Un peu plus humaines.',
+  'site.tagline': 'Des applis utiles, des jeux Fun',
   'site.description':
     'Deux jeux de société, un scanner de documents et une comptabilité de micro-entrepreneur. Développés par un seul développeur indépendant.',
 
@@ -44,18 +44,17 @@ const fr = {
   'cta.webApp': 'Utiliser dans le navigateur',
   'cta.discover': 'Découvrir',
   'cta.readRules': 'Lire les règles',
-  'cta.seeAllApps': 'Voir toutes les applications',
 
   // Fil d'Ariane
   'breadcrumb.label': "Fil d'Ariane",
 
   // Pied de page
   'footer.tagline': 'Des produits numériques qui font du bien.',
-  'footer.otherApps': 'Les autres applications de Chocky Studio',
+  'footer.otherApps': 'Les autres applications de Chocky Dev',
   'footer.legal': 'Mentions légales',
   'footer.privacy': 'Confidentialité',
   'footer.contact': 'Contact',
-  'footer.rights': '© 2026 Chocky Studio',
+  'footer.rights': '© 2026 Chocky Dev',
 
   // Divers
   'meta.updatedOn': 'Mis à jour le',
