@@ -25,6 +25,7 @@ highlights:
   - Comptage automatique et règle des 3 ratés appliquée sans y penser
   - Redescente à 25 en cas de dépassement de 50 points
   - 'Tournois à élimination directe, sans limite de joueurs ou d''équipes'
+  - 'Mode Officiel : phases de poules, puis tableaux finaux Or et Argent'
   - Classement ELO qui tient compte du niveau de vos adversaires
   - Partage du score en direct par QR code, effacé après 48 heures
   - Export PDF de la feuille de tournoi et de l'arbre
@@ -64,6 +65,13 @@ faq:
       fonction du nombre de joueurs ou d'équipes inscrits. Les perdants des
       demi-finales jouent une petite finale pour la troisième place, et la
       grande finale départage le vainqueur et le finaliste.
+  - q: Quelle est la différence entre le mode Loisirs et le mode Officiel ?
+    a: >-
+      Le mode Loisirs génère directement un arbre à élimination directe. Le
+      mode Officiel ajoute une phase de poules en amont : les participants sont
+      répartis en poules, puis reclassés dans un tournoi Or ou un tournoi
+      Argent selon leurs résultats. C'est le format adapté à un vrai tournoi de
+      club ou d'entreprise.
   - q: Comment partager le score avec des spectateurs ?
     a: >-
       L'application publie la partie ou le tournoi sur une page web privée, mise
@@ -103,11 +111,24 @@ ou une équipe remporte le nombre de manches défini.
 
 ## Organisez un tournoi de Mölkky en quelques minutes
 
-### Aucune limite de joueurs ou d'équipes
+Deux modes, selon la formule que vous voulez donner à votre tournoi.
 
-Le nombre de participants n'est pas plafonné. L'application construit un arbre à
-élimination directe adapté au nombre de joueurs ou d'équipes que vous inscrivez.
-Le vainqueur de chaque duel passe au tour suivant.
+### Mode Loisirs : l'arbre à élimination directe
+
+Aucune limite de joueurs ou d'équipes. L'application construit un arbre adapté
+au nombre de participants que vous inscrivez. Le vainqueur de chaque duel passe
+au tour suivant.
+
+### Mode Officiel : phases de poules puis tableaux Or et Argent
+
+Une organisation complète, pensée pour un vrai tournoi de club ou d'entreprise :
+
+1. **Phase de poules** — les participants sont répartis en poules, avec un
+   nombre de terrains et une répartition que vous choisissez. Chaque poule joue
+   un nombre de manches fixe.
+2. **Tableaux finaux** — à l'issue des poules, les joueurs sont répartis dans un
+   **tournoi Or** ou un **tournoi Argent** selon leur classement, chacun avec
+   son propre arbre à élimination directe.
 
 ### Petite finale, grande finale et podium
 
