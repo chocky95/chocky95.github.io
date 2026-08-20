@@ -42,6 +42,22 @@ const APP_LOCALES = {
   easycompta: ['fr'],
 };
 
+/**
+ * Pages éditoriales : cluster -> { locale: slug localisé }.
+ *
+ * Contrairement aux pages d'application, dont le slug est un nom de marque
+ * invariant, le slug d'un guide est traduit — un Finlandais tape
+ * « mölkky säännöt », pas « molkky rules ». Le cluster hreflang regroupe donc
+ * des URL de chemins différents, ce qui en fait le meilleur endroit du site
+ * pour une erreur de réciprocité. D'où cette table, saisie à la main.
+ */
+const GUIDES = {
+  'molkky-rules': {
+    fr: 'regles-du-molkky',
+    en: 'molkky-rules',
+  },
+};
+
 /** Cas nommés : chacun a déjà été, ou pourrait être, un vrai bug. */
 const NAMED_CASES = [
   // EasyCompta est le seul mono-locale. Il emprunte des chemins de code que
@@ -96,6 +112,10 @@ function buildExpectedUrls() {
   }
   for (const [slug, locales] of Object.entries(APP_LOCALES)) {
     for (const locale of locales) urls.add(urlFor(locale, `apps/${slug}`));
+  }
+  // Les guides sont à la racine, avec un slug localisé.
+  for (const byLocale of Object.values(GUIDES)) {
+    for (const [locale, slug] of Object.entries(byLocale)) urls.add(urlFor(locale, slug));
   }
   return urls;
 }

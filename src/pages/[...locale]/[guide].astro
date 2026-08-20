@@ -1,0 +1,386 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { Image } from 'astro:assets';
+import { render } from 'astro:content';
+
+import JsonLd from '~/components/seo/JsonLd.astro';
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { getApp } from '~/data/apps';
+import { appDiagrams, appHeroImage } from '~/data/appAssets';
+import { guideContent, type GuideEntry } from '~/data/content';
+import { DEFAULT_LOCALE, LOCALE_NAMES, type Locale } from '~/i18n/locales';
+import { absolute, href, requireSite, switcherLinks } from '~/i18n/routes';
+import { useTranslations } from '~/i18n/t';
+
+/**
+ * Pages éditoriales : règles de jeu et guides.
+ *
+ * Ce sont elles qui vont chercher le trafic. Une page produit ne se classe que
+ * sur son nom de marque ; « règles du mölkky » ou « livre des recettes
+ * auto-entrepreneur » sont des requêtes informationnelles à forte demande, sur
+ * lesquelles ce site a une autorité réelle — le moteur de score, c'est lui.
+ *
+ * ── Slugs localisés ──────────────────────────────────────────────────────
+ * Contrairement aux pages d'application, dont le slug est un nom de marque
+ * invariant, le slug d'un guide est traduit :
+ *   /regles-du-molkky/     (fr)
+ *   /en/molkky-rules/      (en)
+ *   /fi/molkky-saannot/    (fi)
+ * `/fi/molkky-saannot/` se positionne mieux que `/fi/molkky-rules/`, tout
+ * simplement parce que c'est ce que les Finlandais tapent.
+ *
+ * Le regroupement se fait par « cluster » : le nom de fichier avant la locale.
+ * `molkky-rules.fr.md` et `molkky-rules.fi.md` appartiennent au même cluster,
+ * donc au même cluster hreflang — quels que soient leurs slugs.
+ *
+ * Les guides sont à la racine, sans préfixe `/guides/` : une URL plus courte
+ * place le mot-clé plus près du domaine, et il n'y a rien à gagner à ajouter un
+ * segment que personne ne recherche.
+ */
+export const getStaticPaths = (async () => {
+  const clusters = await guideContent();
+  const paths = [];
+
+  for (const byLocale of clusters.values()) {
+    for (const [locale, entry] of byLocale) {
+      paths.push({
+        params: {
+          locale: locale === DEFAULT_LOCALE ? undefined : locale,
+          guide: entry.data.slug,
+        },
+        // La table complète du cluster voyage avec la page : les hreflang en
+        // dérivent, donc ils ne peuvent pas désigner une URL non générée.
+        props: { locale, entry, cluster: byLocale },
+      });
+    }
+  }
+
+  return paths;
+}) satisfies GetStaticPaths;
+
+interface Props {
+  locale: Locale;
+  entry: GuideEntry;
+  cluster: ReadonlyMap<Locale, GuideEntry>;
+}
+
+const { locale, entry, cluster } = Astro.props;
+const t = useTranslations(locale);
+const site = requireSite(Astro.site);
+
+const d = entry.data;
+const path = d.slug;
+const canonical = absolute(locale, path);
+
+/** Les chemins du cluster : chaque locale avec SON slug traduit. */
+const paths: ReadonlyMap<Locale, string> = new Map(
+  [...cluster].map(([loc, e]) => [loc, e.data.slug]),
+);
+
+const { Content } = await render(entry);
+
+// Une page de règles emprunte les visuels de l'application concernée : les
+// schémas de placement des quilles servent la page « règles du Mölkky » bien
+// mieux qu'une capture d'écran d'interface.
+const app = d.relatedApp ? getApp(d.relatedApp) : undefined;
+const diagrams = app ? appDiagrams(app.slug) : [];
+const hero = app ? appHeroImage(app.slug) : undefined;
+
+const langs = switcherLinks(paths, locale);
+
+const breadcrumbs = [
+  { name: t('nav.home'), url: absolute(locale, '') },
+  { name: d.h1, url: canonical },
+];
+
+const noindex = d.translationStatus === 'raw-mt';
+---
+
+<BaseLayout
+  locale={locale}
+  paths={paths}
+  path={path}
+  title={d.title}
+  description={d.metaDescription}
+  ogType="article"
+  ogImage={app ? new URL(`og/${app.slug}.png`, site).href : undefined}
+  noindex={noindex}
+  updatedOn={d.updatedOn}
+  accent={app?.accent}
+  accentText={app?.accentText}
+>
+  <JsonLd
+    locale={locale}
+    url={canonical}
+    siteUrl={site.href}
+    siteName={t('site.name')}
+    breadcrumbs={breadcrumbs}
+    faq={d.faq}
+  />
+
+  <article class="wrap">
+    <nav aria-label={t('breadcrumb.label')} class="crumbs">
+      <a href={href(locale, '')}>{t('nav.home')}</a>
+      <span aria-hidden="true">›</span>
+      <span aria-current="page">{d.h1}</span>
+    </nav>
+
+    <header>
+      <h1>{d.h1}</h1>
+      <p class="lead prose">{d.lead}</p>
+      {
+        d.updatedOn && (
+          <p class="updated">
+            {t('meta.updatedOn')}{' '}
+            <time datetime={d.updatedOn.toISOString()}>
+              {d.updatedOn.toISOString().slice(0, 10)}
+            </time>
+          </p>
+        )
+      }
+    </header>
+
+    {
+      hero && (
+        <Image
+          src={hero}
+          alt={d.h1}
+          widths={[640, 960, 1400]}
+          sizes="(min-width: 1200px) 1140px, 100vw"
+          loading="eager"
+          class="hero"
+        />
+      )
+    }
+
+    <div class="prose body"><Content /></div>
+
+    {
+      diagrams.length > 0 && (
+        <section class="diagrams">
+          <ul role="list">
+            {diagrams.map((diagram) => (
+              <li>
+                <Image
+                  src={diagram.image}
+                  alt={`${d.h1} — ${diagram.name}`}
+                  widths={[360, 720]}
+                  sizes="(min-width: 700px) 340px, 70vw"
+                  loading="lazy"
+                />
+              </li>
+            ))}
+          </ul>
+        </section>
+      )
+    }
+
+    {
+      d.faq.length > 0 && (
+        <section class="faq">
+          <h2>{t('faq.title')}</h2>
+          <dl>
+            {d.faq.map((item) => (
+              <div class="qa">
+                <dt>{item.q}</dt>
+                <dd>{item.a}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      )
+    }
+
+    {/*
+      Le lien vers la page d'application est en BAS, volontairement.
+      Une page de règles doit être une vraie page de règles : si elle se lit
+      comme une publicité, elle ne se classe pas et n'attire aucun lien.
+    */}
+    {
+      app && (
+        <aside class="app-cta">
+          <h2>{app.name}</h2>
+          <p>
+            <a href={href(locale, `apps/${app.slug}`)}>{app.name}</a>
+          </p>
+          {
+            app.playUrl && (
+              <p>
+                <a class="cta" href={app.playUrl} rel="noopener">
+                  {t('cta.play')}
+                </a>
+              </p>
+            )
+          }
+        </aside>
+      )
+    }
+
+    {
+      langs.length > 1 && (
+        <nav class="langs" aria-label={t('lang.label')}>
+          <details>
+            <summary>{t('lang.choose')}</summary>
+            <ul role="list">
+              {langs.map((item) => (
+                <li>
+                  {
+                    item.isCurrent ? (
+                      <span aria-current="true">{LOCALE_NAMES[item.locale]}</span>
+                    ) : (
+                      <a href={item.href} hreflang={item.locale}>
+                        {LOCALE_NAMES[item.locale]}
+                      </a>
+                    )
+                  }
+                </li>
+              ))}
+            </ul>
+          </details>
+        </nav>
+      )
+    }
+
+    {app?.trademarkNotice && <p class="trademark">{app.trademarkNotice}</p>}
+  </article>
+</BaseLayout>
+
+<style>
+  article {
+    padding-block: var(--space-4) var(--space-6);
+  }
+  .crumbs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1);
+    align-items: center;
+    font-size: var(--step--1);
+    color: var(--text-500);
+    margin-block-end: var(--space-4);
+  }
+  .lead {
+    margin-block-start: var(--space-3);
+    font-size: var(--step-1);
+  }
+  .updated {
+    margin-block-start: var(--space-2);
+    font-size: var(--step--1);
+    color: var(--text-500);
+  }
+  .hero {
+    width: 100%;
+    height: auto;
+    margin-block-start: var(--space-4);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--glass-border);
+  }
+
+  .body {
+    margin-block-start: var(--space-5);
+  }
+  .body :global(h2) {
+    margin-block-start: var(--space-5);
+  }
+  .body :global(h3) {
+    margin-block-start: var(--space-3);
+    color: var(--text-100);
+  }
+  .body :global(p),
+  .body :global(ul),
+  .body :global(ol),
+  .body :global(table) {
+    margin-block-start: var(--space-2);
+  }
+  .body :global(li) {
+    margin-block-start: 0.35rem;
+  }
+  .body :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--step--1);
+  }
+  .body :global(th),
+  .body :global(td) {
+    padding: 0.5em 0.8em;
+    border-bottom: 1px solid var(--glass-border);
+    text-align: start;
+  }
+  .body :global(th) {
+    color: var(--text-100);
+  }
+  .body :global(blockquote) {
+    margin-block-start: var(--space-3);
+    padding-inline-start: var(--space-2);
+    border-inline-start: 3px solid var(--accent-text);
+    color: var(--text-100);
+  }
+
+  .diagrams,
+  .faq,
+  .app-cta {
+    margin-block-start: var(--space-5);
+  }
+  .diagrams ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    padding: 0;
+  }
+  .diagrams :global(img) {
+    max-width: 340px;
+  }
+
+  .qa + .qa {
+    margin-block-start: var(--space-3);
+  }
+  .faq dt {
+    color: var(--text-100);
+    font-weight: 700;
+  }
+  .faq dd {
+    margin-block-start: 0.3rem;
+    margin-inline-start: 0;
+    max-inline-size: var(--measure);
+  }
+
+  .app-cta {
+    padding: var(--space-3);
+    border: 1px solid var(--glass-border);
+    border-inline-start: 3px solid var(--accent-text);
+    border-radius: var(--radius);
+    background: var(--glass-bg);
+  }
+  .cta {
+    display: inline-block;
+    margin-block-start: var(--space-1);
+    padding: 0.7em 1.4em;
+    border-radius: 999px;
+    background: var(--accent-text);
+    color: var(--ink-900);
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .langs {
+    margin-block-start: var(--space-5);
+    font-size: var(--step--1);
+  }
+  .langs summary {
+    cursor: pointer;
+    color: var(--text-500);
+  }
+  .langs ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1) var(--space-3);
+    margin-block-start: var(--space-2);
+    padding: 0;
+  }
+
+  .trademark {
+    margin-block-start: var(--space-4);
+    font-size: var(--step--1);
+    color: var(--text-700);
+    max-inline-size: var(--measure);
+  }
+</style>

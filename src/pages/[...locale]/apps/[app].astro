@@ -7,7 +7,7 @@ import JsonLd from '~/components/seo/JsonLd.astro';
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import { APPS, type AppFacts } from '~/data/apps';
 import { appDiagrams, appHeroImage, appIcon, appScreenshots } from '~/data/appAssets';
-import { appContent, toAppView } from '~/data/content';
+import { appContent, guideContent, toAppView } from '~/data/content';
 import { DEFAULT_LOCALE, LOCALE_NAMES, type Locale } from '~/i18n/locales';
 import { absolute, appPaths, href, requireSite, switcherLinks } from '~/i18n/routes';
 import { FAMILY_KEY, useTranslations } from '~/i18n/t';
@@ -75,6 +75,22 @@ const siblings = APPS.filter(
   (other) =>
     other.slug !== app.slug && other.family === app.family && other.locales.includes(locale),
 );
+
+/**
+ * Les guides qui parlent de cette application, dans cette langue.
+ *
+ * Maillage interne bidirectionnel : la page de règles renvoie vers
+ * l'application, et l'application renvoie vers les règles. C'est la page de
+ * règles qui accumulera les liens externes — elle répond à une vraie requête
+ * informationnelle — donc elle doit pouvoir redescendre cette autorité vers la
+ * page produit, et réciproquement.
+ *
+ * Les ancres portent le titre réel du guide, jamais « En savoir plus » : une
+ * ancre descriptive dit à Google de quoi parle la page visée.
+ */
+const relatedGuides = [...(await guideContent()).values()]
+  .map((byLocale) => byLocale.get(locale))
+  .filter((entry) => entry !== undefined && entry.data.relatedApp === app.slug);
 
 const langs = switcherLinks(paths, locale);
 
@@ -258,6 +274,22 @@ const STORE_LABEL: Record<string, string> = { play: 'Google Play', web: t('cta.w
         )
       }
 
+      {
+        relatedGuides.length > 0 && (
+          <section class="guides">
+            <h2>{t('nav.guides')}</h2>
+            <ul role="list">
+              {relatedGuides.map((guide) => (
+                <li>
+                  <a href={href(locale, guide!.data.slug)}>{guide!.data.h1}</a>
+                  <p>{guide!.data.metaDescription}</p>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )
+      }
+
       <section class="specs">
         <h2>{t('apps.availableOn')}</h2>
         <dl class="spec-list">
@@ -426,7 +458,32 @@ const STORE_LABEL: Record<string, string> = { play: 'Google Play', web: t('cta.w
     background: var(--glass-bg);
   }
 
+  .guides ul {
+    display: grid;
+    gap: var(--space-2);
+    margin-block-start: var(--space-3);
+    padding: 0;
+  }
+  .guides li {
+    padding: var(--space-3);
+    border: 1px solid var(--glass-border);
+    border-inline-start: 3px solid var(--accent-text);
+    border-radius: var(--radius);
+    background: var(--glass-bg);
+  }
+  .guides li a {
+    font-weight: 700;
+    font-size: var(--step-0);
+  }
+  .guides li p {
+    margin-block-start: 0.4rem;
+    color: var(--text-500);
+    font-size: var(--step--1);
+    max-inline-size: var(--measure);
+  }
+
   .body,
+  .guides,
   .shots,
   .diagrams,
   .faq,
