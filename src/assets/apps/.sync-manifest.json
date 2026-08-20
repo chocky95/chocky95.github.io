@@ -1,0 +1,267 @@
+{
+  "molkky-score/icon-512.png": {
+    "from": "molkkyScore/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_1024.png",
+    "stamp": "102994:1761115178193",
+    "spec": "png 512 palette"
+  },
+  "papayoo/icon-512.png": {
+    "from": "Papayoo/assets/icons/icon-papayoo2.png",
+    "stamp": "6123771:1766155671662",
+    "spec": "png 512 palette"
+  },
+  "mojogo/icon-512.png": {
+    "from": "Mojogo/assets/icons/icon_mojogo.png",
+    "stamp": "7249173:1775024376667",
+    "spec": "png 512 palette"
+  },
+  "easycompta/icon-512.png": {
+    "from": "EasyCompta/store_assets/icon_512.png",
+    "stamp": "392576:1782923049089",
+    "spec": "png 512 palette"
+  },
+  "scanfree/icon-512.png": {
+    "from": "scangratuit/store_assets/icon_512.png",
+    "stamp": "4866:1785863141235",
+    "spec": "png 512 palette"
+  },
+  "papayoo/banner-1600.webp": {
+    "from": "Papayoo/assets/banniere_papayoo.png",
+    "stamp": "5855806:1765387229653",
+    "spec": "webp w=1600 q=80"
+  },
+  "mojogo/banner-1600.webp": {
+    "from": "Mojogo/assets/banniere_mojogo.png",
+    "stamp": "9012085:1775024907803",
+    "spec": "webp w=1600 q=80"
+  },
+  "molkky-score/banner-1600.webp": {
+    "from": "molkkyScore/assets/images/unnamed.jpg",
+    "stamp": "133000:1765270128123",
+    "spec": "webp w=1600 q=80"
+  },
+  "easycompta/feature.webp": {
+    "from": "EasyCompta/store_assets/feature_graphic_1024x500.png",
+    "stamp": "682076:1782903357264",
+    "spec": "webp w=1024 q=82"
+  },
+  "scanfree/feature.webp": {
+    "from": "scangratuit/store_assets/feature_graphic_1024x500.png",
+    "stamp": "152146:1785913030469",
+    "spec": "webp w=1024 q=82"
+  },
+  "molkky-score/diagram-placement.webp": {
+    "from": "molkkyScore/assets/images/molkky_placement.png",
+    "stamp": "112373:1763129351316",
+    "spec": "webp w=1000 q=88"
+  },
+  "molkky-score/diagram-pins.webp": {
+    "from": "molkkyScore/assets/images/molkky_pins.png",
+    "stamp": "850312:1691765942377",
+    "spec": "webp w=720 q=72"
+  },
+  "easycompta/screenshots/fr/accueil.webp": {
+    "from": "EasyCompta/store_assets/screenshots/FR/telephone/T_01_FR_accueil.png",
+    "stamp": "275954:1785936781147",
+    "spec": "webp w=540 q=78"
+  },
+  "easycompta/screenshots/fr/recettes.webp": {
+    "from": "EasyCompta/store_assets/screenshots/FR/telephone/T_02_FR_recettes.png",
+    "stamp": "180600:1785936781386",
+    "spec": "webp w=540 q=78"
+  },
+  "easycompta/screenshots/fr/depenses.webp": {
+    "from": "EasyCompta/store_assets/screenshots/FR/telephone/T_03_FR_depenses.png",
+    "stamp": "178157:1785936781570",
+    "spec": "webp w=540 q=78"
+  },
+  "easycompta/screenshots/fr/analyses.webp": {
+    "from": "EasyCompta/store_assets/screenshots/FR/telephone/T_04_FR_analyses.png",
+    "stamp": "113846:1785936781701",
+    "spec": "webp w=540 q=78"
+  },
+  "easycompta/screenshots/fr/urssaf.webp": {
+    "from": "EasyCompta/store_assets/screenshots/FR/telephone/T_05_FR_urssaf.png",
+    "stamp": "324194:1785936781936",
+    "spec": "webp w=540 q=78"
+  },
+  "scanfree/screenshots/fr/accueil.webp": {
+    "from": "scangratuit/store_assets/screenshots/FR/T_01_FR_accueil.png",
+    "stamp": "97893:1785913031124",
+    "spec": "webp w=540 q=78"
+  },
+  "scanfree/screenshots/fr/document.webp": {
+    "from": "scangratuit/store_assets/screenshots/FR/T_02_FR_document.png",
+    "stamp": "80555:1785913031408",
+    "spec": "webp w=540 q=78"
+  },
+  "scanfree/screenshots/fr/parametres.webp": {
+    "from": "scangratuit/store_assets/screenshots/FR/T_03_FR_parametres.png",
+    "stamp": "52598:1785913031649",
+    "spec": "webp w=540 q=78"
+  },
+  "scanfree/screenshots/en/accueil.webp": {
+    "from": "scangratuit/store_assets/screenshots/EN/T_01_EN_accueil.png",
+    "stamp": "99187:1785913032675",
+    "spec": "webp w=540 q=78"
+  },
+  "scanfree/screenshots/en/document.webp": {
+    "from": "scangratuit/store_assets/screenshots/EN/T_02_EN_document.png",
+    "stamp": "70790:1785913032793",
+    "spec": "webp w=540 q=78"
+  },
+  "scanfree/screenshots/en/parametres.webp": {
+    "from": "scangratuit/store_assets/screenshots/EN/T_03_EN_parametres.png",
+    "stamp": "49762:1785913032897",
+    "spec": "webp w=540 q=78"
+  },
+  "scanfree/screenshots/de/accueil.webp": {
+    "from": "scangratuit/store_assets/screenshots/DE/T_01_DE_accueil.png",
+    "stamp": "96660:1785913033784",
+    "spec": "webp w=540 q=78"
+  },
+  "scanfree/screenshots/de/document.webp": {
+    "from": "scangratuit/store_assets/screenshots/DE/T_02_DE_document.png",
+    "stamp": "79071:1785913033894",
+    "spec": "webp w=540 q=78"
+  },
+  "scanfree/screenshots/de/parametres.webp": {
+    "from": "scangratuit/store_assets/screenshots/DE/T_03_DE_parametres.png",
+    "stamp": "50282:1785913034009",
+    "spec": "webp w=540 q=78"
+  },
+  "scanfree/screenshots/ja/accueil.webp": {
+    "from": "scangratuit/store_assets/screenshots/JA/T_01_JA_accueil.png",
+    "stamp": "99389:1785913038976",
+    "spec": "webp w=540 q=78"
+  },
+  "scanfree/screenshots/ja/document.webp": {
+    "from": "scangratuit/store_assets/screenshots/JA/T_02_JA_document.png",
+    "stamp": "77199:1785913039092",
+    "spec": "webp w=540 q=78"
+  },
+  "scanfree/screenshots/ja/parametres.webp": {
+    "from": "scangratuit/store_assets/screenshots/JA/T_03_JA_parametres.png",
+    "stamp": "44270:1785913039178",
+    "spec": "webp w=540 q=78"
+  },
+  "scanfree/screenshots/es/accueil.webp": {
+    "from": "scangratuit/store_assets/screenshots/ES/T_01_ES_accueil.png",
+    "stamp": "98445:1785913034872",
+    "spec": "webp w=540 q=78"
+  },
+  "scanfree/screenshots/es/document.webp": {
+    "from": "scangratuit/store_assets/screenshots/ES/T_02_ES_document.png",
+    "stamp": "74901:1785913034978",
+    "spec": "webp w=540 q=78"
+  },
+  "scanfree/screenshots/es/parametres.webp": {
+    "from": "scangratuit/store_assets/screenshots/ES/T_03_ES_parametres.png",
+    "stamp": "47785:1785913035062",
+    "spec": "webp w=540 q=78"
+  },
+  "scanfree/screenshots/it/accueil.webp": {
+    "from": "scangratuit/store_assets/screenshots/IT/T_01_IT_accueil.png",
+    "stamp": "98096:1785913035859",
+    "spec": "webp w=540 q=78"
+  },
+  "scanfree/screenshots/it/document.webp": {
+    "from": "scangratuit/store_assets/screenshots/IT/T_02_IT_document.png",
+    "stamp": "80162:1785913035963",
+    "spec": "webp w=540 q=78"
+  },
+  "scanfree/screenshots/it/parametres.webp": {
+    "from": "scangratuit/store_assets/screenshots/IT/T_03_IT_parametres.png",
+    "stamp": "46043:1785913036046",
+    "spec": "webp w=540 q=78"
+  },
+  "scanfree/screenshots/nl/accueil.webp": {
+    "from": "scangratuit/store_assets/screenshots/NL/T_01_NL_accueil.png",
+    "stamp": "95817:1785913037911",
+    "spec": "webp w=540 q=78"
+  },
+  "scanfree/screenshots/nl/document.webp": {
+    "from": "scangratuit/store_assets/screenshots/NL/T_02_NL_document.png",
+    "stamp": "79153:1785913038024",
+    "spec": "webp w=540 q=78"
+  },
+  "scanfree/screenshots/nl/parametres.webp": {
+    "from": "scangratuit/store_assets/screenshots/NL/T_03_NL_parametres.png",
+    "stamp": "48833:1785913038106",
+    "spec": "webp w=540 q=78"
+  },
+  "scanfree/screenshots/pt/accueil.webp": {
+    "from": "scangratuit/store_assets/screenshots/PT/T_01_PT_accueil.png",
+    "stamp": "98428:1785913036854",
+    "spec": "webp w=540 q=78"
+  },
+  "scanfree/screenshots/pt/document.webp": {
+    "from": "scangratuit/store_assets/screenshots/PT/T_02_PT_document.png",
+    "stamp": "75475:1785913036955",
+    "spec": "webp w=540 q=78"
+  },
+  "scanfree/screenshots/pt/parametres.webp": {
+    "from": "scangratuit/store_assets/screenshots/PT/T_03_PT_parametres.png",
+    "stamp": "53337:1785913037074",
+    "spec": "webp w=540 q=78"
+  },
+  "scanfree/screenshots/sv/accueil.webp": {
+    "from": "scangratuit/store_assets/screenshots/SV/T_01_SV_accueil.png",
+    "stamp": "95635:1785913041017",
+    "spec": "webp w=540 q=78"
+  },
+  "scanfree/screenshots/sv/document.webp": {
+    "from": "scangratuit/store_assets/screenshots/SV/T_02_SV_document.png",
+    "stamp": "73666:1785913041125",
+    "spec": "webp w=540 q=78"
+  },
+  "scanfree/screenshots/sv/parametres.webp": {
+    "from": "scangratuit/store_assets/screenshots/SV/T_03_SV_parametres.png",
+    "stamp": "50056:1785913041204",
+    "spec": "webp w=540 q=78"
+  },
+  "scanfree/screenshots/da/accueil.webp": {
+    "from": "scangratuit/store_assets/screenshots/DA/T_01_DA_accueil.png",
+    "stamp": "95663:1785913041980",
+    "spec": "webp w=540 q=78"
+  },
+  "scanfree/screenshots/da/document.webp": {
+    "from": "scangratuit/store_assets/screenshots/DA/T_02_DA_document.png",
+    "stamp": "71724:1785913042075",
+    "spec": "webp w=540 q=78"
+  },
+  "scanfree/screenshots/da/parametres.webp": {
+    "from": "scangratuit/store_assets/screenshots/DA/T_03_DA_parametres.png",
+    "stamp": "47696:1785913042193",
+    "spec": "webp w=540 q=78"
+  },
+  "scanfree/screenshots/nb/accueil.webp": {
+    "from": "scangratuit/store_assets/screenshots/NB/T_01_NB_accueil.png",
+    "stamp": "97257:1785913043008",
+    "spec": "webp w=540 q=78"
+  },
+  "scanfree/screenshots/nb/document.webp": {
+    "from": "scangratuit/store_assets/screenshots/NB/T_02_NB_document.png",
+    "stamp": "74630:1785913043117",
+    "spec": "webp w=540 q=78"
+  },
+  "scanfree/screenshots/nb/parametres.webp": {
+    "from": "scangratuit/store_assets/screenshots/NB/T_03_NB_parametres.png",
+    "stamp": "48148:1785913043195",
+    "spec": "webp w=540 q=78"
+  },
+  "scanfree/screenshots/ko/accueil.webp": {
+    "from": "scangratuit/store_assets/screenshots/KO/T_01_KO_accueil.png",
+    "stamp": "91407:1785913039986",
+    "spec": "webp w=540 q=78"
+  },
+  "scanfree/screenshots/ko/document.webp": {
+    "from": "scangratuit/store_assets/screenshots/KO/T_02_KO_document.png",
+    "stamp": "67209:1785913040095",
+    "spec": "webp w=540 q=78"
+  },
+  "scanfree/screenshots/ko/parametres.webp": {
+    "from": "scangratuit/store_assets/screenshots/KO/T_03_KO_parametres.png",
+    "stamp": "39713:1785913040205",
+    "spec": "webp w=540 q=78"
+  }
+}

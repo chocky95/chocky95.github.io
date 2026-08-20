@@ -14,7 +14,15 @@ import { LOCALES } from '~/i18n/locales';
  *
  * La locale est déduite du nom de fichier, jamais répétée en frontmatter : une
  * seule source de vérité, et pas de risque de désaccord entre les deux.
+ *
+ * ⚠️ D'où `generateId` sur chaque collection : l'implémentation par défaut du
+ * loader `glob` *slugifie* le chemin, ce qui supprime le point et transforme
+ * `easycompta.fr.md` en `easycomptafr`. La convention `<cle>.<locale>` devient
+ * alors indécodable. On conserve donc le chemin brut, sans extension.
  */
+
+/** Chemin relatif sans extension : `papayoo.fi`, `guides/molkky-rules.fr`. */
+const rawId = ({ entry }: { entry: string }): string => entry.replace(/\.md$/, '');
 
 
 
@@ -52,16 +60,29 @@ const seoFields = {
 };
 
 const apps = defineCollection({
-  loader: glob({ base: './src/content/apps', pattern: '**/*.md' }),
+  loader: glob({ base: './src/content/apps', pattern: '**/*.md', generateId: rawId }),
   schema: z.object({
     ...seoFields,
     /** Points forts, affichés en liste. Structurés par locale, pas un bloc traduit. */
     highlights: z.array(z.string().min(12)).min(3).max(8),
+    /**
+     * Texte alternatif des captures d'écran, indexé par nom de fichier
+     * (`accueil`, `recettes`, `document`…).
+     *
+     * C'est du contenu éditorial localisé, pas une chaîne d'interface : un
+     * `alt` descriptif est lu par Google Images et par les lecteurs d'écran, et
+     * « Capture 1 » n'apporte rien ni aux uns ni aux autres.
+     */
+    screenshotAlt: z.record(z.string(), z.string().min(15)).default({}),
+    /** Texte alternatif du visuel principal (bannière du jeu / feature graphic). */
+    heroAlt: z.string().min(15).optional(),
+    /** Texte alternatif des schémas, indexé par nom (`placement`, `pins`). */
+    diagramAlt: z.record(z.string(), z.string().min(15)).default({}),
   }),
 });
 
 const guides = defineCollection({
-  loader: glob({ base: './src/content/guides', pattern: '**/*.md' }),
+  loader: glob({ base: './src/content/guides', pattern: '**/*.md', generateId: rawId }),
   schema: z.object({
     ...seoFields,
     /** Segment d'URL, localisé : `regles-du-molkky`, `molkky-saannot`. */
@@ -76,7 +97,7 @@ const guides = defineCollection({
 });
 
 const pages = defineCollection({
-  loader: glob({ base: './src/content/pages', pattern: '**/*.md' }),
+  loader: glob({ base: './src/content/pages', pattern: '**/*.md', generateId: rawId }),
   schema: z.object({
     ...seoFields,
     slug: z.string().regex(/^[a-z0-9]+(?:[-/][a-z0-9]+)*$/),

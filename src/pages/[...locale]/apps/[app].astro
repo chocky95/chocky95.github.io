@@ -1,20 +1,23 @@
 ---
 import type { GetStaticPaths } from 'astro';
+import { Image } from 'astro:assets';
 import { render } from 'astro:content';
 
+import JsonLd from '~/components/seo/JsonLd.astro';
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import { APPS, type AppFacts } from '~/data/apps';
+import { appDiagrams, appHeroImage, appIcon, appScreenshots } from '~/data/appAssets';
 import { appContent, toAppView } from '~/data/content';
-import { DEFAULT_LOCALE, type Locale } from '~/i18n/locales';
-import { appPaths, href, requireSite, switcherLinks } from '~/i18n/routes';
+import { DEFAULT_LOCALE, LOCALE_NAMES, type Locale } from '~/i18n/locales';
+import { absolute, appPaths, href, requireSite, switcherLinks } from '~/i18n/routes';
 import { FAMILY_KEY, useTranslations } from '~/i18n/t';
 
 /**
  * Le point crucial du site.
  *
- * Les chemins derivent de `app.locales`, donc une combinaison hors
- * sous-ensemble -- /ru/apps/scanfree/, /en/apps/easycompta/ -- n'est jamais
- * generee. Les hreflang derivent de la MEME table via `appPaths`, ce qui rend
+ * Les chemins dérivent de `app.locales`, donc une combinaison hors
+ * sous-ensemble — /ru/apps/scanfree/, /en/apps/easycompta/ — n'est jamais
+ * générée. Les hreflang dérivent de la MÊME table via `appPaths`, ce qui rend
  * impossible un cluster pointant vers une URL absente.
  */
 export const getStaticPaths = (() => {
@@ -42,18 +45,32 @@ interface Props {
 
 const { locale, app } = Astro.props;
 const t = useTranslations(locale);
+const site = requireSite(Astro.site);
 
 const paths = appPaths(app);
 const path = `apps/${app.slug}`;
+const canonical = absolute(locale, path);
 
 const byLocale = (await appContent()).get(app.slug);
 const view = toAppView(app, locale, byLocale?.get(locale));
 
 const Body = view.entry ? (await render(view.entry)).Content : null;
 
-// Les autres applications de la meme famille, dans cette langue : maillage
-// interne a ancre descriptive. Les jeux se croisent entre eux ; EasyCompta
-// n'entre pas dans le corps d'une page de jeu.
+const icon = appIcon(app.slug);
+const hero = appHeroImage(app.slug);
+const shots = appScreenshots(app.slug, locale);
+const diagrams = appDiagrams(app.slug);
+
+const data = view.entry?.data;
+const ogImage = new URL(`og/${app.slug}.png`, site).href;
+
+/**
+ * Les autres applications de la même famille, dans cette langue.
+ *
+ * Les jeux se croisent entre eux ; EasyCompta n'entre pas dans le corps d'une
+ * page de jeu. Le sujet n'a rien à voir, et les mélanger dilue l'autorité
+ * thématique des deux pages.
+ */
 const siblings = APPS.filter(
   (other) =>
     other.slug !== app.slug && other.family === app.family && other.locales.includes(locale),
@@ -61,8 +78,14 @@ const siblings = APPS.filter(
 
 const langs = switcherLinks(paths, locale);
 
-// Image de partage propre a l app, generee par scripts/generate-og.mjs.
-const ogImage = new URL(`og/${app.slug}.png`, requireSite(Astro.site)).href;
+const breadcrumbs = [
+  { name: t('nav.home'), url: absolute(locale, '') },
+  { name: t('apps.title'), url: absolute(locale, 'apps') },
+  { name: app.name, url: canonical },
+];
+
+/** Libellé lisible d'une boutique, pour la fiche technique. */
+const STORE_LABEL: Record<string, string> = { play: 'Google Play', web: t('cta.webApp') };
 ---
 
 <BaseLayout
@@ -75,129 +98,239 @@ const ogImage = new URL(`og/${app.slug}.png`, requireSite(Astro.site)).href;
   ogImage={ogImage}
   noindex={view.noindex}
   updatedOn={view.updatedOn}
-  accent={app.accent} accentText={app.accentText}
+  accent={app.accent}
+  accentText={app.accentText}
 >
-  <article class="wrap">
-    <nav aria-label={t('breadcrumb.label')} class="crumbs">
-      <a href={href(locale, '')}>{t('nav.home')}</a>
-      <span aria-hidden="true">›</span>
-      <a href={href(locale, 'apps')}>{t('apps.title')}</a>
-      <span aria-hidden="true">›</span>
-      <span aria-current="page">{app.name}</span>
-    </nav>
+  <JsonLd
+    locale={locale}
+    url={canonical}
+    siteUrl={site.href}
+    siteName={t('site.name')}
+    app={app}
+    appName={app.name}
+    appDescription={view.metaDescription}
+    appImage={ogImage}
+    breadcrumbs={breadcrumbs}
+    faq={view.faq}
+  />
 
-    <header class="head">
-      <p class="family">{t(FAMILY_KEY[app.family])}</p>
-      <h1>{view.h1}</h1>
-      <p class="lead prose">{view.lead}</p>
+  <article>
+    <div class="wrap">
+      <nav aria-label={t('breadcrumb.label')} class="crumbs">
+        <a href={href(locale, '')}>{t('nav.home')}</a>
+        <span aria-hidden="true">›</span>
+        <a href={href(locale, 'apps')}>{t('apps.title')}</a>
+        <span aria-hidden="true">›</span>
+        <span aria-current="page">{app.name}</span>
+      </nav>
 
-      <p class="actions">
-        {
-          app.playUrl && (
-            <a class="cta" href={app.playUrl} rel="noopener">
-              {t('cta.play')}
-            </a>
-          )
-        }
-        {
-          app.webAppUrl && (
-            <a class="cta cta--ghost" href={app.webAppUrl} rel="noopener">
-              {t('cta.webApp')}
-            </a>
-          )
-        }
-        {app.status === 'coming-soon' && <span class="badge">{t('apps.comingSoon')}</span>}
-      </p>
-    </header>
+      <header class="head">
+        <div class="identity">
+          {
+            icon && (
+              <Image
+                src={icon}
+                alt={`Icône de l’application ${app.name}`}
+                width={88}
+                height={88}
+                loading="eager"
+                class="icon"
+              />
+            )
+          }
+          <p class="family">{t(FAMILY_KEY[app.family])}</p>
+        </div>
 
+        <h1>{view.h1}</h1>
+        <p class="lead prose">{view.lead}</p>
+
+        <p class="actions">
+          {
+            app.playUrl && (
+              <a class="cta" href={app.playUrl} rel="noopener">
+                {t('cta.play')}
+              </a>
+            )
+          }
+          {
+            app.webAppUrl && (
+              <a class="cta cta--ghost" href={app.webAppUrl} rel="noopener">
+                {t('cta.webApp')}
+              </a>
+            )
+          }
+          {app.status === 'coming-soon' && <span class="badge">{t('apps.comingSoon')}</span>}
+        </p>
+      </header>
+    </div>
+
+    {/*
+      Le visuel principal : le même artwork que sur Google Play, pour que le
+      visiteur arrivé par la recherche reconnaisse l'application au premier
+      regard. `loading="eager"` car c'est le LCP de la page.
+    */}
     {
-      view.highlights.length > 0 && (
-        <ul role="list" class="highlights">
-          {view.highlights.map((item) => (
-            <li>{item}</li>
-          ))}
-        </ul>
+      hero && (
+        <div class="hero-wrap">
+          <Image
+            src={hero}
+            alt={data?.heroAlt ?? `${app.name} — illustration`}
+            widths={[640, 960, 1400]}
+            sizes="(min-width: 1200px) 1140px, 100vw"
+            loading="eager"
+            class="hero"
+          />
+        </div>
       )
     }
 
-    {Body && <div class="prose body"><Body /></div>}
-
-    {
-      view.faq.length > 0 && (
-        <section class="faq">
-          <h2>{t('faq.title')}</h2>
-          <dl>
-            {view.faq.map((item) => (
-              <>
-                <dt>{item.q}</dt>
-                <dd>{item.a}</dd>
-              </>
-            ))}
-          </dl>
-        </section>
-      )
-    }
-
-    <section class="specs">
-      <h2>{t('apps.availableOn')}</h2>
-      <dl class="spec-list">
-        <dt>{t('apps.version')}</dt>
-        <dd>{app.version}</dd>
-        <dt>{t('apps.availableOn')}</dt>
-        <dd>{app.stores.length > 0 ? app.stores.join(', ') : t('apps.comingSoon')}</dd>
-      </dl>
-    </section>
-
-    {
-      siblings.length > 0 && (
-        <section class="siblings">
-          <h2>{t('footer.otherApps')}</h2>
-          <ul role="list">
-            {siblings.map((other) => (
-              <li>
-                <a href={href(locale, `apps/${other.slug}`)}>{other.name}</a>
-              </li>
+    <div class="wrap">
+      {
+        view.highlights.length > 0 && (
+          <ul role="list" class="highlights">
+            {view.highlights.map((item) => (
+              <li>{item}</li>
             ))}
           </ul>
-        </section>
-      )
-    }
+        )
+      }
 
-    {
-      langs.length > 1 && (
-        <nav class="langs" aria-label={t('lang.label')}>
-          <details>
-            <summary>{t('lang.choose')}</summary>
+      {Body && <div class="prose body"><Body /></div>}
+
+      {/*
+        Captures dans la langue de la page, jamais dans une autre : montrer une
+        interface française sur une page japonaise serait pire que ne rien
+        montrer. ScanFree en a dans ses 12 langues de publication.
+      */}
+      {
+        shots.length > 0 && (
+          <section class="shots">
             <ul role="list">
-              {langs.map((entry) => (
+              {shots.map((shot, i) => (
                 <li>
-                  {entry.isCurrent ? (
-                    <span aria-current="true">{entry.locale}</span>
-                  ) : (
-                    <a href={entry.href} hreflang={entry.locale}>
-                      {entry.locale}
-                    </a>
-                  )}
+                  <Image
+                    src={shot.image}
+                    alt={data?.screenshotAlt?.[shot.name] ?? `${app.name} — ${shot.name}`}
+                    widths={[270, 540]}
+                    sizes="(min-width: 700px) 270px, 45vw"
+                    loading={i < 2 ? 'eager' : 'lazy'}
+                  />
                 </li>
               ))}
             </ul>
-          </details>
-        </nav>
-      )
-    }
+          </section>
+        )
+      }
 
-    {app.trademarkNotice && <p class="trademark">{app.trademarkNotice}</p>}
+      {
+        diagrams.length > 0 && (
+          <section class="diagrams">
+            <ul role="list">
+              {diagrams.map((d) => (
+                <li>
+                  <Image
+                    src={d.image}
+                    alt={data?.diagramAlt?.[d.name] ?? `${app.name} — ${d.name}`}
+                    widths={[360, 720]}
+                    sizes="(min-width: 700px) 340px, 70vw"
+                    loading="lazy"
+                  />
+                </li>
+              ))}
+            </ul>
+          </section>
+        )
+      }
 
-    {
-      view.updatedOn && (
-        <p class="updated">
-          {t('meta.updatedOn')}{' '}
-          <time datetime={view.updatedOn.toISOString()}>
-            {view.updatedOn.toISOString().slice(0, 10)}
-          </time>
-        </p>
-      )
-    }
+      {
+        view.faq.length > 0 && (
+          <section class="faq">
+            <h2>{t('faq.title')}</h2>
+            <dl>
+              {view.faq.map((item) => (
+                <div class="qa">
+                  <dt>{item.q}</dt>
+                  <dd>{item.a}</dd>
+                </div>
+              ))}
+            </dl>
+          </section>
+        )
+      }
+
+      <section class="specs">
+        <h2>{t('apps.availableOn')}</h2>
+        <dl class="spec-list">
+          <dt>{t('apps.version')}</dt>
+          <dd>{app.version}</dd>
+
+          <dt>{t('apps.availableOn')}</dt>
+          <dd>
+            {
+              app.stores.length > 0
+                ? app.stores.map((s) => STORE_LABEL[s] ?? s).join(' · ')
+                : t('apps.comingSoon')
+            }
+          </dd>
+
+          <dt>{t('lang.label')}</dt>
+          <dd>{app.locales.map((l) => LOCALE_NAMES[l]).join(', ')}</dd>
+        </dl>
+      </section>
+
+      {
+        siblings.length > 0 && (
+          <section class="siblings">
+            <h2>{t('footer.otherApps')}</h2>
+            <ul role="list">
+              {siblings.map((other) => (
+                <li>
+                  <a href={href(locale, `apps/${other.slug}`)}>{other.name}</a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )
+      }
+
+      {
+        langs.length > 1 && (
+          <nav class="langs" aria-label={t('lang.label')}>
+            <details>
+              <summary>{t('lang.choose')}</summary>
+              <ul role="list">
+                {langs.map((entry) => (
+                  <li>
+                    {
+                      entry.isCurrent ? (
+                        <span aria-current="true">{LOCALE_NAMES[entry.locale]}</span>
+                      ) : (
+                        <a href={entry.href} hreflang={entry.locale}>
+                          {LOCALE_NAMES[entry.locale]}
+                        </a>
+                      )
+                    }
+                  </li>
+                ))}
+              </ul>
+            </details>
+          </nav>
+        )
+      }
+
+      {app.trademarkNotice && <p class="trademark">{app.trademarkNotice}</p>}
+
+      {
+        view.updatedOn && (
+          <p class="updated">
+            {t('meta.updatedOn')}{' '}
+            <time datetime={view.updatedOn.toISOString()}>
+              {view.updatedOn.toISOString().slice(0, 10)}
+            </time>
+          </p>
+        )
+      }
+    </div>
   </article>
 </BaseLayout>
 
@@ -212,17 +345,28 @@ const ogImage = new URL(`og/${app.slug}.png`, requireSite(Astro.site)).href;
     align-items: center;
     font-size: var(--step--1);
     color: var(--text-500);
-    margin-block-end: var(--space-3);
+    margin-block-end: var(--space-4);
+  }
+  .identity {
+    display: flex;
+    gap: var(--space-2);
+    align-items: center;
+  }
+  .icon {
+    border-radius: 20px;
+    box-shadow:
+      0 0 0 1px var(--glass-border),
+      0 18px 40px -22px var(--accent);
   }
   .family {
-    color: var(--accent-text, var(--accent));
+    color: var(--accent-text);
     font-size: var(--step--1);
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
   }
   .head h1 {
-    margin-block-start: var(--space-1);
+    margin-block-start: var(--space-3);
   }
   .lead {
     margin-block-start: var(--space-3);
@@ -236,44 +380,77 @@ const ogImage = new URL(`og/${app.slug}.png`, requireSite(Astro.site)).href;
     margin-block-start: var(--space-4);
   }
   .cta {
-    padding: 0.7em 1.4em;
+    padding: 0.75em 1.5em;
     border-radius: 999px;
-    background: var(--accent-text, var(--accent));
+    background: var(--accent-text);
     color: var(--ink-900);
     font-weight: 700;
     text-decoration: none;
   }
   .cta--ghost {
     background: transparent;
-    color: var(--accent-text, var(--accent));
+    color: var(--accent-text);
     border: 1px solid var(--glass-border-hover);
   }
   .badge {
-    padding: 0.35em 0.9em;
+    padding: 0.4em 1em;
     border: 1px solid var(--glass-border-hover);
     border-radius: 999px;
     color: var(--text-500);
     font-size: var(--step--1);
   }
+
+  .hero-wrap {
+    width: min(100% - 2 * var(--space-3), var(--wrap));
+    margin: var(--space-5) auto 0;
+  }
+  .hero {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--glass-border);
+  }
+
   .highlights {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
     gap: var(--space-2);
-    margin-block: var(--space-5) 0;
+    margin-block-start: var(--space-5);
     padding: 0;
   }
   .highlights li {
     padding: var(--space-3);
     border: 1px solid var(--glass-border);
+    border-inline-start: 3px solid var(--accent-text);
     border-radius: var(--radius);
     background: var(--glass-bg);
   }
+
   .body,
+  .shots,
+  .diagrams,
   .faq,
   .specs,
   .siblings {
     margin-block-start: var(--space-5);
   }
+
+  .shots ul,
+  .diagrams ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    padding: 0;
+  }
+  .shots :global(img) {
+    max-width: 270px;
+    border-radius: var(--radius);
+    border: 1px solid var(--glass-border);
+  }
+  .diagrams :global(img) {
+    max-width: 340px;
+  }
+
   .spec-list {
     display: grid;
     grid-template-columns: auto 1fr;
@@ -283,11 +460,20 @@ const ogImage = new URL(`og/${app.slug}.png`, requireSite(Astro.site)).href;
   .spec-list dt {
     color: var(--text-500);
   }
+
+  .qa + .qa {
+    margin-block-start: var(--space-3);
+  }
   .faq dt {
     color: var(--text-100);
     font-weight: 700;
-    margin-block-start: var(--space-3);
   }
+  .faq dd {
+    margin-block-start: 0.3rem;
+    margin-inline-start: 0;
+    max-inline-size: var(--measure);
+  }
+
   .siblings ul {
     display: flex;
     flex-wrap: wrap;
@@ -295,21 +481,43 @@ const ogImage = new URL(`og/${app.slug}.png`, requireSite(Astro.site)).href;
     margin-block-start: var(--space-2);
     padding: 0;
   }
+
   .langs {
     margin-block-start: var(--space-5);
     font-size: var(--step--1);
   }
+  .langs summary {
+    cursor: pointer;
+    color: var(--text-500);
+  }
   .langs ul {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-2);
+    gap: var(--space-1) var(--space-3);
     margin-block-start: var(--space-2);
     padding: 0;
   }
+
   .trademark,
   .updated {
     margin-block-start: var(--space-4);
     font-size: var(--step--1);
     color: var(--text-700);
+    max-inline-size: var(--measure);
+  }
+
+  .body :global(h2) {
+    margin-block-start: var(--space-4);
+  }
+  .body :global(h3) {
+    margin-block-start: var(--space-3);
+    color: var(--text-100);
+  }
+  .body :global(p),
+  .body :global(ul) {
+    margin-block-start: var(--space-2);
+  }
+  .body :global(li) {
+    margin-block-start: 0.35rem;
   }
 </style>

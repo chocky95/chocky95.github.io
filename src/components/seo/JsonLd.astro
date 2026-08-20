@@ -1,0 +1,160 @@
+---
+/**
+ * Données structurées schema.org.
+ *
+ * ── Ce qui n'est PAS émis, et pourquoi ────────────────────────────────────
+ * Aucun `aggregateRating`, aucun `review`. Inventer des avis est une violation
+ * explicite des règles Google qui déclenche une action manuelle sur les données
+ * structurées et supprime les résultats enrichis de TOUT le domaine.
+ *
+ * Recopier la note Play ne vaut pas mieux : ce balisage est réservé aux avis
+ * collectés ET affichés sur la page elle-même. La note peut être mentionnée en
+ * texte, avec un lien vers la fiche — jamais balisée comme nôtre.
+ *
+ * De même, `FAQPage` n'est émis que si les questions sont réellement visibles
+ * dans la page. Baliser une FAQ invisible est également sanctionné.
+ */
+import type { AppFacts } from '~/data/apps';
+import { type Locale } from '~/i18n/locales';
+
+interface Crumb {
+  name: string;
+  url: string;
+}
+
+interface FaqItem {
+  q: string;
+  a: string;
+}
+
+interface Props {
+  locale: Locale;
+  /** URL canonique de la page. */
+  url: string;
+  siteUrl: string;
+  siteName: string;
+  /** Émet `Organization` + `WebSite`. Réservé à l'accueil. */
+  organization?: boolean;
+  /** Émet `SoftwareApplication` pour cette application. */
+  app?: AppFacts | undefined;
+  /** Nom et description à utiliser pour `SoftwareApplication`. */
+  appName?: string | undefined;
+  appDescription?: string | undefined;
+  appImage?: string | undefined;
+  breadcrumbs?: readonly Crumb[];
+  /** N'émettre que si ces questions sont VISIBLES dans la page. */
+  faq?: readonly FaqItem[];
+}
+
+const {
+  locale,
+  url,
+  siteUrl,
+  siteName,
+  organization = false,
+  app,
+  appName,
+  appDescription,
+  appImage,
+  breadcrumbs = [],
+  faq = [],
+} = Astro.props;
+
+const graph: Record<string, unknown>[] = [];
+
+if (organization) {
+  graph.push({
+    '@type': 'Organization',
+    '@id': `${siteUrl}#organization`,
+    name: siteName,
+    url: siteUrl,
+    email: 'djchocky@gmail.com',
+    logo: `${siteUrl}apple-touch-icon.png`,
+    sameAs: ['https://github.com/chocky95'],
+  });
+
+  graph.push({
+    '@type': 'WebSite',
+    '@id': `${siteUrl}#website`,
+    name: siteName,
+    url: siteUrl,
+    inLanguage: locale,
+    publisher: { '@id': `${siteUrl}#organization` },
+  });
+}
+
+if (app) {
+  const offers = app.playUrl
+    ? {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'EUR',
+        availability: 'https://schema.org/InStock',
+        url: app.playUrl,
+      }
+    : undefined;
+
+  // `operatingSystem` ne liste que les plateformes où l'application est
+  // REELLEMENT telechargeable. Les cinq projets compilent pour iOS, mais aucun
+  // n'est publie sur l'App Store : l'annoncer serait faux.
+  const operatingSystem = app.stores.includes('play')
+    ? app.webAppUrl
+      ? 'Android, Web'
+      : 'Android'
+    : undefined;
+
+  graph.push({
+    '@type': 'SoftwareApplication',
+    '@id': `${url}#software`,
+    name: appName ?? app.name,
+    ...(appDescription ? { description: appDescription } : {}),
+    applicationCategory: app.schemaCategory,
+    ...(operatingSystem ? { operatingSystem } : {}),
+    softwareVersion: app.version,
+    inLanguage: app.locales,
+    ...(appImage ? { image: appImage } : {}),
+    ...(offers ? { offers } : {}),
+    ...(app.playUrl ? { downloadUrl: app.playUrl, installUrl: app.playUrl } : {}),
+    author: { '@id': `${siteUrl}#organization` },
+    publisher: { '@id': `${siteUrl}#organization` },
+  });
+}
+
+if (breadcrumbs.length > 1) {
+  graph.push({
+    '@type': 'BreadcrumbList',
+    '@id': `${url}#breadcrumb`,
+    itemListElement: breadcrumbs.map((crumb, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: crumb.name,
+      item: crumb.url,
+    })),
+  });
+}
+
+if (faq.length > 0) {
+  graph.push({
+    '@type': 'FAQPage',
+    '@id': `${url}#faq`,
+    mainEntity: faq.map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: { '@type': 'Answer', text: item.a },
+    })),
+  });
+}
+
+const payload = { '@context': 'https://schema.org', '@graph': graph };
+---
+
+{/*
+  `is:inline` est obligatoire ici : sans lui, Astro traiterait ce bloc comme un
+  script à bundler, et le JSON-LD sortirait dans un fichier .js que les moteurs
+  ne liraient jamais. C'est aussi ce qui garde le site à zéro JavaScript client.
+*/}
+{
+  graph.length > 0 && (
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(payload)} />
+  )
+}
