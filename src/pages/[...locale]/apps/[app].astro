@@ -9,7 +9,7 @@ import { APPS, type AppFacts } from '~/data/apps';
 import { appDiagrams, appHeroImage, appIcon, appScreenshots } from '~/data/appAssets';
 import { appContent, guideContent, toAppView } from '~/data/content';
 import { DEFAULT_LOCALE, LOCALE_NAMES, type Locale } from '~/i18n/locales';
-import { absolute, appPaths, href, requireSite, switcherLinks } from '~/i18n/routes';
+import { absolute, appPaths, href, requireSite } from '~/i18n/routes';
 import { FAMILY_KEY, useTranslations } from '~/i18n/t';
 
 /**
@@ -91,8 +91,6 @@ const siblings = APPS.filter(
 const relatedGuides = [...(await guideContent()).values()]
   .map((byLocale) => byLocale.get(locale))
   .filter((entry) => entry !== undefined && entry.data.relatedApp === app.slug);
-
-const langs = switcherLinks(paths, locale);
 
 const breadcrumbs = [
   { name: t('nav.home'), url: absolute(locale, '') },
@@ -351,30 +349,8 @@ if (app.webAppUrl) stores.push({ label: t('cta.webApp'), url: app.webAppUrl });
         )
       }
 
-      {
-        langs.length > 1 && (
-          <nav class="langs" aria-label={t('lang.label')}>
-            <details>
-              <summary>{t('lang.choose')}</summary>
-              <ul role="list">
-                {langs.map((entry) => (
-                  <li>
-                    {
-                      entry.isCurrent ? (
-                        <span aria-current="true">{LOCALE_NAMES[entry.locale]}</span>
-                      ) : (
-                        <a href={entry.href} hreflang={entry.locale}>
-                          {LOCALE_NAMES[entry.locale]}
-                        </a>
-                      )
-                    }
-                  </li>
-                ))}
-              </ul>
-            </details>
-          </nav>
-        )
-      }
+      {/* Le sélecteur de langue n'est plus rendu ici : il vit désormais dans
+          BaseLayout, en haut de chaque page, dérivé de la même table `paths`. */}
 
       {app.trademarkNotice && <p class="trademark">{app.trademarkNotice}</p>}
 
@@ -583,22 +559,6 @@ if (app.webAppUrl) stores.push({ label: t('cta.webApp'), url: app.webAppUrl });
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-2);
-    margin-block-start: var(--space-2);
-    padding: 0;
-  }
-
-  .langs {
-    margin-block-start: var(--space-5);
-    font-size: var(--step--1);
-  }
-  .langs summary {
-    cursor: pointer;
-    color: var(--text-500);
-  }
-  .langs ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-1) var(--space-3);
     margin-block-start: var(--space-2);
     padding: 0;
   }

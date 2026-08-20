@@ -1,8 +1,8 @@
 ---
 import SeoHead from '~/components/seo/SeoHead.astro';
-import { localeDir, type Locale } from '~/i18n/locales';
+import { FLAG, LOCALE_NAMES, localeDir, type Locale } from '~/i18n/locales';
 import { useTranslations } from '~/i18n/t';
-import type { LocalePaths } from '~/i18n/routes';
+import { href, switcherLinks, type LocalePaths } from '~/i18n/routes';
 
 import '~/styles/tokens.css';
 import '~/styles/global.css';
@@ -29,7 +29,7 @@ interface Props {
   accentText?: string | undefined;
 }
 
-const { locale, accent, accentText, ...seo } = Astro.props;
+const { locale, paths, accent, accentText, ...seo } = Astro.props;
 const t = useTranslations(locale);
 
 // Les deux variables sont posées ensemble : une page d'application ne doit
@@ -37,19 +37,159 @@ const t = useTranslations(locale);
 const accentVars = accent
   ? `--accent: ${accent}; --accent-text: ${accentText ?? accent};`
   : undefined;
+
+/**
+ * Sélecteur de langue, présent en haut de CHAQUE page.
+ *
+ * Dérivé de `paths` — la même table qui alimente les hreflang de `SeoHead`.
+ * Un seul endroit décide « dans quelles langues cette page existe » ; le
+ * sélecteur ne peut donc jamais proposer une langue absente du cluster
+ * hreflang, ni l'inverse.
+ *
+ * Sur une page mono-locale (EasyCompta, `paths.size === 1`), `switcherLinks`
+ * renvoie un tableau à une seule entrée : le sélecteur s'affiche quand même,
+ * mais grisé (aucune autre langue à choisir plutôt qu'un menu vide).
+ */
+const langs = switcherLinks(paths, locale);
 ---
 
 <!doctype html>
 <html lang={locale} dir={localeDir(locale)}>
   <head>
-    <SeoHead locale={locale} {...seo} />
+    <SeoHead locale={locale} paths={paths} {...seo} />
   </head>
   <body style={accentVars}>
     <a class="skip-link" href="#main">{t('nav.skipToContent')}</a>
-    <slot name="header" />
+
+    <header class="site-header">
+      <div class="wrap site-header__bar">
+        <a class="site-header__mark" href={href(locale, '')}>{t('site.wordmark')}</a>
+
+        {
+          // Sur une page mono-locale (EasyCompta), il n'y a rien à choisir :
+          // un <details> qui ne déplie rien se comporterait comme un bouton
+          // cassé. On affiche alors juste le badge, sans le rendre pliable.
+          langs.length > 1 ? (
+            <details class="lang-switcher">
+              <summary aria-label={t('lang.choose')}>
+                <span aria-hidden="true">{FLAG[locale]}</span>
+                <span class="lang-switcher__name">{LOCALE_NAMES[locale]}</span>
+              </summary>
+              <ul role="list">
+                {langs.map((entry) => (
+                  <li>
+                    {entry.isCurrent ? (
+                      <span aria-current="true">
+                        <span aria-hidden="true">{FLAG[entry.locale]}</span>{' '}
+                        {LOCALE_NAMES[entry.locale]}
+                      </span>
+                    ) : (
+                      <a href={entry.href} hreflang={entry.locale}>
+                        <span aria-hidden="true">{FLAG[entry.locale]}</span>{' '}
+                        {LOCALE_NAMES[entry.locale]}
+                      </a>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </details>
+          ) : (
+            <span class="lang-switcher lang-switcher--static">
+              <span aria-hidden="true">{FLAG[locale]}</span>
+              <span class="lang-switcher__name">{LOCALE_NAMES[locale]}</span>
+            </span>
+          )
+        }
+      </div>
+    </header>
+
     <main id="main">
       <slot />
     </main>
     <slot name="footer" />
   </body>
 </html>
+
+<style>
+  .site-header {
+    border-block-end: 1px solid var(--glass-border);
+  }
+  .site-header__bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2);
+    padding-block: var(--space-2);
+  }
+  .site-header__mark {
+    font-size: var(--step-1);
+    font-weight: 800;
+    color: var(--text-100);
+    text-decoration: none;
+  }
+
+  .lang-switcher summary,
+  .lang-switcher--static {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    padding: 0.4em 0.8em;
+    border: 1px solid var(--glass-border);
+    border-radius: 999px;
+    background: var(--glass-bg);
+    color: var(--text-300);
+    font-size: var(--step--1);
+  }
+  .lang-switcher summary {
+    cursor: pointer;
+    list-style: none; /* retire le triangle par défaut de <summary> */
+  }
+  .lang-switcher summary::-webkit-details-marker {
+    display: none;
+  }
+  .lang-switcher summary:hover {
+    border-color: var(--glass-border-hover);
+    color: var(--text-100);
+  }
+  .lang-switcher[open] summary {
+    border-color: var(--accent-text, var(--accent));
+  }
+  .lang-switcher__name {
+    max-inline-size: 8rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .lang-switcher ul {
+    position: absolute;
+    z-index: 20;
+    margin-block-start: 0.4rem;
+    padding: 0.4rem;
+    max-block-size: 22rem;
+    max-inline-size: 14rem;
+    overflow-y: auto;
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+    background: var(--ink-700);
+    box-shadow: 0 20px 40px -20px rgb(0 0 0 / 60%);
+  }
+  .lang-switcher li a,
+  .lang-switcher li span {
+    display: block;
+    padding: 0.45em 0.7em;
+    border-radius: 8px;
+    color: var(--text-300);
+    text-decoration: none;
+    font-size: var(--step--1);
+    white-space: nowrap;
+  }
+  .lang-switcher li a:hover {
+    background: var(--glass-bg);
+    color: var(--text-100);
+  }
+  .lang-switcher li span[aria-current] {
+    color: var(--text-100);
+    font-weight: 700;
+  }
+</style>

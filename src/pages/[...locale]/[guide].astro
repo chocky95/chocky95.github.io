@@ -8,8 +8,8 @@ import BaseLayout from '~/layouts/BaseLayout.astro';
 import { getApp } from '~/data/apps';
 import { appDiagrams, appHeroImage } from '~/data/appAssets';
 import { guideContent, type GuideEntry } from '~/data/content';
-import { DEFAULT_LOCALE, LOCALE_NAMES, type Locale } from '~/i18n/locales';
-import { absolute, href, requireSite, switcherLinks } from '~/i18n/routes';
+import { DEFAULT_LOCALE, type Locale } from '~/i18n/locales';
+import { absolute, href, requireSite } from '~/i18n/routes';
 import { useTranslations } from '~/i18n/t';
 
 /**
@@ -85,8 +85,6 @@ const { Content } = await render(entry);
 const app = d.relatedApp ? getApp(d.relatedApp) : undefined;
 const diagrams = app ? appDiagrams(app.slug) : [];
 const hero = app ? appHeroImage(app.slug) : undefined;
-
-const langs = switcherLinks(paths, locale);
 
 const breadcrumbs = [
   { name: t('nav.home'), url: absolute(locale, '') },
@@ -216,30 +214,8 @@ const noindex = d.translationStatus === 'raw-mt';
       )
     }
 
-    {
-      langs.length > 1 && (
-        <nav class="langs" aria-label={t('lang.label')}>
-          <details>
-            <summary>{t('lang.choose')}</summary>
-            <ul role="list">
-              {langs.map((item) => (
-                <li>
-                  {
-                    item.isCurrent ? (
-                      <span aria-current="true">{LOCALE_NAMES[item.locale]}</span>
-                    ) : (
-                      <a href={item.href} hreflang={item.locale}>
-                        {LOCALE_NAMES[item.locale]}
-                      </a>
-                    )
-                  }
-                </li>
-              ))}
-            </ul>
-          </details>
-        </nav>
-      )
-    }
+    {/* Le sélecteur de langue n'est plus rendu ici : il vit désormais dans
+        BaseLayout, en haut de chaque page, dérivé de la même table `paths`. */}
 
     {app?.trademarkNotice && <p class="trademark">{app.trademarkNotice}</p>}
   </article>
@@ -359,22 +335,6 @@ const noindex = d.translationStatus === 'raw-mt';
     color: var(--ink-900);
     font-weight: 700;
     text-decoration: none;
-  }
-
-  .langs {
-    margin-block-start: var(--space-5);
-    font-size: var(--step--1);
-  }
-  .langs summary {
-    cursor: pointer;
-    color: var(--text-500);
-  }
-  .langs ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-1) var(--space-3);
-    margin-block-start: var(--space-2);
-    padding: 0;
   }
 
   .trademark {

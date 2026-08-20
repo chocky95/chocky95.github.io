@@ -79,6 +79,35 @@ export const LOCALE_NAMES: Readonly<Record<Locale, string>> = {
  */
 export const CJK_LOCALES: ReadonlySet<Locale> = new Set<Locale>(['ja', 'ko']);
 
+/**
+ * Drapeau affiche devant chaque langue dans le selecteur.
+ *
+ * Un drapeau represente un pays, pas une langue -- l'approximation est
+ * assumee (convention courante dans les selecteurs de langue : `en` prend le
+ * Royaume-Uni plutot que les Etats-Unis ou l'Australie). Emoji Unicode, donc
+ * zero image a charger.
+ */
+export const FLAG: Readonly<Record<Locale, string>> = {
+  fr: '🇫🇷',
+  en: '🇬🇧',
+  de: '🇩🇪',
+  fi: '🇫🇮',
+  ja: '🇯🇵',
+  es: '🇪🇸',
+  it: '🇮🇹',
+  nl: '🇳🇱',
+  pt: '🇵🇹',
+  sv: '🇸🇪',
+  et: '🇪🇪',
+  da: '🇩🇰',
+  nb: '🇳🇴',
+  pl: '🇵🇱',
+  ro: '🇷🇴',
+  ru: '🇷🇺',
+  ko: '🇰🇷',
+  cs: '🇨🇿',
+};
+
 export function isLocale(value: unknown): value is Locale {
   return typeof value === 'string' && (LOCALES as readonly string[]).includes(value);
 }
