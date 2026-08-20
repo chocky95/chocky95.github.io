@@ -1,0 +1,92 @@
+---
+/**
+ * Page 404 — UN SEUL fichier, et il doit rester ICI, hors de `[...locale]/`.
+ *
+ * GitHub Pages ne sert `/404.html` que depuis la racine du site, et Astro ne
+ * traite specialement que le pathname litteral `/404`. Sous `[...locale]/`, les
+ * 17 autres langues produiraient `dist/en/404/index.html` : des fichiers morts
+ * que Pages ne servira jamais, et un 404 casse.
+ *
+ * Consequence : la page est forcement agnostique de la langue. Elle est donc
+ * bilingue FR/EN, sans appel a `t()`, sans canonical, et en `noindex`.
+ */
+import { LOCALE_NAMES, LOCALES } from '~/i18n/locales';
+
+import '~/styles/tokens.css';
+import '~/styles/global.css';
+
+const SITE_NAME = 'Chocky Studio';
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Page introuvable — {SITE_NAME}</title>
+    <meta name="robots" content="noindex, follow" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <main class="wrap">
+      <p class="code">404</p>
+
+      <h1 lang="fr">Page introuvable</h1>
+      <p lang="fr">
+        Cette page n’existe pas ou a été déplacée.
+        <a href="/">Retour à l’accueil</a> · <a href="/apps/">Les applications</a>
+      </p>
+
+      <h2 lang="en">Page not found</h2>
+      <p lang="en">
+        This page does not exist or has been moved.
+        <a href="/en/">Back to home</a> · <a href="/en/apps/">The apps</a>
+      </p>
+
+      <nav aria-label="Langues / Languages" class="langs">
+        <ul role="list">
+          {
+            LOCALES.map((locale) => (
+              <li>
+                <a href={locale === 'fr' ? '/' : `/${locale}/`} hreflang={locale}>
+                  {LOCALE_NAMES[locale]}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+    </main>
+  </body>
+</html>
+
+<style>
+  main {
+    display: grid;
+    align-content: center;
+    min-height: 100vh;
+    padding-block: var(--space-5);
+    gap: var(--space-2);
+  }
+  .code {
+    color: var(--accent-text, var(--accent));
+    font-size: var(--step-4);
+    font-weight: 800;
+    line-height: 1;
+  }
+  h2 {
+    margin-block-start: var(--space-4);
+    color: var(--text-300);
+    font-size: var(--step-1);
+  }
+  .langs {
+    margin-block-start: var(--space-5);
+    font-size: var(--step--1);
+  }
+  .langs ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1) var(--space-3);
+    padding: 0;
+  }
+</style>

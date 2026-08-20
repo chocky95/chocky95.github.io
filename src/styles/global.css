@@ -1,0 +1,93 @@
+@layer reset, base, layout, components, utilities;
+
+@layer reset {
+  *, *::before, *::after { box-sizing: border-box; }
+  * { margin: 0; }
+  html { -webkit-text-size-adjust: 100%; }
+  img, picture, svg, video { display: block; max-inline-size: 100%; height: auto; }
+  button, input, select, textarea { font: inherit; color: inherit; }
+  ul[role="list"], ol[role="list"] { list-style: none; padding: 0; }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+
+  body {
+    background: var(--ink-800);
+    color: var(--text-300);
+    font-family: var(--font-sans-stack);
+    font-size: var(--step-0);
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+    min-height: 100vh;
+  }
+
+  /*
+   * Japonais et coreen : pile de polices systeme.
+   * Embarquer un sous-ensemble CJK ferait passer la page de ~30 Ko de police a
+   * plusieurs Mo, pour un gain esthetique nul sur ces ecritures.
+   */
+  :lang(ja), :lang(ko) { font-family: var(--font-cjk); }
+
+  h1, h2, h3 {
+    color: var(--text-100);
+    line-height: 1.15;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+  h1 { font-size: var(--step-4); }
+  h2 { font-size: var(--step-2); }
+  h3 { font-size: var(--step-1); font-weight: 700; }
+  p { text-wrap: pretty; }
+
+  a { color: var(--accent-text); text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+  a:hover { color: var(--text-100); }
+
+  :focus-visible {
+    outline: 2px solid var(--accent-text);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+@layer layout {
+  .wrap {
+    width: min(100% - 2 * var(--space-3), var(--wrap));
+    margin-inline: auto;
+  }
+  .prose { max-inline-size: var(--measure); }
+  .stack > * + * { margin-block-start: var(--space-2); }
+}
+
+@layer utilities {
+  .visually-hidden:not(:focus):not(:active) {
+    clip-path: inset(50%);
+    position: absolute;
+    width: 1px; height: 1px;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .skip-link {
+    position: absolute;
+    inset-inline-start: var(--space-2);
+    inset-block-start: var(--space-2);
+    z-index: 100;
+    padding: var(--space-1) var(--space-2);
+    background: var(--ink-600);
+    color: var(--text-100);
+    border-radius: var(--radius);
+    text-decoration: none;
+  }
+  .skip-link:not(:focus) {
+    clip-path: inset(50%);
+    width: 1px; height: 1px; overflow: hidden;
+  }
+}

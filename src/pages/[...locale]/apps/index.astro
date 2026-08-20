@@ -1,0 +1,116 @@
+---
+import type { GetStaticPaths } from 'astro';
+
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { appsForLocale } from '~/data/apps';
+import { DEFAULT_LOCALE, LOCALES, type Locale } from '~/i18n/locales';
+import { appsIndexPaths, href } from '~/i18n/routes';
+import { FAMILY_KEY, useTranslations } from '~/i18n/t';
+
+export const getStaticPaths = (() =>
+  LOCALES.map((locale) => ({
+    params: { locale: locale === DEFAULT_LOCALE ? undefined : locale },
+    props: { locale },
+  }))) satisfies GetStaticPaths;
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+const apps = appsForLocale(locale);
+
+const description = `${t('apps.all')} — ${t('site.description')}`;
+---
+
+<BaseLayout
+  locale={locale}
+  paths={appsIndexPaths()}
+  path="apps"
+  title={`${t('apps.all')} — ${t('site.name')}`}
+  description={description}
+>
+  <section class="wrap">
+    <nav aria-label={t('breadcrumb.label')} class="crumbs">
+      <a href={href(locale, '')}>{t('nav.home')}</a>
+      <span aria-hidden="true">›</span>
+      <span aria-current="page">{t('apps.title')}</span>
+    </nav>
+
+    <h1>{t('apps.all')}</h1>
+    <p class="lead prose">{t('site.description')}</p>
+
+    <ul role="list" class="list">
+      {
+        apps.map((app) => (
+          <li class="row" style={`--accent: ${app.accent}; --accent-text: ${app.accentText}`}>
+            <a href={href(locale, `apps/${app.slug}`)}>
+              <span class="family">{t(FAMILY_KEY[app.family])}</span>
+              <span class="name">{app.name}</span>
+              <span class="meta">
+                {app.status === 'coming-soon'
+                  ? t('apps.comingSoon')
+                  : `${t('apps.version')} ${app.version}`}
+              </span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</BaseLayout>
+
+<style>
+  section {
+    padding-block: var(--space-4) var(--space-6);
+  }
+  .crumbs {
+    display: flex;
+    gap: var(--space-1);
+    align-items: center;
+    font-size: var(--step--1);
+    color: var(--text-500);
+    margin-block-end: var(--space-3);
+  }
+  .lead {
+    margin-block-start: var(--space-2);
+    font-size: var(--step-1);
+  }
+  .list {
+    display: grid;
+    gap: var(--space-2);
+    margin-block-start: var(--space-4);
+  }
+  .row {
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    background: var(--glass-bg);
+  }
+  .row:hover {
+    border-color: var(--glass-border-hover);
+  }
+  .row a {
+    display: grid;
+    gap: 0.2rem;
+    padding: var(--space-3);
+    text-decoration: none;
+    color: inherit;
+  }
+  .family {
+    color: var(--accent-text, var(--accent));
+    font-size: var(--step--1);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .name {
+    color: var(--text-100);
+    font-size: var(--step-1);
+    font-weight: 800;
+  }
+  .meta {
+    color: var(--text-500);
+    font-size: var(--step--1);
+  }
+</style>

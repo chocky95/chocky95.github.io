@@ -1,0 +1,129 @@
+---
+import type { GetStaticPaths } from 'astro';
+
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { appsForLocale } from '~/data/apps';
+import { DEFAULT_LOCALE, LOCALES, type Locale } from '~/i18n/locales';
+import { href, homePaths } from '~/i18n/routes';
+import { FAMILY_KEY, useTranslations } from '~/i18n/t';
+
+export const getStaticPaths = (() =>
+  LOCALES.map((locale) => ({
+    // `undefined` pour la locale par defaut : elle sert la racine, sans prefixe.
+    params: { locale: locale === DEFAULT_LOCALE ? undefined : locale },
+    props: { locale },
+  }))) satisfies GetStaticPaths;
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+const apps = appsForLocale(locale);
+
+const title = `${t('site.name')} — ${t('site.tagline')}`;
+---
+
+<BaseLayout
+  locale={locale}
+  paths={homePaths()}
+  path=""
+  title={title}
+  description={t('site.description')}
+>
+  <section class="wrap hero">
+    <p class="eyebrow">{t('site.name')}</p>
+    <h1>{t('site.tagline')}</h1>
+    <p class="lead prose">{t('site.description')}</p>
+    <a class="cta" href={href(locale, 'apps')}>{t('cta.seeAllApps')}</a>
+  </section>
+
+  <section class="wrap">
+    <h2>{t('apps.title')}</h2>
+    <ul role="list" class="grid">
+      {
+        apps.map((app) => (
+          <li class="card" style={`--accent: ${app.accent}; --accent-text: ${app.accentText}`}>
+            <a href={href(locale, `apps/${app.slug}`)}>
+              <span class="family">{t(FAMILY_KEY[app.family])}</span>
+              <span class="name">{app.name}</span>
+              {app.status === 'coming-soon' && (
+                <span class="badge">{t('apps.comingSoon')}</span>
+              )}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding-block: var(--space-6) var(--space-5);
+  }
+  .eyebrow {
+    color: var(--accent-text, var(--accent));
+    font-size: var(--step--1);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .lead {
+    margin-block-start: var(--space-3);
+    font-size: var(--step-1);
+    color: var(--text-300);
+  }
+  .cta {
+    display: inline-block;
+    margin-block-start: var(--space-4);
+    padding: 0.7em 1.4em;
+    border-radius: 999px;
+    background: var(--accent-text, var(--accent));
+    color: var(--ink-900);
+    font-weight: 700;
+    text-decoration: none;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: var(--space-2);
+    margin-block: var(--space-3) var(--space-6);
+  }
+  .card {
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    background: var(--glass-bg);
+  }
+  .card:hover {
+    border-color: var(--glass-border-hover);
+  }
+  .card a {
+    display: grid;
+    gap: var(--space-1);
+    padding: var(--space-3);
+    text-decoration: none;
+    color: inherit;
+  }
+  .family {
+    color: var(--accent-text, var(--accent));
+    font-size: var(--step--1);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .name {
+    color: var(--text-100);
+    font-size: var(--step-1);
+    font-weight: 800;
+  }
+  .badge {
+    justify-self: start;
+    padding: 0.2em 0.7em;
+    border: 1px solid var(--glass-border-hover);
+    border-radius: 999px;
+    font-size: var(--step--1);
+    color: var(--text-500);
+  }
+</style>

@@ -1,0 +1,38 @@
+name: Verify
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      - name: Types
+        run: npx astro check
+
+      - name: Build
+        run: npm run build
+
+      # Le garde-fou : compte de pages, URL interdites, clusters hreflang,
+      # absence de JS client, liens internes.
+      - name: Audit de la sortie de build
+        run: node scripts/audit-dist.mjs
+
+      - name: Couverture de traduction
+        run: node scripts/check-i18n.mjs
+
+      - name: Contrastes WCAG
+        run: node scripts/check-contrast.mjs

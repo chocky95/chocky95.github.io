@@ -1,0 +1,15 @@
+# Normalise les fins de ligne : le poste de dev est Windows, le runner CI est
+# Ubuntu. Sans cela, un .md committe en CRLF change le nombre d'octets entre
+# les deux, ce qui perturbe les controles de longueur Zod et les hash d'assets.
+* text=auto eol=lf
+
+# Binaires : jamais de conversion.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.avif binary
+*.ico binary
+*.pdf binary
+*.woff  binary
+*.woff2 binary

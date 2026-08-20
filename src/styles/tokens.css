@@ -1,0 +1,71 @@
+/*
+ * Jetons de design — vitrine produit sombre.
+ *
+ * Palette d'encre froide en fond, texte chaud-neutre, et un accent par
+ * application injecte en variable locale (--accent) sur les pages d'app.
+ * La passe de design complete a lieu en Phase 4 ; ce fichier en pose la base.
+ */
+:root {
+  /* Fonds, du plus profond au plus clair */
+  --ink-900: #070a0d;
+  --ink-800: #0b0f14;
+  --ink-700: #11171d;
+  --ink-600: #18202a;
+
+  /* Verre depoli */
+  --glass-bg: rgb(255 255 255 / 4%);
+  --glass-border: rgb(255 255 255 / 9%);
+  --glass-border-hover: rgb(255 255 255 / 18%);
+
+  /* Texte */
+  --text-100: #f2f5f7;
+  --text-300: #c2ccd4;
+  --text-500: #8b98a3;
+  --text-700: #5c6771;
+
+  /* Accent de marque Chocky (repris du prototype) */
+  --brand: #16a37f;
+  --brand-dim: #0c6b58;
+
+  /*
+   * Accent contextuel, surcharge par page d'application.
+   *
+   * DEUX ROLES DISTINCTS, et il ne faut pas les confondre :
+   *   --accent       la vraie couleur de marque. Decoratif uniquement :
+   *                  aplats, bordures, fonds de badge, halos.
+   *   --accent-text  variante garantie >= 4.5:1 sur le fond. Texte, liens,
+   *                  fonds de bouton.
+   *
+   * Papayoo (#0D4167 -> 1.80:1) et ScanFree (#00696D -> 2.97:1) sont
+   * illisibles en texte : d'ou la separation. Verifie au build dans apps.ts
+   * et en CI par scripts/check-contrast.mjs.
+   */
+  --accent: var(--brand);
+  --accent-text: var(--brand);
+
+  /* Typographie */
+  --font-sans-stack: var(--font-sans), system-ui, "Segoe UI", Roboto, sans-serif;
+  --font-cjk:
+    system-ui, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic",
+    "Meiryo", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+
+  /* Rythme */
+  --step--1: clamp(0.83rem, 0.8rem + 0.15vw, 0.9rem);
+  --step-0: clamp(1rem, 0.96rem + 0.2vw, 1.13rem);
+  --step-1: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
+  --step-2: clamp(1.6rem, 1.4rem + 1vw, 2.2rem);
+  --step-3: clamp(2rem, 1.6rem + 2vw, 3.2rem);
+  --step-4: clamp(2.5rem, 1.8rem + 3.4vw, 4.5rem);
+
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --space-5: 4rem;
+  --space-6: 6rem;
+
+  --radius: 14px;
+  --radius-lg: 22px;
+  --measure: 68ch;
+  --wrap: 1140px;
+}

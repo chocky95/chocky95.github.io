@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Chocky Studio">
+  <!--
+    Le logotype de la marque est « chocky. » — en minuscules, avec un point final.
+    A 16 px, seuls deux elements restent lisibles : la contreforme du « c » et le
+    point. Le mark ne garde donc que ces deux-la.
+  -->
+  <rect width="64" height="64" rx="15" fill="#0b0f14"/>
+  <path
+    d="M41 22.5a15.5 15.5 0 1 0 0 19"
+    fill="none"
+    stroke="#16a37f"
+    stroke-width="8.5"
+    stroke-linecap="round"/>
+  <circle cx="50.5" cy="43.5" r="5.5" fill="#16a37f"/>
+</svg>

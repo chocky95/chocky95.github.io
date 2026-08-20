@@ -1,0 +1,32 @@
+{
+  "name": "chocky-studio-site",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site vitrine multilingue de Chocky Studio",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "audit": "node scripts/audit-dist.mjs",
+    "check:i18n": "node scripts/check-i18n.mjs",
+    "check:contrast": "node scripts/check-contrast.mjs",
+    "assets:sync": "node scripts/sync-assets.mjs",
+    "versions:drift": "node scripts/sync-versions.mjs",
+    "verify": "astro check && astro build && node scripts/audit-dist.mjs"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.3",
+    "@fontsource-variable/inter": "^5.3.0",
+    "astro": "^7.2.4",
+    "sharp": "^0.35.3"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "typescript": "^5.9.3"
+  }
+}

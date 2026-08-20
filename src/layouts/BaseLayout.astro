@@ -1,0 +1,55 @@
+---
+import SeoHead from '~/components/seo/SeoHead.astro';
+import { localeDir, type Locale } from '~/i18n/locales';
+import { useTranslations } from '~/i18n/t';
+import type { LocalePaths } from '~/i18n/routes';
+
+import '~/styles/tokens.css';
+import '~/styles/global.css';
+
+interface Props {
+  locale: Locale;
+  paths: LocalePaths;
+  path: string;
+  title: string;
+  description: string;
+  ogType?: 'website' | 'article';
+  ogImage?: string | undefined;
+  noindex?: boolean;
+  updatedOn?: Date | undefined;
+  /**
+   * Couleur de marque de l'application. Décorative uniquement : aplats,
+   * bordures, fonds de badge.
+   */
+  accent?: string | undefined;
+  /**
+   * Variante lisible du même accent (>= 4.5:1 sur le fond), pour le texte, les
+   * liens et les fonds de bouton. À défaut, retombe sur `accent`.
+   */
+  accentText?: string | undefined;
+}
+
+const { locale, accent, accentText, ...seo } = Astro.props;
+const t = useTranslations(locale);
+
+// Les deux variables sont posées ensemble : une page d'application ne doit
+// jamais hériter de l'accent de marque pour du texte.
+const accentVars = accent
+  ? `--accent: ${accent}; --accent-text: ${accentText ?? accent};`
+  : undefined;
+---
+
+<!doctype html>
+<html lang={locale} dir={localeDir(locale)}>
+  <head>
+    <SeoHead locale={locale} {...seo} />
+  </head>
+  <body style={accentVars}>
+    <a class="skip-link" href="#main">{t('nav.skipToContent')}</a>
+    <slot name="header" />
+    <main id="main">
+      <slot />
+    </main>
+    <slot name="footer" />
+  </body>
+</html>

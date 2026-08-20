@@ -1,0 +1,119 @@
+---
+import { Font } from 'astro:assets';
+
+import { CJK_LOCALES, OG_LOCALE, type Locale } from '~/i18n/locales';
+import { absolute, alternates, requireSite, type LocalePaths } from '~/i18n/routes';
+
+interface Props {
+  locale: Locale;
+  /** Table des chemins par locale. Source unique des hreflang. */
+  paths: LocalePaths;
+  /** Chemin de CETTE page, sans préfixe de locale ni slash. */
+  path: string;
+  title: string;
+  description: string;
+  /** Type Open Graph. `article` pour les pages éditoriales. */
+  ogType?: 'website' | 'article';
+  /** Image OG absolue. À défaut, l'image par défaut du site. */
+  ogImage?: string | undefined;
+  /**
+   * Retire la page de l'index tout en laissant suivre les liens.
+   * Utilisé par le garde-fou `translationStatus: 'raw-mt'` : une traduction
+   * non relue n'entre jamais dans l'index de Google.
+   */
+  noindex?: boolean;
+  /** Date de dernière modification, pour `article:modified_time`. */
+  updatedOn?: Date | undefined;
+}
+
+const {
+  locale,
+  paths,
+  path,
+  title,
+  description,
+  ogType = 'website',
+  ogImage,
+  noindex = false,
+  updatedOn,
+} = Astro.props;
+
+const site = requireSite(Astro.site);
+
+// Canonical : TOUJOURS elle-même. Jamais de canonical inter-langues — c'est
+// l'erreur qui désindexe 17 langues sur 18.
+const canonical = absolute(locale, path);
+
+// Le cluster hreflang dérive de la même table que getStaticPaths, donc il ne
+// peut ni pointer vers une URL inexistante, ni omettre l'auto-référence.
+const hreflangs = alternates(paths);
+
+const ogLocaleAlternates = hreflangs
+  .filter((a) => a.hreflang !== 'x-default' && a.locale !== locale)
+  .map((a) => OG_LOCALE[a.locale]);
+
+const ogImageUrl = ogImage ?? new URL('og/default.png', site).href;
+
+// Les langues CJK basculent sur la pile système : embarquer un sous-ensemble
+// japonais ou coréen coûterait plusieurs Mo et 30+ points de Lighthouse.
+const usesWebFont = !CJK_LOCALES.has(locale);
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>{title}</title>
+<meta name="description" content={description} />
+
+<link rel="canonical" href={canonical} />
+{noindex && <meta name="robots" content="noindex, follow" />}
+
+{/* Cluster hreflang. Vide sur une page mono-locale (EasyCompta) : un cluster
+    d'un seul élément n'a aucun sens. */}
+{
+  hreflangs.map((alt) => (
+    <link rel="alternate" hreflang={alt.hreflang} href={alt.href} />
+  ))
+}
+
+{/* Open Graph */}
+<meta property="og:type" content={ogType} />
+<meta property="og:site_name" content="Chocky Studio" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={ogImageUrl} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:locale" content={OG_LOCALE[locale]} />
+{ogLocaleAlternates.map((og) => <meta property="og:locale:alternate" content={og} />)}
+{
+  ogType === 'article' && updatedOn && (
+    <meta property="article:modified_time" content={updatedOn.toISOString()} />
+  )
+}
+
+{/* Twitter / X */}
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImageUrl} />
+
+<link rel="sitemap" href="/sitemap-index.xml" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+{/*
+  Sans `preload`, volontairement.
+
+  `preload` précharge TOUS les variants de la famille — les 3 sous-ensembles
+  latin, latin-ext et cyrillique — ce qui force 148 Ko de téléchargement là où
+  une page française n'a besoin que de 47 Ko. Le `preload` annule l'effet de
+  `unicode-range`.
+
+  Le CSS étant inliné dans ce même `<head>` (`inlineStylesheets: 'always'`), le
+  navigateur découvre les `@font-face` dès le premier parse et ne récupère que
+  le sous-ensemble dont il a réellement besoin. Le `font-display: swap` et le
+  fallback métriquement apparié couvrent le temps de swap sans décalage visuel.
+*/}
+{usesWebFont && <Font cssVariable="--font-sans" />}
