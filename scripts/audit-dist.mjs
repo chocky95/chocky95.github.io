@@ -55,6 +55,12 @@ const GUIDES = {
   'molkky-rules': {
     fr: 'regles-du-molkky',
     en: 'molkky-rules',
+    de: 'molkky-regeln',
+    fi: 'molkky-saannot',
+    sv: 'molkky-regler',
+    // Slug en ASCII pour le japonais : un slug en katakana serait
+    // percent-encode dans toutes les URL, les hreflang et le sitemap.
+    ja: 'molkky-rules',
   },
 };
 

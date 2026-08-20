@@ -24,8 +24,6 @@ import { LOCALES } from '~/i18n/locales';
 /** Chemin relatif sans extension : `papayoo.fi`, `guides/molkky-rules.fr`. */
 const rawId = ({ entry }: { entry: string }): string => entry.replace(/\.md$/, '');
 
-
-
 /**
  * Statut de traduction — le garde-fou anti-contenu-mince.
  *
@@ -35,25 +33,80 @@ const rawId = ({ entry }: { entry: string }): string => entry.replace(/\.md$/, '
  */
 const translationStatus = z.enum(['authored', 'reviewed', 'raw-mt']);
 
+/**
+ * Est-ce un caractère « pleine largeur » ?
+ *
+ * Les idéogrammes CJK, les kana et le hangul occupent deux cellules à
+ * l'affichage. Couvre les plages utiles ici : hangul, CJK et kana, formes
+ * pleine largeur.
+ */
+function isWide(codePoint: number): boolean {
+  return (
+    (codePoint >= 0x1100 && codePoint <= 0x115f) ||
+    (codePoint >= 0x2e80 && codePoint <= 0xa4cf) ||
+    (codePoint >= 0xac00 && codePoint <= 0xd7a3) ||
+    (codePoint >= 0xf900 && codePoint <= 0xfaff) ||
+    (codePoint >= 0xfe30 && codePoint <= 0xfe6f) ||
+    (codePoint >= 0xff00 && codePoint <= 0xff60)
+  );
+}
+
+/**
+ * Largeur d'affichage d'une chaîne, en demi-cadratins.
+ *
+ * ── Pourquoi pas simplement `.length` ────────────────────────────────────
+ * Google ne tronque pas les titres et descriptions à un nombre de caractères
+ * mais à une largeur en pixels. Or une description japonaise de 77 caractères
+ * occupe exactement la même place qu'une description française de 148 : les
+ * caractères CJK sont deux fois plus larges.
+ *
+ * Valider `.length` imposerait donc aux langues CJK des textes deux fois trop
+ * longs — tronqués dans les résultats de recherche — ou ferait échouer des
+ * textes parfaitement calibrés. Mesurer la largeur unifie les 18 langues sous
+ * un seul seuil, et c'est le seuil que Google applique réellement.
+ */
+function displayWidth(value: string): number {
+  let width = 0;
+  for (const char of value) {
+    width += isWide(char.codePointAt(0) ?? 0) ? 2 : 1;
+  }
+  return width;
+}
+
+/** Contrainte de largeur d'affichage, avec un message qui donne la mesure. */
+function widthBetween(min: number, max: number, label: string) {
+  return (value: string, ctx: { addIssue: (issue: { code: 'custom'; message: string }) => void }) => {
+    const w = displayWidth(value);
+    if (w < min || w > max) {
+      ctx.addIssue({
+        code: 'custom',
+        message:
+          `${label} : largeur d'affichage ${w}, attendue entre ${min} et ${max}. ` +
+          `(${value.length} caractères — en CJK, un caractère compte double.)`,
+      });
+    }
+  };
+}
+
 /** Une question de FAQ. Doit être VISIBLE dans la page pour justifier le JSON-LD FAQPage. */
 const faqItem = z.object({
-  q: z.string().min(8),
-  a: z.string().min(30),
+  q: z.string().superRefine(widthBetween(8, 200, 'faq.q')),
+  a: z.string().superRefine(widthBetween(30, 900, 'faq.a')),
 });
 
 const seoFields = {
-  /** Balise <title>. Google tronque au-delà d'environ 60 caractères. */
-  title: z.string().min(10).max(65),
+  /** Balise <title>. Google tronque autour de 60 demi-cadratins. */
+  title: z.string().superRefine(widthBetween(10, 65, 'title')),
   /**
-   * Meta description. Le minimum de 110 caractères est délibéré : il force de
-   * la vraie prose plutôt qu'un fragment traduit, ce qui est la différence
-   * concrète entre une page localisée et une page mince.
+   * Meta description. Le minimum de 110 est délibéré : il force de la vraie
+   * prose plutôt qu'un fragment traduit, ce qui est la différence concrète
+   * entre une page localisée et une page mince.
    */
-  metaDescription: z.string().min(110).max(160),
+  metaDescription: z.string().superRefine(widthBetween(110, 165, 'metaDescription')),
   /** Titre visible. Peut différer du <title>, plus long et plus naturel. */
-  h1: z.string().min(10),
+  h1: z.string().superRefine(widthBetween(10, 400, 'h1')),
   /** Chapô : doit répondre à la requête dans les 100 premiers mots. */
-  lead: z.string().min(80),
+  lead: z.string().superRefine(widthBetween(80, 1200, 'lead')),
   translationStatus,
   updatedOn: z.coerce.date(),
   faq: z.array(faqItem).default([]),
@@ -64,7 +117,10 @@ const apps = defineCollection({
   schema: z.object({
     ...seoFields,
     /** Points forts, affichés en liste. Structurés par locale, pas un bloc traduit. */
-    highlights: z.array(z.string().min(12)).min(3).max(8),
+    highlights: z
+      .array(z.string().superRefine(widthBetween(12, 220, 'highlight')))
+      .min(3)
+      .max(8),
     /**
      * Texte alternatif des captures d'écran, indexé par nom de fichier
      * (`accueil`, `recettes`, `document`…).
@@ -73,11 +129,15 @@ const apps = defineCollection({
      * `alt` descriptif est lu par Google Images et par les lecteurs d'écran, et
      * « Capture 1 » n'apporte rien ni aux uns ni aux autres.
      */
-    screenshotAlt: z.record(z.string(), z.string().min(15)).default({}),
+    screenshotAlt: z
+      .record(z.string(), z.string().superRefine(widthBetween(15, 300, 'screenshotAlt')))
+      .default({}),
     /** Texte alternatif du visuel principal (bannière du jeu / feature graphic). */
-    heroAlt: z.string().min(15).optional(),
+    heroAlt: z.string().superRefine(widthBetween(15, 300, 'heroAlt')).optional(),
     /** Texte alternatif des schémas, indexé par nom (`placement`, `pins`). */
-    diagramAlt: z.record(z.string(), z.string().min(15)).default({}),
+    diagramAlt: z
+      .record(z.string(), z.string().superRefine(widthBetween(15, 300, 'diagramAlt')))
+      .default({}),
   }),
 });
 
@@ -132,5 +192,4 @@ export function parseContentId(id: string): ContentId | null {
   if (!(LOCALES as readonly string[]).includes(locale)) return null;
   return { key, locale: locale as (typeof LOCALES)[number] };
 }
-
 
