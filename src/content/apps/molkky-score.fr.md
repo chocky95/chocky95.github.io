@@ -24,7 +24,7 @@ diagramAlt:
 highlights:
   - Comptage automatique et règle des 3 ratés appliquée sans y penser
   - Redescente à 25 en cas de dépassement de 50 points
-  - Tournois à élimination directe pour 4, 8 ou 16 joueurs ou équipes
+  - 'Tournois à élimination directe, sans limite de joueurs ou d''équipes'
   - Classement ELO qui tient compte du niveau de vos adversaires
   - Partage du score en direct par QR code, effacé après 48 heures
   - Export PDF de la feuille de tournoi et de l'arbre
@@ -60,9 +60,10 @@ faq:
       aléatoire est intégré, ce qui est pratique quand personne ne veut choisir.
   - q: Combien de joueurs dans un tournoi ?
     a: >-
-      Les arbres sont prévus pour 4, 8 ou 16 joueurs, ou autant d'équipes. Les
-      perdants des demi-finales jouent une petite finale pour la troisième
-      place, et la grande finale départage le vainqueur et le finaliste.
+      Aucune limite : l'application construit l'arbre à élimination directe en
+      fonction du nombre de joueurs ou d'équipes inscrits. Les perdants des
+      demi-finales jouent une petite finale pour la troisième place, et la
+      grande finale départage le vainqueur et le finaliste.
   - q: Comment partager le score avec des spectateurs ?
     a: >-
       L'application publie la partie ou le tournoi sur une page web privée, mise
@@ -102,10 +103,11 @@ ou une équipe remporte le nombre de manches défini.
 
 ## Organisez un tournoi de Mölkky en quelques minutes
 
-### Arbre à 4, 8 ou 16 joueurs ou équipes
+### Aucune limite de joueurs ou d'équipes
 
-Élimination directe : quarts, demi-finales, finales. Le vainqueur de chaque duel
-passe au tour suivant.
+Le nombre de participants n'est pas plafonné. L'application construit un arbre à
+élimination directe adapté au nombre de joueurs ou d'équipes que vous inscrivez.
+Le vainqueur de chaque duel passe au tour suivant.
 
 ### Petite finale, grande finale et podium
 

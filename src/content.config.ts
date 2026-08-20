@@ -163,6 +163,11 @@ const pages = defineCollection({
     slug: z.string().regex(/^[a-z0-9]+(?:[-/][a-z0-9]+)*$/),
     /** Retire la page de l'index : pages légales, support. */
     noindex: z.boolean().default(false),
+    /**
+     * Application dont cette page décrit les pratiques de données.
+     * Absent pour une page générique (à-propos, support).
+     */
+    relatedApp: z.enum(APP_SLUGS as [string, ...string[]]).optional(),
   }),
 });
 
