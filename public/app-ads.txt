@@ -1,0 +1,15 @@
+# Fichier app-ads.txt (norme IAB Tech Lab).
+#
+# Google explore ce fichier a la racine du domaine declare dans le champ
+# « Site Web » de chaque fiche Google Play, pour verifier qui est autorise a
+# vendre de la publicite pour l'application.
+#
+# f08c47fec0942fa0 est l'identifiant d'autorite de certification standard de
+# Google pour AdMob -- constant, documente publiquement, identique pour tous
+# les editeurs AdMob.
+#
+# pub-7537355309881003 est l'ID editeur AdMob commun aux 4 applications
+# publiees de Chocky Dev (Molkky Score, Papayoo, EasyCompta, ScanFree) :
+# une seule ligne couvre les quatre, puisque app-ads.txt se verifie par
+# domaine et non par application.
+google.com, pub-7537355309881003, DIRECT, f08c47fec0942fa0
