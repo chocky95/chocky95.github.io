@@ -13,3 +13,8 @@
 # une seule ligne couvre les quatre, puisque app-ads.txt se verifie par
 # domaine et non par application.
 google.com, pub-7537355309881003, DIRECT, f08c47fec0942fa0
+
+# Tappx : regie publicitaire utilisee en mediation avec AdMob.
+# d8ae4dbb3 est l'ID de compte Tappx -- c'est aussi ce qui donnait son nom au
+# sous-domaine d8ae4dbb3.app-ads-txt.com vu dans le champ Site Web d'origine.
+tappx.com, d8ae4dbb3, DIRECT, 9f375a07da0318ec
