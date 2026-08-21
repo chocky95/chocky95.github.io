@@ -30,6 +30,7 @@ const en: UiDict = {
   'apps.version': 'Version',
   'apps.availableOn': 'Available on',
   'apps.free': 'Free',
+  'apps.languageFallbackNotice': 'This app doesn\'t have a {lang} interface yet; it will display in English until it\'s translated.',
 
   'cta.play': 'Get it on Google Play',
   'cta.webApp': 'Open in your browser',

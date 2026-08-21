@@ -26,6 +26,7 @@ const et: UiDict = {
   'apps.version': 'Versioon',
   'apps.availableOn': 'Saadaval',
   'apps.free': 'Tasuta',
+  'apps.languageFallbackNotice': 'Sellel rakendusel pole veel {lang}keelset liidest; kuni tõlkimiseni kuvatakse see inglise keeles.',
 
   'cta.play': 'Laadi alla Google Playst',
   'cta.webApp': 'Kasuta brauseris',

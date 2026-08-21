@@ -37,6 +37,8 @@ const fr = {
   'apps.version': 'Version',
   'apps.availableOn': 'Disponible sur',
   'apps.free': 'Gratuit',
+  'apps.languageFallbackNotice':
+    "Cette application n'affiche pas encore son interface en {lang} ; elle s'affichera en anglais tant qu'elle n'aura pas été traduite.",
 
   // Appels à l'action
   'cta.play': 'Télécharger sur Google Play',

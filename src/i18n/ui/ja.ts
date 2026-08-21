@@ -26,6 +26,7 @@ const ja: UiDict = {
   'apps.version': 'バージョン',
   'apps.availableOn': '対応プラットフォーム',
   'apps.free': '無料',
+  'apps.languageFallbackNotice': 'このアプリはまだ{lang}のインターフェースに対応していません。翻訳されるまで英語で表示されます。',
 
   'cta.play': 'Google Playで入手',
   'cta.webApp': 'ブラウザで開く',

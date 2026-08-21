@@ -34,7 +34,28 @@ const LOCALES = [
 ];
 const DEFAULT_LOCALE = 'fr';
 
+/**
+ * Chaque application a une page dans les 18 langues, comme l'accueil — que
+ * l'application elle-même gère nativement cette langue ou non (voir
+ * NATIVE_LOCALES ci-dessous). Ce n'est donc plus un sous-ensemble par app,
+ * mais on le retape quand même à la main pour la même raison que le reste de
+ * ce fichier : confirmer que le code fait bien ce qu'il prétend faire.
+ */
 const APP_LOCALES = {
+  'molkky-score': LOCALES,
+  papayoo: LOCALES,
+  mojogo: LOCALES,
+  scanfree: LOCALES,
+  easycompta: LOCALES,
+};
+
+/**
+ * Langues où l'INTERFACE de l'application existe réellement (fichiers
+ * `.arb`). En dehors de ce sous-ensemble, la page doit porter l'avis de repli
+ * anglais (`lang-fallback-notice`) — sinon un visiteur découvre la limite
+ * seulement après avoir installé l'app.
+ */
+const NATIVE_LOCALES = {
   'molkky-score': ['fr', 'en', 'de', 'fi', 'ja', 'es', 'sv', 'et', 'cs'],
   papayoo: ['fr', 'en', 'de', 'ja', 'es', 'it', 'nl', 'pt', 'sv', 'da', 'nb', 'pl', 'ro', 'ru', 'ko'],
   mojogo: ['fr', 'en', 'de', 'ja', 'es', 'it', 'nl', 'pt', 'sv', 'da', 'nb', 'pl', 'ro', 'ru', 'ko'],
@@ -64,17 +85,19 @@ const GUIDES = {
   },
 };
 
-/** Cas nommés : chacun a déjà été, ou pourrait être, un vrai bug. */
+/**
+ * Cas nommés : chacun a déjà été, ou pourrait être, un vrai bug.
+ *
+ * Depuis que chaque application a une page dans les 18 langues, le cluster
+ * hreflang de toute page d'app vaut uniformément 19 (18 + x-default) — y
+ * compris EasyCompta, qui était auparavant le seul cas à zéro.
+ */
 const NAMED_CASES = [
-  // EasyCompta est le seul mono-locale. Il emprunte des chemins de code que
-  // rien d'autre n'emprunte : zéro hreflang, sélecteur de langue vide,
-  // og:locale:alternate vide. Autant d'endroits plausibles pour un bug de
-  // tableau vide.
-  { url: '/apps/easycompta/', expectAlternates: 0 },
-  { url: '/apps/molkky-score/', expectAlternates: 10 }, // 9 + x-default
-  { url: '/apps/papayoo/', expectAlternates: 16 }, // 15 + x-default
-  { url: '/apps/scanfree/', expectAlternates: 13 }, // 12 + x-default
-  { url: '/ja/apps/mojogo/', expectAlternates: 16 },
+  { url: '/apps/easycompta/', expectAlternates: 19 },
+  { url: '/apps/molkky-score/', expectAlternates: 19 },
+  { url: '/apps/papayoo/', expectAlternates: 19 },
+  { url: '/apps/scanfree/', expectAlternates: 19 },
+  { url: '/ja/apps/mojogo/', expectAlternates: 19 },
 ];
 
 /* ── Utilitaires ─────────────────────────────────────────────────────────── */
@@ -319,6 +342,36 @@ async function checkNamedCases() {
   }
 }
 
+/**
+ * L'avis de repli anglais doit apparaître exactement là où l'application ne
+ * gère pas nativement la langue de la page — jamais ailleurs, jamais absent.
+ * `class="lang-fallback-notice"` sert de marqueur, plutôt que le texte : il
+ * est traduit dans les 18 langues et donc impossible à chercher tel quel.
+ */
+async function checkLanguageFallback() {
+  for (const [slug, locales] of Object.entries(APP_LOCALES)) {
+    const native = new Set(NATIVE_LOCALES[slug]);
+    for (const locale of locales) {
+      const url = urlFor(locale, `apps/${slug}`);
+      const file = distPathFor(url);
+      if (!existsSync(file)) continue; // déjà signalé par checkInventory
+
+      const html = await readFile(file, 'utf8');
+      // Le sélecteur CSS `.lang-fallback-notice` est inliné sur CHAQUE page
+      // (styles scoped d'Astro) : chercher la sous-chaîne nue matcherait
+      // toujours. Il faut l'élément rendu, attribut `class=`.
+      const hasNotice = /<p class="lang-fallback-notice"/.test(html);
+
+      if (native.has(locale) && hasNotice) {
+        fail(`${url} : avis de repli anglais affiché alors que l'app gère "${locale}" nativement.`);
+      }
+      if (!native.has(locale) && !hasNotice) {
+        fail(`${url} : avis de repli anglais absent alors que l'app ne gère pas "${locale}" nativement.`);
+      }
+    }
+  }
+}
+
 async function checkSitemap() {
   const xml = await readFile(path.join(DIST, 'sitemap-0.xml'), 'utf8');
   const locs = all(xml, /<loc>([^<]+)<\/loc>/g).map((m) => m[1]);
@@ -359,6 +412,7 @@ for (const page of pages) {
 
 await checkNoClientJs();
 await checkNamedCases();
+await checkLanguageFallback();
 await checkSitemap();
 
 const distSize = (await Promise.all((await walk(DIST)).map((f) => stat(f)))).reduce(

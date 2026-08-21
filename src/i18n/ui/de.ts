@@ -26,6 +26,7 @@ const de: UiDict = {
   'apps.version': 'Version',
   'apps.availableOn': 'Verfügbar auf',
   'apps.free': 'Kostenlos',
+  'apps.languageFallbackNotice': 'Diese App hat noch keine {lang}-Oberfläche; bis zur Übersetzung wird sie auf Englisch angezeigt.',
 
   'cta.play': 'Bei Google Play laden',
   'cta.webApp': 'Im Browser öffnen',

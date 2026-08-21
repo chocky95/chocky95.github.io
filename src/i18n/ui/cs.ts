@@ -26,6 +26,7 @@ const cs: UiDict = {
   'apps.version': 'Verze',
   'apps.availableOn': 'Dostupné na',
   'apps.free': 'Zdarma',
+  'apps.languageFallbackNotice': 'Tato aplikace ještě nemá rozhraní v jazyce {lang}; než bude přeložena, zobrazí se v angličtině.',
 
   'cta.play': 'Stáhnout na Google Play',
   'cta.webApp': 'Použít v prohlížeči',

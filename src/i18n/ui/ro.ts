@@ -26,6 +26,7 @@ const ro: UiDict = {
   'apps.version': 'Versiune',
   'apps.availableOn': 'Disponibil pe',
   'apps.free': 'Gratuit',
+  'apps.languageFallbackNotice': 'Această aplicație nu are încă o interfață în {lang}; va fi afișată în engleză până va fi tradusă.',
 
   'cta.play': 'Descarcă din Google Play',
   'cta.webApp': 'Folosește în browser',

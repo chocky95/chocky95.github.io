@@ -26,6 +26,7 @@ const ru: UiDict = {
   'apps.version': 'Версия',
   'apps.availableOn': 'Доступно на',
   'apps.free': 'Бесплатно',
+  'apps.languageFallbackNotice': 'У этого приложения пока нет интерфейса на {lang}; до перевода оно будет отображаться на английском.',
 
   'cta.play': 'Скачать в Google Play',
   'cta.webApp': 'Открыть в браузере',

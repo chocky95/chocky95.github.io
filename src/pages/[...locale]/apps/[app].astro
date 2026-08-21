@@ -5,26 +5,26 @@ import { render } from 'astro:content';
 
 import JsonLd from '~/components/seo/JsonLd.astro';
 import BaseLayout from '~/layouts/BaseLayout.astro';
-import { APPS, type AppFacts } from '~/data/apps';
+import { APPS, appHasLocale, type AppFacts } from '~/data/apps';
 import { appDiagrams, appHeroImage, appIcon, appScreenshots } from '~/data/appAssets';
 import { appContent, guideContent, toAppView } from '~/data/content';
-import { DEFAULT_LOCALE, LOCALE_NAMES, type Locale } from '~/i18n/locales';
+import { DEFAULT_LOCALE, LOCALE_NAMES, LOCALES, type Locale } from '~/i18n/locales';
 import { absolute, appPaths, href, requireSite } from '~/i18n/routes';
 import { FAMILY_KEY, useTranslations } from '~/i18n/t';
 
 /**
  * Le point crucial du site.
  *
- * Les chemins dérivent de `app.locales`, donc une combinaison hors
- * sous-ensemble — /ru/apps/scanfree/, /en/apps/easycompta/ — n'est jamais
- * générée. Les hreflang dérivent de la MÊME table via `appPaths`, ce qui rend
- * impossible un cluster pointant vers une URL absente.
+ * Chaque application a une page dans les 18 langues, comme l'accueil — que
+ * l'application elle-même gère nativement cette langue ou non. `apps.ts`
+ * garde le sous-ensemble réellement natif dans `nativeLocales`, utilisé plus
+ * bas pour l'avis de repli et le bloc « Langue », jamais pour le routage.
  */
 export const getStaticPaths = (() => {
   const paths = [];
 
   for (const app of APPS) {
-    for (const locale of app.locales) {
+    for (const locale of LOCALES) {
       paths.push({
         params: {
           locale: locale === DEFAULT_LOCALE ? undefined : locale,
@@ -65,15 +65,17 @@ const data = view.entry?.data;
 const ogImage = new URL(`og/${app.slug}.png`, site).href;
 
 /**
- * Les autres applications de la même famille, dans cette langue.
+ * Les autres applications de la même famille.
  *
  * Les jeux se croisent entre eux ; EasyCompta n'entre pas dans le corps d'une
  * page de jeu. Le sujet n'a rien à voir, et les mélanger dilue l'autorité
  * thématique des deux pages.
+ *
+ * Chaque application ayant désormais une page dans les 18 langues, il n'y a
+ * plus besoin de vérifier que le lien existe dans cette locale.
  */
 const siblings = APPS.filter(
-  (other) =>
-    other.slug !== app.slug && other.family === app.family && other.locales.includes(locale),
+  (other) => other.slug !== app.slug && other.family === app.family,
 );
 
 /**
@@ -108,6 +110,16 @@ const breadcrumbs = [
 const stores: { label: string; url: string }[] = [];
 if (app.playUrl) stores.push({ label: 'Google Play', url: app.playUrl });
 if (app.webAppUrl) stores.push({ label: t('cta.webApp'), url: app.webAppUrl });
+
+/**
+ * Cette page existe dans une langue que l'application elle-même ne gère pas
+ * encore nativement (voir `apps.ts#nativeLocales`) : un visiteur qui
+ * l'installerait la verrait en anglais. On le dit, plutôt que de laisser
+ * découvrir la limite après le téléchargement.
+ */
+const languageFallback = appHasLocale(app.slug, locale)
+  ? null
+  : t('apps.languageFallbackNotice').replace('{lang}', LOCALE_NAMES[locale]);
 ---
 
 <BaseLayout
@@ -218,9 +230,15 @@ if (app.webAppUrl) stores.push({ label: t('cta.webApp'), url: app.webAppUrl });
             </dd>
 
             <dt>{t('lang.label')}</dt>
-            <dd>{app.locales.map((l) => LOCALE_NAMES[l]).join(', ')}</dd>
+            <dd>{app.nativeLocales.map((l) => LOCALE_NAMES[l]).join(', ')}</dd>
           </dl>
         </section>
+
+        {
+          languageFallback && (
+            <p class="lang-fallback-notice">{languageFallback}</p>
+          )
+        }
       </header>
     </div>
 
@@ -492,6 +510,16 @@ if (app.webAppUrl) stores.push({ label: t('cta.webApp'), url: app.webAppUrl });
     margin-block-start: var(--space-4);
     padding-block-start: var(--space-3);
     border-block-start: 1px solid var(--glass-border);
+  }
+  .lang-fallback-notice {
+    margin-block-start: var(--space-3);
+    padding: 0.7em 1em;
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+    background: var(--glass-bg);
+    color: var(--text-500);
+    font-size: var(--step--1);
+    max-inline-size: var(--measure);
   }
 
   .body,

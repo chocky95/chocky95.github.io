@@ -52,8 +52,15 @@ export interface AppFacts {
   readonly family: 'game' | 'business' | 'utility';
   /** `applicationCategory` de schema.org, pour le JSON-LD SoftwareApplication. */
   readonly schemaCategory: string;
-  /** Locales où l'application existe. Pilote getStaticPaths ET les hreflang. */
-  readonly locales: readonly Locale[];
+  /**
+   * Langues où l'INTERFACE DE L'APPLICATION existe réellement (fichiers
+   * `.arb`). N'influence plus le routage du site : depuis que chaque page
+   * d'application existe dans les 18 langues (comme l'accueil), ce champ ne
+   * pilote plus que trois choses : la mention « Langue » du bloc de
+   * caractéristiques, l'avis de repli anglais sur les pages hors de ce
+   * sous-ensemble, et le sous-ensemble autorisé de `screenshotLocales`.
+   */
+  readonly nativeLocales: readonly Locale[];
   readonly status: 'published' | 'coming-soon';
   readonly playUrl: string | null;
   /** Version web jouable/utilisable, quand elle existe. */
@@ -95,7 +102,7 @@ export const APPS: readonly AppFacts[] = [
     accentText: '#E69500', // 7.93:1 sur le fond : conforme tel quel
     family: 'game',
     schemaCategory: 'GameApplication',
-    locales: ['fr', 'en', 'de', 'fi', 'ja', 'es', 'sv', 'et', 'cs'],
+    nativeLocales: ['fr', 'en', 'de', 'fi', 'ja', 'es', 'sv', 'et', 'cs'],
     status: 'published',
     playUrl: PLAY + 'com.chocky.molkkyscore',
     webAppUrl: null,
@@ -118,7 +125,7 @@ export const APPS: readonly AppFacts[] = [
     accentText: '#4198D8',
     family: 'game',
     schemaCategory: 'GameApplication',
-    locales: CARD_GAME_LOCALES,
+    nativeLocales: CARD_GAME_LOCALES,
     status: 'published',
     playUrl: PLAY + 'com.chocky.papayoo',
     webAppUrl: null,
@@ -139,7 +146,7 @@ export const APPS: readonly AppFacts[] = [
     schemaCategory: 'BusinessApplication',
     // Français uniquement : aucun fichier .arb, et l'URSSAF est une
     // institution française. Une page localisée n'aurait aucun sens.
-    locales: ['fr'],
+    nativeLocales: ['fr'],
     status: 'published',
     playUrl: PLAY + 'com.chocky.easycompta',
     webAppUrl: 'https://easycompta.web.app',
@@ -159,7 +166,7 @@ export const APPS: readonly AppFacts[] = [
     accentText: '#12A5AA',
     family: 'utility',
     schemaCategory: 'UtilitiesApplication',
-    locales: ['fr', 'en', 'de', 'ja', 'es', 'it', 'nl', 'pt', 'sv', 'da', 'nb', 'ko'],
+    nativeLocales: ['fr', 'en', 'de', 'ja', 'es', 'it', 'nl', 'pt', 'sv', 'da', 'nb', 'ko'],
     status: 'published',
     playUrl: PLAY + 'com.chocky.scanfree',
     webAppUrl: null,
@@ -180,7 +187,7 @@ export const APPS: readonly AppFacts[] = [
     accentText: '#D4C4A8', // 11.22:1 sur le fond : conforme tel quel
     family: 'game',
     schemaCategory: 'GameApplication',
-    locales: CARD_GAME_LOCALES,
+    nativeLocales: CARD_GAME_LOCALES,
     status: 'coming-soon',
     playUrl: null,
     webAppUrl: null,
@@ -201,13 +208,21 @@ export function getApp(slug: string): AppFacts {
   return app;
 }
 
-/** Les applications disponibles dans cette locale, dans l'ordre de APPS. */
-export function appsForLocale(locale: Locale): readonly AppFacts[] {
-  return APPS.filter((app) => app.locales.includes(locale));
+/**
+ * Les applications à lister sur l'accueil et l'index, dans l'ordre de APPS.
+ *
+ * Chaque application a désormais une page dans les 18 langues (comme
+ * l'accueil) : ce filtre ne retire donc plus rien. Le paramètre est conservé
+ * pour la forme de l'appel — un jour où une app deviendrait indisponible dans
+ * une langue donnée, c'est ici que le filtre reviendrait.
+ */
+export function appsForLocale(_locale: Locale): readonly AppFacts[] {
+  return APPS;
 }
 
+/** L'application affiche-t-elle nativement son interface dans cette langue ? */
 export function appHasLocale(slug: string, locale: Locale): boolean {
-  return BY_SLUG.get(slug)?.locales.includes(locale) ?? false;
+  return BY_SLUG.get(slug)?.nativeLocales.includes(locale) ?? false;
 }
 
 /* ------------------------------------------------------------------------- *
@@ -243,23 +258,23 @@ for (const app of APPS) {
   if (seenSlugs.has(app.slug)) throw new Error(where + ' : slug en doublon.');
   seenSlugs.add(app.slug);
 
-  if (app.locales.length === 0) throw new Error(where + ' : aucune locale.');
+  if (app.nativeLocales.length === 0) throw new Error(where + ' : aucune locale.');
 
   // `fr` doit être partout : c'est la cible de x-default.
-  if (!app.locales.includes(DEFAULT_LOCALE)) {
+  if (!app.nativeLocales.includes(DEFAULT_LOCALE)) {
     throw new Error(where + ' : "' + DEFAULT_LOCALE + '" absent, or c\'est la cible de x-default.');
   }
 
-  const dupes = app.locales.filter((l, i) => app.locales.indexOf(l) !== i);
+  const dupes = app.nativeLocales.filter((l, i) => app.nativeLocales.indexOf(l) !== i);
   if (dupes.length > 0) throw new Error(where + ' : locale en doublon (' + dupes.join(', ') + ').');
 
-  for (const locale of app.locales) {
+  for (const locale of app.nativeLocales) {
     if (!isLocale(locale)) throw new Error(where + ' : locale invalide "' + locale + '".');
   }
 
   // Des captures dans une langue où la page n'existe pas seraient inatteignables.
   for (const locale of app.screenshotLocales) {
-    if (!app.locales.includes(locale)) {
+    if (!app.nativeLocales.includes(locale)) {
       throw new Error(where + ' : captures en "' + locale + '" mais la page n\'existe pas dans cette langue.');
     }
   }

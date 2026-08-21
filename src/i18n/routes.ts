@@ -135,13 +135,16 @@ export function appsIndexPaths(): LocalePaths {
 }
 
 /**
- * Une page d'application n'existe que dans les langues de l'application.
+ * Une page d'application existe dans les 18 langues, comme l'accueil — que
+ * l'application elle-même gère nativement cette langue ou non (`apps.ts`
+ * garde trace du sous-ensemble natif séparément, pour l'avis de repli et le
+ * bloc « Langue »).
  *
  * Le slug reste identique dans toutes les langues : c'est un nom de marque.
  * On ne traduit pas « papayoo ».
  */
 export function appPaths(app: AppFacts): LocalePaths {
-  return new Map(app.locales.map((locale) => [locale, `apps/${app.slug}`]));
+  return sameEverywhere(`apps/${app.slug}`);
 }
 
 /**
@@ -180,7 +183,7 @@ export function structuralUrls(): readonly ExpectedUrl[] {
     out.push({ locale, path: 'apps', kind: 'apps-index' });
   }
   for (const app of APPS) {
-    for (const locale of app.locales) {
+    for (const locale of LOCALES) {
       out.push({ locale, path: `apps/${app.slug}`, kind: 'app' });
     }
   }

@@ -26,6 +26,7 @@ const nb: UiDict = {
   'apps.version': 'Versjon',
   'apps.availableOn': 'Tilgjengelig på',
   'apps.free': 'Gratis',
+  'apps.languageFallbackNotice': 'Denne appen har ikke et {lang} grensesnitt ennå; den vises på engelsk til den er oversatt.',
 
   'cta.play': 'Last ned på Google Play',
   'cta.webApp': 'Bruk i nettleseren',

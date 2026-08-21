@@ -26,6 +26,7 @@ const ko: UiDict = {
   'apps.version': '버전',
   'apps.availableOn': '지원 플랫폼',
   'apps.free': '무료',
+  'apps.languageFallbackNotice': '이 앱은 아직 {lang} 인터페이스를 지원하지 않습니다. 번역되기 전까지는 영어로 표시됩니다.',
 
   'cta.play': 'Google Play에서 받기',
   'cta.webApp': '브라우저에서 사용하기',

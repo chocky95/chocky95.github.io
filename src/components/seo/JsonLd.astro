@@ -111,7 +111,7 @@ if (app) {
     applicationCategory: app.schemaCategory,
     ...(operatingSystem ? { operatingSystem } : {}),
     softwareVersion: app.version,
-    inLanguage: app.locales,
+    inLanguage: app.nativeLocales,
     ...(appImage ? { image: appImage } : {}),
     ...(offers ? { offers } : {}),
     ...(app.playUrl ? { downloadUrl: app.playUrl, installUrl: app.playUrl } : {}),

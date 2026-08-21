@@ -26,6 +26,7 @@ const fi: UiDict = {
   'apps.version': 'Versio',
   'apps.availableOn': 'Saatavilla',
   'apps.free': 'Ilmainen',
+  'apps.languageFallbackNotice': 'Tällä sovelluksella ei ole vielä {lang}-käyttöliittymää; se näkyy englanniksi, kunnes se on käännetty.',
 
   'cta.play': 'Lataa Google Playsta',
   'cta.webApp': 'Avaa selaimessa',
