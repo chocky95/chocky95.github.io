@@ -1,6 +1,7 @@
 ---
 import SeoHead from '~/components/seo/SeoHead.astro';
-import { FLAG, LOCALE_NAMES, localeDir, type Locale } from '~/i18n/locales';
+import { LOCALE_NAMES, localeDir, type Locale } from '~/i18n/locales';
+import { FLAG_SVG } from '~/i18n/flags';
 import { useTranslations } from '~/i18n/t';
 import { switcherLinks, type LocalePaths } from '~/i18n/routes';
 
@@ -70,7 +71,7 @@ const langs = switcherLinks(paths, locale);
           langs.length > 1 ? (
             <details class="lang-switcher">
               <summary aria-label={t('lang.choose')}>
-                <span aria-hidden="true">{FLAG[locale]}</span>
+                <span aria-hidden="true" class="lang-switcher__flag" set:html={FLAG_SVG[locale]} />
                 <span class="lang-switcher__name">{LOCALE_NAMES[locale]}</span>
               </summary>
               <ul role="list">
@@ -78,12 +79,12 @@ const langs = switcherLinks(paths, locale);
                   <li>
                     {entry.isCurrent ? (
                       <span aria-current="true" class="lang-switcher__row">
-                        <span aria-hidden="true" class="lang-switcher__flag">{FLAG[entry.locale]}</span>
+                        <span aria-hidden="true" class="lang-switcher__flag" set:html={FLAG_SVG[entry.locale]} />
                         <span class="lang-switcher__label">{LOCALE_NAMES[entry.locale]}</span>
                       </span>
                     ) : (
                       <a href={entry.href} hreflang={entry.locale} class="lang-switcher__row">
-                        <span aria-hidden="true" class="lang-switcher__flag">{FLAG[entry.locale]}</span>
+                        <span aria-hidden="true" class="lang-switcher__flag" set:html={FLAG_SVG[entry.locale]} />
                         <span class="lang-switcher__label">{LOCALE_NAMES[entry.locale]}</span>
                       </a>
                     )}
@@ -93,7 +94,7 @@ const langs = switcherLinks(paths, locale);
             </details>
           ) : (
             <span class="lang-switcher lang-switcher--static">
-              <span aria-hidden="true">{FLAG[locale]}</span>
+              <span aria-hidden="true" class="lang-switcher__flag" set:html={FLAG_SVG[locale]} />
               <span class="lang-switcher__name">{LOCALE_NAMES[locale]}</span>
             </span>
           )
@@ -179,7 +180,15 @@ const langs = switcherLinks(paths, locale);
   }
   .lang-switcher__flag {
     flex: 0 0 auto;
+    display: inline-flex;
     line-height: 1;
+  }
+  .lang-switcher__flag svg {
+    display: block;
+    inline-size: 1.15em;
+    block-size: auto;
+    border-radius: 2px;
+    box-shadow: 0 0 0 1px rgb(0 0 0 / 25%);
   }
   .lang-switcher__label {
     flex: 1 1 auto;
