@@ -3,7 +3,6 @@ import type { UiDict } from './fr';
 /** 日本語 — 第1階層。molkky-rules.ja.md の用語（ルール、モルック）に合わせている。 */
 const ja: UiDict = {
   'site.name': 'Chocky Dev',
-  'site.wordmark': 'chocky.',
   'site.tagline': '便利なアプリ、楽しいゲーム',
   'site.description':
     '2つのボードゲーム、書類スキャナー、個人事業主向け会計アプリ。すべて個人開発者が制作。',

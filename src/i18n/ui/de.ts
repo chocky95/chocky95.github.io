@@ -3,7 +3,6 @@ import type { UiDict } from './fr';
 /** Allemand — palier 1. Terminologie alignée sur molkky-rules.de.md (Regeln, Turnier). */
 const de: UiDict = {
   'site.name': 'Chocky Dev',
-  'site.wordmark': 'chocky.',
   'site.tagline': 'Nützliche Apps, lustige Spiele',
   'site.description':
     'Zwei Gesellschaftsspiele, ein Dokumentenscanner und eine Buchhaltung für Kleinunternehmer. Entwickelt von einem unabhängigen Entwickler.',

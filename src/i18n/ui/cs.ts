@@ -3,7 +3,6 @@ import type { UiDict } from './fr';
 /** Tchèque — palier 3. */
 const cs: UiDict = {
   'site.name': 'Chocky Dev',
-  'site.wordmark': 'chocky.',
   'site.tagline': 'Užitečné aplikace, zábavné hry',
   'site.description':
     'Dvě společenské hry, skener dokumentů a účetnictví pro OSVČ. Vyvinuto jedním nezávislým vývojářem.',

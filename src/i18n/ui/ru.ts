@@ -3,7 +3,6 @@ import type { UiDict } from './fr';
 /** Russe — palier 3. */
 const ru: UiDict = {
   'site.name': 'Chocky Dev',
-  'site.wordmark': 'chocky.',
   'site.tagline': 'Полезные приложения, весёлые игры',
   'site.description':
     'Две настольные игры, сканер документов и учёт для самозанятых. Разработано одним независимым разработчиком.',

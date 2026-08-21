@@ -3,7 +3,6 @@ import type { UiDict } from './fr';
 /** Polonais — palier 3. */
 const pl: UiDict = {
   'site.name': 'Chocky Dev',
-  'site.wordmark': 'chocky.',
   'site.tagline': 'Przydatne aplikacje, świetna zabawa',
   'site.description':
     'Dwie gry planszowe, skaner dokumentów i księgowość dla jednoosobowej działalności. Tworzone przez jednego niezależnego programistę.',

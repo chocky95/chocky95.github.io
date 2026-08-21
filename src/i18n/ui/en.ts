@@ -7,7 +7,6 @@ import type { UiDict } from './fr';
  */
 const en: UiDict = {
   'site.name': 'Chocky Dev',
-  'site.wordmark': 'chocky.',
   'site.tagline': 'Useful apps, fun games',
   'site.description':
     'Two board games, a document scanner and accounting for the self-employed. Built by one independent developer.',

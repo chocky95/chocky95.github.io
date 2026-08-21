@@ -3,7 +3,6 @@ import type { UiDict } from './fr';
 /** Roumain — palier 3. */
 const ro: UiDict = {
   'site.name': 'Chocky Dev',
-  'site.wordmark': 'chocky.',
   'site.tagline': 'Aplicații utile, jocuri distractive',
   'site.description':
     'Două jocuri de societate, un scanner de documente și o contabilitate pentru persoane fizice autorizate. Dezvoltate de un singur dezvoltator independent.',

@@ -3,7 +3,6 @@ import type { UiDict } from './fr';
 /** Italien — palier 2. */
 const it: UiDict = {
   'site.name': 'Chocky Dev',
-  'site.wordmark': 'chocky.',
   'site.tagline': 'App utili, giochi divertenti',
   'site.description':
     'Due giochi da tavolo, uno scanner di documenti e una contabilità per liberi professionisti. Sviluppati da uno sviluppatore indipendente.',

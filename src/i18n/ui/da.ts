@@ -3,7 +3,6 @@ import type { UiDict } from './fr';
 /** Danois — palier 3. */
 const da: UiDict = {
   'site.name': 'Chocky Dev',
-  'site.wordmark': 'chocky.',
   'site.tagline': 'Nyttige apps, sjove spil',
   'site.description':
     'To brætspil, en dokumentscanner og bogføring for selvstændige. Udviklet af én uafhængig udvikler.',

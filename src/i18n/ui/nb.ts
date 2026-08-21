@@ -3,7 +3,6 @@ import type { UiDict } from './fr';
 /** Norvégien bokmål — palier 3. */
 const nb: UiDict = {
   'site.name': 'Chocky Dev',
-  'site.wordmark': 'chocky.',
   'site.tagline': 'Nyttige apper, morsomme spill',
   'site.description':
     'To brettspill, en dokumentskanner og regnskap for enkeltpersonforetak. Utviklet av én uavhengig utvikler.',

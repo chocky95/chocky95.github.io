@@ -3,7 +3,6 @@ import type { UiDict } from './fr';
 /** Néerlandais — palier 2. */
 const nl: UiDict = {
   'site.name': 'Chocky Dev',
-  'site.wordmark': 'chocky.',
   'site.tagline': 'Handige apps, leuke spelletjes',
   'site.description':
     'Twee bordspellen, een documentenscanner en boekhouding voor zzp\'ers. Ontwikkeld door één onafhankelijke ontwikkelaar.',

@@ -3,7 +3,6 @@ import type { UiDict } from './fr';
 /** Finnois — palier 1. Terminologie alignée sur molkky-rules.fi.md (säännöt, pistelaskuri). */
 const fi: UiDict = {
   'site.name': 'Chocky Dev',
-  'site.wordmark': 'chocky.',
   'site.tagline': 'Hyödyllisiä sovelluksia, hauskoja pelejä',
   'site.description':
     'Kaksi seurapeliä, asiakirjaskanneri ja kevytyrittäjän kirjanpito. Yhden itsenäisen kehittäjän tekemiä.',

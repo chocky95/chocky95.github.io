@@ -2,7 +2,7 @@
 import SeoHead from '~/components/seo/SeoHead.astro';
 import { FLAG, LOCALE_NAMES, localeDir, type Locale } from '~/i18n/locales';
 import { useTranslations } from '~/i18n/t';
-import { href, switcherLinks, type LocalePaths } from '~/i18n/routes';
+import { switcherLinks, type LocalePaths } from '~/i18n/routes';
 
 import '~/styles/tokens.css';
 import '~/styles/global.css';
@@ -63,8 +63,6 @@ const langs = switcherLinks(paths, locale);
 
     <header class="site-header">
       <div class="wrap site-header__bar">
-        <a class="site-header__mark" href={href(locale, '')}>{t('site.wordmark')}</a>
-
         {
           // Sur une page mono-locale (EasyCompta), il n'y a rien à choisir :
           // un <details> qui ne déplie rien se comporterait comme un bouton
@@ -79,14 +77,14 @@ const langs = switcherLinks(paths, locale);
                 {langs.map((entry) => (
                   <li>
                     {entry.isCurrent ? (
-                      <span aria-current="true">
-                        <span aria-hidden="true">{FLAG[entry.locale]}</span>{' '}
-                        {LOCALE_NAMES[entry.locale]}
+                      <span aria-current="true" class="lang-switcher__row">
+                        <span aria-hidden="true" class="lang-switcher__flag">{FLAG[entry.locale]}</span>
+                        <span class="lang-switcher__label">{LOCALE_NAMES[entry.locale]}</span>
                       </span>
                     ) : (
-                      <a href={entry.href} hreflang={entry.locale}>
-                        <span aria-hidden="true">{FLAG[entry.locale]}</span>{' '}
-                        {LOCALE_NAMES[entry.locale]}
+                      <a href={entry.href} hreflang={entry.locale} class="lang-switcher__row">
+                        <span aria-hidden="true" class="lang-switcher__flag">{FLAG[entry.locale]}</span>
+                        <span class="lang-switcher__label">{LOCALE_NAMES[entry.locale]}</span>
                       </a>
                     )}
                   </li>
@@ -117,15 +115,9 @@ const langs = switcherLinks(paths, locale);
   .site-header__bar {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     gap: var(--space-2);
     padding-block: var(--space-2);
-  }
-  .site-header__mark {
-    font-size: var(--step-1);
-    font-weight: 800;
-    color: var(--text-100);
-    text-decoration: none;
   }
 
   .lang-switcher summary,
@@ -167,24 +159,36 @@ const langs = switcherLinks(paths, locale);
     margin-block-start: 0.4rem;
     padding: 0.4rem;
     max-block-size: 22rem;
-    max-inline-size: 14rem;
+    max-inline-size: 16rem;
     overflow-y: auto;
     border: 1px solid var(--glass-border);
     border-radius: var(--radius);
     background: var(--ink-700);
     box-shadow: 0 20px 40px -20px rgb(0 0 0 / 60%);
   }
-  .lang-switcher li a,
-  .lang-switcher li span {
-    display: block;
+  .lang-switcher__row {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
     padding: 0.45em 0.7em;
     border-radius: 8px;
     color: var(--text-300);
     text-decoration: none;
     font-size: var(--step--1);
+    line-height: 1.2;
+  }
+  .lang-switcher__flag {
+    flex: 0 0 auto;
+    line-height: 1;
+  }
+  .lang-switcher__label {
+    flex: 1 1 auto;
+    min-inline-size: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
     white-space: nowrap;
   }
-  .lang-switcher li a:hover {
+  .lang-switcher li a.lang-switcher__row:hover {
     background: var(--glass-bg);
     color: var(--text-100);
   }

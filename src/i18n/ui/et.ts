@@ -3,7 +3,6 @@ import type { UiDict } from './fr';
 /** Estonien — palier 2. */
 const et: UiDict = {
   'site.name': 'Chocky Dev',
-  'site.wordmark': 'chocky.',
   'site.tagline': 'Kasulikud rakendused, lõbusad mängud',
   'site.description':
     'Kaks lauamängu, dokumendiskänner ja raamatupidamine FIE-le. Ühe sõltumatu arendaja looming.',

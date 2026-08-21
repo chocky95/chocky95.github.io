@@ -3,7 +3,6 @@ import type { UiDict } from './fr';
 /** Portugais (Portugal) — palier 2. */
 const pt: UiDict = {
   'site.name': 'Chocky Dev',
-  'site.wordmark': 'chocky.',
   'site.tagline': 'Aplicações úteis, jogos divertidos',
   'site.description':
     'Dois jogos de tabuleiro, um scanner de documentos e uma contabilidade para trabalhadores independentes. Desenvolvidos por um único programador independente.',

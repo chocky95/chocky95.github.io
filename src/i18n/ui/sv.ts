@@ -3,7 +3,6 @@ import type { UiDict } from './fr';
 /** Suédois — palier 2. Terminologie alignée sur molkky-rules.sv.md (regler, kägla). */
 const sv: UiDict = {
   'site.name': 'Chocky Dev',
-  'site.wordmark': 'chocky.',
   'site.tagline': 'Användbara appar, roliga spel',
   'site.description':
     'Två sällskapsspel, en dokumentskanner och bokföring för enskild firma. Utvecklade av en oberoende utvecklare.',

@@ -11,7 +11,6 @@
 const fr = {
   // Marque
   'site.name': 'Chocky Dev',
-  'site.wordmark': 'chocky.',
   'site.tagline': 'Des applis utiles, des jeux Fun',
   'site.description':
     'Deux jeux de société, un scanner de documents et une comptabilité de micro-entrepreneur. Développés par un seul développeur indépendant.',

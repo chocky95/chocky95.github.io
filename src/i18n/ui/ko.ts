@@ -3,7 +3,6 @@ import type { UiDict } from './fr';
 /** 한국어 — 3단계. */
 const ko: UiDict = {
   'site.name': 'Chocky Dev',
-  'site.wordmark': 'chocky.',
   'site.tagline': '유용한 앱, 재미있는 게임',
   'site.description':
     '보드게임 두 종, 문서 스캐너, 개인사업자를 위한 회계 앱. 독립 개발자 한 명이 만들었습니다.',
