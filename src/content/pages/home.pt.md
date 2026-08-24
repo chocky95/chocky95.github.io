@@ -2,24 +2,25 @@
 title: 'Chocky Dev: cinco aplicações Android gratuitas'
 metaDescription: >-
   Dois jogos de cartas, um contador de pontos de Mölkky, um digitalizador de
-  documentos e uma contabilidade para trabalhadores independentes. Sem subscrição.
+  documentos e uma contabilidade para independentes. Todas gratuitas, em Android.
 h1: 'Chocky Dev: aplicações úteis e jogos, feitos por uma única pessoa'
 lead: >-
   A Chocky Dev desenvolve cinco aplicações Android: dois jogos de cartas, um
   contador de pontos para o Mölkky, um digitalizador de documentos e uma
-  contabilidade para trabalhadores independentes. Nenhuma funciona por
-  subscrição. Cada uma faz uma coisa e fá-la até ao fim — é o que se pode dar ao
+  contabilidade para trabalhadores independentes. Descarregam-se todas
+  gratuitamente. Cada uma faz uma coisa e fá-la até ao fim — é o que se pode dar ao
   luxo de fazer quem desenvolve sozinho, sem seguir o roteiro de ninguém.
 translationStatus: authored
 updatedOn: 2026-08-24
 faq:
   - q: As aplicações da Chocky Dev são gratuitas?
     a: >-
-      Todas se descarregam gratuitamente e nenhuma funciona por subscrição. O
-      Mölkky Score e o EasyCompta são simplesmente gratuitos. O ScanFree
-      financia-se com um vídeo recompensado no momento da exportação, que pode
-      ver ou saltar. O Papayoo financia-se com publicidade, e um Premium de
-      compra única — não uma subscrição — remove-a.
+      Todas se descarregam gratuitamente. O Mölkky Score é simplesmente
+      gratuito. O ScanFree também, financiado por um vídeo recompensado no
+      momento da exportação e sem qualquer versão paga. O Papayoo financia-se com
+      publicidade, e um Premium de compra única remove-a. O EasyCompta é o único
+      com subscrição, e ela cobre apenas as análises avançadas e as exportações:
+      manter o livro de receitas continua gratuito e sem limite.
   - q: É preciso criar uma conta para as usar?
     a: >-
       Não para o Mölkky Score, o ScanFree e o EasyCompta: funcionam sem registo e
@@ -66,8 +67,14 @@ Uma versão web gratuita permite experimentar sem instalar nada.
 
 ## O que não muda de uma aplicação para outra
 
-Nunca uma subscrição. Os dados ficam no aparelho sempre que é possível — o que
-acontece em quatro das cinco aplicações; a quinta só sai do telefone para as
-partidas online. E o âmbito de cada uma mantém-se deliberadamente estreito: um
-contador de pontos não se transforma numa rede social, e um digitalizador não se
-transforma num serviço na nuvem.
+Quatro das cinco aplicações não têm subscrição nenhuma: o Mölkky Score e o
+ScanFree são gratuitos, e o Papayoo e o Mojogo desbloqueiam-se com uma compra
+única. O EasyCompta é o único a propor uma, e apenas para as suas análises
+avançadas e exportações — manter o livro de receitas continua gratuito e sem
+limite.
+
+Os dados ficam no aparelho sempre que é possível — o que acontece em quatro das
+cinco aplicações; a quinta só sai do telefone para as partidas online. E o
+âmbito de cada uma mantém-se deliberadamente estreito: um contador de pontos não
+se transforma numa rede social, e um digitalizador não se transforma num serviço
+na nuvem.

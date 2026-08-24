@@ -2,23 +2,24 @@
 title: 'Chocky Dev: viisi ilmaista Android-sovellusta'
 metaDescription: >-
   Kaksi korttipeliä, mölkyn pisteenlaskuri, dokumenttiskanneri ja kirjanpito
-  yksinyrittäjälle. Kaikki ilmaisia, yksikään ei toimi tilauksella.
+  yksinyrittäjälle. Kaikki ilmaisia ladata, Android-laitteille.
 h1: 'Chocky Dev: hyödyllisiä sovelluksia ja pelejä, yhden kehittäjän tekemiä'
 lead: >-
   Chocky Dev tekee viisi Android-sovellusta: kaksi korttipeliä, mölkyn
-  pisteenlaskurin, dokumenttiskannerin ja kirjanpidon yksinyrittäjälle. Yksikään
-  ei toimi tilauksella. Jokainen tekee yhden asian ja tekee sen loppuun asti —
+  pisteenlaskurin, dokumenttiskannerin ja kirjanpidon yksinyrittäjälle. Kaikki
+  ovat ilmaisia ladata. Jokainen tekee yhden asian ja tekee sen loppuun asti —
   siihen on varaa, kun kehittää yksin eikä seuraa kenenkään muun tiekarttaa.
 translationStatus: authored
 updatedOn: 2026-08-24
 faq:
   - q: Ovatko Chocky Devin sovellukset ilmaisia?
     a: >-
-      Kaikki ovat ilmaisia ladata, eikä yksikään toimi tilauksella. Mölkky Score
-      ja EasyCompta ovat yksinkertaisesti ilmaisia. ScanFree rahoittuu
-      palkintovideolla vientihetkellä, jonka voit katsoa tai ohittaa. Papayoo
-      rahoittuu mainoksilla, ja kertaostoksena saatava Premium — ei tilaus —
-      poistaa ne.
+      Kaikki ovat ilmaisia ladata. Mölkky Score on yksinkertaisesti ilmainen.
+      Samoin ScanFree, joka rahoittuu palkintovideolla vientihetkellä eikä sillä
+      ole lainkaan maksullista versiota. Papayoo rahoittuu mainoksilla, ja
+      kertaostoksena saatava Premium poistaa ne. EasyCompta on ainoa, jossa on
+      tilaus, ja se kattaa vain edistyneet analyysit ja viennit: tulokirjan
+      pitäminen itsessään pysyy ilmaisena ja rajoittamattomana.
   - q: Tarvitsenko tilin niiden käyttöön?
     a: >-
       Et Mölkky Scoreen, ScanFreeen tai EasyComptaan: ne toimivat ilman
@@ -66,8 +67,12 @@ kokeilla ilman asennusta.
 
 ## Mikä pysyy samana kaikissa viidessä
 
-Ei koskaan tilausmaksua. Tiedot pysyvät laitteella aina kun se on mahdollista —
-mikä koskee neljää viidestä sovelluksesta; viides poistuu puhelimesta vain
-verkkopelien vuoksi. Ja jokaisen sovelluksen laajuus pysyy tarkoituksella
-suppeana: pisteenlaskurista ei tule sosiaalista verkostoa eikä skannerista
-pilvipalvelua.
+Neljässä viidestä sovelluksesta ei ole lainkaan tilausta: Mölkky Score ja
+ScanFree ovat ilmaisia, Papayoo ja Mojogo avautuvat kertaostoksella. EasyCompta
+on ainoa, joka tarjoaa tilauksen, ja vain edistyneisiin analyyseihin ja
+vienteihin — tulokirjan pitäminen pysyy ilmaisena ja rajoittamattomana.
+
+Tiedot pysyvät laitteella aina kun se on mahdollista — mikä koskee neljää
+viidestä sovelluksesta; viides poistuu puhelimesta vain verkkopelien vuoksi. Ja
+jokaisen sovelluksen laajuus pysyy tarkoituksella suppeana: pisteenlaskurista ei
+tule sosiaalista verkostoa eikä skannerista pilvipalvelua.

@@ -2,23 +2,24 @@
 title: 'Chocky Dev: pět bezplatných aplikací pro Android'
 metaDescription: >-
   Dvě karetní hry, počítadlo bodů pro Mölkky, skener dokumentů a účetnictví pro
-  samostatně podnikající. Všechny zdarma, žádná na předplatné.
+  samostatně podnikající. Všechny zdarma ke stažení, pro Android.
 h1: 'Chocky Dev: užitečné aplikace a hry, které vyvíjí jeden člověk'
 lead: >-
   Chocky Dev vyvíjí pět aplikací pro Android: dvě karetní hry, počítadlo bodů pro
-  Mölkky, skener dokumentů a účetnictví pro samostatně podnikající. Žádná
-  nefunguje na předplatné. Každá dělá jednu věc a dovede ji do konce — to si může
+  Mölkky, skener dokumentů a účetnictví pro samostatně podnikající. Všechny se
+  dají stáhnout zdarma. Každá dělá jednu věc a dovede ji do konce — to si může
   dovolit ten, kdo vyvíjí sám a nemusí plnit cizí plán.
 translationStatus: authored
 updatedOn: 2026-08-24
 faq:
   - q: Jsou aplikace Chocky Dev zdarma?
     a: >-
-      Všechny se dají stáhnout bezplatně a žádná nefunguje na předplatné. Mölkky
-      Score a EasyCompta jsou prostě zdarma. ScanFree se financuje odměnovým
-      videem ve chvíli exportu, které si můžete pustit nebo přeskočit. Papayoo se
-      financuje reklamou a Premium v jednorázovém nákupu — nikoli předplatné —
-      ji odstraní.
+      Všechny se dají stáhnout bezplatně. Mölkky Score je prostě zdarma. Stejně
+      tak ScanFree, financovaný odměnovým videem ve chvíli exportu a bez jakékoli
+      placené verze. Papayoo se financuje reklamou a Premium v jednorázovém
+      nákupu ji odstraní. EasyCompta je jediná s předplatným, a to se týká jen
+      pokročilých analýz a exportů: vedení knihy příjmů zůstává zdarma a bez
+      omezení.
   - q: Potřebuji k jejich používání účet?
     a: >-
       U Mölkky Score, ScanFree a EasyCompta nikoli: fungují bez registrace a
@@ -65,7 +66,12 @@ vyzkoušet ji bez instalace.
 
 ## Co se u všech pěti nemění
 
-Nikdy žádné předplatné. Data zůstávají v zařízení všude, kde to jde — což platí
-pro čtyři aplikace z pěti; pátá opouští telefon jen kvůli hře po síti. A záběr
-každé z nich zůstává záměrně úzký: z počítadla bodů se nestane sociální síť a ze
-skeneru cloudová služba.
+Čtyři aplikace z pěti nemají žádné předplatné: Mölkky Score a ScanFree jsou
+zdarma, Papayoo a Mojogo odemkne jednorázový nákup. EasyCompta je jediná, která
+předplatné nabízí, a to jen pro pokročilé analýzy a exporty — vedení knihy
+příjmů zůstává zdarma a bez omezení.
+
+Data zůstávají v zařízení všude, kde to jde — což platí pro čtyři aplikace z
+pěti; pátá opouští telefon jen kvůli hře po síti. A záběr každé z nich zůstává
+záměrně úzký: z počítadla bodů se nestane sociální síť a ze skeneru cloudová
+služba.

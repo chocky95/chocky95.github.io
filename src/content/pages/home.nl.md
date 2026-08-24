@@ -2,12 +2,12 @@
 title: 'Chocky Dev: vijf gratis Android-apps'
 metaDescription: >-
   Twee kaartspellen, een puntenteller voor Mölkky, een documentscanner en een
-  boekhouding voor zzp'ers. Allemaal gratis, geen enkele met abonnement.
+  boekhouding voor zzp'ers. Allemaal gratis te downloaden, voor Android.
 h1: 'Chocky Dev: nuttige apps en spellen, gemaakt door één ontwikkelaar'
 lead: >-
   Chocky Dev maakt vijf Android-apps: twee kaartspellen, een puntenteller voor
-  Mölkky, een documentscanner en een boekhouding voor zelfstandigen. Geen enkele
-  werkt met een abonnement. Elke app doet één ding en doet dat helemaal af — dat
+  Mölkky, een documentscanner en een boekhouding voor zelfstandigen. Ze zijn
+  allemaal gratis te downloaden. Elke app doet één ding en doet dat helemaal af — dat
   kun je je veroorloven als je alleen ontwikkelt en niemands routekaart hoeft te
   volgen.
 translationStatus: authored
@@ -15,11 +15,12 @@ updatedOn: 2026-08-24
 faq:
   - q: Zijn de apps van Chocky Dev gratis?
     a: >-
-      Ze zijn allemaal gratis te downloaden en geen enkele werkt met een
-      abonnement. Mölkky Score en EasyCompta zijn simpelweg gratis. ScanFree
-      wordt gefinancierd met een beloningsvideo bij het exporteren, die je kunt
-      bekijken of overslaan. Papayoo wordt gefinancierd met advertenties, en een
-      Premium met eenmalige aankoop — geen abonnement — haalt ze weg.
+      Ze zijn allemaal gratis te downloaden. Mölkky Score is simpelweg gratis.
+      ScanFree ook, gefinancierd met een beloningsvideo bij het exporteren en
+      zonder enige betaalde versie. Papayoo wordt gefinancierd met advertenties,
+      en een Premium met eenmalige aankoop haalt ze weg. EasyCompta is de enige
+      met een abonnement, en dat betreft alleen de geavanceerde analyses en de
+      exports: het inkomstenboek bijhouden blijft gratis en zonder limiet.
   - q: Heb ik een account nodig om ze te gebruiken?
     a: >-
       Niet voor Mölkky Score, ScanFree en EasyCompta: die werken zonder
@@ -67,7 +68,13 @@ server. Met een gratis webversie probeer je het zonder iets te installeren.
 
 ## Wat bij alle vijf hetzelfde blijft
 
-Nooit een abonnement. Gegevens blijven op het toestel waar dat kan — dat geldt
-voor vier van de vijf apps; de vijfde verlaat de telefoon alleen voor online
-partijen. En de omvang van elke app blijft bewust klein: een puntenteller wordt
-geen sociaal netwerk, en een scanner wordt geen clouddienst.
+Vier van de vijf apps hebben helemaal geen abonnement: Mölkky Score en ScanFree
+zijn gratis, en Papayoo en Mojogo worden ontgrendeld met een eenmalige aankoop.
+EasyCompta is de enige die er een aanbiedt, en alleen voor de geavanceerde
+analyses en de exports — het inkomstenboek bijhouden blijft gratis en zonder
+limiet.
+
+Gegevens blijven op het toestel waar dat kan — dat geldt voor vier van de vijf
+apps; de vijfde verlaat de telefoon alleen voor online partijen. En de omvang
+van elke app blijft bewust klein: een puntenteller wordt geen sociaal netwerk,
+en een scanner wordt geen clouddienst.

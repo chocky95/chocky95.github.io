@@ -2,12 +2,12 @@
 title: 'Chocky Dev: pięć darmowych aplikacji na Androida'
 metaDescription: >-
   Dwie gry karciane, licznik punktów do Mölkky, skaner dokumentów i księgowość
-  dla samozatrudnionych. Wszystkie darmowe, żadna w abonamencie.
+  dla samozatrudnionych. Wszystkie darmowe do pobrania, na Androida.
 h1: 'Chocky Dev: przydatne aplikacje i gry, tworzone przez jedną osobę'
 lead: >-
   Chocky Dev tworzy pięć aplikacji na Androida: dwie gry karciane, licznik
   punktów do Mölkky, skaner dokumentów i księgowość dla osób pracujących na
-  własny rachunek. Żadna nie działa w abonamencie. Każda robi jedną rzecz i robi
+  własny rachunek. Wszystkie można pobrać bezpłatnie. Każda robi jedną rzecz i robi
   ją do końca — na to może sobie pozwolić ktoś, kto tworzy sam i nie musi
   realizować niczyjego planu.
 translationStatus: authored
@@ -15,11 +15,12 @@ updatedOn: 2026-08-24
 faq:
   - q: Czy aplikacje Chocky Dev są darmowe?
     a: >-
-      Wszystkie można pobrać bezpłatnie i żadna nie działa w abonamencie. Mölkky
-      Score i EasyCompta są po prostu darmowe. ScanFree finansuje się filmem z
-      nagrodą w momencie eksportu, który można obejrzeć albo pominąć. Papayoo
-      finansuje się reklamami, a Premium w jednorazowym zakupie — nie abonament —
-      je usuwa.
+      Wszystkie można pobrać bezpłatnie. Mölkky Score jest po prostu darmowy.
+      ScanFree również, finansowany filmem z nagrodą w momencie eksportu i bez
+      żadnej wersji płatnej. Papayoo finansuje się reklamami, a Premium w
+      jednorazowym zakupie je usuwa. EasyCompta jest jedyną aplikacją z
+      abonamentem, i obejmuje on wyłącznie zaawansowane analizy oraz eksporty:
+      prowadzenie księgi przychodów pozostaje darmowe i bez ograniczeń.
   - q: Czy potrzebuję konta, aby z nich korzystać?
     a: >-
       Nie w przypadku Mölkky Score, ScanFree i EasyCompta: działają bez
@@ -66,7 +67,12 @@ przeglądarkowa pozwala spróbować bez instalowania czegokolwiek.
 
 ## Co nie zmienia się w żadnej z pięciu
 
-Nigdy abonament. Dane zostają na urządzeniu wszędzie, gdzie to możliwe — dotyczy
-to czterech z pięciu aplikacji; piąta opuszcza telefon tylko na potrzeby gry
-online. A zakres każdej pozostaje celowo wąski: licznik punktów nie zamienia się
-w sieć społecznościową, a skaner nie zamienia się w usługę chmurową.
+Cztery z pięciu aplikacji nie mają żadnego abonamentu: Mölkky Score i ScanFree
+są darmowe, a Papayoo i Mojogo odblokowuje jednorazowy zakup. EasyCompta jest
+jedyną, która go proponuje, i tylko dla zaawansowanych analiz oraz eksportów —
+prowadzenie księgi przychodów pozostaje darmowe i bez ograniczeń.
+
+Dane zostają na urządzeniu wszędzie, gdzie to możliwe — dotyczy to czterech z
+pięciu aplikacji; piąta opuszcza telefon tylko na potrzeby gry online. A zakres
+każdej pozostaje celowo wąski: licznik punktów nie zamienia się w sieć
+społecznościową, a skaner nie zamienia się w usługę chmurową.

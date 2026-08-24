@@ -2,12 +2,12 @@
 title: 'Chocky Dev: five free Android apps'
 metaDescription: >-
   Two card games, a Mölkky score keeper, a document scanner and accounting for
-  the self-employed. All free to download, none of them by subscription.
+  the self-employed. All of them free to download, on Android.
 h1: 'Chocky Dev: useful apps and games, built by one independent developer'
 lead: >-
   Chocky Dev makes five Android apps: two card games, a score keeper for Mölkky,
-  a document scanner, and accounting for the self-employed. None of them runs on
-  a subscription. Each does one thing and does it all the way through — which is
+  a document scanner, and accounting for the self-employed. All of them are free
+  to download. Each does one thing and does it all the way through — which is
   what you can afford when you build alone, with nobody else's roadmap to
   follow.
 translationStatus: authored
@@ -15,11 +15,12 @@ updatedOn: 2026-08-24
 faq:
   - q: Are the Chocky Dev apps free?
     a: >-
-      All of them are free to download and none of them works by subscription.
-      Mölkky Score and EasyCompta are simply free. ScanFree is funded by a
-      rewarded video at export time, which you may watch or skip. Papayoo is
-      ad-funded, with a one-time Premium purchase — not a subscription — that
-      removes the ads.
+      All of them are free to download. Mölkky Score is simply free. So is
+      ScanFree, funded by a rewarded video at export time, with no paid version
+      at all. Papayoo is ad-funded, with a one-time Premium purchase that
+      removes the ads. EasyCompta is the only one with a subscription, and it
+      covers only the advanced analytics and exports: keeping the income ledger
+      itself stays free and unlimited.
   - q: Do I need an account to use them?
     a: >-
       Not for Mölkky Score, ScanFree or EasyCompta: they work without signing up
@@ -67,7 +68,12 @@ version lets you try it without installing anything.
 
 ## What stays the same across all five
 
-No subscriptions, ever. Data stays on the device wherever that is possible,
-which covers four of the five apps — the fifth only leaves the phone for online
-matches. And each app's scope stays deliberately narrow: a score keeper does not
-grow into a social network, and a scanner does not grow into a cloud service.
+Four of the five apps have no subscription at all: Mölkky Score and ScanFree are
+free, and Papayoo and Mojogo unlock through a one-time purchase. EasyCompta is
+the only one that offers a subscription, and only for its advanced analytics and
+exports — keeping the income ledger stays free and unlimited.
+
+Data stays on the device wherever that is possible, which covers four of the
+five apps — the fifth only leaves the phone for online matches. And each app's
+scope stays deliberately narrow: a score keeper does not grow into a social
+network, and a scanner does not grow into a cloud service.
