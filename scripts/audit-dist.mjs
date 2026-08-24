@@ -399,16 +399,33 @@ async function checkSitemap(noindexUrls) {
     const p = loc.replace(SITE, '');
     if (forbidden.has(p)) fail(`Le sitemap référence une URL interdite : ${p}`);
     if (!p.endsWith('/')) fail(`Le sitemap contient une URL sans slash final : ${p}`);
-    // Sitemap et balise noindex se contredisent : scripts/prune-sitemap.mjs
+    // Sitemap et balise noindex se contredisent : scripts/finalize-sitemap.mjs
     // retire ces URL apres le build. Voir `npm run build`.
     if (noindexUrls.has(p)) fail(`Le sitemap reference une page en noindex : ${p}`);
+  }
+
+  /*
+   * `lastmod` est le seul des trois indices de sitemap que Google lit encore —
+   * `changefreq` et `priority` sont ignorés depuis des années. Sans lui, une
+   * page qu'il a déjà écartée n'a aucune raison de le faire revenir, et les
+   * demandes manuelles de Search Console sont plafonnées à une dizaine par jour.
+   *
+   * finalize-sitemap.mjs le dérive du HTML rendu. Si un type de page cesse
+   * d'émettre sa date de modification, c'est ici que ça doit casser.
+   */
+  const dated = all(xml, /<lastmod>([^<]+)<\/lastmod>/g).length;
+  if (dated !== locs.length) {
+    fail(
+      `Sitemap : ${locs.length} URL mais ${dated} lastmod. ` +
+        "Une page n'émet plus sa date de modification.",
+    );
   }
 
   const robots = await readFile(path.join(DIST, 'robots.txt'), 'utf8');
   if (!robots.includes('sitemap-index.xml')) {
     fail('robots.txt ne pointe pas vers sitemap-index.xml. Attention : /sitemap.xml renvoie 404.');
   }
-  note(`Sitemap : ${locs.length} URL.`);
+  note(`Sitemap : ${locs.length} URL, ${dated} avec lastmod.`);
 }
 
 /* ── Exécution ───────────────────────────────────────────────────────────── */

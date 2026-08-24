@@ -92,10 +92,25 @@ const usesWebFont = !CJK_LOCALES.has(locale);
 <meta property="og:image:height" content="630" />
 <meta property="og:locale" content={OG_LOCALE[locale]} />
 {ogLocaleAlternates.map((og) => <meta property="og:locale:alternate" content={og} />)}
+{/*
+  Date de modification, dans la propriété qui correspond au type.
+
+  `article:modified_time` n'existe que pour `og:type=article`. L'accueil et le
+  hub `/apps/` sont des `website` : ils recevaient `updatedOn` sans que rien ne
+  l'émette, donc la date se perdait. `og:updated_time` est la propriété Open
+  Graph prévue pour ce cas — pas une invention maison.
+
+  Ce n'est pas cosmétique : `scripts/finalize-sitemap.mjs` relit cette date dans
+  le HTML rendu pour écrire le `<lastmod>` du sitemap, et c'est ce `lastmod` qui
+  fait revenir Google sur une page qu'il a déjà écartée.
+*/}
 {
-  ogType === 'article' && updatedOn && (
-    <meta property="article:modified_time" content={updatedOn.toISOString()} />
-  )
+  updatedOn &&
+    (ogType === 'article' ? (
+      <meta property="article:modified_time" content={updatedOn.toISOString()} />
+    ) : (
+      <meta property="og:updated_time" content={updatedOn.toISOString()} />
+    ))
 }
 
 {/* Twitter / X */}
