@@ -172,3 +172,60 @@ export function toHomeView(locale: Locale, entry: PageEntry | undefined): HomeVi
     entry,
   };
 }
+
+/** Ce que le hub `/apps/` affiche, que la prose existe ou non. */
+export interface HubView {
+  readonly title: string;
+  readonly metaDescription: string;
+  readonly h1: string;
+  readonly lead: string;
+  readonly faq: readonly { q: string; a: string }[];
+  readonly updatedOn: Date | undefined;
+  /** `true` tant que le hub n'a rien à dire que l'accueil ne dise déjà. */
+  readonly noindex: boolean;
+  readonly entry: PageEntry | undefined;
+}
+
+/**
+ * Le hub `/apps/`, avec repli sur le dictionnaire d'interface.
+ *
+ * ── Pourquoi le repli est en `noindex` ───────────────────────────────────
+ * Sans prose propre, ce hub réaffiche le chapô de l'accueil et la même liste
+ * des cinq applications : une page de soixante mots, en double interne, dans
+ * les 18 langues. Search Console les écartait toutes en « Explorée,
+ * actuellement non indexée », et elle avait raison.
+ *
+ * La page redevient donc indexable exactement quand elle mérite de l'être :
+ * quand un `pages/apps.<locale>.md` existe et dit quelque chose que l'accueil
+ * ne dit pas — ici, le comparatif des cinq applications et la couverture réelle
+ * de leurs interfaces. C'est la même règle que pour les pages d'application, et
+ * elle est vérifiée par le build, pas par la bonne volonté.
+ */
+export function toHubView(locale: Locale, entry: PageEntry | undefined): HubView {
+  const t = useTranslations(locale);
+
+  if (!entry) {
+    return {
+      title: `${t('apps.all')} — ${t('site.name')}`,
+      metaDescription: `${t('apps.all')} — ${t('site.description')}`,
+      h1: t('apps.all'),
+      lead: t('site.description'),
+      faq: [],
+      updatedOn: undefined,
+      noindex: true,
+      entry: undefined,
+    };
+  }
+
+  const d = entry.data;
+  return {
+    title: d.title,
+    metaDescription: d.metaDescription,
+    h1: d.h1,
+    lead: d.lead,
+    faq: d.faq,
+    updatedOn: d.updatedOn,
+    noindex: d.noindex,
+    entry,
+  };
+}

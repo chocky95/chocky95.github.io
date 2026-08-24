@@ -1,10 +1,13 @@
 ---
 import type { GetStaticPaths } from 'astro';
+import { render } from 'astro:content';
 
+import JsonLd from '~/components/seo/JsonLd.astro';
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import { appsForLocale } from '~/data/apps';
+import { pageContent, toHubView } from '~/data/content';
 import { DEFAULT_LOCALE, LOCALES, type Locale } from '~/i18n/locales';
-import { appsIndexPaths, href } from '~/i18n/routes';
+import { absolute, appsIndexPaths, href, requireSite } from '~/i18n/routes';
 import { FAMILY_KEY, useTranslations } from '~/i18n/t';
 
 export const getStaticPaths = (() =>
@@ -19,35 +22,52 @@ interface Props {
 
 const { locale } = Astro.props;
 const t = useTranslations(locale);
+const site = requireSite(Astro.site);
 const apps = appsForLocale(locale);
 
-/*
- * Ce hub est un DOUBLON de l accueil : meme chapo, meme liste des cinq apps,
- * a un numero de version pres. Google explorait donc 18 pages de ~60 mots
+/**
+ * Ce hub etait un DOUBLON de l accueil : meme chapo, meme liste des cinq apps,
+ * a un numero de version pres. Google explorait 18 pages de ~60 mots
  * n apportant rien que l accueil n ait deja, et les classait toutes en
  * « Exploree, actuellement non indexee ».
  *
- * `noindex, follow` plutot qu une suppression : la page reste un noeud de
- * navigation reel (le fil d Ariane de chaque page d application y renvoie) et
- * `follow` laisse passer le maillage vers les cinq applications. Elle sort de
- * l index et du sitemap, sans creer 18 URL en 404.
+ * Il a donc maintenant sa propre prose, dans `pages/apps.<locale>.md`, et elle
+ * repond a une question que l accueil ne traite pas : LAQUELLE des cinq choisir,
+ * et jusqu ou l interface de chacune est reellement traduite.
  *
- * A rouvrir a l indexation le jour ou ce hub dira quelque chose que l accueil
- * ne dit pas — un comparatif, un classement par usage.
+ * Sans ce fichier, `toHubView` retombe en `noindex` — la page reste un noeud de
+ * navigation (le fil d Ariane de chaque page d application y renvoie) mais sort
+ * de l index et du sitemap. C est la meme regle que pour les pages
+ * d application : indexable quand c est merite, et le build en juge.
  */
-const NOINDEX_DUPLICATE_OF_HOME = true;
+const view = toHubView(locale, (await pageContent()).get('apps')?.get(locale));
+const Body = view.entry ? (await render(view.entry)).Content : null;
 
-const description = `${t('apps.all')} — ${t('site.description')}`;
+const canonical = absolute(locale, 'apps');
+const breadcrumbs = [
+  { name: t('nav.home'), url: absolute(locale, '') },
+  { name: t('apps.title'), url: canonical },
+];
 ---
 
 <BaseLayout
   locale={locale}
   paths={appsIndexPaths()}
   path="apps"
-  title={`${t('apps.all')} — ${t('site.name')}`}
-  description={description}
-  noindex={NOINDEX_DUPLICATE_OF_HOME}
+  title={view.title}
+  description={view.metaDescription}
+  noindex={view.noindex}
+  updatedOn={view.updatedOn}
 >
+  <JsonLd
+    locale={locale}
+    url={canonical}
+    siteUrl={site.href}
+    siteName={t('site.name')}
+    breadcrumbs={breadcrumbs}
+    faq={view.faq}
+  />
+
   <section class="wrap">
     <nav aria-label={t('breadcrumb.label')} class="crumbs">
       <a href={href(locale, '')}>{t('nav.home')}</a>
@@ -55,8 +75,8 @@ const description = `${t('apps.all')} — ${t('site.description')}`;
       <span aria-current="page">{t('apps.title')}</span>
     </nav>
 
-    <h1>{t('apps.all')}</h1>
-    <p class="lead prose">{t('site.description')}</p>
+    <h1>{view.h1}</h1>
+    <p class="lead prose">{view.lead}</p>
 
     <ul role="list" class="list">
       {
@@ -75,6 +95,24 @@ const description = `${t('apps.all')} — ${t('site.description')}`;
         ))
       }
     </ul>
+
+    {Body && <div class="prose body"><Body /></div>}
+
+    {
+      view.faq.length > 0 && (
+        <div class="faq">
+          <h2>{t('faq.title')}</h2>
+          <dl>
+            {view.faq.map((item) => (
+              <div class="qa">
+                <dt>{item.q}</dt>
+                <dd>{item.a}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      )
+    }
   </section>
 </BaseLayout>
 
@@ -129,5 +167,58 @@ const description = `${t('apps.all')} — ${t('site.description')}`;
   .meta {
     color: var(--text-500);
     font-size: var(--step--1);
+  }
+  .body,
+  .faq {
+    margin-block-start: var(--space-5);
+  }
+  .qa + .qa {
+    margin-block-start: var(--space-3);
+  }
+  .faq dl {
+    margin-block-start: var(--space-3);
+  }
+  .faq dt {
+    color: var(--text-100);
+    font-weight: 700;
+  }
+  .faq dd {
+    margin-block-start: 0.3rem;
+    margin-inline-start: 0;
+    max-inline-size: var(--measure);
+  }
+
+  .body :global(h2) {
+    margin-block-start: var(--space-4);
+  }
+  .body :global(h3) {
+    margin-block-start: var(--space-3);
+    color: var(--text-100);
+  }
+  .body :global(p),
+  .body :global(ul) {
+    margin-block-start: var(--space-2);
+  }
+  .body :global(li) {
+    margin-block-start: 0.35rem;
+  }
+  .body :global(a) {
+    color: var(--accent-text, var(--accent));
+  }
+  .body :global(table) {
+    inline-size: 100%;
+    margin-block-start: var(--space-3);
+    border-collapse: collapse;
+    font-size: var(--step--1);
+  }
+  .body :global(th),
+  .body :global(td) {
+    padding: 0.55em 0.7em;
+    border-block-end: 1px solid var(--glass-border);
+    text-align: start;
+    vertical-align: top;
+  }
+  .body :global(th) {
+    color: var(--text-100);
   }
 </style>
