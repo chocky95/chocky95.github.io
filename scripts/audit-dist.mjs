@@ -372,7 +372,7 @@ async function checkLanguageFallback() {
   }
 }
 
-async function checkSitemap() {
+async function checkSitemap(noindexUrls) {
   const xml = await readFile(path.join(DIST, 'sitemap-0.xml'), 'utf8');
   const locs = all(xml, /<loc>([^<]+)<\/loc>/g).map((m) => m[1]);
 
@@ -383,6 +383,9 @@ async function checkSitemap() {
     const p = loc.replace(SITE, '');
     if (forbidden.has(p)) fail(`Le sitemap référence une URL interdite : ${p}`);
     if (!p.endsWith('/')) fail(`Le sitemap contient une URL sans slash final : ${p}`);
+    // Sitemap et balise noindex se contredisent : scripts/prune-sitemap.mjs
+    // retire ces URL apres le build. Voir `npm run build`.
+    if (noindexUrls.has(p)) fail(`Le sitemap reference une page en noindex : ${p}`);
   }
 
   const robots = await readFile(path.join(DIST, 'robots.txt'), 'utf8');
@@ -405,15 +408,19 @@ const forbidden = buildForbiddenUrls();
 const pages = await checkInventory(expected, forbidden);
 
 let noindexCount = 0;
+const noindexUrls = new Set();
 for (const page of pages) {
   const res = await checkPage(page, expected);
-  if (res?.noindex) noindexCount += 1;
+  if (res?.noindex) {
+    noindexCount += 1;
+    noindexUrls.add(res.url);
+  }
 }
 
 await checkNoClientJs();
 await checkNamedCases();
 await checkLanguageFallback();
-await checkSitemap();
+await checkSitemap(noindexUrls);
 
 const distSize = (await Promise.all((await walk(DIST)).map((f) => stat(f)))).reduce(
   (sum, s) => sum + s.size,

@@ -13,7 +13,7 @@ const fr = {
   'site.name': 'Chocky Dev',
   'site.tagline': 'Des applis utiles, des jeux Fun',
   'site.description':
-    'Deux jeux de société, un scanner de documents et une comptabilité de micro-entrepreneur. Développés par un seul développeur indépendant.',
+    '2 jeux de société  (bientôt 3!),  un scanner de documents et une comptabilité de micro-entrepreneur.',
 
   // Navigation
   'nav.apps': 'Applications',

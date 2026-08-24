@@ -119,3 +119,56 @@ export function toAppView(
     entry,
   };
 }
+
+/** Ce que l'accueil affiche, que la prose existe ou non. */
+export interface HomeView {
+  readonly title: string;
+  readonly metaDescription: string;
+  readonly h1: string;
+  readonly lead: string;
+  readonly faq: readonly { q: string; a: string }[];
+  readonly updatedOn: Date | undefined;
+  readonly entry: PageEntry | undefined;
+}
+
+/**
+ * L'accueil d'une locale, avec repli sur le dictionnaire d'interface.
+ *
+ * ── Pourquoi l'accueil n'est JAMAIS mis en `noindex` ─────────────────────
+ * Contrairement à une page d'application, la racine d'une locale est la cible
+ * de `x-default`, du sélecteur de langue et de tout le maillage interne. La
+ * sortir de l'index couperait le cluster hreflang à sa racine. Le champ
+ * `noindex` de la collection `pages` reste donc réservé à ce pour quoi il a été
+ * écrit — mentions légales, support — et n'est pas lu ici.
+ *
+ * Le repli n'est donc pas un filet de sécurité mais un aveu : une locale sans
+ * `home.<locale>.md` sort une page indexable de ~60 mots, que Google explore
+ * puis écarte en « Explorée, actuellement non indexée ». C'est exactement le
+ * défaut que ces fichiers existent pour combler.
+ */
+export function toHomeView(locale: Locale, entry: PageEntry | undefined): HomeView {
+  const t = useTranslations(locale);
+
+  if (!entry) {
+    return {
+      title: `${t('site.name')} — ${t('site.tagline')}`,
+      metaDescription: t('site.description'),
+      h1: t('site.tagline'),
+      lead: t('site.description'),
+      faq: [],
+      updatedOn: undefined,
+      entry: undefined,
+    };
+  }
+
+  const d = entry.data;
+  return {
+    title: d.title,
+    metaDescription: d.metaDescription,
+    h1: d.h1,
+    lead: d.lead,
+    faq: d.faq,
+    updatedOn: d.updatedOn,
+    entry,
+  };
+}

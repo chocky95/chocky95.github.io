@@ -160,7 +160,17 @@ const pages = defineCollection({
   loader: glob({ base: './src/content/pages', pattern: '**/*.md', generateId: rawId }),
   schema: z.object({
     ...seoFields,
-    slug: z.string().regex(/^[a-z0-9]+(?:[-/][a-z0-9]+)*$/),
+    /**
+     * Segment d URL, localise. ABSENT = la racine de la locale (l accueil) :
+     * c est le seul cas ou la page n a pas de segment propre, et il doit
+     * rester exprimable, sinon la prose de l accueil n aurait nulle part ou
+     * vivre — or la regle du projet interdit la prose dans les dictionnaires
+     * i18n/ui.
+     */
+    slug: z
+      .string()
+      .regex(/^[a-z0-9]+(?:[-/][a-z0-9]+)*$/)
+      .optional(),
     /** Retire la page de l'index : pages légales, support. */
     noindex: z.boolean().default(false),
     /**

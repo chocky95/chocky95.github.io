@@ -1,10 +1,13 @@
 ---
 import type { GetStaticPaths } from 'astro';
+import { render } from 'astro:content';
 
+import JsonLd from '~/components/seo/JsonLd.astro';
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import { appsForLocale } from '~/data/apps';
+import { pageContent, toHomeView } from '~/data/content';
 import { DEFAULT_LOCALE, LOCALES, type Locale } from '~/i18n/locales';
-import { href, homePaths } from '~/i18n/routes';
+import { absolute, href, homePaths, requireSite } from '~/i18n/routes';
 import { FAMILY_KEY, useTranslations } from '~/i18n/t';
 
 export const getStaticPaths = (() =>
@@ -20,22 +23,56 @@ interface Props {
 
 const { locale } = Astro.props;
 const t = useTranslations(locale);
+const site = requireSite(Astro.site);
 const apps = appsForLocale(locale);
 
-const title = `${t('site.name')} — ${t('site.tagline')}`;
+/**
+ * La prose de l'accueil vit dans `src/content/pages/home.<locale>.md`.
+ *
+ * ── Pourquoi ce fichier a change ─────────────────────────────────────────
+ * L'accueil se reduisait a un chapo et cinq noms d'application : environ 60
+ * mots, dans les 18 langues. Search Console explorait les 18 pages et les
+ * ecartait toutes en « Exploree, actuellement non indexee ». Il n'y avait rien
+ * a reparer dans le code — il manquait du contenu, et le contenu ne peut pas
+ * vivre dans `i18n/ui`, reserve aux chaines d'interface.
+ *
+ * La duplication entre langues n'est PAS le probleme : hreflang la resout, et
+ * Google ne penalise pas une traduction. C'est la minceur qui bloquait, plus la
+ * duplication INTERNE entre cet accueil et le hub `/apps/` (voir la note en
+ * tete de `apps/index.astro`).
+ */
+const view = toHomeView(locale, (await pageContent()).get('home')?.get(locale));
+const Body = view.entry ? (await render(view.entry)).Content : null;
+
+const canonical = absolute(locale, '');
 ---
 
 <BaseLayout
   locale={locale}
   paths={homePaths()}
   path=""
-  title={title}
-  description={t('site.description')}
+  title={view.title}
+  description={view.metaDescription}
+  updatedOn={view.updatedOn}
 >
+  {/*
+    `organization` est documente dans JsonLd comme « reserve a l'accueil » —
+    et l'accueil ne l'emettait pas. Organization et WebSite sont les deux
+    entites qui rattachent toutes les pages du domaine a un editeur unique.
+  */}
+  <JsonLd
+    locale={locale}
+    url={canonical}
+    siteUrl={site.href}
+    siteName={t('site.name')}
+    organization={true}
+    faq={view.faq}
+  />
+
   <section class="wrap hero">
     <p class="eyebrow">{t('site.name')}</p>
-    <h1>{t('site.tagline')}</h1>
-    <p class="lead prose">{t('site.description')}</p>
+    <h1>{view.h1}</h1>
+    <p class="lead prose">{view.lead}</p>
   </section>
 
   <section class="wrap">
@@ -56,6 +93,32 @@ const title = `${t('site.name')} — ${t('site.tagline')}`;
       }
     </ul>
   </section>
+
+  {
+    Body && (
+      <section class="wrap">
+        <div class="prose body">
+          <Body />
+        </div>
+      </section>
+    )
+  }
+
+  {
+    view.faq.length > 0 && (
+      <section class="wrap faq">
+        <h2>{t('faq.title')}</h2>
+        <dl>
+          {view.faq.map((item) => (
+            <div class="qa">
+              <dt>{item.q}</dt>
+              <dd>{item.a}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+    )
+  }
 </BaseLayout>
 
 <style>
@@ -78,7 +141,7 @@ const title = `${t('site.name')} — ${t('site.tagline')}`;
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--space-2);
-    margin-block: var(--space-3) var(--space-6);
+    margin-block: var(--space-3) 0;
   }
   .card {
     border: 1px solid var(--glass-border);
@@ -114,5 +177,46 @@ const title = `${t('site.name')} — ${t('site.tagline')}`;
     border-radius: 999px;
     font-size: var(--step--1);
     color: var(--text-500);
+  }
+
+  .body,
+  .faq {
+    margin-block-start: var(--space-5);
+  }
+  .faq:last-of-type {
+    padding-block-end: var(--space-6);
+  }
+  .qa + .qa {
+    margin-block-start: var(--space-3);
+  }
+  .faq dl {
+    margin-block-start: var(--space-3);
+  }
+  .faq dt {
+    color: var(--text-100);
+    font-weight: 700;
+  }
+  .faq dd {
+    margin-block-start: 0.3rem;
+    margin-inline-start: 0;
+    max-inline-size: var(--measure);
+  }
+
+  .body :global(h2) {
+    margin-block-start: var(--space-4);
+  }
+  .body :global(h3) {
+    margin-block-start: var(--space-3);
+    color: var(--text-100);
+  }
+  .body :global(p),
+  .body :global(ul) {
+    margin-block-start: var(--space-2);
+  }
+  .body :global(li) {
+    margin-block-start: 0.35rem;
+  }
+  .body :global(a) {
+    color: var(--accent-text, var(--accent));
   }
 </style>

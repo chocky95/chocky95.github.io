@@ -21,6 +21,22 @@ const { locale } = Astro.props;
 const t = useTranslations(locale);
 const apps = appsForLocale(locale);
 
+/*
+ * Ce hub est un DOUBLON de l accueil : meme chapo, meme liste des cinq apps,
+ * a un numero de version pres. Google explorait donc 18 pages de ~60 mots
+ * n apportant rien que l accueil n ait deja, et les classait toutes en
+ * « Exploree, actuellement non indexee ».
+ *
+ * `noindex, follow` plutot qu une suppression : la page reste un noeud de
+ * navigation reel (le fil d Ariane de chaque page d application y renvoie) et
+ * `follow` laisse passer le maillage vers les cinq applications. Elle sort de
+ * l index et du sitemap, sans creer 18 URL en 404.
+ *
+ * A rouvrir a l indexation le jour ou ce hub dira quelque chose que l accueil
+ * ne dit pas — un comparatif, un classement par usage.
+ */
+const NOINDEX_DUPLICATE_OF_HOME = true;
+
 const description = `${t('apps.all')} — ${t('site.description')}`;
 ---
 
@@ -30,6 +46,7 @@ const description = `${t('apps.all')} — ${t('site.description')}`;
   path="apps"
   title={`${t('apps.all')} — ${t('site.name')}`}
   description={description}
+  noindex={NOINDEX_DUPLICATE_OF_HOME}
 >
   <section class="wrap">
     <nav aria-label={t('breadcrumb.label')} class="crumbs">
