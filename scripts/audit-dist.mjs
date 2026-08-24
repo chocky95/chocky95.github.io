@@ -82,6 +82,22 @@ const GUIDES = {
     // Slug en ASCII pour le japonais : un slug en katakana serait
     // percent-encode dans toutes les URL, les hreflang et le sitemap.
     ja: 'molkky-rules',
+    es: 'reglas-del-molkky',
+    it: 'regole-del-molkky',
+    nl: 'molkky-regels',
+    pt: 'regras-do-molkky',
+    et: 'molkky-reeglid',
+    // da, nb et sv partagent le meme slug : les prefixes de locale suffisent
+    // a les distinguer, et c'est bien le mot que ces trois publics tapent.
+    da: 'molkky-regler',
+    nb: 'molkky-regler',
+    pl: 'zasady-molkky',
+    ro: 'reguli-molkky',
+    // Translitteres pour la meme raison que le japonais : un slug cyrillique
+    // ou hangul serait percent-encode partout.
+    ru: 'pravila-molkky',
+    ko: 'molkky-rules',
+    cs: 'pravidla-molkky',
   },
 };
 
