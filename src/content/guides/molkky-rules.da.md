@@ -1,5 +1,6 @@
 ---
 slug: molkky-regler
+navLabel: Mölkky-regler
 title: 'Mölkky-regler: at tælle point, forklaret'
 metaDescription: >-
   Formål, opstilling af de 12 kegler, pointtælling, reglen om 3 forbiere og

@@ -1,5 +1,6 @@
 ---
 slug: molkky-rules
+navLabel: Mölkky rules
 title: 'Mölkky rules: how to score, step by step'
 metaDescription: >-
   The aim, setting up the 12 pins, how scoring works, the three-miss rule and

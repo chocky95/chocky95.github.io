@@ -1,5 +1,6 @@
 ---
 slug: regras-do-molkky
+navLabel: Regras do Mölkky
 title: 'Regras do Mölkky: contar os pontos, explicado'
 metaDescription: >-
   Objectivo, colocação dos 12 pinos, contagem dos pontos, regra dos 3 falhados e

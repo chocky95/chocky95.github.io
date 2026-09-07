@@ -10,7 +10,7 @@ lead: >-
   saab tasuta alla laadida. Igaüks teeb ühte asja ja teeb selle lõpuni — seda saab
   endale lubada, kui arendad üksi ega pea järgima kellegi teise tegevuskava.
 translationStatus: authored
-updatedOn: 2026-08-24
+updatedOn: 2026-09-07
 faq:
   - q: Kas Chocky Devi rakendused on tasuta?
     a: >-

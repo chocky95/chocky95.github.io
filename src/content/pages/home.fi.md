@@ -10,7 +10,7 @@ lead: >-
   ovat ilmaisia ladata. Jokainen tekee yhden asian ja tekee sen loppuun asti —
   siihen on varaa, kun kehittää yksin eikä seuraa kenenkään muun tiekarttaa.
 translationStatus: authored
-updatedOn: 2026-08-24
+updatedOn: 2026-09-07
 faq:
   - q: Ovatko Chocky Devin sovellukset ilmaisia?
     a: >-

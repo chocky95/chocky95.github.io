@@ -11,7 +11,7 @@ lead: >-
   Ende — das kann man sich erlauben, wenn man allein entwickelt und keiner
   fremden Roadmap folgen muss.
 translationStatus: authored
-updatedOn: 2026-08-24
+updatedOn: 2026-09-07
 faq:
   - q: Sind die Apps von Chocky Dev kostenlos?
     a: >-

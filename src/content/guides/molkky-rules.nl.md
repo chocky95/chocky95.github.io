@@ -1,5 +1,6 @@
 ---
 slug: molkky-regels
+navLabel: Mölkky-regels
 title: 'Mölkky-regels: punten tellen, uitgelegd'
 metaDescription: >-
   Doel, opstelling van de 12 kegels, punten tellen, de regel van 3 missers en

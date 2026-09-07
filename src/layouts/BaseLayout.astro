@@ -1,5 +1,6 @@
 ---
 import SeoHead from '~/components/seo/SeoHead.astro';
+import SiteFooter from '~/components/SiteFooter.astro';
 import { LOCALE_NAMES, localeDir, type Locale } from '~/i18n/locales';
 import { FLAG_SVG } from '~/i18n/flags';
 import { useTranslations } from '~/i18n/t';
@@ -105,7 +106,13 @@ const langs = switcherLinks(paths, locale);
     <main id="main">
       <slot />
     </main>
-    <slot name="footer" />
+    {/*
+      Contenu de repli du slot : les 4 routes le laissent vide, elles reçoivent
+      donc toutes le pied de page. Le slot NOMMÉ est conservé plutôt que
+      supprimé — une page qui aurait besoin d'un autre pied de page peut encore
+      le fournir, sans toucher au layout.
+    */}
+    <slot name="footer"><SiteFooter locale={locale} path={seo.path} /></slot>
   </body>
 </html>
 

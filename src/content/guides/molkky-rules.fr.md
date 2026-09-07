@@ -1,5 +1,6 @@
 ---
 slug: regles-du-molkky
+navLabel: Règles du Mölkky
 title: 'Règles du Mölkky : compter les points, expliqué'
 metaDescription: >-
   But du jeu, mise en place des 12 quilles, comptage des points, règle des 3

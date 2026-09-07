@@ -1,5 +1,6 @@
 ---
 slug: reguli-molkky
+navLabel: Regulile Mölkky
 title: 'Regulile Mölkky: numărarea punctelor, explicată'
 metaDescription: >-
   Scopul jocului, așezarea celor 12 popice, numărarea punctelor, regula celor 3

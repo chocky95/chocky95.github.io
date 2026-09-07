@@ -11,7 +11,7 @@ lead: >-
   kun je je veroorloven als je alleen ontwikkelt en niemands routekaart hoeft te
   volgen.
 translationStatus: authored
-updatedOn: 2026-08-24
+updatedOn: 2026-09-07
 faq:
   - q: Zijn de apps van Chocky Dev gratis?
     a: >-

@@ -1,5 +1,6 @@
 ---
 slug: molkky-rules
+navLabel: 뫼르키 규칙
 title: '뫼르키 규칙: 점수 계산법 설명'
 metaDescription: >-
   게임의 목표, 열두 개 핀의 배치, 점수 계산, 세 번 연속 빗나감 규칙과 25점으로의 하락. 뫼르키의 모든 규칙을 숫자 예시와 함께

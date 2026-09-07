@@ -19,7 +19,7 @@ export const HREFLANG = /** @type {const} */ ({
 /*
  * Domaine du site.
  *
- * Cette constante pilote a elle seule les 94 canonicals, tous les clusters
+ * Cette constante pilote a elle seule les 144 canonicals, tous les clusters
  * hreflang, le sitemap et le Sitemap: de robots.txt. C'est pourquoi elle est
  * declaree ici plutot que semee dans les composants.
  *
@@ -136,18 +136,35 @@ export default defineConfig({
 
   integrations: [
     sitemap({
+      /*
+       * Le mode i18n est conserve, mais sa sortie n'est PAS celle qui part en
+       * production : scripts/finalize-sitemap.mjs reecrit les `xhtml:link` de
+       * chaque bloc depuis le HTML rendu.
+       *
+       * Pourquoi les reecrire : ce mode regroupe les alternates par substitution
+       * du prefixe de locale, ce qui ne peut structurellement pas relier
+       * /regles-du-molkky/ a /fi/molkky-saannot/. Il avait raison sur les 126
+       * pages a chemin invariant, tort sur les 18 guides a slug localise — 12
+       * blocs sans aucun alternate, 6 avec un faux cluster de 3.
+       *
+       * Pourquoi le garder quand meme : ses 126 clusters justes, calcules
+       * autrement, servent de second avis au script de finalisation, qui
+       * journalise l'ecart. Et si la finalisation venait a ne pas tourner, le
+       * sitemap partirait partiellement juste plutot que totalement depourvu de
+       * hreflang.
+       *
+       * `changefreq` et `priority` : VOLONTAIREMENT ABSENTS. Google les ignore
+       * depuis des annees — c'est `lastmod`, ecrit par la finalisation, qu'il lit
+       * — et un `priority: 0.7` identique sur 143 pages sur 144 n'informe
+       * personne, tandis qu'un `changefreq: monthly` repete 144 fois est une
+       * affirmation que le site ne tient pas. audit-dist.mjs echoue si l'un des
+       * deux reapparait.
+       *
+       * `serialize` : VOLONTAIREMENT ABSENT. Il n'existait que pour ajouter le
+       * x-default que le plugin n'emet pas ; ce x-default vient desormais du
+       * HTML, ou `alternates()` (src/i18n/routes.ts) en garantit l'unicite.
+       */
       i18n: { defaultLocale: 'fr', locales: HREFLANG },
-      changefreq: 'monthly',
-      priority: 0.7,
-      serialize(item) {
-        // @astrojs/sitemap emet les xhtml:link alternates mais PAS x-default.
-        if (item.links?.length) {
-          const fr = item.links.find((l) => l.lang === 'fr');
-          if (fr) item.links = [...item.links, { lang: 'x-default', url: fr.url }];
-        }
-        if (item.url === `${SITE}/`) item.priority = 1.0;
-        return item;
-      },
     }),
   ],
 });

@@ -1,5 +1,6 @@
 ---
 slug: pravidla-molkky
+navLabel: Pravidla Mölkky
 title: 'Pravidla Mölkky: počítání bodů, vysvětleno'
 metaDescription: >-
   Cíl hry, postavení 12 kolků, počítání bodů, pravidlo 3 minutí a návrat na 25:

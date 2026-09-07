@@ -1,5 +1,6 @@
 ---
 slug: molkky-regler
+navLabel: Mölkky-regler
 title: 'Mölkky-regler: å telle poeng, forklart'
 metaDescription: >-
   Mål, oppstilling av de 12 kjeglene, poengtelling, regelen om 3 bom og fall

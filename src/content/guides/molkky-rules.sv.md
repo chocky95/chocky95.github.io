@@ -1,5 +1,6 @@
 ---
 slug: molkky-regler
+navLabel: Mölkky-regler
 title: 'Mölkky-regler: så räknar du poäng'
 metaDescription: >-
   Spelets mål, uppställning av de 12 käglorna, poängräkning, regeln om tre

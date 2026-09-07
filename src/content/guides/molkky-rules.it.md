@@ -1,5 +1,6 @@
 ---
 slug: regole-del-molkky
+navLabel: Regole del Mölkky
 title: 'Regole del Mölkky: contare i punti, spiegato'
 metaDescription: >-
   Scopo, disposizione dei 12 birilli, conteggio dei punti, regola dei 3 errori e

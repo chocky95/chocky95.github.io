@@ -11,7 +11,7 @@ lead: >-
   la fait complètement — c'est ce qu'on peut se permettre en développant seul,
   sans feuille de route imposée par personne.
 translationStatus: authored
-updatedOn: 2026-08-24
+updatedOn: 2026-09-07
 faq:
   - q: Les applications de Chocky Dev sont-elles gratuites ?
     a: >-

@@ -1,0 +1,173 @@
+---
+/**
+ * Pied de page — présent sur les 144 pages, via le slot `footer` de BaseLayout.
+ *
+ * ── Pourquoi il existe ─────────────────────────────────────────────────────
+ * C'est le seul bloc du site qui mette CHAQUE page d'une langue à un clic de
+ * toutes les autres pages de la même langue. Avant lui, les 18 hubs `/apps/` et
+ * les 18 guides étaient des culs-de-sac : leur prose ne contient aucun lien
+ * interne, et l'accueil ne désignait ni les hubs, ni 12 des 18 guides. Search
+ * Console écartait ces pages en « Détectée, actuellement non indexée » : elle
+ * connaissait les URL par le sitemap et ne les explorait jamais.
+ *
+ * Trois règles, qui sont la différence entre du maillage et du boilerplate :
+ *
+ *  1. INTRA-LANGUE. Aucune liste de langues ici : le sélecteur en tête de page
+ *     la porte déjà, dérivée de la même table que les hreflang. La dupliquer
+ *     ajouterait 18 liens de gabarit à 144 pages sans rien apprendre à personne.
+ *  2. DES LIENS, PAS DE LA PROSE. Les descriptions des guides restent sur
+ *     l'accueil, où elles ne paraissent qu'une fois par langue. Répétées ici,
+ *     elles seraient la seule vraie duplication de texte du site.
+ *  3. PAS D'AUTO-LIEN. La page courante s'affiche en texte, marquée
+ *     `aria-current="page"` : un lien vers soi-même n'apporte rien, et le pied
+ *     de page cesse d'être identique d'une page à l'autre.
+ *
+ * `footer.tagline`, `footer.contact`, `footer.legal` et `footer.privacy` restent
+ * volontairement inutilisées. Les deux dernières n'ont pas de cible : ces pages
+ * sont gérées hors du site, et les activer produirait 144 liens vers un 404 —
+ * `audit-dist.mjs` refuserait le build, ce qui est le comportement correct.
+ */
+import { appsForLocale } from '~/data/apps';
+import { guidesForLocale } from '~/data/content';
+import type { Locale } from '~/i18n/locales';
+import { href } from '~/i18n/routes';
+import { useTranslations } from '~/i18n/t';
+
+interface Props {
+  locale: Locale;
+  /** Chemin de la page courante, sans préfixe de locale ni slash. Cf. routes.ts. */
+  path: string;
+}
+
+const { locale, path } = Astro.props;
+const t = useTranslations(locale);
+const apps = appsForLocale(locale);
+const guides = await guidesForLocale(locale);
+---
+
+<footer class="site-footer">
+  <div class="wrap site-footer__grid">
+    <nav aria-labelledby="footer-apps">
+      <h2 id="footer-apps">{t('apps.all')}</h2>
+      <ul role="list">
+        {
+          apps.map((app) => (
+            <li>
+              {path === `apps/${app.slug}` ? (
+                <span aria-current="page">{app.name}</span>
+              ) : (
+                <a href={href(locale, `apps/${app.slug}`)}>{app.name}</a>
+              )}
+            </li>
+          ))
+        }
+        <li>
+          {
+            path === 'apps' ? (
+              <span aria-current="page">{t('nav.apps')}</span>
+            ) : (
+              <a href={href(locale, 'apps')}>{t('nav.apps')}</a>
+            )
+          }
+        </li>
+      </ul>
+    </nav>
+
+    {
+      guides.length > 0 && (
+        <nav aria-labelledby="footer-guides">
+          <h2 id="footer-guides">{t('nav.guides')}</h2>
+          <ul role="list">
+            {guides.map((guide) => (
+              <li>
+                {path === guide.slug ? (
+                  <span aria-current="page">{guide.navLabel}</span>
+                ) : (
+                  <a href={href(locale, guide.slug)}>{guide.navLabel}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )
+    }
+
+    <div class="site-footer__brand">
+      <p class="brand">
+        {
+          path === '' ? (
+            <span aria-current="page">{t('site.name')}</span>
+          ) : (
+            <a href={href(locale, '')}>{t('site.name')}</a>
+          )
+        }
+      </p>
+      <p class="rights">{t('footer.rights')}</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  /*
+   * Fond transparent, un simple filet en haut : aucune nouvelle paire de
+   * couleurs à introduire, donc rien à ajouter à check-contrast.mjs.
+   *
+   * Les liens sont en --text-300 et NON en --accent-text : sur une page
+   * d'application, l'accent de marque est injecté sur <body> ; un pied de page
+   * orange sur Mölkky Score et bleu sur Papayoo ferait passer un élément de
+   * navigation constant pour un élément de la page.
+   */
+  .site-footer {
+    margin-block-start: var(--space-6);
+    padding-block: var(--space-4) var(--space-5);
+    border-block-start: 1px solid var(--glass-border);
+    font-size: var(--step--1);
+  }
+  .site-footer__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+  @media (min-width: 48rem) {
+    .site-footer__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-3);
+    }
+  }
+
+  .site-footer h2 {
+    font-size: var(--step--1);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-500);
+  }
+  .site-footer ul {
+    display: grid;
+    gap: 0.35rem;
+    margin-block-start: var(--space-2);
+  }
+  .site-footer a {
+    color: var(--text-300);
+    text-decoration: none;
+  }
+  .site-footer a:hover {
+    color: var(--text-100);
+    text-decoration: underline;
+  }
+  .site-footer [aria-current] {
+    color: var(--text-100);
+    font-weight: 700;
+  }
+
+  .site-footer .brand a,
+  .site-footer .brand span {
+    color: var(--text-100);
+    font-size: var(--step-0);
+    font-weight: 800;
+  }
+  .site-footer .rights {
+    margin-block-start: var(--space-1);
+    color: var(--text-700);
+  }
+</style>

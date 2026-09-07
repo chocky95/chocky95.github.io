@@ -11,7 +11,7 @@ lead: >-
   gratuitamente. Cada uma faz uma coisa e fá-la até ao fim — é o que se pode dar ao
   luxo de fazer quem desenvolve sozinho, sem seguir o roteiro de ninguém.
 translationStatus: authored
-updatedOn: 2026-08-24
+updatedOn: 2026-09-07
 faq:
   - q: As aplicações da Chocky Dev são gratuitas?
     a: >-

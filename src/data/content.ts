@@ -58,6 +58,53 @@ export async function pageContent(): Promise<ReadonlyMap<string, ByLocale<PageEn
   return indexByKeyAndLocale(await getCollection('pages'), 'pages');
 }
 
+/** Un guide tel qu'on le LIE, indépendamment de la page qui le lie. */
+export interface GuideLink {
+  /** Slug localisé, prêt pour `href(locale, …)`. */
+  readonly slug: string;
+  /** Ancre longue et descriptive, pour un bloc en corps de page. */
+  readonly h1: string;
+  /** Ancre courte, pour la navigation. À défaut de `navLabel`, le titre. */
+  readonly navLabel: string;
+  readonly metaDescription: string;
+}
+
+/**
+ * Les guides existant dans cette langue, dans un ordre stable.
+ *
+ * ── Pourquoi cet accesseur existe ────────────────────────────────────────────
+ * C'est ce qui rend le maillage STRUCTUREL. Les 12 traductions du guide du
+ * Mölkky ajoutées par le commit a7fe56f n'ont jamais été rattachées à leur
+ * accueil : le lien vivait dans la prose Markdown de six `home.<locale>.md`, et
+ * personne n'a pensé à écrire les douze autres. Search Console a écarté ces
+ * pages en « Détectée, actuellement non indexée » — elles étaient à deux clics.
+ *
+ * Désormais, poser `guides/papayoo-rules.<locale>.md` publie le lien sur les 18
+ * accueils et les 144 pieds de page sans toucher un seul fichier. Le maillage
+ * est une conséquence du contenu, plus un geste à ne pas oublier.
+ */
+export async function guidesForLocale(locale: Locale): Promise<readonly GuideLink[]> {
+  const clusters = await guideContent();
+  const out: GuideLink[] = [];
+
+  // Tri par clé de cluster : l'ordre ne dépend pas de l'ordre de lecture du
+  // disque, donc deux builds successifs produisent le même HTML.
+  for (const key of [...clusters.keys()].sort()) {
+    const entry = clusters.get(key)?.get(locale);
+    if (!entry) continue;
+
+    const d = entry.data;
+    out.push({
+      slug: d.slug,
+      h1: d.h1,
+      navLabel: d.navLabel ?? d.title,
+      metaDescription: d.metaDescription,
+    });
+  }
+
+  return out;
+}
+
 /** Ce qu'une page d'application affiche, que la prose existe ou non. */
 export interface AppView {
   readonly title: string;

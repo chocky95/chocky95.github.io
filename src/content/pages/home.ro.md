@@ -11,7 +11,7 @@ lead: >-
   singur lucru și îl duce până la capăt — asta îți poți permite când dezvolți
   singur și nu urmezi foaia de drum a nimănui.
 translationStatus: authored
-updatedOn: 2026-08-24
+updatedOn: 2026-09-07
 faq:
   - q: Aplicațiile Chocky Dev sunt gratuite?
     a: >-

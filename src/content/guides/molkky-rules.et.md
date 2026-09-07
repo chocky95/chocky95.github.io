@@ -1,5 +1,6 @@
 ---
 slug: molkky-reeglid
+navLabel: Mölkky reeglid
 title: 'Mölkky reeglid: punktide lugemine, selgitatud'
 metaDescription: >-
   Mängu eesmärk, 12 kurika paigutus, punktide lugemine, kolme möödalasu reegel ja

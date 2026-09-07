@@ -1,5 +1,6 @@
 ---
 slug: molkky-regeln
+navLabel: Mölkky Regeln
 title: 'Mölkky Regeln: Punkte zählen einfach erklärt'
 metaDescription: >-
   Ziel des Spiels, Aufbau der 12 Kegel, Punkte zählen, die Drei-Fehlwürfe-Regel

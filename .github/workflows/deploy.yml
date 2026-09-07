@@ -33,6 +33,32 @@ jobs:
           package-manager: npm
           cache: true
 
+      # ── Le verrou de deploiement ─────────────────────────────────────────
+      #
+      # verify.yml ne se declenche que sur pull_request, et main est pousse en
+      # direct : l'audit n'avait donc jamais garde un seul deploiement. C'est
+      # ainsi qu'un sitemap declarant de faux hreflang sur 18 guides a pu partir
+      # en production sans que rien ne le signale. Il est donc ici, dans le job
+      # qui construit.
+      #
+      # Ces controles DOIVENT rester dans le job `build`, pas ailleurs : le job
+      # `deploy` porte `needs: build`, donc un echec ici saute le deploiement et
+      # Pages continue de servir la version precedente. Fusionner les deux jobs
+      # ferait disparaitre le verrou sans bruit.
+      #
+      # Cout : quelques secondes. L'action a deja construit dans le workspace et
+      # installe les dependances ; ces scripts relisent dist/ et src/, ils ne
+      # reconstruisent rien. L'artefact du commit fautif est televerse mais
+      # jamais deploye, ce qui est sans effet.
+      #
+      # Si une version future de l'action cessait de laisser dist/ dans le
+      # workspace, audit-dist.mjs sort en 1 : l'echec est ferme, pas silencieux.
+      - name: Garde-fous de sortie de build
+        run: |
+          npm run audit
+          npm run check:i18n
+          npm run check:contrast
+
   deploy:
     needs: build
     runs-on: ubuntu-latest

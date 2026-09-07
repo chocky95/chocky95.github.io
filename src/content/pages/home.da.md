@@ -10,7 +10,7 @@ lead: >-
   Hver app gør én ting og gør den helt færdig — det kan man tillade
   sig, når man udvikler alene og ikke skal følge nogen andens plan.
 translationStatus: authored
-updatedOn: 2026-08-24
+updatedOn: 2026-09-07
 faq:
   - q: Er Chocky Devs apps gratis?
     a: >-

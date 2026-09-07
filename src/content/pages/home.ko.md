@@ -8,7 +8,7 @@ lead: >-
   앱입니다. 모두 무료로 내려받을 수 있습니다. 하나의 일만 하고 그것을 끝까지 해냅니다 — 혼자 개발하고 남의 로드맵을 따를 필요가 없을
   때 고를 수 있는 방식입니다.
 translationStatus: authored
-updatedOn: 2026-08-24
+updatedOn: 2026-09-07
 faq:
   - q: Chocky Dev의 앱은 무료인가요?
     a: >-

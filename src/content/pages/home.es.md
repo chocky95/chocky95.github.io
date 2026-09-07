@@ -11,7 +11,7 @@ lead: >-
   hace hasta el final — eso se puede permitir quien desarrolla solo, sin seguir
   la hoja de ruta de nadie.
 translationStatus: authored
-updatedOn: 2026-08-24
+updatedOn: 2026-09-07
 faq:
   - q: ¿Las apps de Chocky Dev son gratuitas?
     a: >-

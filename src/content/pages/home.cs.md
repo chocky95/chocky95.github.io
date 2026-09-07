@@ -10,7 +10,7 @@ lead: >-
   dají stáhnout zdarma. Každá dělá jednu věc a dovede ji do konce — to si může
   dovolit ten, kdo vyvíjí sám a nemusí plnit cizí plán.
 translationStatus: authored
-updatedOn: 2026-08-24
+updatedOn: 2026-09-07
 faq:
   - q: Jsou aplikace Chocky Dev zdarma?
     a: >-

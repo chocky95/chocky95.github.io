@@ -1,5 +1,6 @@
 ---
 slug: zasady-molkky
+navLabel: Zasady Mölkky
 title: 'Zasady Mölkky: liczenie punktów, wyjaśnione'
 metaDescription: >-
   Cel gry, ustawienie 12 kręgli, liczenie punktów, zasada 3 pudeł i powrót do 25:

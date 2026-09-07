@@ -11,7 +11,7 @@ lead: >-
   fa fino in fondo — è ciò che si può permettere chi sviluppa da solo, senza la
   roadmap di nessun altro da seguire.
 translationStatus: authored
-updatedOn: 2026-08-24
+updatedOn: 2026-09-07
 faq:
   - q: Le app di Chocky Dev sono gratuite?
     a: >-

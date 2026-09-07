@@ -10,7 +10,7 @@ lead: >-
   å laste ned. Hver app gjør én ting og gjør den helt ferdig — det har man
   råd til når man utvikler alene og ikke må følge noen andres veikart.
 translationStatus: authored
-updatedOn: 2026-08-24
+updatedOn: 2026-09-07
 faq:
   - q: Er appene til Chocky Dev gratis?
     a: >-

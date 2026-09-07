@@ -149,6 +149,17 @@ const guides = defineCollection({
     slug: z
       .string()
       .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, 'slug en minuscules ASCII, séparé par des tirets'),
+    /**
+     * Ancre courte pour la navigation : pied de page, listes de guides.
+     *
+     * `title` est calibré pour la SERP (jusqu'à 65 de largeur) : beaucoup trop
+     * long pour une colonne de pied de page. C'est du contenu éditorial
+     * localisé, donc il vit ici et non dans `i18n/ui`.
+     *
+     * Optionnel, avec repli sur `title` : un nouveau guide reste publiable sans
+     * que ses 18 traductions aient déjà été renseignées.
+     */
+    navLabel: z.string().superRefine(widthBetween(6, 42, 'navLabel')).optional(),
     /** Application vers laquelle ce guide renvoie. Pilote le maillage interne. */
     relatedApp: z.enum(APP_SLUGS as [string, ...string[]]).optional(),
     /** `HowTo` pour des règles de jeu, `Article` pour un guide. */

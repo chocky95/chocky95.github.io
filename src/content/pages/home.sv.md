@@ -10,7 +10,7 @@ lead: >-
   ner. Var och en gör en sak och gör den hela vägen — det har man råd med
   när man utvecklar ensam och inte behöver följa någon annans färdplan.
 translationStatus: authored
-updatedOn: 2026-08-24
+updatedOn: 2026-09-07
 faq:
   - q: Är Chocky Devs appar gratis?
     a: >-

@@ -11,7 +11,7 @@ lead: >-
   what you can afford when you build alone, with nobody else's roadmap to
   follow.
 translationStatus: authored
-updatedOn: 2026-08-24
+updatedOn: 2026-09-07
 faq:
   - q: Are the Chocky Dev apps free?
     a: >-

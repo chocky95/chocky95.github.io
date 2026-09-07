@@ -5,7 +5,7 @@ import { render } from 'astro:content';
 import JsonLd from '~/components/seo/JsonLd.astro';
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import { appsForLocale } from '~/data/apps';
-import { pageContent, toHomeView } from '~/data/content';
+import { guidesForLocale, pageContent, toHomeView, toHubView } from '~/data/content';
 import { DEFAULT_LOCALE, LOCALES, type Locale } from '~/i18n/locales';
 import { absolute, href, homePaths, requireSite } from '~/i18n/routes';
 import { FAMILY_KEY, useTranslations } from '~/i18n/t';
@@ -41,8 +41,40 @@ const apps = appsForLocale(locale);
  * duplication INTERNE entre cet accueil et le hub `/apps/` (voir la note en
  * tete de `apps/index.astro`).
  */
-const view = toHomeView(locale, (await pageContent()).get('home')?.get(locale));
+const pages = await pageContent();
+const view = toHomeView(locale, pages.get('home')?.get(locale));
 const Body = view.entry ? (await render(view.entry)).Content : null;
+
+/**
+ * Le hub `/apps/` n'etait lie par AUCUN accueil : `dist/index.html` ne contenait
+ * pas une seule fois `href="/apps/"`. Ses seuls liens entrants venaient des 5
+ * fils d'Ariane de sa langue et des 17 selecteurs de langue des autres — donc a
+ * 2 clics de l'accueil, ce qui est exactement le profil d'une page « Detectee,
+ * actuellement non indexee » dans Search Console.
+ *
+ * On emprunte son `h1` comme ancre plutot que d'inventer une chaine
+ * d'interface : l'ancre est ainsi egale au h1 de la cible, traduite par le
+ * contenu dans les 18 langues, et elle suivra toute reecriture du hub. Elle dit
+ * aussi ce que le hub apporte que l'accueil n'apporte pas — « comparees » —, ce
+ * qui est la meilleure protection contre la cannibalisation des deux pages.
+ */
+const hub = toHubView(locale, pages.get('apps')?.get(locale));
+
+/**
+ * Les guides de cette langue, depuis la collection.
+ *
+ * 6 accueils sur 18 liaient leur guide, et seulement par leur prose Markdown :
+ * les 12 traductions ajoutees ensuite n'etaient rattachees a rien. Le lien passe
+ * donc dans le gabarit, ou il est uniforme sur les 18 langues et ou les futures
+ * regles du Papayoo apparaitront sans retoucher un seul fichier.
+ *
+ * Les 6 liens en prose sont CONSERVES : un lien dans une phrase qui parle du
+ * sujet vaut plus qu'un lien de gabarit, et l'accueil lie deja chaque
+ * application deux fois (carte + prose) sans que cela ait jamais pose probleme.
+ * Le bloc est place APRES la prose, il se lit donc comme un « pour aller plus
+ * loin » et non comme une redite.
+ */
+const guides = await guidesForLocale(locale);
 
 const canonical = absolute(locale, '');
 ---
@@ -92,6 +124,9 @@ const canonical = absolute(locale, '');
         ))
       }
     </ul>
+    <p class="more">
+      <a href={href(locale, 'apps')}>{hub.h1}<span aria-hidden="true"> →</span></a>
+    </p>
   </section>
 
   {
@@ -100,6 +135,22 @@ const canonical = absolute(locale, '');
         <div class="prose body">
           <Body />
         </div>
+      </section>
+    )
+  }
+
+  {
+    guides.length > 0 && (
+      <section class="wrap guides">
+        <h2>{t('nav.guides')}</h2>
+        <ul role="list">
+          {guides.map((guide) => (
+            <li>
+              <a href={href(locale, guide.slug)}>{guide.h1}</a>
+              <p>{guide.metaDescription}</p>
+            </li>
+          ))}
+        </ul>
       </section>
     )
   }
@@ -179,13 +230,51 @@ const canonical = absolute(locale, '');
     color: var(--text-500);
   }
 
+  /* Lien vers le hub comparatif, sous la grille : l'endroit exact où le geste
+     est naturel — « j'ai survolé les cinq, laquelle prendre ? ». */
+  .more {
+    margin-block-start: var(--space-3);
+  }
+  .more a {
+    font-weight: 700;
+  }
+
   .body,
+  .guides,
   .faq {
     margin-block-start: var(--space-5);
   }
-  .faq:last-of-type {
-    padding-block-end: var(--space-6);
+
+  /* Même bloc, même style que la section « guides » des pages d'application. */
+  .guides ul {
+    display: grid;
+    gap: var(--space-2);
+    margin-block-start: var(--space-3);
+    padding: 0;
   }
+  .guides li {
+    padding: var(--space-3);
+    border: 1px solid var(--glass-border);
+    border-inline-start: 3px solid var(--accent-text);
+    border-radius: var(--radius);
+    background: var(--glass-bg);
+  }
+  .guides li a {
+    font-weight: 700;
+    font-size: var(--step-0);
+  }
+  .guides li p {
+    margin-block-start: 0.4rem;
+    color: var(--text-500);
+    font-size: var(--step--1);
+    max-inline-size: var(--measure);
+  }
+  /*
+   * Pas de `padding-block-end` de fin de page : depuis que BaseLayout rend un
+   * pied de page, c'est lui qui porte l'espace avant la fin du document (son
+   * `margin-block-start`). Le cumuler avec un remplissage de section donnerait
+   * douze rem de vide entre la FAQ et le pied de page.
+   */
   .qa + .qa {
     margin-block-start: var(--space-3);
   }

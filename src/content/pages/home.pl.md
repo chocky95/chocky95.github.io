@@ -11,7 +11,7 @@ lead: >-
   ją do końca — na to może sobie pozwolić ktoś, kto tworzy sam i nie musi
   realizować niczyjego planu.
 translationStatus: authored
-updatedOn: 2026-08-24
+updatedOn: 2026-09-07
 faq:
   - q: Czy aplikacje Chocky Dev są darmowe?
     a: >-

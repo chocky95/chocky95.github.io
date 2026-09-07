@@ -1,5 +1,6 @@
 ---
 slug: molkky-saannot
+navLabel: Mölkyn säännöt
 title: 'Mölkyn säännöt: pisteiden laskeminen selkeästi'
 metaDescription: >-
   Pelin tavoite, 12 palikan asettelu, pisteiden laskeminen, kolmen ohiheiton

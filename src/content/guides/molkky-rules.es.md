@@ -1,5 +1,6 @@
 ---
 slug: reglas-del-molkky
+navLabel: Reglas del Mölkky
 title: 'Reglas del Mölkky: contar los puntos, explicado'
 metaDescription: >-
   Objetivo, colocación de los 12 bolos, recuento de puntos, regla de los 3
