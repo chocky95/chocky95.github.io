@@ -231,6 +231,28 @@ async function checkInventory(expected, forbidden) {
     if (!existsSync(path.join(DIST, required))) fail(`dist/${required} manquant.`);
   }
 
+  /*
+   * Pages legales servies depuis public/, en fichiers PLATS et non en
+   * index.html : le comptage ci-dessus n'admet que les 144 pages de
+   * l'inventaire, un index.html de plus le ferait echouer.
+   *
+   * Leurs URL sont declarees dans Google Play Console (champs « Regles de
+   * confidentialite » et « Suppression du compte »). Google les revisite
+   * periodiquement : un 404 vaut un avertissement de conformite et peut
+   * bloquer les mises a jour de l'application. Elles ne peuvent donc pas
+   * etre supprimees ni renommees au fil d'un refactor -- d'ou cette
+   * assertion, qui fait echouer le deploiement plutot que la fiche Play.
+   *
+   * Si ces pages migrent un jour vers une vraie route i18n, la page plate
+   * doit RESTER, en <meta http-equiv="refresh"> vers la nouvelle : l'URL
+   * connue de Google doit survivre.
+   */
+  for (const declared of ['legal/mojogo-privacy.html', 'legal/mojogo-delete-account.html']) {
+    if (!existsSync(path.join(DIST, declared))) {
+      fail(`dist/${declared} manquant — URL declaree dans Google Play Console.`);
+    }
+  }
+
   return pages;
 }
 

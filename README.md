@@ -163,3 +163,20 @@ impossible sur `github.io`, qui figure sur la Public Suffix List.
       langue, jamais l'accueil ; champ *Politique de confidentialité* → la page
       dédiée à l'app
 - [ ] Lien vers le site dans l'écran « À propos » de chaque application
+
+## Pages légales — `public/legal/`
+
+Servies en **fichiers plats** (`mojogo-privacy.html`, non `mojogo-privacy/index.html`) :
+le comptage de `audit-dist.mjs` n'admet que les 144 pages de l'inventaire, un
+`index.html` de plus le ferait échouer. Elles restent donc hors sitemap, sans
+hreflang et `noindex` — statut normal d'une page légale.
+
+Leurs URL sont **déclarées dans Google Play Console** (« Règles de confidentialité »
+et « Suppression du compte »). Google les revisite : un 404 vaut un avertissement de
+conformité. `audit-dist.mjs` en exige la présence dans `dist/` et **bloque le
+déploiement** si elles disparaissent.
+
+- Une seule contrainte de contenu : **zéro `<script>`**, `checkNoClientJs()` scanne
+  tous les `.html` de `dist/`. CSS inliné.
+- **Ajouter une langue = ajouter une `<section lang="xx">` dans le fichier existant.**
+  Jamais une seconde page : l'URL déclarée à Google doit rester unique et stable.

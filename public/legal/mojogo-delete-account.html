@@ -1,0 +1,301 @@
+<!doctype html>
+<!--
+  ==========================================================================
+  URL DÉCLARÉE DANS GOOGLE PLAY CONSOLE — NE PAS SUPPRIMER NI RENOMMER.
+
+  https://chocky.dev/legal/mojogo-delete-account.html
+  Champ « Suppression du compte » (section Sécurité des données) de la fiche
+  Play de com.chocky.mojogo. Google exige cette URL dès lors qu'une
+  application permet de créer un compte, et la revérifie périodiquement.
+
+  scripts/audit-dist.mjs exige la présence de ce fichier dans dist/ : le
+  déploiement échoue s'il disparaît. C'est volontaire.
+
+  CONTRAINTES DE CE FICHIER
+    - fichier PLAT (.html, pas .../index.html) : les index.html de dist/ sont
+      comptés par l'audit et doivent rester exactement 144.
+    - ZÉRO balise script : checkNoClientJs() scanne tous les .html de dist/.
+    - CSS inliné, aucune dépendance externe.
+
+  À METTRE À JOUR quand le parcours de suppression in-app sera livré dans
+  Mojogo : remplacer l'encadré « Depuis l'application » par le chemin réel
+  (Réglages › ...). Ne rien promettre ici qui n'existe pas dans l'app.
+
+  AJOUTER UNE LANGUE
+    Ajouter une <section lang="xx"> et son entrée dans le sommaire, DANS CE
+    FICHIER. Ne jamais créer une seconde page.
+  ==========================================================================
+-->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Suppression du compte — Mojogo</title>
+<meta name="description" content="Comment demander la suppression de votre compte Mojogo et de vos données : procédure, délai, ce qui est supprimé et ce qui est conservé.">
+<meta name="robots" content="noindex, follow">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+  :root {
+    --ink-900: #070a0d;
+    --text-100: #f2f5f7;
+    --text-300: #c2ccd4;
+    --text-500: #8b98a3;
+    --glass-bg: rgb(255 255 255 / 4%);
+    --glass-border: rgb(255 255 255 / 9%);
+    --accent: #d4c4a8;
+    --warn: #e0a458;
+    --radius: 14px;
+    --measure: 68ch;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--ink-900);
+    color: var(--text-300);
+    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: clamp(1rem, 0.96rem + 0.2vw, 1.06rem);
+    line-height: 1.65;
+  }
+  .wrap { max-width: var(--measure); margin: 0 auto; padding: 2.5rem 1.25rem 5rem; }
+  header.top { border-bottom: 1px solid var(--glass-border); padding-bottom: 1.5rem; margin-bottom: 2rem; }
+  .eyebrow { color: var(--accent); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 0.5rem; }
+  h1 { color: var(--text-100); font-size: clamp(1.6rem, 1.4rem + 1vw, 2.2rem); line-height: 1.15; margin: 0 0 0.75rem; }
+  h2 {
+    color: var(--text-100); font-size: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
+    line-height: 1.2; margin: 3rem 0 0.75rem; padding-top: 1.5rem;
+    border-top: 1px solid var(--glass-border);
+  }
+  h3 { color: var(--text-100); font-size: 1.05rem; margin: 2rem 0 0.5rem; }
+  p, ul, ol { margin: 0 0 1rem; }
+  ul, ol { padding-left: 1.25rem; }
+  li { margin-bottom: 0.4rem; }
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:hover { color: var(--text-100); }
+  strong { color: var(--text-100); font-weight: 600; }
+  code { font-size: 0.9em; color: var(--text-100); background: var(--glass-bg); padding: 0.1em 0.35em; border-radius: 4px; }
+  .meta { color: var(--text-500); font-size: 0.9rem; margin: 0; }
+  nav.toc { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 2.5rem; }
+  nav.toc p { color: var(--text-500); font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 0.5rem; }
+  nav.toc ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; }
+  .callout { background: var(--glass-bg); border: 1px solid var(--glass-border); border-left: 3px solid var(--accent); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 0 0 1.5rem; }
+  .callout.warn { border-left-color: var(--warn); }
+  .callout :last-child { margin-bottom: 0; }
+  .steps { counter-reset: s; list-style: none; padding: 0; }
+  .steps > li { counter-increment: s; position: relative; padding-left: 2.25rem; margin-bottom: 1rem; }
+  .steps > li::before {
+    content: counter(s); position: absolute; left: 0; top: 0.1rem;
+    width: 1.6rem; height: 1.6rem; border-radius: 50%;
+    background: var(--glass-bg); border: 1px solid var(--glass-border);
+    color: var(--accent); font-size: 0.85rem; font-weight: 600;
+    display: grid; place-items: center;
+  }
+  footer.bottom { border-top: 1px solid var(--glass-border); margin-top: 4rem; padding-top: 1.5rem; color: var(--text-500); font-size: 0.9rem; }
+  :target { scroll-margin-top: 1rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <p class="eyebrow">Mojogo — Chocky Dev</p>
+  <h1>Suppression du compte et des données</h1>
+  <p class="meta">Dernière mise à jour : 10 septembre 2026 &middot; <a href="/legal/mojogo-privacy.html">Politique de confidentialité</a></p>
+</header>
+
+<nav class="toc">
+  <p>Langues / Languages</p>
+  <ul>
+    <li><a href="#fr">Français</a></li>
+    <li><a href="#en">English</a></li>
+  </ul>
+</nav>
+
+<!-- =================================================================== -->
+<!-- FRANÇAIS                                                            -->
+<!-- =================================================================== -->
+<section id="fr" lang="fr">
+
+<h2>Français</h2>
+
+<p>Cette page explique comment demander la suppression de votre compte
+<strong>Mojogo</strong> (<code>com.chocky.mojogo</code>) et des données qui y sont
+rattachées.</p>
+
+<h3>Comment demander la suppression</h3>
+
+<p>Mojogo ne demande ni adresse e-mail ni mot de passe : votre compte est
+<strong>anonyme</strong> et n'est identifié que par votre <strong>pseudo</strong>.
+C'est donc lui qui nous permet de retrouver vos données.</p>
+
+<ol class="steps">
+  <li>Écrivez à <a href="mailto:djchocky@gmail.com?subject=Suppression%20de%20compte%20Mojogo">djchocky@gmail.com</a>
+  avec pour objet <strong>« Suppression de compte Mojogo »</strong>.</li>
+  <li>Indiquez votre <strong>pseudo Mojogo</strong>, exactement tel qu'il apparaît
+  dans le jeu.</li>
+  <li>Si vous avez rattaché un compte Google à Mojogo, envoyez le message
+  <strong>depuis cette adresse Google</strong> : cela nous confirme que le compte est
+  bien le vôtre.</li>
+  <li>Nous supprimons le compte et vous le confirmons par retour de courriel, sous
+  <strong>30 jours au plus</strong>, et généralement bien avant.</li>
+</ol>
+
+<div class="callout warn">
+  <p><strong>La suppression est définitive.</strong> Votre progression, votre
+  classement Elo, vos succès, vos pièces d'or, vos habillages de cartes et vos tapis
+  sont perdus sans possibilité de restauration. Votre pseudo est libéré et pourra
+  être repris par un autre joueur.</p>
+</div>
+
+<h3>Ce qui est supprimé</h3>
+
+<ul>
+  <li>Votre <strong>compte d'authentification</strong> et son identifiant anonyme</li>
+  <li>Votre <strong>profil</strong> : pseudo, pays, langue, adresse e-mail si un
+  compte Google était rattaché</li>
+  <li>Vos <strong>données de jeu</strong> : niveau, expérience, classement Elo,
+  parties jouées, victoires, succès, quêtes, réputation, historique de parties</li>
+  <li>Vos <strong>objets et votre monnaie</strong> de jeu : pièces d'or, jokers,
+  habillages, tapis</li>
+  <li>Vos <strong>relations</strong> : liste d'amis, demandes d'amis envoyées et
+  reçues, invitations à des parties</li>
+  <li>Votre <strong>jeton de notification</strong>, ce qui met fin à toute
+  notification</li>
+  <li>Votre <strong>présence en ligne</strong> et vos entrées dans les classements</li>
+</ul>
+
+<p>Les données enregistrées sur votre téléphone disparaissent, elles, dès que vous
+désinstallez l'application.</p>
+
+<h3>Ce qui est conservé, et pourquoi</h3>
+
+<ul>
+  <li><strong>Les justificatifs d'achat</strong> (identifiant de transaction Google
+  Play, date, produit), conservés sans votre pseudo pendant la durée imposée par nos
+  obligations comptables et de lutte contre la fraude.</li>
+  <li><strong>Le palmarès historique</strong> peut encore mentionner votre pseudo
+  dans les classements déjà clos, pour ne pas réécrire les résultats passés. Dites-le
+  nous dans votre demande et nous l'anonymisons.</li>
+  <li><strong>Les statistiques agrégées</strong> (nombre de parties jouées sur le
+  jeu, par exemple), qui ne permettent plus de vous identifier.</li>
+</ul>
+
+<h3>Deux points à ne pas confondre avec la suppression</h3>
+
+<div class="callout">
+  <p><strong>Un abonnement Mojogo Premium ne s'annule pas en supprimant votre
+  compte.</strong> Il se résilie depuis Google Play &rsaquo; Menu &rsaquo; Paiements
+  et abonnements &rsaquo; Abonnements. Faites-le <em>avant</em> de demander la
+  suppression, sans quoi il continue d'être facturé.</p>
+</div>
+
+<p>Les achats définitifs (suppression des publicités, pack de joueurs) restent
+rattachés à votre <strong>compte Google Play</strong>, et non à votre compte Mojogo :
+selon le cas, ils peuvent être restaurés si vous recréez un compte plus tard. En
+revanche, ni vos pièces d'or ni votre progression ne sont récupérables.</p>
+
+<h3>Retirer votre consentement publicitaire</h3>
+
+<p>Si vous souhaitez seulement refuser la publicité personnalisée sans supprimer
+votre compte, ouvrez
+<em>Réglages &rsaquo; Confidentialité &rsaquo; Gérer le consentement</em> dans le
+jeu. Voir la <a href="/legal/mojogo-privacy.html#fr">politique de confidentialité</a>.</p>
+
+</section>
+
+<!-- =================================================================== -->
+<!-- ENGLISH                                                             -->
+<!-- =================================================================== -->
+<section id="en" lang="en">
+
+<h2>English</h2>
+
+<p>This page explains how to request deletion of your <strong>Mojogo</strong> account
+(<code>com.chocky.mojogo</code>) and the data attached to it. The French version above
+is the reference text.</p>
+
+<h3>How to request deletion</h3>
+
+<p>Mojogo asks for neither an email address nor a password: your account is
+<strong>anonymous</strong> and is identified only by your <strong>nickname</strong>.
+That is what allows us to find your data.</p>
+
+<ol class="steps">
+  <li>Email <a href="mailto:djchocky@gmail.com?subject=Mojogo%20account%20deletion">djchocky@gmail.com</a>
+  with the subject <strong>"Mojogo account deletion"</strong>.</li>
+  <li>State your <strong>Mojogo nickname</strong>, exactly as it appears in the
+  game.</li>
+  <li>If you linked a Google account to Mojogo, send the message
+  <strong>from that Google address</strong>: this confirms the account is yours.</li>
+  <li>We delete the account and confirm by reply, within <strong>30 days at the
+  latest</strong>, and usually well before.</li>
+</ol>
+
+<div class="callout warn">
+  <p><strong>Deletion is permanent.</strong> Your progress, Elo rating, achievements,
+  gold coins, card skins and playmats are lost with no way to restore them. Your
+  nickname is released and may be taken by another player.</p>
+</div>
+
+<h3>What is deleted</h3>
+
+<ul>
+  <li>Your <strong>authentication account</strong> and its anonymous identifier</li>
+  <li>Your <strong>profile</strong>: nickname, country, language, and email address
+  if a Google account was linked</li>
+  <li>Your <strong>game data</strong>: level, experience, Elo rating, games played,
+  wins, achievements, quests, reputation, game history</li>
+  <li>Your <strong>in-game items and currency</strong>: gold coins, jokers, skins,
+  playmats</li>
+  <li>Your <strong>relationships</strong>: friend list, friend requests sent and
+  received, game invitations</li>
+  <li>Your <strong>notification token</strong>, which ends all notifications</li>
+  <li>Your <strong>online presence</strong> and your leaderboard entries</li>
+</ul>
+
+<p>Data stored on your phone disappears as soon as you uninstall the app.</p>
+
+<h3>What is kept, and why</h3>
+
+<ul>
+  <li><strong>Purchase records</strong> (Google Play transaction identifier, date,
+  product), kept without your nickname for as long as our accounting and
+  anti-fraud obligations require.</li>
+  <li><strong>The historical hall of fame</strong> may still mention your nickname in
+  already-closed rankings, so that past results are not rewritten. Say so in your
+  request and we will anonymise it.</li>
+  <li><strong>Aggregated statistics</strong> (such as the total number of games played
+  across the game), which can no longer identify you.</li>
+</ul>
+
+<h3>Two things not to confuse with deletion</h3>
+
+<div class="callout">
+  <p><strong>Deleting your account does not cancel a Mojogo Premium
+  subscription.</strong> Cancel it from Google Play &rsaquo; Menu &rsaquo; Payments and
+  subscriptions &rsaquo; Subscriptions. Do it <em>before</em> requesting deletion,
+  otherwise billing continues.</p>
+</div>
+
+<p>One-off purchases (ad removal, player pack) stay attached to your
+<strong>Google Play account</strong>, not to your Mojogo account: depending on the
+case, they may be restored if you create a new account later. Your gold coins and
+your progress, however, cannot be recovered.</p>
+
+<h3>Withdrawing advertising consent</h3>
+
+<p>If you only wish to refuse personalised advertising without deleting your account,
+open <em>Settings &rsaquo; Privacy &rsaquo; Manage consent</em> in the game. See the
+<a href="/legal/mojogo-privacy.html#en">privacy policy</a>.</p>
+
+</section>
+
+<footer class="bottom">
+  <p>Chocky Dev &mdash; <a href="mailto:djchocky@gmail.com">djchocky@gmail.com</a>
+  &middot; <a href="https://chocky.dev/">chocky.dev</a>
+  &middot; <a href="/legal/mojogo-privacy.html">Politique de confidentialité</a></p>
+</footer>
+
+</div>
+</body>
+</html>
