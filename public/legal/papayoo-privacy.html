@@ -301,9 +301,11 @@ confidentialité Apple</a>.</p>
 
 <ul>
   <li>Tous les échanges avec les serveurs sont <strong>chiffrés en transit</strong> (TLS).</li>
-  <li>La sauvegarde de votre profil sur l'appareil est <strong>chiffrée
-  (AES-256)</strong>, et les compteurs sensibles sont conservés dans le coffre du
-  système (Android KeyStore, iOS Keychain).</li>
+  <li>Votre profil est conservé dans l'<strong>espace de stockage privé de
+  l'application</strong>, inaccessible aux autres applications, et les compteurs
+  sensibles (or, classement, statut Premium) dans le <strong>coffre du système</strong>
+  (Android KeyStore, iOS Keychain). L'application n'embarque aucune bibliothèque de
+  chiffrement propre : elle s'appuie sur celle du système.</li>
   <li>L'accès aux bases est restreint par des règles de sécurité serveur : un joueur
   ne peut lire ni modifier le profil d'un autre.</li>
   <li>Les achats sont vérifiés côté serveur auprès de Google Play ou d'Apple avant
@@ -490,8 +492,10 @@ privacy</a>.</p>
 
 <ul>
   <li>All exchanges with servers are <strong>encrypted in transit</strong> (TLS).</li>
-  <li>Your profile backup on the device is <strong>encrypted (AES-256)</strong>, and
-  sensitive counters are kept in the system vault (Android KeyStore, iOS Keychain).</li>
+  <li>Your profile is kept in the <strong>app's private storage</strong>, inaccessible
+  to other apps, and sensitive counters (gold, rating, Premium status) in the
+  <strong>system vault</strong> (Android KeyStore, iOS Keychain). The app embeds no
+  encryption library of its own: it relies on the system's.</li>
   <li>Database access is restricted by server-side security rules: a player can
   neither read nor modify another player's profile.</li>
   <li>Purchases are verified server-side with Google Play or Apple before being granted.</li>
