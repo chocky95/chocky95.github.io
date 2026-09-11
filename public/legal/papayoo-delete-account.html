@@ -1,0 +1,320 @@
+<!doctype html>
+<!--
+  ==========================================================================
+  URL DÉCLARÉE DANS GOOGLE PLAY CONSOLE (« Suppression du compte ») ET
+  APP STORE CONNECT — NE PAS SUPPRIMER NI RENOMMER.
+
+  https://chocky.dev/legal/papayoo-delete-account.html
+  Ouverte aussi depuis l'application : lib/services/legal_links.dart.
+  Le parcours IN-APP (Réglages › Confidentialité › Supprimer mon compte →
+  Cloud Function deleteMyAccount) est décrit ici en premier ; la voie e-mail
+  reste pour ceux qui n'ont plus l'application.
+
+  scripts/audit-dist.mjs exige la présence de ce fichier dans dist/.
+  CONTRAINTES : fichier PLAT (.html), ZÉRO balise script, CSS inliné.
+  ==========================================================================
+-->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Suppression du compte — Papayoo</title>
+<meta name="description" content="Comment supprimer votre compte Papayoo et vos données : depuis l'application en quelques secondes, ou par e-mail ; ce qui est supprimé et ce qui est conservé.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+  :root {
+    --ink-900: #070a0d;
+    --text-100: #f2f5f7;
+    --text-300: #c2ccd4;
+    --text-500: #8b98a3;
+    --glass-bg: rgb(255 255 255 / 4%);
+    --glass-border: rgb(255 255 255 / 9%);
+    --accent: #d4c4a8;
+    --warn: #e0a458;
+    --radius: 14px;
+    --measure: 68ch;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--ink-900);
+    color: var(--text-300);
+    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: clamp(1rem, 0.96rem + 0.2vw, 1.06rem);
+    line-height: 1.65;
+  }
+  .wrap { max-width: var(--measure); margin: 0 auto; padding: 2.5rem 1.25rem 5rem; }
+  header.top { border-bottom: 1px solid var(--glass-border); padding-bottom: 1.5rem; margin-bottom: 2rem; }
+  .eyebrow { color: var(--accent); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 0.5rem; }
+  h1 { color: var(--text-100); font-size: clamp(1.6rem, 1.4rem + 1vw, 2.2rem); line-height: 1.15; margin: 0 0 0.75rem; }
+  h2 {
+    color: var(--text-100); font-size: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
+    line-height: 1.2; margin: 3rem 0 0.75rem; padding-top: 1.5rem;
+    border-top: 1px solid var(--glass-border);
+  }
+  h3 { color: var(--text-100); font-size: 1.05rem; margin: 2rem 0 0.5rem; }
+  p, ul, ol { margin: 0 0 1rem; }
+  ul, ol { padding-left: 1.25rem; }
+  li { margin-bottom: 0.4rem; }
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:hover { color: var(--text-100); }
+  strong { color: var(--text-100); font-weight: 600; }
+  code { font-size: 0.9em; color: var(--text-100); background: var(--glass-bg); padding: 0.1em 0.35em; border-radius: 4px; }
+  .meta { color: var(--text-500); font-size: 0.9rem; margin: 0; }
+  nav.toc { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 2.5rem; }
+  nav.toc p { color: var(--text-500); font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 0.5rem; }
+  nav.toc ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; }
+  .callout { background: var(--glass-bg); border: 1px solid var(--glass-border); border-left: 3px solid var(--accent); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 0 0 1.5rem; }
+  .callout.warn { border-left-color: var(--warn); }
+  .callout :last-child { margin-bottom: 0; }
+  .steps { counter-reset: s; list-style: none; padding: 0; }
+  .steps > li { counter-increment: s; position: relative; padding-left: 2.25rem; margin-bottom: 1rem; }
+  .steps > li::before {
+    content: counter(s); position: absolute; left: 0; top: 0.1rem;
+    width: 1.6rem; height: 1.6rem; border-radius: 50%;
+    background: var(--glass-bg); border: 1px solid var(--glass-border);
+    color: var(--accent); font-size: 0.85rem; font-weight: 600;
+    display: grid; place-items: center;
+  }
+  footer.bottom { border-top: 1px solid var(--glass-border); margin-top: 4rem; padding-top: 1.5rem; color: var(--text-500); font-size: 0.9rem; }
+  :target { scroll-margin-top: 1rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <p class="eyebrow">Papayoo — Chocky Dev</p>
+  <h1>Suppression du compte et des données</h1>
+  <p class="meta">Dernière mise à jour : 10 septembre 2026 &middot;
+  <a href="/legal/papayoo-privacy.html">Politique de confidentialité</a> &middot;
+  <a href="/legal/papayoo-terms.html">Conditions d'utilisation</a></p>
+</header>
+
+<nav class="toc">
+  <p>Langues / Languages</p>
+  <ul>
+    <li><a href="#fr">Français</a></li>
+    <li><a href="#en">English</a></li>
+  </ul>
+</nav>
+
+<!-- =================================================================== -->
+<!-- FRANÇAIS                                                            -->
+<!-- =================================================================== -->
+<section id="fr" lang="fr">
+
+<h2>Français</h2>
+
+<p>Cette page explique comment supprimer votre compte <strong>Papayoo</strong>
+(<code>com.chocky.papayoo</code>) et les données qui y sont rattachées.</p>
+
+<h3>Depuis l'application (immédiat)</h3>
+
+<ol class="steps">
+  <li>Ouvrez Papayoo, puis <strong>Réglages</strong> (roue crantée sur l'écran d'accueil).</li>
+  <li>Dans la section <strong>Confidentialité</strong>, appuyez sur
+  <strong>Supprimer mon compte</strong>.</li>
+  <li>Lisez les conséquences, appuyez sur <em>Continuer</em>, puis tapez le mot
+  demandé pour confirmer.</li>
+  <li>La suppression est effectuée <strong>immédiatement</strong> sur nos serveurs et
+  l'application revient à l'écran de bienvenue. Aucun e-mail n'est nécessaire.</li>
+</ol>
+
+<h3>Sans l'application (par e-mail)</h3>
+
+<p>Si vous avez désinstallé Papayoo ou n'y avez plus accès :</p>
+
+<ol class="steps">
+  <li>Écrivez à <a href="mailto:djchocky@gmail.com?subject=Suppression%20de%20compte%20Papayoo">djchocky@gmail.com</a>
+  avec pour objet <strong>« Suppression de compte Papayoo »</strong>.</li>
+  <li>Indiquez votre <strong>pseudo Papayoo</strong>, exactement tel qu'il apparaît
+  dans le jeu.</li>
+  <li>Si vous aviez rattaché un compte Google ou Apple, envoyez le message
+  <strong>depuis cette adresse</strong> : cela nous confirme que le compte est bien
+  le vôtre.</li>
+  <li>Nous supprimons le compte et vous le confirmons par retour de courriel, sous
+  <strong>30 jours au plus</strong>, et généralement bien avant.</li>
+</ol>
+
+<div class="callout warn">
+  <p><strong>La suppression est définitive.</strong> Votre progression, vos classements
+  Elo, vos succès, vos pièces d'or, vos jokers, vos habillages de cartes et vos tapis
+  sont perdus sans possibilité de restauration. Votre pseudo est libéré et pourra
+  être repris par un autre joueur.</p>
+</div>
+
+<h3>Ce qui est supprimé</h3>
+
+<ul>
+  <li>Votre <strong>compte d'authentification</strong> et son identifiant anonyme</li>
+  <li>Votre <strong>profil</strong> : pseudo, pays, langue, adresse e-mail si un
+  compte Google ou Apple était rattaché, jeton de notification</li>
+  <li>Vos <strong>données de jeu</strong> : niveau, expérience, classements Elo,
+  parties jouées, victoires, succès, quêtes, réputation, historique de parties</li>
+  <li>Vos <strong>objets et votre monnaie</strong> de jeu : pièces d'or, jokers,
+  habillages, tapis</li>
+  <li>Vos <strong>relations</strong> : liste d'amis (chez vous <em>et</em> chez vos
+  amis), demandes d'amis envoyées et reçues, invitations à des parties</li>
+  <li>Votre <strong>présence en ligne</strong> et vos entrées dans les classements du
+  mois en cours</li>
+</ul>
+
+<p>Les données enregistrées sur votre téléphone sont effacées par l'application au
+moment de la suppression, et disparaissent en tout cas à la désinstallation.</p>
+
+<h3>Ce qui est conservé, et pourquoi</h3>
+
+<ul>
+  <li><strong>Les justificatifs d'achat</strong> (identifiant de transaction du store,
+  date, produit), conservés <strong>sans votre pseudo</strong> pendant
+  <strong>10 ans</strong> : c'est la durée de conservation des pièces comptables
+  imposée par l'article L123-22 du code de commerce français. Ils ne servent qu'à la
+  comptabilité et à la lutte contre la fraude.</li>
+  <li><strong>Le palmarès des mois passés</strong> peut encore mentionner votre pseudo
+  dans les classements déjà clos, pour ne pas réécrire les résultats passés. Dites-le
+  nous dans une demande et nous l'anonymisons.</li>
+  <li><strong>Les journaux techniques de parties multijoueur</strong> déjà jouées
+  (identifiants et scores, sans e-mail), utilisés pour diagnostiquer les
+  dysfonctionnements, purgés périodiquement.</li>
+  <li><strong>Les statistiques agrégées</strong> (nombre de parties jouées sur le jeu,
+  par exemple), qui ne permettent plus de vous identifier.</li>
+  <li>Une <strong>trace de la suppression</strong> elle-même (date, type de compte),
+  sans identifiant en clair, pour prouver que la demande a été traitée.</li>
+</ul>
+
+<h3>Supprimer seulement une partie de vos données</h3>
+
+<p>Vous n'êtes pas obligé de tout supprimer. Vous pouvez demander, <strong>sans
+supprimer votre compte</strong>, l'effacement ou la correction d'une donnée en
+particulier — par exemple faire anonymiser votre pseudo dans le palmarès, retirer
+l'adresse e-mail enregistrée lors du rattachement, ou effacer votre historique de
+parties. Même adresse, même délai : écrivez à
+<a href="mailto:djchocky@gmail.com?subject=Suppression%20partielle%20de%20donn%C3%A9es%20Papayoo">djchocky@gmail.com</a>
+en indiquant votre pseudo et la donnée concernée.</p>
+
+<h3>À ne pas confondre avec la suppression</h3>
+
+<p>Les achats définitifs (suppression des publicités, pack de joueurs) restent
+rattachés à votre <strong>compte Google Play ou Apple</strong>, et non à votre compte
+Papayoo : ils peuvent être restaurés si vous recréez un compte plus tard, via le
+bouton <em>Restaurer</em> de la boutique. En revanche, ni vos pièces d'or ni votre
+progression ne sont récupérables.</p>
+
+<p>Si vous souhaitez seulement refuser la publicité personnalisée sans supprimer
+votre compte, ouvrez <em>Réglages &rsaquo; Confidentialité &rsaquo; Gérer le
+consentement</em> dans le jeu. Voir la
+<a href="/legal/papayoo-privacy.html#fr">politique de confidentialité</a>.</p>
+
+</section>
+
+<!-- =================================================================== -->
+<!-- ENGLISH                                                             -->
+<!-- =================================================================== -->
+<section id="en" lang="en">
+
+<h2>English</h2>
+
+<p>This page explains how to delete your <strong>Papayoo</strong> account
+(<code>com.chocky.papayoo</code>) and the data attached to it. The French version
+above is the reference text.</p>
+
+<h3>From the app (immediate)</h3>
+
+<ol class="steps">
+  <li>Open Papayoo, then <strong>Settings</strong> (gear icon on the home screen).</li>
+  <li>In the <strong>Privacy</strong> section, tap <strong>Delete my account</strong>.</li>
+  <li>Read the consequences, tap <em>Continue</em>, then type the requested word to
+  confirm.</li>
+  <li>Deletion is carried out <strong>immediately</strong> on our servers and the app
+  returns to the welcome screen. No email is needed.</li>
+</ol>
+
+<h3>Without the app (by email)</h3>
+
+<p>If you have uninstalled Papayoo or can no longer access it:</p>
+
+<ol class="steps">
+  <li>Email <a href="mailto:djchocky@gmail.com?subject=Papayoo%20account%20deletion">djchocky@gmail.com</a>
+  with the subject <strong>"Papayoo account deletion"</strong>.</li>
+  <li>State your <strong>Papayoo nickname</strong>, exactly as it appears in the game.</li>
+  <li>If you had linked a Google or Apple account, send the message
+  <strong>from that address</strong>: this confirms the account is yours.</li>
+  <li>We delete the account and confirm by reply, within <strong>30 days at the
+  latest</strong>, and usually well before.</li>
+</ol>
+
+<div class="callout warn">
+  <p><strong>Deletion is permanent.</strong> Your progress, Elo ratings, achievements,
+  gold coins, jokers, card skins and playmats are lost with no way to restore them.
+  Your nickname is released and may be taken by another player.</p>
+</div>
+
+<h3>What is deleted</h3>
+
+<ul>
+  <li>Your <strong>authentication account</strong> and its anonymous identifier</li>
+  <li>Your <strong>profile</strong>: nickname, country, language, email address if a
+  Google or Apple account was linked, notification token</li>
+  <li>Your <strong>game data</strong>: level, experience, Elo ratings, games played,
+  wins, achievements, quests, reputation, game history</li>
+  <li>Your <strong>in-game items and currency</strong>: gold coins, jokers, skins, playmats</li>
+  <li>Your <strong>relationships</strong>: friends list (on your side <em>and</em> on
+  your friends' side), friend requests sent and received, game invitations</li>
+  <li>Your <strong>online presence</strong> and your entries in the current month's rankings</li>
+</ul>
+
+<p>Data stored on your phone is erased by the app at deletion time, and in any case
+disappears when you uninstall.</p>
+
+<h3>What is kept, and why</h3>
+
+<ul>
+  <li><strong>Purchase receipts</strong> (store transaction identifier, date, product),
+  kept <strong>without your nickname</strong> for <strong>10 years</strong>: the
+  retention period for accounting records required by article L123-22 of the French
+  Commercial Code. Used only for accounting and fraud prevention.</li>
+  <li><strong>Past months' hall of fame</strong> may still show your nickname in
+  rankings already closed, so as not to rewrite past results. Tell us in a request
+  and we will anonymise it.</li>
+  <li><strong>Technical logs of multiplayer games</strong> already played (identifiers
+  and scores, no email), used to diagnose malfunctions, purged periodically.</li>
+  <li><strong>Aggregated statistics</strong> (e.g. number of games played in the game),
+  which no longer identify you.</li>
+  <li>A <strong>record of the deletion</strong> itself (date, account type), without a
+  plain identifier, to prove the request was handled.</li>
+</ul>
+
+<h3>Deleting only some of your data</h3>
+
+<p>You do not have to delete everything. You can request, <strong>without deleting
+your account</strong>, the erasure or correction of a specific item — for example
+anonymising your nickname in the hall of fame, removing the email address stored when
+linking, or erasing your game history. Same address, same deadline: email
+<a href="mailto:djchocky@gmail.com?subject=Partial%20data%20deletion%20Papayoo">djchocky@gmail.com</a>
+stating your nickname and the data concerned.</p>
+
+<h3>Not to be confused with deletion</h3>
+
+<p>Permanent purchases (ad removal, player pack) remain tied to your
+<strong>Google Play or Apple account</strong>, not to your Papayoo account: they can
+be restored if you create an account again later, via the shop's <em>Restore</em>
+button. Your gold coins and progress, however, cannot be recovered.</p>
+
+<p>If you only want to refuse personalised advertising without deleting your account,
+open <em>Settings &rsaquo; Privacy &rsaquo; Manage consent</em> in the game. See the
+<a href="/legal/papayoo-privacy.html#en">privacy policy</a>.</p>
+
+</section>
+
+<footer class="bottom">
+  <p>Chocky Dev &mdash; <a href="mailto:djchocky@gmail.com">djchocky@gmail.com</a>
+  &middot; <a href="https://chocky.dev/">chocky.dev</a>
+  &middot; <a href="/legal/papayoo-privacy.html">Politique de confidentialité</a>
+  &middot; <a href="/legal/papayoo-terms.html">Conditions d'utilisation</a></p>
+</footer>
+
+</div>
+</body>
+</html>

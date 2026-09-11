@@ -1,0 +1,380 @@
+<!doctype html>
+<!--
+  ==========================================================================
+  URL DÉCLARÉE DANS APP STORE CONNECT (EULA / Terms) ET OUVERTE DEPUIS
+  L'APPLICATION — NE PAS SUPPRIMER NI RENOMMER.
+
+  https://chocky.dev/legal/papayoo-terms.html
+  Ouverte par l'app (Réglages › Confidentialité, écran de bienvenue, boutique,
+  popup premium) : lib/services/legal_links.dart. Ancres #fr / #en.
+  L'app enregistre la version acceptée (LegalLinks.termsVersion = 2026-09-10) :
+  mettre cette constante à jour à chaque modification substantielle.
+
+  scripts/audit-dist.mjs exige la présence de ce fichier dans dist/.
+  CONTRAINTES : fichier PLAT (.html), ZÉRO balise script, CSS inliné.
+  ==========================================================================
+-->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conditions d'utilisation — Papayoo</title>
+<meta name="description" content="Conditions d'utilisation de l'application Papayoo (Chocky Dev) : compte, règles de conduite, réputation, objets virtuels, achats, publicité, modération.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+  :root {
+    --ink-900: #070a0d;
+    --text-100: #f2f5f7;
+    --text-300: #c2ccd4;
+    --text-500: #8b98a3;
+    --glass-bg: rgb(255 255 255 / 4%);
+    --glass-border: rgb(255 255 255 / 9%);
+    --accent: #d4c4a8;
+    --warn: #e0a458;
+    --radius: 14px;
+    --measure: 68ch;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--ink-900);
+    color: var(--text-300);
+    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: clamp(1rem, 0.96rem + 0.2vw, 1.06rem);
+    line-height: 1.65;
+  }
+  .wrap { max-width: var(--measure); margin: 0 auto; padding: 2.5rem 1.25rem 5rem; }
+  header.top { border-bottom: 1px solid var(--glass-border); padding-bottom: 1.5rem; margin-bottom: 2rem; }
+  .eyebrow { color: var(--accent); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 0.5rem; }
+  h1 { color: var(--text-100); font-size: clamp(1.6rem, 1.4rem + 1vw, 2.2rem); line-height: 1.15; margin: 0 0 0.75rem; }
+  h2 {
+    color: var(--text-100); font-size: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
+    line-height: 1.2; margin: 3rem 0 0.75rem; padding-top: 1.5rem;
+    border-top: 1px solid var(--glass-border);
+  }
+  h3 { color: var(--text-100); font-size: 1.05rem; margin: 2rem 0 0.5rem; }
+  p, ul, ol { margin: 0 0 1rem; }
+  ul, ol { padding-left: 1.25rem; }
+  li { margin-bottom: 0.4rem; }
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:hover { color: var(--text-100); }
+  strong { color: var(--text-100); font-weight: 600; }
+  code { font-size: 0.9em; color: var(--text-100); background: var(--glass-bg); padding: 0.1em 0.35em; border-radius: 4px; }
+  .meta { color: var(--text-500); font-size: 0.9rem; margin: 0; }
+  nav.toc { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 2.5rem; }
+  nav.toc p { color: var(--text-500); font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 0.5rem; }
+  nav.toc ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; }
+  .callout { background: var(--glass-bg); border: 1px solid var(--glass-border); border-left: 3px solid var(--accent); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 0 0 1.5rem; }
+  .callout.warn { border-left-color: var(--warn); }
+  .callout :last-child { margin-bottom: 0; }
+  footer.bottom { border-top: 1px solid var(--glass-border); margin-top: 4rem; padding-top: 1.5rem; color: var(--text-500); font-size: 0.9rem; }
+  :target { scroll-margin-top: 1rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <p class="eyebrow">Papayoo — Chocky Dev</p>
+  <h1>Conditions d'utilisation</h1>
+  <p class="meta">Version du 10 septembre 2026 &middot;
+  <a href="/legal/papayoo-privacy.html">Politique de confidentialité</a> &middot;
+  <a href="/legal/papayoo-delete-account.html">Suppression du compte</a></p>
+</header>
+
+<nav class="toc">
+  <p>Langues / Languages</p>
+  <ul>
+    <li><a href="#fr">Français</a></li>
+    <li><a href="#en">English</a></li>
+  </ul>
+</nav>
+
+<!-- =================================================================== -->
+<!-- FRANÇAIS                                                            -->
+<!-- =================================================================== -->
+<section id="fr" lang="fr">
+
+<h2>Français</h2>
+
+<h3>1. Objet et acceptation</h3>
+
+<p>Les présentes conditions encadrent l'utilisation de l'application mobile
+<strong>Papayoo</strong>, éditée par <strong>Chocky Dev</strong>
+(<a href="mailto:djchocky@gmail.com">djchocky@gmail.com</a>), disponible sur Google
+Play et sur l'App Store. En créant votre pseudo et en appuyant sur
+<em>Commencer</em>, vous les acceptez, ainsi que la
+<a href="/legal/papayoo-privacy.html">politique de confidentialité</a>. Si vous les
+refusez, n'utilisez pas l'application.</p>
+
+<h3>2. Compte et pseudo</h3>
+
+<ul>
+  <li>Vous devez avoir <strong>13 ans ou plus</strong> pour utiliser Papayoo.</li>
+  <li>Un compte anonyme est créé à votre première connexion. Vous pouvez le
+  rattacher à un compte Google ou Apple pour le retrouver sur un autre appareil.
+  Une personne = un compte.</li>
+  <li>Votre <strong>pseudo</strong> est public. Il ne doit pas être injurieux,
+  discriminatoire, obscène, usurper l'identité d'une autre personne ou contenir des
+  coordonnées. Il est filtré automatiquement à la création ; un pseudo passé au
+  travers du filtre peut être modifié ou le compte suspendu par Chocky Dev.</li>
+  <li>Vous êtes responsable de la sécurité de votre appareil et de l'usage qui est
+  fait de votre compte.</li>
+</ul>
+
+<h3>3. Règles de conduite</h3>
+
+<p>Papayoo est un jeu entre personnes réelles. Vous vous engagez à :</p>
+<ul>
+  <li>jouer <strong>loyalement</strong> : pas de triche, d'exploitation de bug, de
+  client modifié, d'automatisation, de collusion ou de manipulation des
+  classements ;</li>
+  <li><strong>terminer les parties multijoueur</strong> que vous rejoignez, dans la
+  mesure du possible ;</li>
+  <li>respecter les autres joueurs. Le chat ne propose que des messages prédéfinis ;
+  leur usage répété à des fins de harcèlement reste interdit ;</li>
+  <li>ne pas tenter d'accéder aux données d'autres joueurs ni de perturber le service.</li>
+</ul>
+
+<h3>4. Réputation</h3>
+
+<p>Chaque compte dispose d'une <strong>réputation de 0 à 100 %</strong>, calculée
+automatiquement :</p>
+<ul>
+  <li>terminer une partie (solo ou multijoueur) : <strong>+3</strong> ;</li>
+  <li>quitter ou ne pas terminer une partie multijoueur en cours, ou interrompre la
+  vidéo qui donne accès aux résultats d'une partie multijoueur :
+  <strong>−10</strong> ;</li>
+  <li>en dessous de <strong>75 %</strong>, un avertissement s'affiche ; en dessous de
+  <strong>50 %</strong>, l'accès au multijoueur peut être suspendu jusqu'à ce que la
+  réputation remonte.</li>
+</ul>
+<p>Les valeurs exactes peuvent évoluer ; celles en vigueur sont rappelées dans l'aide
+de l'application. Vous pouvez contester une baisse que vous estimez injustifiée via
+<em>Contacter le support</em> (voir §5).</p>
+
+<h3>5. Modération, signalement et sanctions</h3>
+
+<p>Tout comportement contraire aux présentes peut être signalé à
+<a href="mailto:djchocky@gmail.com?subject=Papayoo%20%E2%80%93%20Signalement">djchocky@gmail.com</a>
+(objet « Papayoo – Signalement »), en indiquant le pseudo concerné et les faits. Les
+signalements sont examinés sous <strong>48 heures</strong>. Selon la gravité, Chocky
+Dev peut : avertir, baisser la réputation, modifier un pseudo, suspendre
+temporairement l'accès au multijoueur, ou supprimer le compte. Une décision peut être
+contestée par le même canal.</p>
+
+<h3>6. Monnaie et objets virtuels</h3>
+
+<p>Les pièces d'or, jokers, habillages de cartes, tapis, niveaux et points
+d'expérience sont des <strong>éléments virtuels</strong> sans valeur monétaire. Ils
+sont concédés sous licence, pour votre usage personnel dans l'application, et ne sont
+ni transférables, ni échangeables, ni remboursables. Ils disparaissent avec la
+suppression du compte.</p>
+
+<h3>7. Achats intégrés</h3>
+
+<ul>
+  <li>Les achats (suppression des publicités, packs, pièces d'or) sont réalisés et
+  facturés par <strong>Google Play</strong> ou l'<strong>App Store</strong>, aux prix
+  affichés dans la boutique de l'application, dans votre devise.</li>
+  <li>Les achats définitifs sont rattachés à votre compte de store et peuvent être
+  <strong>restaurés</strong> sur un nouvel appareil via le bouton <em>Restaurer</em>
+  de la boutique.</li>
+  <li>Les remboursements relèvent des règles de Google Play ou d'Apple ; Chocky Dev
+  ne rembourse pas directement. Un remboursement obtenu auprès du store entraîne le
+  retrait de l'avantage correspondant.</li>
+  <li>Les pièces d'or achetées sont consommées dans le jeu et ne sont pas remboursables
+  une fois créditées.</li>
+</ul>
+
+<h3>8. Publicité</h3>
+
+<p>La version gratuite affiche des publicités fournies par des régies tierces (Google
+AdMob). Chocky Dev n'est pas l'éditeur de ces annonces. Toute publicité peut être
+fermée ; regarder une vidéo récompensée jusqu'au bout est le seul moyen d'obtenir la
+récompense associée. Vos choix de consentement publicitaire sont modifiables dans
+<em>Réglages &rsaquo; Confidentialité</em>.</p>
+
+<h3>9. Disponibilité et évolution du service</h3>
+
+<p>Papayoo est fourni <strong>« en l'état »</strong>. Chocky Dev s'efforce d'assurer
+la disponibilité du service mais ne la garantit pas (maintenance, panne d'un
+fournisseur, mise à jour obligatoire). Les règles du jeu, les fonctionnalités, les
+récompenses et les présentes conditions peuvent évoluer ; une modification
+substantielle est signalée dans l'application. Chocky Dev peut mettre fin au service
+avec un préavis raisonnable.</p>
+
+<h3>10. Propriété intellectuelle</h3>
+
+<p>Le code, les graphismes, les textes, les sons et la marque <em>Chocky Dev</em> sont
+la propriété de Chocky Dev ou de leurs auteurs respectifs. Vous disposez d'un droit
+d'usage personnel, non exclusif et non transférable de l'application. Toute
+reproduction, décompilation ou exploitation commerciale non autorisée est interdite.</p>
+
+<h3>11. Responsabilité</h3>
+
+<p>Dans les limites permises par la loi, Chocky Dev ne saurait être tenu responsable
+des pertes de progression dues à votre appareil, à une désinstallation, à un compte
+non rattaché, ni des dommages indirects liés à l'utilisation ou à l'indisponibilité
+de l'application. Rien dans les présentes ne limite vos droits légaux de
+consommateur.</p>
+
+<h3>12. Résiliation</h3>
+
+<p>Vous pouvez cesser d'utiliser Papayoo à tout moment et
+<a href="/legal/papayoo-delete-account.html">supprimer votre compte</a> depuis
+<em>Réglages &rsaquo; Confidentialité</em>. Chocky Dev peut suspendre ou supprimer un
+compte en cas de manquement grave ou répété aux présentes conditions.</p>
+
+<h3>13. Droit applicable et contact</h3>
+
+<p>Les présentes conditions sont régies par le <strong>droit français</strong>. En cas
+de litige, une solution amiable sera recherchée en priorité ; les consommateurs
+peuvent recourir à la plateforme européenne de règlement en ligne des litiges. Pour
+toute question : <a href="mailto:djchocky@gmail.com">djchocky@gmail.com</a>.</p>
+
+</section>
+
+<!-- =================================================================== -->
+<!-- ENGLISH                                                             -->
+<!-- =================================================================== -->
+<section id="en" lang="en">
+
+<h2>English</h2>
+
+<p>The French version above is the reference text.</p>
+
+<h3>1. Scope and acceptance</h3>
+
+<p>These terms govern the use of the <strong>Papayoo</strong> mobile application,
+published by <strong>Chocky Dev</strong> (<a href="mailto:djchocky@gmail.com">djchocky@gmail.com</a>),
+available on Google Play and the App Store. By creating your nickname and tapping
+<em>Start</em>, you accept them together with the
+<a href="/legal/papayoo-privacy.html#en">privacy policy</a>. If you do not accept
+them, do not use the app.</p>
+
+<h3>2. Account and nickname</h3>
+
+<ul>
+  <li>You must be <strong>13 or older</strong> to use Papayoo.</li>
+  <li>An anonymous account is created on first launch. You may link it to a Google or
+  Apple account to recover it on another device. One person = one account.</li>
+  <li>Your <strong>nickname</strong> is public. It must not be offensive,
+  discriminatory, obscene, impersonate someone else or contain contact details. It is
+  filtered automatically at creation; a nickname that slips through may be changed or
+  the account suspended by Chocky Dev.</li>
+  <li>You are responsible for the security of your device and for the use made of
+  your account.</li>
+</ul>
+
+<h3>3. Rules of conduct</h3>
+
+<p>Papayoo is a game between real people. You agree to:</p>
+<ul>
+  <li>play <strong>fairly</strong>: no cheating, bug exploitation, modified clients,
+  automation, collusion or ranking manipulation;</li>
+  <li><strong>finish the multiplayer games</strong> you join, as far as possible;</li>
+  <li>respect other players. The chat only offers predefined messages; using them
+  repeatedly to harass remains forbidden;</li>
+  <li>not attempt to access other players' data or disrupt the service.</li>
+</ul>
+
+<h3>4. Reputation</h3>
+
+<p>Each account has a <strong>reputation from 0 to 100%</strong>, computed
+automatically:</p>
+<ul>
+  <li>finishing a game (solo or multiplayer): <strong>+3</strong>;</li>
+  <li>leaving or not finishing an ongoing multiplayer game, or interrupting the video
+  that unlocks a multiplayer game's results: <strong>−10</strong>;</li>
+  <li>below <strong>75%</strong>, a warning is shown; below <strong>50%</strong>,
+  multiplayer access may be suspended until reputation recovers.</li>
+</ul>
+<p>Exact values may change; the current ones are shown in the in-app help. You may
+appeal a drop you consider unjustified via <em>Contact support</em> (see §5).</p>
+
+<h3>5. Moderation, reporting and sanctions</h3>
+
+<p>Any behaviour contrary to these terms can be reported to
+<a href="mailto:djchocky@gmail.com?subject=Papayoo%20%E2%80%93%20Report">djchocky@gmail.com</a>
+(subject "Papayoo – Report"), stating the nickname concerned and the facts. Reports
+are reviewed within <strong>48 hours</strong>. Depending on severity, Chocky Dev may:
+warn, lower reputation, change a nickname, temporarily suspend multiplayer access, or
+delete the account. A decision can be appealed through the same channel.</p>
+
+<h3>6. Virtual currency and items</h3>
+
+<p>Gold coins, jokers, card skins, playmats, levels and experience points are
+<strong>virtual items</strong> with no monetary value. They are licensed for your
+personal use within the app and are neither transferable, tradable nor refundable.
+They disappear when the account is deleted.</p>
+
+<h3>7. In-app purchases</h3>
+
+<ul>
+  <li>Purchases (ad removal, packs, gold coins) are made and billed by
+  <strong>Google Play</strong> or the <strong>App Store</strong>, at the prices shown
+  in the in-app shop, in your currency.</li>
+  <li>Permanent purchases are tied to your store account and can be
+  <strong>restored</strong> on a new device with the shop's <em>Restore</em> button.</li>
+  <li>Refunds follow Google Play's or Apple's rules; Chocky Dev does not refund
+  directly. A refund obtained from the store removes the corresponding benefit.</li>
+  <li>Purchased gold coins are consumed in the game and are not refundable once
+  credited.</li>
+</ul>
+
+<h3>8. Advertising</h3>
+
+<p>The free version shows ads served by third-party networks (Google AdMob). Chocky
+Dev is not the publisher of these ads. Any ad can be closed; watching a rewarded video
+to the end is the only way to obtain the associated reward. Your advertising consent
+choices can be changed in <em>Settings &rsaquo; Privacy</em>.</p>
+
+<h3>9. Availability and changes to the service</h3>
+
+<p>Papayoo is provided <strong>"as is"</strong>. Chocky Dev strives to keep the
+service available but does not guarantee it (maintenance, provider outage, mandatory
+update). Game rules, features, rewards and these terms may change; a substantial
+change is announced in the app. Chocky Dev may discontinue the service with reasonable
+notice.</p>
+
+<h3>10. Intellectual property</h3>
+
+<p>The code, graphics, texts, sounds and the <em>Chocky Dev</em> brand belong to Chocky
+Dev or their respective authors. You receive a personal, non-exclusive,
+non-transferable right to use the app. Any unauthorised reproduction, decompilation or
+commercial exploitation is prohibited.</p>
+
+<h3>11. Liability</h3>
+
+<p>To the extent permitted by law, Chocky Dev is not liable for loss of progress due to
+your device, an uninstall or an unlinked account, nor for indirect damages related to
+the use or unavailability of the app. Nothing in these terms limits your statutory
+consumer rights.</p>
+
+<h3>12. Termination</h3>
+
+<p>You may stop using Papayoo at any time and
+<a href="/legal/papayoo-delete-account.html#en">delete your account</a> from
+<em>Settings &rsaquo; Privacy</em>. Chocky Dev may suspend or delete an account in case
+of serious or repeated breach of these terms.</p>
+
+<h3>13. Governing law and contact</h3>
+
+<p>These terms are governed by <strong>French law</strong>. In case of dispute, an
+amicable solution will be sought first; consumers may use the European online dispute
+resolution platform. Questions: <a href="mailto:djchocky@gmail.com">djchocky@gmail.com</a>.</p>
+
+</section>
+
+<footer class="bottom">
+  <p>Chocky Dev &mdash; <a href="mailto:djchocky@gmail.com">djchocky@gmail.com</a>
+  &middot; <a href="https://chocky.dev/">chocky.dev</a>
+  &middot; <a href="/legal/papayoo-privacy.html">Politique de confidentialité</a>
+  &middot; <a href="/legal/papayoo-delete-account.html">Suppression du compte</a></p>
+</footer>
+
+</div>
+</body>
+</html>

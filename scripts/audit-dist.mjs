@@ -247,9 +247,30 @@ async function checkInventory(expected, forbidden) {
    * doit RESTER, en <meta http-equiv="refresh"> vers la nouvelle : l'URL
    * connue de Google doit survivre.
    */
-  for (const declared of ['legal/mojogo-privacy.html', 'legal/mojogo-delete-account.html']) {
+  for (const declared of [
+    'legal/mojogo-privacy.html',
+    'legal/mojogo-delete-account.html',
+    // Papayoo : declarees dans Play Console ET App Store Connect, et ouvertes
+    // depuis l'application (lib/services/legal_links.dart, ancres #fr / #en).
+    'legal/papayoo-privacy.html',
+    'legal/papayoo-terms.html',
+    'legal/papayoo-delete-account.html',
+  ]) {
     if (!existsSync(path.join(DIST, declared))) {
-      fail(`dist/${declared} manquant — URL declaree dans Google Play Console.`);
+      fail(`dist/${declared} manquant — URL declaree dans Google Play Console / App Store Connect.`);
+    }
+  }
+
+  /*
+   * Meme logique pour les URL embarquees dans les applications : la page de
+   * parrainage de Papayoo (/papayoo/invite?ref=<uid>) est IMPRIMEE dans les
+   * QR codes que les joueurs partagent. Des QR deja distribues pointent ici
+   * pour des annees : la supprimer casserait leur parrainage.
+   * Source cote app : Papayoo lib/services/store_links.dart (inviteBaseUrl).
+   */
+  for (const embedded of ['papayoo/invite.html']) {
+    if (!existsSync(path.join(DIST, embedded))) {
+      fail(`dist/${embedded} manquant — URL embarquee dans l'application (QR de parrainage).`);
     }
   }
 
@@ -449,8 +470,18 @@ async function checkNoClientJs() {
     note('Zéro JS client.');
   }
 
+  /*
+   * UNIQUE exception au zero-JS : la page de parrainage de Papayoo doit
+   * rediriger vers Google Play (avec `referrer=<uid>`) ou l'App Store selon
+   * l'OS du visiteur, ce qu'aucune page statique ne peut faire sans script.
+   * L'exception est nominative : toute autre page portant un <script> fait
+   * toujours echouer le deploiement. Voir l'en-tete de public/papayoo/invite.html.
+   */
+  const INLINE_JS_ALLOWLIST = new Set(['papayoo/invite.html']);
+
   // Un <script> inline échapperait au contrôle précédent.
   for (const page of files.filter((f) => f.endsWith('.html'))) {
+    if (INLINE_JS_ALLOWLIST.has(path.relative(DIST, page).split(path.sep).join('/'))) continue;
     const html = await readFile(page, 'utf8');
     const scripts = all(html, /<script(?![^>]*type="application\/ld\+json")/g);
     if (scripts.length > 0) {
