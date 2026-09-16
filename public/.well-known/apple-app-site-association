@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["BDXVTVU45V.com.chocky.papayoo"],
+        "components": [
+          { "/": "/papayoo/invite", "comment": "Lien de parrainage Papayoo (ouvre l'app si installée, sinon la page)" },
+          { "/": "/papayoo/invite/*", "comment": "Variante avec slash final" }
+        ]
+      }
+    ]
+  }
+}

@@ -109,14 +109,19 @@
     </div>
   </div>
 
-  <!-- Le rattachement automatique repose sur l'Install Referrer de Google Play,
-       qui n'existe pas sur iOS : ne jamais le promettre aux deux plateformes. -->
+  <!-- Android : Install Referrer de Google Play (rattachement à l'installation).
+       iOS : lien universel (.well-known/apple-app-site-association) → si l'app
+       est DÉJÀ installée, le lien l'ouvre et propose l'ajout en ami ; après une
+       installation depuis l'App Store, Apple ne transmet rien : QR code. -->
   <p class="meta">Sur <strong>Android</strong>, installer le jeu depuis ce lien vous
   relie automatiquement à la personne qui vous a invité. Sur <strong>iPhone</strong>,
-  ouvrez le jeu puis <em>Mes Amis</em> et scannez son QR code pour devenir amis.</p>
+  si le jeu est déjà installé, ce lien l'ouvre et vous propose d'ajouter votre ami ;
+  sinon, installez-le puis rouvrez ce lien, ou scannez son QR code depuis
+  <em>Mes Amis</em>.</p>
   <p class="meta en" lang="en">On <strong>Android</strong>, installing from this link
-  connects you to your friend automatically. On <strong>iPhone</strong>, open the game,
-  go to <em>My Friends</em> and scan their QR code.</p>
+  connects you to your friend automatically. On <strong>iPhone</strong>, if the game is
+  already installed this link opens it and offers to add your friend; otherwise install
+  it, then open this link again or scan their QR code from <em>My Friends</em>.</p>
 
   <noscript>
     <p class="meta">La redirection automatique nécessite JavaScript : choisissez
