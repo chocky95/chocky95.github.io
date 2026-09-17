@@ -1,0 +1,518 @@
+<!doctype html>
+<!--
+  ==========================================================================
+  URL DÉCLARÉE DANS GOOGLE PLAY CONSOLE ET DANS LE CMP ADMOB — NE PAS
+  SUPPRIMER NI RENOMMER.
+
+  https://chocky.dev/legal/easycompta-privacy.html
+  Champ « Règles de confidentialité » de la fiche Play de com.chocky.easycompta
+  et URL de confidentialité du message de consentement (AdMob › Confidentialité
+  et messages). Google revérifie périodiquement cette adresse : un 404 vaut un
+  avertissement de conformité.
+
+  Remplace la page web/confidentialite.html du dépôt EasyCompta (version
+  du 6 août 2026, servie sur easycompta.web.app) : même contenu, complété
+  par la version web et la mise à jour in-app.
+
+  Les ancres #fr et #en permettent d'ouvrir la bonne langue depuis les fiches.
+
+  scripts/audit-dist.mjs exige la présence de ce fichier dans dist/.
+
+  CONTRAINTES : fichier PLAT (.html), ZÉRO balise script, CSS inliné.
+  Même charte que scanfree-privacy.html, papayoo-privacy.html et
+  mojogo-privacy.html.
+  ==========================================================================
+-->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Politique de confidentialité — EasyCompta</title>
+<meta name="description" content="Politique de confidentialité de l'application EasyCompta (Chocky Dev) : comptabilité stockée sur l'appareil, aucun compte, publicité et mesure d'audience soumises à consentement, abonnement géré par Google Play, vos droits.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+  :root {
+    --ink-900: #070a0d;
+    --text-100: #f2f5f7;
+    --text-300: #c2ccd4;
+    --text-500: #8b98a3;
+    --glass-bg: rgb(255 255 255 / 4%);
+    --glass-border: rgb(255 255 255 / 9%);
+    --accent: #d4c4a8;
+    --warn: #e0a458;
+    --radius: 14px;
+    --measure: 68ch;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--ink-900);
+    color: var(--text-300);
+    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: clamp(1rem, 0.96rem + 0.2vw, 1.06rem);
+    line-height: 1.65;
+  }
+  .wrap { max-width: var(--measure); margin: 0 auto; padding: 2.5rem 1.25rem 5rem; }
+  header.top { border-bottom: 1px solid var(--glass-border); padding-bottom: 1.5rem; margin-bottom: 2rem; }
+  .eyebrow { color: var(--accent); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 0.5rem; }
+  h1 { color: var(--text-100); font-size: clamp(1.6rem, 1.4rem + 1vw, 2.2rem); line-height: 1.15; margin: 0 0 0.75rem; }
+  h2 {
+    color: var(--text-100); font-size: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
+    line-height: 1.2; margin: 3rem 0 0.75rem; padding-top: 1.5rem;
+    border-top: 1px solid var(--glass-border);
+  }
+  h3 { color: var(--text-100); font-size: 1.05rem; margin: 2rem 0 0.5rem; }
+  p, ul, ol { margin: 0 0 1rem; }
+  ul, ol { padding-left: 1.25rem; }
+  li { margin-bottom: 0.4rem; }
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:hover { color: var(--text-100); }
+  strong { color: var(--text-100); font-weight: 600; }
+  code { font-size: 0.9em; color: var(--text-100); background: var(--glass-bg); padding: 0.1em 0.35em; border-radius: 4px; }
+  .meta { color: var(--text-500); font-size: 0.9rem; margin: 0; }
+  nav.toc { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 2.5rem; }
+  nav.toc p { color: var(--text-500); font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 0.5rem; }
+  nav.toc ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; }
+  .callout { background: var(--glass-bg); border: 1px solid var(--glass-border); border-left: 3px solid var(--accent); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 0 0 1.5rem; }
+  .callout :last-child { margin-bottom: 0; }
+  .scroll { overflow-x: auto; margin: 0 0 1rem; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.92rem; }
+  th, td { text-align: left; vertical-align: top; padding: 0.55rem 0.7rem; border-bottom: 1px solid var(--glass-border); }
+  th { color: var(--text-100); font-weight: 600; background: var(--glass-bg); }
+  footer.bottom { border-top: 1px solid var(--glass-border); margin-top: 4rem; padding-top: 1.5rem; color: var(--text-500); font-size: 0.9rem; }
+  :target { scroll-margin-top: 1rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <p class="eyebrow">EasyCompta — Chocky Dev</p>
+  <h1>Politique de confidentialité</h1>
+  <p class="meta">Dernière mise à jour : 17 septembre 2026 &middot;
+  <a href="/apps/easycompta/">Présentation de l'application</a></p>
+</header>
+
+<nav class="toc">
+  <p>Langues / Languages</p>
+  <ul>
+    <li><a href="#fr">Français</a></li>
+    <li><a href="#en">English</a></li>
+  </ul>
+</nav>
+
+<!-- =================================================================== -->
+<!-- FRANÇAIS                                                            -->
+<!-- =================================================================== -->
+<section id="fr" lang="fr">
+
+<h2>Français</h2>
+
+<p>Cette politique décrit les données personnelles traitées par l'application
+<strong>EasyCompta</strong> (<code>com.chocky.easycompta</code> sur Google Play, et
+sa version web <code>easycompta.web.app</code>), éditée par <strong>Chocky
+Dev</strong>, et les droits dont vous disposez.</p>
+
+<div class="callout">
+  <p><strong>Responsable du traitement :</strong> Chocky Dev &mdash;
+  <a href="mailto:djchocky@gmail.com">djchocky@gmail.com</a></p>
+  <p><strong>Vos données comptables ne quittent jamais votre appareil.</strong>
+  EasyCompta n'a ni compte, ni serveur, ni connexion bancaire : recettes, achats,
+  clients, fournisseurs, justificatifs et estimations URSSAF sont enregistrés dans une
+  base de données privée sur le téléphone, la tablette ou le navigateur. Rien n'est
+  transmis à Chocky Dev ni à un tiers, sauf si vous choisissez vous-même d'exporter ou
+  de partager un fichier.</p>
+</div>
+
+<h3>1. Aucun compte</h3>
+
+<p>EasyCompta ne demande ni inscription, ni connexion, ni adresse e-mail, ni accès à
+votre banque. Aucun identifiant personnel n'est créé ni conservé par Chocky Dev.</p>
+
+<h3>2. Vos données comptables</h3>
+
+<p>Tout ce que vous saisissez (recettes, dépenses, clients, fournisseurs, catégories,
+montants, paramètres URSSAF, notes) et les justificatifs que vous joignez (photos ou
+PDF, copiés dans la base de l'application) sont enregistrés
+<strong>exclusivement en local</strong> :</p>
+
+<ul>
+  <li><strong>Android :</strong> dans l'espace de stockage privé de l'application,
+  inaccessible aux autres applications ; supprimé avec l'application si vous la
+  désinstallez.</li>
+  <li><strong>Version web :</strong> dans le stockage local de votre navigateur, sur
+  l'appareil où vous l'utilisez ; effacé si vous supprimez les données du site dans
+  votre navigateur.</li>
+</ul>
+
+<p>Les fonctions de comptabilité fonctionnent entièrement hors ligne. Chocky Dev n'a
+accès ni à vos écritures, ni à vos justificatifs, ni à vos sauvegardes.</p>
+
+<h3>3. Sauvegarde, export et partage</h3>
+
+<p>Vous restez seul maître de vos données. À votre initiative uniquement, vous
+pouvez :</p>
+
+<ul>
+  <li>créer une <strong>sauvegarde chiffrée</strong> de l'ensemble de vos données
+  (justificatifs inclus avec le Premium) et l'enregistrer à l'emplacement de votre
+  choix, puis la restaurer sur un autre appareil ;</li>
+  <li>exporter ou partager un document (PDF, CSV) via les fonctions de partage du
+  système, vers la destination que vous choisissez.</li>
+</ul>
+
+<p>Le destinataire d'un fichier exporté ou partagé est alors seul responsable de ce
+fichier. Les sauvegardes vous appartiennent et se suppriment comme tout fichier,
+depuis l'emplacement où vous les avez enregistrées.</p>
+
+<h3>4. Permissions</h3>
+
+<p>EasyCompta ne demande aucune permission Android sensible. La sélection d'un
+justificatif ou d'un fichier de sauvegarde passe par le sélecteur de fichiers du
+système : l'application n'accède qu'aux fichiers que vous choisissez explicitement.
+Elle n'accède ni à vos contacts, ni à votre position, ni à votre appareil photo en
+arrière-plan, ni à votre microphone. L'accès réseau n'est utilisé que par les
+services Google décrits au §7.</p>
+
+<h3>5. Données traitées</h3>
+
+<div class="scroll">
+<table>
+  <thead>
+    <tr><th>Donnée</th><th>Finalité</th><th>Base légale</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Écritures comptables, clients, fournisseurs, justificatifs, paramètres URSSAF</td>
+      <td>Fonctionnement de l'application, <em>sur l'appareil uniquement</em></td>
+      <td>Exécution du service</td>
+    </tr>
+    <tr>
+      <td>Préférences : langue, thème, activité déclarée, choix de consentement</td>
+      <td>Mémoriser vos réglages, sur l'appareil</td>
+      <td>Exécution du service</td>
+    </tr>
+    <tr>
+      <td>Statut d'abonnement (gratuit, essai, Premium) et jetons de transaction Google Play</td>
+      <td>Débloquer les fonctions Premium, restaurer un abonnement</td>
+      <td>Exécution du contrat</td>
+    </tr>
+    <tr>
+      <td>Identifiant publicitaire de l'appareil (version gratuite Android)</td>
+      <td>Diffusion des annonces (Google AdMob)</td>
+      <td>Consentement (voir §6)</td>
+    </tr>
+    <tr>
+      <td>Mesure d'audience (Android) : écrans consultés, étapes du parcours
+      d'abonnement, statut gratuit/essai/abonné, version de l'application, type
+      d'appareil et système, pays, identifiant d'installation Firebase</td>
+      <td>Comprendre les usages pour améliorer l'application</td>
+      <td>Consentement (voir §6)</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p><strong>Aucune donnée comptable n'est transmise</strong> par la mesure d'audience :
+ni montants, ni noms de clients ou de fournisseurs, ni libellés d'écriture, ni
+justificatifs. Aucun compte n'étant requis, ces statistiques ne sont rattachées à
+aucune identité. La <strong>version web n'affiche pas de publicité et n'est pas
+suivie</strong>.</p>
+
+<h3>6. Publicité, mesure d'audience, abonnement et consentement</h3>
+
+<p>La version gratuite d'EasyCompta sur Android affiche des annonces fournies par
+<strong>Google AdMob</strong> : une bannière sur l'écran d'accueil, une annonce à
+l'ouverture au lancement et une vidéo récompensée proposée pour débloquer
+ponctuellement certaines fonctions. Aucune annonce n'interrompt la saisie.</p>
+
+<p>Au premier lancement dans l'Espace économique européen, au Royaume-Uni et en
+Suisse, un formulaire de consentement Google (<em>User Messaging Platform</em>) vous
+demande si vous acceptez la publicité personnalisée et la mesure d'audience. En cas
+de refus, des annonces non personnalisées peuvent être affichées. La mesure
+d'audience (<strong>Google Analytics pour Firebase</strong>) est <strong>désactivée
+par défaut</strong> et n'est activée qu'après votre accord. Votre choix est
+<strong>modifiable à tout moment</strong> depuis <em>Paramètres &rsaquo;
+Confidentialité</em>.</p>
+
+<p>L'<strong>abonnement Premium</strong> (analyses avancées, historique multi-années,
+export PDF et CSV, justificatifs joints, suppression de la publicité), précédé d'une
+période d'essai gratuite sans carte bancaire, est géré <strong>intégralement par
+Google Play</strong>. EasyCompta ne reçoit, ne traite et ne conserve aucune
+information de paiement (ni carte, ni identité, ni adresse) ; l'application interroge
+seulement Google Play pour savoir si l'abonnement est actif et mémorise ce statut sur
+l'appareil. La période d'essai est calculée localement. Avec le Premium, le SDK
+publicitaire n'est plus initialisé.</p>
+
+<h3>7. Destinataires</h3>
+
+<p>Chocky Dev ne reçoit aucune donnée directement. Les seuls services tiers intégrés
+sont des services <strong>Google</strong> :</p>
+
+<ul>
+  <li><strong>Google AdMob</strong> — publicité de la version gratuite Android (avec
+  son formulaire de consentement)</li>
+  <li><strong>Google Analytics pour Firebase</strong> — mesure d'audience sur Android,
+  après consentement</li>
+  <li><strong>Google Play Billing</strong> — abonnement Premium</li>
+  <li><strong>Google Play (mises à jour in-app)</strong> — vérification, au
+  lancement, qu'une nouvelle version est disponible</li>
+  <li><strong>Firebase Hosting</strong> — hébergement de la version web
+  <code>easycompta.web.app</code> ; comme tout hébergeur, il reçoit l'adresse IP de
+  votre navigateur dans ses journaux techniques lorsque vous chargez la page</li>
+</ul>
+
+<p>Google peut traiter ces données en dehors de l'Union européenne, sur la base des
+clauses contractuelles types de la Commission européenne. Détails :
+<a href="https://policies.google.com/privacy" rel="noopener">règles de
+confidentialité Google</a>,
+<a href="https://firebase.google.com/support/privacy" rel="noopener">confidentialité
+Firebase</a>.</p>
+
+<p>Aucune autre entreprise ne reçoit de données, et aucune donnée n'est vendue.</p>
+
+<h3>8. Sécurité</h3>
+
+<ul>
+  <li>Vos données sont conservées dans l'espace privé de l'application (Android) ou
+  du navigateur (web), protégé par le système.</li>
+  <li>Les sauvegardes que vous créez sont <strong>chiffrées</strong> avant d'être
+  écrites ; conservez-les dans un emplacement de confiance.</li>
+  <li>Les seuls échanges réseau sont ceux des services Google cités au §7,
+  <strong>chiffrés en transit</strong> (TLS).</li>
+  <li>L'application n'intègre aucun outil de rapport de plantage.</li>
+</ul>
+
+<h3>9. Durée de conservation</h3>
+
+<p>Vos données restent sur l'appareil aussi longtemps que l'application (ou les
+données du site, sur le web) est installée. Pour les supprimer : effacez les données
+de l'application depuis les réglages Android ou désinstallez EasyCompta ; sur le web,
+supprimez les données du site dans votre navigateur. Les données publicitaires et de
+mesure sont conservées par Google selon ses propres durées (par défaut 14 mois pour
+Firebase Analytics).</p>
+
+<h3>10. Vos droits</h3>
+
+<p>Vos données comptables ne quittant pas votre appareil, vous en avez le contrôle
+direct : consultation, modification et suppression se font dans l'application. Pour
+toute question sur cette politique ou pour exercer vos droits d'accès, de
+rectification, d'effacement, de limitation ou d'opposition concernant les données de
+publicité et de mesure, écrivez à
+<a href="mailto:djchocky@gmail.com">djchocky@gmail.com</a>. Réponse sous
+<strong>30 jours</strong>. Vous pouvez aussi retirer votre consentement à tout moment
+(§6).</p>
+
+<p>Vous pouvez également introduire une réclamation auprès de l'autorité de
+protection des données de votre pays &mdash; en France, la
+<a href="https://www.cnil.fr/" rel="noopener">CNIL</a>.</p>
+
+<h3>11. Enfants</h3>
+
+<p>EasyCompta est un outil professionnel destiné aux micro-entrepreneurs. Elle n'est
+pas destinée aux enfants de moins de <strong>13 ans</strong> et n'est pas conçue pour
+un public familial au sens du programme « Conçu pour les familles » de Google Play :
+l'application comporte de la publicité.</p>
+
+<h3>12. Modifications</h3>
+
+<p>Toute évolution de cette politique est publiée sur cette même page, avec mise à
+jour de la date affichée en haut.</p>
+
+</section>
+
+<!-- =================================================================== -->
+<!-- ENGLISH                                                             -->
+<!-- =================================================================== -->
+<section id="en" lang="en">
+
+<h2>English</h2>
+
+<p>This policy describes the personal data processed by the
+<strong>EasyCompta</strong> application (<code>com.chocky.easycompta</code> on Google
+Play, and its web version <code>easycompta.web.app</code>), published by
+<strong>Chocky Dev</strong>, and your rights. The French version above is the
+reference text.</p>
+
+<div class="callout">
+  <p><strong>Data controller:</strong> Chocky Dev &mdash;
+  <a href="mailto:djchocky@gmail.com">djchocky@gmail.com</a></p>
+  <p><strong>Your accounting data never leaves your device.</strong> EasyCompta has
+  no account, no server and no bank connection: income, expenses, customers,
+  suppliers, receipts and URSSAF estimates are stored in a private database on your
+  phone, tablet or browser. Nothing is sent to Chocky Dev or to any third party,
+  unless you choose to export or share a file yourself.</p>
+</div>
+
+<h3>1. No account</h3>
+
+<p>EasyCompta requires no sign-up, no login, no email address and no access to your
+bank. Chocky Dev creates and stores no personal identifier.</p>
+
+<h3>2. Your accounting data</h3>
+
+<p>Everything you enter (income, expenses, customers, suppliers, categories, amounts,
+URSSAF settings, notes) and the receipts you attach (photos or PDFs, copied into the
+app's database) is stored <strong>locally only</strong>:</p>
+
+<ul>
+  <li><strong>Android:</strong> in the app's private storage, inaccessible to other
+  apps; removed with the app if you uninstall it.</li>
+  <li><strong>Web version:</strong> in your browser's local storage, on the device
+  you use; cleared if you delete the site's data in your browser.</li>
+</ul>
+
+<p>Accounting features work fully offline. Chocky Dev has no access to your entries,
+receipts or backups.</p>
+
+<h3>3. Backup, export and sharing</h3>
+
+<p>You remain in full control of your data. On your initiative only, you can:</p>
+
+<ul>
+  <li>create an <strong>encrypted backup</strong> of all your data (receipts included
+  with Premium) and save it to the location of your choice, then restore it on
+  another device;</li>
+  <li>export or share a document (PDF, CSV) through the system's sharing features, to
+  the destination you choose.</li>
+</ul>
+
+<p>The recipient of an exported or shared file is then solely responsible for it.
+Backups belong to you and can be deleted like any file, from wherever you saved
+them.</p>
+
+<h3>4. Permissions</h3>
+
+<p>EasyCompta requests no sensitive Android permission. Picking a receipt or a backup
+file goes through the system file picker: the app only accesses the files you
+explicitly choose. It accesses neither your contacts, nor your location, nor your
+camera in the background, nor your microphone. Network access is used only by the
+Google services described in §7.</p>
+
+<h3>5. Data processed</h3>
+
+<div class="scroll">
+<table>
+  <thead>
+    <tr><th>Data</th><th>Purpose</th><th>Legal basis</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Accounting entries, customers, suppliers, receipts, URSSAF settings</td><td>App functionality, <em>on the device only</em></td><td>Performance of the service</td></tr>
+    <tr><td>Preferences: language, theme, declared activity, consent choices</td><td>Remember your settings, on the device</td><td>Performance of the service</td></tr>
+    <tr><td>Subscription status (free, trial, Premium) and Google Play transaction tokens</td><td>Unlock Premium features, restore a subscription</td><td>Performance of the contract</td></tr>
+    <tr><td>Device advertising identifier (free Android version)</td><td>Ad delivery (Google AdMob)</td><td>Consent (see §6)</td></tr>
+    <tr><td>Analytics (Android): screens viewed, subscription funnel steps, free/trial/subscribed status, app version, device type and OS, country, Firebase installation identifier</td><td>Understand usage to improve the app</td><td>Consent (see §6)</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p><strong>No accounting data is transmitted</strong> by analytics: no amounts, no
+customer or supplier names, no entry labels, no receipts. Since no account is
+required, these statistics are linked to no identity. The <strong>web version shows
+no advertising and is not tracked</strong>.</p>
+
+<h3>6. Advertising, analytics, subscription and consent</h3>
+
+<p>The free Android version of EasyCompta shows ads provided by <strong>Google
+AdMob</strong>: a banner on the home screen, an app-open ad at launch and a rewarded
+video offered to unlock certain features occasionally. No ad interrupts data
+entry.</p>
+
+<p>On first launch in the European Economic Area, the United Kingdom and
+Switzerland, a Google consent form (<em>User Messaging Platform</em>) asks whether
+you accept personalised advertising and analytics. If you decline, non-personalised
+ads may be shown. Analytics (<strong>Google Analytics for Firebase</strong>) is
+<strong>off by default</strong> and only enabled after your consent. You can
+<strong>change your choice at any time</strong> from <em>Settings &rsaquo;
+Privacy</em>.</p>
+
+<p>The <strong>Premium subscription</strong> (advanced analyses, multi-year history,
+PDF and CSV export, attached receipts, ad removal), preceded by a free trial with no
+card required, is handled <strong>entirely by Google Play</strong>. EasyCompta
+receives, processes and stores no payment information (no card, identity or
+address); the app only asks Google Play whether the subscription is active and stores
+that status on the device. The trial period is computed locally. With Premium, the
+advertising SDK is no longer initialised.</p>
+
+<h3>7. Recipients</h3>
+
+<p>Chocky Dev receives no data directly. The only third-party services embedded are
+<strong>Google</strong> services:</p>
+
+<ul>
+  <li><strong>Google AdMob</strong> — advertising in the free Android version (with
+  its consent form)</li>
+  <li><strong>Google Analytics for Firebase</strong> — analytics on Android, after
+  consent</li>
+  <li><strong>Google Play Billing</strong> — Premium subscription</li>
+  <li><strong>Google Play (in-app updates)</strong> — checking at launch whether a
+  new version is available</li>
+  <li><strong>Firebase Hosting</strong> — hosting of the web version
+  <code>easycompta.web.app</code>; like any host, it receives your browser's IP
+  address in its technical logs when you load the page</li>
+</ul>
+
+<p>Google may process this data outside the European Union under the European
+Commission's standard contractual clauses. Details:
+<a href="https://policies.google.com/privacy" rel="noopener">Google privacy
+policy</a>, <a href="https://firebase.google.com/support/privacy" rel="noopener">Firebase
+privacy</a>.</p>
+
+<p>No other company receives data, and no data is sold.</p>
+
+<h3>8. Security</h3>
+
+<ul>
+  <li>Your data is kept in the app's (Android) or browser's (web) private storage,
+  protected by the system.</li>
+  <li>Backups you create are <strong>encrypted</strong> before being written; keep
+  them in a trusted location.</li>
+  <li>The only network exchanges are those of the Google services listed in §7,
+  <strong>encrypted in transit</strong> (TLS).</li>
+  <li>The app embeds no crash-reporting tool.</li>
+</ul>
+
+<h3>9. Retention</h3>
+
+<p>Your data remains on the device as long as the app (or, on the web, the site's
+data) is installed. To delete it: clear the app's data from Android settings or
+uninstall EasyCompta; on the web, delete the site's data in your browser. Advertising
+and analytics data is retained by Google according to its own periods (14 months by
+default for Firebase Analytics).</p>
+
+<h3>10. Your rights</h3>
+
+<p>Since your accounting data never leaves your device, you control it directly:
+viewing, editing and deletion happen in the app. For any question about this policy,
+or to exercise your rights of access, rectification, erasure, restriction or
+objection regarding advertising and analytics data, email
+<a href="mailto:djchocky@gmail.com">djchocky@gmail.com</a>. Reply within
+<strong>30 days</strong>. You can also withdraw your consent at any time (§6).</p>
+
+<p>You may also lodge a complaint with your country's data protection authority
+&mdash; in France, the <a href="https://www.cnil.fr/" rel="noopener">CNIL</a>.</p>
+
+<h3>11. Children</h3>
+
+<p>EasyCompta is a professional tool for micro-entrepreneurs. It is not intended for
+children under <strong>13</strong> and is not designed for a family audience within
+the meaning of Google Play's "Designed for Families" programme: the app contains
+advertising.</p>
+
+<h3>12. Changes</h3>
+
+<p>Any change to this policy is published on this page, with the date at the top
+updated.</p>
+
+</section>
+
+<footer class="bottom">
+  <p>Chocky Dev &mdash; <a href="mailto:djchocky@gmail.com">djchocky@gmail.com</a>
+  &middot; <a href="https://chocky.dev/">chocky.dev</a>
+  &middot; <a href="/apps/easycompta/">EasyCompta</a></p>
+</footer>
+
+</div>
+</body>
+</html>

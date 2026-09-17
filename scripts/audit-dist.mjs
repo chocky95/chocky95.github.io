@@ -257,6 +257,10 @@ async function checkInventory(expected, forbidden) {
     'legal/papayoo-delete-account.html',
     // ScanFree : declaree dans Play Console ET App Store Connect (17/09/2026).
     'legal/scanfree-privacy.html',
+    // Molkky Score et EasyCompta : declarees dans Play Console et dans le CMP
+    // AdMob (17/09/2026), en remplacement des anciennes pages Google Sites.
+    'legal/molkky-score-privacy.html',
+    'legal/easycompta-privacy.html',
   ]) {
     if (!existsSync(path.join(DIST, declared))) {
       fail(`dist/${declared} manquant — URL declaree dans Google Play Console / App Store Connect.`);

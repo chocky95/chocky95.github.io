@@ -1,0 +1,507 @@
+<!doctype html>
+<!--
+  ==========================================================================
+  URL DÉCLARÉE DANS GOOGLE PLAY CONSOLE ET DANS LE CMP ADMOB — NE PAS
+  SUPPRIMER NI RENOMMER.
+
+  https://chocky.dev/legal/molkky-score-privacy.html
+  Champ « Règles de confidentialité » de la fiche Play de com.chocky.molkkyscore
+  et URL de confidentialité du message de consentement (AdMob › Confidentialité
+  et messages). Google revérifie périodiquement cette adresse : un 404 vaut un
+  avertissement de conformité.
+
+  Les ancres #fr et #en permettent d'ouvrir la bonne langue depuis les fiches.
+
+  scripts/audit-dist.mjs exige la présence de ce fichier dans dist/.
+
+  CONTRAINTES : fichier PLAT (.html), ZÉRO balise script, CSS inliné.
+  Même charte que scanfree-privacy.html, papayoo-privacy.html et
+  mojogo-privacy.html.
+  ==========================================================================
+-->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Politique de confidentialité — Mölkky Score</title>
+<meta name="description" content="Politique de confidentialité de l'application Mölkky Score (Chocky Dev) : parties et joueurs stockés sur l'appareil, aucun compte, partage en direct effacé après 48 h, publicité soumise à consentement, vos droits.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+  :root {
+    --ink-900: #070a0d;
+    --text-100: #f2f5f7;
+    --text-300: #c2ccd4;
+    --text-500: #8b98a3;
+    --glass-bg: rgb(255 255 255 / 4%);
+    --glass-border: rgb(255 255 255 / 9%);
+    --accent: #d4c4a8;
+    --warn: #e0a458;
+    --radius: 14px;
+    --measure: 68ch;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--ink-900);
+    color: var(--text-300);
+    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: clamp(1rem, 0.96rem + 0.2vw, 1.06rem);
+    line-height: 1.65;
+  }
+  .wrap { max-width: var(--measure); margin: 0 auto; padding: 2.5rem 1.25rem 5rem; }
+  header.top { border-bottom: 1px solid var(--glass-border); padding-bottom: 1.5rem; margin-bottom: 2rem; }
+  .eyebrow { color: var(--accent); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 0.5rem; }
+  h1 { color: var(--text-100); font-size: clamp(1.6rem, 1.4rem + 1vw, 2.2rem); line-height: 1.15; margin: 0 0 0.75rem; }
+  h2 {
+    color: var(--text-100); font-size: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
+    line-height: 1.2; margin: 3rem 0 0.75rem; padding-top: 1.5rem;
+    border-top: 1px solid var(--glass-border);
+  }
+  h3 { color: var(--text-100); font-size: 1.05rem; margin: 2rem 0 0.5rem; }
+  p, ul, ol { margin: 0 0 1rem; }
+  ul, ol { padding-left: 1.25rem; }
+  li { margin-bottom: 0.4rem; }
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:hover { color: var(--text-100); }
+  strong { color: var(--text-100); font-weight: 600; }
+  code { font-size: 0.9em; color: var(--text-100); background: var(--glass-bg); padding: 0.1em 0.35em; border-radius: 4px; }
+  .meta { color: var(--text-500); font-size: 0.9rem; margin: 0; }
+  nav.toc { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 2.5rem; }
+  nav.toc p { color: var(--text-500); font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 0.5rem; }
+  nav.toc ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; }
+  .callout { background: var(--glass-bg); border: 1px solid var(--glass-border); border-left: 3px solid var(--accent); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 0 0 1.5rem; }
+  .callout :last-child { margin-bottom: 0; }
+  .scroll { overflow-x: auto; margin: 0 0 1rem; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.92rem; }
+  th, td { text-align: left; vertical-align: top; padding: 0.55rem 0.7rem; border-bottom: 1px solid var(--glass-border); }
+  th { color: var(--text-100); font-weight: 600; background: var(--glass-bg); }
+  footer.bottom { border-top: 1px solid var(--glass-border); margin-top: 4rem; padding-top: 1.5rem; color: var(--text-500); font-size: 0.9rem; }
+  :target { scroll-margin-top: 1rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <p class="eyebrow">Mölkky Score — Chocky Dev</p>
+  <h1>Politique de confidentialité</h1>
+  <p class="meta">Dernière mise à jour : 17 septembre 2026 &middot;
+  <a href="/apps/molkky-score/">Présentation de l'application</a></p>
+</header>
+
+<nav class="toc">
+  <p>Langues / Languages</p>
+  <ul>
+    <li><a href="#fr">Français</a></li>
+    <li><a href="#en">English</a></li>
+  </ul>
+</nav>
+
+<!-- =================================================================== -->
+<!-- FRANÇAIS                                                            -->
+<!-- =================================================================== -->
+<section id="fr" lang="fr">
+
+<h2>Français</h2>
+
+<p>Cette politique décrit les données personnelles traitées par l'application
+<strong>Mölkky Score</strong> (<code>com.chocky.molkkyscore</code> sur Google Play),
+éditée par <strong>Chocky Dev</strong>, et les droits dont vous disposez.</p>
+
+<div class="callout">
+  <p><strong>Responsable du traitement :</strong> Chocky Dev &mdash;
+  <a href="mailto:djchocky@gmail.com">djchocky@gmail.com</a></p>
+  <p><strong>Vos parties restent sur votre appareil.</strong> Mölkky Score n'a pas de
+  compte : joueurs, parties, tournois, statistiques et classement ELO sont enregistrés
+  sur le téléphone ou la tablette. La seule fonction qui envoie des données sur
+  Internet est le <strong>partage du score en direct</strong>, que vous déclenchez
+  vous-même et dont les données sont effacées automatiquement 48 heures après la fin
+  de l'activité.</p>
+</div>
+
+<h3>1. Aucun compte</h3>
+
+<p>Mölkky Score ne demande ni inscription, ni connexion, ni adresse e-mail. Aucun
+identifiant personnel n'est créé ni conservé par Chocky Dev. Lorsque vous utilisez le
+partage en direct, un <strong>identifiant technique anonyme</strong> est attribué à
+votre installation par Firebase (connexion anonyme) : il sert uniquement à garantir
+que vous seul pouvez mettre à jour la partie que vous diffusez. Il n'est relié à
+aucun nom, e-mail ou compte Google.</p>
+
+<h3>2. Vos joueurs, parties et tournois</h3>
+
+<p>Les noms de joueurs que vous saisissez, leur photo facultative, les parties, les
+lancers, les tournois, les statistiques et le classement ELO sont enregistrés dans
+l'<strong>espace de stockage privé de l'application</strong>, inaccessible aux autres
+applications. Ils y restent tant que vous ne les supprimez pas et disparaissent avec
+l'application si vous la désinstallez.</p>
+
+<p>Une feuille de tournoi ou une affiche exportée en PDF n'est produite et partagée
+que sur votre action explicite, vers l'application ou l'emplacement que vous
+choisissez ; le destinataire est alors seul responsable du fichier reçu.</p>
+
+<h3>3. Partage du score en direct</h3>
+
+<p>Si vous activez le partage en direct d'une partie ou d'un tournoi, l'application
+publie sur un serveur <strong>Google Firebase (Cloud Firestore)</strong> un document
+contenant : les <strong>noms des joueurs et des équipes tels que vous les avez
+saisis</strong>, les scores, les lancers, les réglages de la partie, l'avancement
+du tournoi et l'historique des coups. Ce document est lisible par <strong>toute
+personne disposant du lien ou du QR code</strong>, via la page web
+<code>molkky-live.web.app</code>. Les photos des joueurs ne sont jamais publiées.</p>
+
+<ul>
+  <li>Le partage n'est jamais automatique : il démarre quand vous appuyez sur le bouton
+  de partage et vous pouvez l'arrêter à tout moment.</li>
+  <li>Le document est <strong>supprimé automatiquement 48 heures</strong> après la
+  dernière mise à jour (politique d'expiration Firestore ; la suppression effective
+  peut prendre jusqu'à 24 heures de plus, mais la page web considère la partie
+  comme expirée dès la 48<sup>e</sup> heure).</li>
+  <li>Utilisez des prénoms ou des pseudonymes si vous ne souhaitez pas que des noms
+  complets apparaissent sur la page publique.</li>
+  <li>Le partage comprend un quota gratuit ; au-delà, un <em>pass partage</em> d'un
+  mois est proposé via Google Play (voir §6).</li>
+</ul>
+
+<h3>4. Appareil photo, capteurs et fichiers</h3>
+
+<ul>
+  <li><strong>Appareil photo et photos :</strong> demandés uniquement si vous ajoutez
+  une photo à un joueur (prise de vue ou choix dans la galerie). L'image est recadrée
+  et enregistrée sur l'appareil, jamais transmise.</li>
+  <li><strong>Placement des quilles en réalité augmentée :</strong> cet écran des
+  règles utilise la caméra et les capteurs de mouvement en direct pour superposer la
+  disposition des quilles. Rien n'est enregistré ni envoyé.</li>
+  <li><strong>Fichiers :</strong> l'enregistrement d'un PDF passe par le sélecteur de
+  fichiers du système.</li>
+  <li>Mölkky Score n'accède ni à vos contacts, ni à votre position, ni à votre
+  microphone.</li>
+</ul>
+
+<h3>5. Données traitées</h3>
+
+<div class="scroll">
+<table>
+  <thead>
+    <tr><th>Donnée</th><th>Finalité</th><th>Base légale</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Joueurs (nom, photo facultative), parties, lancers, tournois, statistiques, ELO</td>
+      <td>Fonctionnement de l'application, <em>sur l'appareil uniquement</em></td>
+      <td>Exécution du service</td>
+    </tr>
+    <tr>
+      <td>Préférences : langue, sons, règles par défaut, choix de consentement</td>
+      <td>Mémoriser vos réglages, sur l'appareil</td>
+      <td>Exécution du service</td>
+    </tr>
+    <tr>
+      <td>Partage en direct : noms des joueurs et équipes, scores, lancers, réglages,
+      identifiant anonyme de l'installation</td>
+      <td>Afficher la partie sur la page web publique que vous diffusez</td>
+      <td>Exécution du service que vous demandez ; effacé après 48 h</td>
+    </tr>
+    <tr>
+      <td>Statut d'achat (Premium, pass partage) et jetons de transaction Google Play</td>
+      <td>Débloquer les fonctions achetées, restaurer un achat</td>
+      <td>Exécution du contrat</td>
+    </tr>
+    <tr>
+      <td>Identifiant publicitaire de l'appareil</td>
+      <td>Diffusion des annonces (Google AdMob)</td>
+      <td>Consentement (voir §6)</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>Mölkky Score n'intègre <strong>ni mesure d'audience, ni outil de rapport de
+plantage</strong> : Chocky Dev ne sait pas comment vous utilisez l'application.</p>
+
+<h3>6. Publicité, achats et consentement</h3>
+
+<p>Mölkky Score est gratuite et financée par des annonces fournies par <strong>Google
+AdMob</strong> : une annonce à l'ouverture au lancement, une bannière, des
+interstitiels entre certains écrans et des vidéos récompensées proposées avant les
+résultats de fin de partie ou au lancement d'un tournoi officiel. Aucune annonce
+n'interrompt une partie en cours.</p>
+
+<p>Au premier lancement dans l'Espace économique européen, au Royaume-Uni et en
+Suisse, un formulaire de consentement Google (<em>User Messaging Platform</em>) vous
+demande si vous acceptez la publicité personnalisée. En cas de refus, des annonces
+non personnalisées peuvent être affichées. Votre choix est <strong>modifiable à tout
+moment</strong> depuis les paramètres de l'application.</p>
+
+<p>Deux achats intégrés sont proposés, réglés <strong>entièrement par Google
+Play</strong> : le <strong>Premium</strong> (achat unique) supprime toute publicité et
+débloque les tournois officiels de plus de 24 joueurs ; le <strong>pass
+partage</strong> étend pendant un mois le quota de partage en direct. Chocky Dev ne
+reçoit aucune information de paiement (ni carte, ni identité, ni adresse) ;
+l'application interroge seulement Google Play pour savoir si l'achat est actif et
+mémorise ce statut sur l'appareil. Avec le Premium, le SDK publicitaire n'est plus
+sollicité.</p>
+
+<h3>7. Destinataires</h3>
+
+<p>Chocky Dev ne reçoit aucune donnée directement. Les seuls services tiers intégrés
+à l'application sont des services <strong>Google</strong> :</p>
+
+<ul>
+  <li><strong>Google AdMob</strong> — publicité (avec son formulaire de consentement)</li>
+  <li><strong>Firebase Authentication</strong> (connexion anonyme) et
+  <strong>Cloud Firestore</strong> — partage du score en direct, uniquement si vous
+  l'activez</li>
+  <li><strong>Firebase Hosting</strong> — page web publique <code>molkky-live.web.app</code>
+  consultée par les personnes à qui vous envoyez le lien</li>
+  <li><strong>Google Play Billing</strong> — achats intégrés</li>
+</ul>
+
+<p>Google peut traiter ces données en dehors de l'Union européenne, sur la base des
+clauses contractuelles types de la Commission européenne. Détails :
+<a href="https://policies.google.com/privacy" rel="noopener">règles de
+confidentialité Google</a>,
+<a href="https://firebase.google.com/support/privacy" rel="noopener">confidentialité
+Firebase</a>.</p>
+
+<p>Aucune autre entreprise ne reçoit de données, et aucune donnée n'est vendue.</p>
+
+<h3>8. Sécurité</h3>
+
+<ul>
+  <li>Vos données locales sont conservées dans l'espace privé de l'application,
+  protégé par le système (chiffrement de l'appareil, code de verrouillage).</li>
+  <li>Les documents de partage en direct ne peuvent être créés et modifiés que par
+  l'installation qui les a publiés (règles de sécurité Firestore) ; leur durée de vie
+  est plafonnée côté serveur.</li>
+  <li>Tous les échanges réseau sont <strong>chiffrés en transit</strong> (TLS).</li>
+</ul>
+
+<h3>9. Durée de conservation</h3>
+
+<p>Vos joueurs, parties et réglages restent sur l'appareil jusqu'à ce que vous les
+supprimiez depuis l'application ou que vous désinstalliez Mölkky Score. Les données
+de partage en direct sont effacées 48 heures après la dernière activité. Les données
+publicitaires et de paiement sont conservées par Google selon ses propres durées.</p>
+
+<h3>10. Vos droits</h3>
+
+<p>Vos données ne quittant pas votre appareil, hors partage en direct, vous en avez
+le contrôle direct : consultation, modification et suppression se font dans
+l'application, et l'arrêt d'un partage en cours aussi. Pour toute question sur cette
+politique ou pour exercer vos droits d'accès, de rectification, d'effacement, de
+limitation ou d'opposition, écrivez à
+<a href="mailto:djchocky@gmail.com">djchocky@gmail.com</a>. Réponse sous
+<strong>30 jours</strong>. Vous pouvez aussi retirer votre consentement publicitaire à
+tout moment (§6).</p>
+
+<p>Vous pouvez également introduire une réclamation auprès de l'autorité de
+protection des données de votre pays &mdash; en France, la
+<a href="https://www.cnil.fr/" rel="noopener">CNIL</a>.</p>
+
+<h3>11. Enfants</h3>
+
+<p>Mölkky Score n'est pas destinée aux enfants de moins de <strong>13 ans</strong> et
+n'est pas conçue pour un public familial au sens du programme « Conçu pour les
+familles » de Google Play : l'application comporte de la publicité.</p>
+
+<h3>12. Modifications</h3>
+
+<p>Toute évolution de cette politique est publiée sur cette même page, avec mise à
+jour de la date affichée en haut.</p>
+
+</section>
+
+<!-- =================================================================== -->
+<!-- ENGLISH                                                             -->
+<!-- =================================================================== -->
+<section id="en" lang="en">
+
+<h2>English</h2>
+
+<p>This policy describes the personal data processed by the <strong>Mölkky
+Score</strong> application (<code>com.chocky.molkkyscore</code> on Google Play),
+published by <strong>Chocky Dev</strong>, and your rights. The French version above
+is the reference text.</p>
+
+<div class="callout">
+  <p><strong>Data controller:</strong> Chocky Dev &mdash;
+  <a href="mailto:djchocky@gmail.com">djchocky@gmail.com</a></p>
+  <p><strong>Your games stay on your device.</strong> Mölkky Score has no account:
+  players, games, tournaments, statistics and ELO ranking are stored on your phone or
+  tablet. The only feature that sends data over the Internet is <strong>live score
+  sharing</strong>, which you start yourself and whose data is automatically deleted
+  48 hours after the activity ends.</p>
+</div>
+
+<h3>1. No account</h3>
+
+<p>Mölkky Score requires no sign-up, no login and no email address. Chocky Dev
+creates and stores no personal identifier. When you use live sharing, an
+<strong>anonymous technical identifier</strong> is assigned to your installation by
+Firebase (anonymous sign-in): it only ensures that you alone can update the game you
+are broadcasting. It is linked to no name, email or Google account.</p>
+
+<h3>2. Your players, games and tournaments</h3>
+
+<p>The player names you enter, their optional photo, games, throws, tournaments,
+statistics and ELO ranking are stored in the <strong>app's private storage</strong>,
+inaccessible to other apps. They stay there until you delete them and are removed
+with the app if you uninstall it.</p>
+
+<p>A tournament sheet or poster exported as PDF is only produced and shared on your
+explicit action, to the app or location you choose; the recipient is then solely
+responsible for the file.</p>
+
+<h3>3. Live score sharing</h3>
+
+<p>If you enable live sharing for a game or tournament, the app publishes to a
+<strong>Google Firebase (Cloud Firestore)</strong> server a document containing: the
+<strong>player and team names exactly as you typed them</strong>, scores, throws,
+game settings, tournament progress and the move history. This document can be read
+by <strong>anyone who has the link or QR code</strong>, through the web page
+<code>molkky-live.web.app</code>. Player photos are never published.</p>
+
+<ul>
+  <li>Sharing is never automatic: it starts when you tap the share button and you can
+  stop it at any time.</li>
+  <li>The document is <strong>automatically deleted 48 hours</strong> after its last
+  update (Firestore expiry policy; the actual deletion may take up to 24 more hours,
+  but the web page treats the game as expired from the 48th hour).</li>
+  <li>Use first names or nicknames if you do not want full names to appear on the
+  public page.</li>
+  <li>Sharing includes a free quota; beyond it, a one-month <em>share pass</em> is
+  offered through Google Play (see §6).</li>
+</ul>
+
+<h3>4. Camera, sensors and files</h3>
+
+<ul>
+  <li><strong>Camera and photos:</strong> requested only if you add a photo to a
+  player (take a picture or pick from the gallery). The image is cropped and stored
+  on the device, never transmitted.</li>
+  <li><strong>Augmented-reality pin placement:</strong> this rules screen uses the
+  live camera feed and motion sensors to overlay the pin layout. Nothing is recorded
+  or sent.</li>
+  <li><strong>Files:</strong> saving a PDF goes through the system file picker.</li>
+  <li>Mölkky Score accesses neither your contacts, nor your location, nor your
+  microphone.</li>
+</ul>
+
+<h3>5. Data processed</h3>
+
+<div class="scroll">
+<table>
+  <thead>
+    <tr><th>Data</th><th>Purpose</th><th>Legal basis</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Players (name, optional photo), games, throws, tournaments, statistics, ELO</td><td>App functionality, <em>on the device only</em></td><td>Performance of the service</td></tr>
+    <tr><td>Preferences: language, sounds, default rules, consent choices</td><td>Remember your settings, on the device</td><td>Performance of the service</td></tr>
+    <tr><td>Live sharing: player and team names, scores, throws, settings, anonymous installation identifier</td><td>Display the game on the public web page you broadcast</td><td>Performance of the service you request; deleted after 48 h</td></tr>
+    <tr><td>Purchase status (Premium, share pass) and Google Play transaction tokens</td><td>Unlock purchased features, restore a purchase</td><td>Performance of the contract</td></tr>
+    <tr><td>Device advertising identifier</td><td>Ad delivery (Google AdMob)</td><td>Consent (see §6)</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>Mölkky Score embeds <strong>no analytics and no crash-reporting tool</strong>:
+Chocky Dev does not know how you use the app.</p>
+
+<h3>6. Advertising, purchases and consent</h3>
+
+<p>Mölkky Score is free and ad-supported through <strong>Google AdMob</strong>: an
+app-open ad at launch, a banner, interstitials between some screens, and rewarded
+videos offered before end-of-game results or when starting an official tournament.
+No ad interrupts a game in progress.</p>
+
+<p>On first launch in the European Economic Area, the United Kingdom and
+Switzerland, a Google consent form (<em>User Messaging Platform</em>) asks whether
+you accept personalised advertising. If you decline, non-personalised ads may be
+shown. You can <strong>change your choice at any time</strong> from the app
+settings.</p>
+
+<p>Two in-app purchases are offered, handled <strong>entirely by Google Play</strong>:
+<strong>Premium</strong> (one-time purchase) removes all advertising and unlocks
+official tournaments with more than 24 players; the <strong>share pass</strong>
+extends the live-sharing quota for one month. Chocky Dev receives no payment
+information (no card, identity or address); the app only asks Google Play whether the
+purchase is active and stores that status on the device. With Premium, the
+advertising SDK is no longer used.</p>
+
+<h3>7. Recipients</h3>
+
+<p>Chocky Dev receives no data directly. The only third-party services embedded in
+the app are <strong>Google</strong> services:</p>
+
+<ul>
+  <li><strong>Google AdMob</strong> — advertising (with its consent form)</li>
+  <li><strong>Firebase Authentication</strong> (anonymous sign-in) and <strong>Cloud
+  Firestore</strong> — live score sharing, only if you enable it</li>
+  <li><strong>Firebase Hosting</strong> — public web page <code>molkky-live.web.app</code>
+  viewed by the people you send the link to</li>
+  <li><strong>Google Play Billing</strong> — in-app purchases</li>
+</ul>
+
+<p>Google may process this data outside the European Union under the European
+Commission's standard contractual clauses. Details:
+<a href="https://policies.google.com/privacy" rel="noopener">Google privacy
+policy</a>, <a href="https://firebase.google.com/support/privacy" rel="noopener">Firebase
+privacy</a>.</p>
+
+<p>No other company receives data, and no data is sold.</p>
+
+<h3>8. Security</h3>
+
+<ul>
+  <li>Your local data is kept in the app's private storage, protected by the system
+  (device encryption, passcode).</li>
+  <li>Live-sharing documents can only be created and modified by the installation
+  that published them (Firestore security rules); their lifetime is capped
+  server-side.</li>
+  <li>All network exchanges are <strong>encrypted in transit</strong> (TLS).</li>
+</ul>
+
+<h3>9. Retention</h3>
+
+<p>Your players, games and settings remain on the device until you delete them from
+the app or uninstall Mölkky Score. Live-sharing data is deleted 48 hours after the
+last activity. Advertising and payment data is retained by Google according to its
+own periods.</p>
+
+<h3>10. Your rights</h3>
+
+<p>Since your data never leaves your device, except for live sharing, you control it
+directly: viewing, editing and deletion happen in the app, as does stopping a share in
+progress. For any question about this policy, or to exercise your rights of access,
+rectification, erasure, restriction or objection, email
+<a href="mailto:djchocky@gmail.com">djchocky@gmail.com</a>. Reply within
+<strong>30 days</strong>. You can also withdraw your advertising consent at any time
+(§6).</p>
+
+<p>You may also lodge a complaint with your country's data protection authority
+&mdash; in France, the <a href="https://www.cnil.fr/" rel="noopener">CNIL</a>.</p>
+
+<h3>11. Children</h3>
+
+<p>Mölkky Score is not intended for children under <strong>13</strong> and is not
+designed for a family audience within the meaning of Google Play's "Designed for
+Families" programme: the app contains advertising.</p>
+
+<h3>12. Changes</h3>
+
+<p>Any change to this policy is published on this page, with the date at the top
+updated.</p>
+
+</section>
+
+<footer class="bottom">
+  <p>Chocky Dev &mdash; <a href="mailto:djchocky@gmail.com">djchocky@gmail.com</a>
+  &middot; <a href="https://chocky.dev/">chocky.dev</a>
+  &middot; <a href="/apps/molkky-score/">Mölkky Score</a></p>
+</footer>
+
+</div>
+</body>
+</html>
