@@ -12,6 +12,12 @@
 # publiees de Chocky Dev (Molkky Score, Papayoo, EasyCompta, ScanFree) :
 # une seule ligne couvre les quatre, puisque app-ads.txt se verifie par
 # domaine et non par application.
+#
+# iOS (Papayoo, App Store id 6811035662, 16/09/2026) : meme editeur AdMob,
+# donc meme ligne. Pour que Google la lise aussi pour l'app iOS, la fiche
+# App Store Connect doit declarer https://chocky.dev comme « URL du site web
+# du developpeur » / « URL marketing » (carte Trello [iOS] D6). AdMob n'explore
+# ce fichier qu'a partir du domaine publie sur la fiche du store.
 google.com, pub-7537355309881003, DIRECT, f08c47fec0942fa0
 
 # Tappx : regie publicitaire utilisee en mediation avec AdMob.
