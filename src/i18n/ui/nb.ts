@@ -32,6 +32,7 @@ const nb: UiDict = {
   'cta.webApp': 'Bruk i nettleseren',
   'cta.discover': 'Utforsk',
   'cta.readRules': 'Les reglene',
+  'cta.joinBeta': 'Bli med i betaen',
 
   'breadcrumb.label': 'Brødsmulesti',
 

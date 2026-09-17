@@ -32,6 +32,7 @@ const ko: UiDict = {
   'cta.webApp': '브라우저에서 사용하기',
   'cta.discover': '자세히 보기',
   'cta.readRules': '규칙 보기',
+  'cta.joinBeta': '베타 참여하기',
 
   'breadcrumb.label': '탐색 경로',
 

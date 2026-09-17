@@ -131,6 +131,24 @@ const NAMED_CASES = [
   { url: '/sv/molkky-regler/', expectAlternates: 19 },
 ];
 
+/**
+ * Pages PLATES servies depuis public/ et LIÉES depuis des pages de
+ * l'inventaire. Elles ne sont ni dans le sitemap ni dans le cluster hreflang,
+ * et portent `noindex` : ce sont des pages de service, pas du contenu.
+ *
+ * `checkPage` rejette tout lien interne sans slash final ou hors inventaire —
+ * c'est ce qui attrape les liens cassés. Une page plate n'a ni l'un ni
+ * l'autre, d'où cette exception NOMINATIVE : un lien vers une page plate non
+ * déclarée ici fait toujours échouer le déploiement. `checkInventory` exige en
+ * retour la présence de chaque fichier dans dist/ : sa disparition casse le
+ * build, pas les boutons qui y mènent.
+ *
+ *   /mojogo/beta.html — bouton « Rejoindre la bêta » des 18 pages /apps/mojogo/
+ *                       (src/data/apps.ts, champ `betaUrl`). Les locales autres
+ *                       que fr y arrivent avec l'ancre #en, déjà ignorée.
+ */
+const FLAT_PAGES = new Set(['/mojogo/beta.html']);
+
 /* ── Utilitaires ─────────────────────────────────────────────────────────── */
 
 const errors = [];
@@ -280,6 +298,14 @@ async function checkInventory(expected, forbidden) {
     }
   }
 
+  // Pages plates liées depuis l'inventaire (voir FLAT_PAGES) : le lien est
+  // exempté du contrôle de maillage, le fichier doit donc exister ici.
+  for (const flat of FLAT_PAGES) {
+    if (!existsSync(path.join(DIST, flat.replace(/^\//, '')))) {
+      fail(`dist${flat} manquant — page plate liée depuis les pages produit (FLAT_PAGES).`);
+    }
+  }
+
   return pages;
 }
 
@@ -376,6 +402,7 @@ async function checkPage(file, expected) {
     }
     if (/\/(_astro|favicon|apple-touch|sitemap|robots)/.test(link)) continue;
     if (link.includes('#')) continue;
+    if (FLAT_PAGES.has(link)) continue; // page plate déclarée, existence vérifiée par checkInventory
 
     if (!link.endsWith('/')) {
       fail(`${url} : lien interne "${link}" sans slash final — Pages y répondrait par un 301.`);

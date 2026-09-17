@@ -32,6 +32,7 @@ const it: UiDict = {
   'cta.webApp': 'Usa nel browser',
   'cta.discover': 'Scopri',
   'cta.readRules': 'Leggi le regole',
+  'cta.joinBeta': 'Partecipa alla beta',
 
   'breadcrumb.label': 'Percorso di navigazione',
 

@@ -32,6 +32,7 @@ const ru: UiDict = {
   'cta.webApp': 'Открыть в браузере',
   'cta.discover': 'Узнать больше',
   'cta.readRules': 'Читать правила',
+  'cta.joinBeta': 'Присоединиться к бета-версии',
 
   'breadcrumb.label': 'Навигационная цепочка',
 

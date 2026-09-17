@@ -32,6 +32,7 @@ const cs: UiDict = {
   'cta.webApp': 'Použít v prohlížeči',
   'cta.discover': 'Objevit',
   'cta.readRules': 'Přečíst pravidla',
+  'cta.joinBeta': 'Zapojit se do beta verze',
 
   'breadcrumb.label': 'Navigační cesta',
 

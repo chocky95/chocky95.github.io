@@ -32,6 +32,7 @@ const pl: UiDict = {
   'cta.webApp': 'Użyj w przeglądarce',
   'cta.discover': 'Odkryj',
   'cta.readRules': 'Przeczytaj zasady',
+  'cta.joinBeta': 'Dołącz do bety',
 
   'breadcrumb.label': 'Ścieżka nawigacji',
 

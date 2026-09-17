@@ -32,6 +32,7 @@ const et: UiDict = {
   'cta.webApp': 'Kasuta brauseris',
   'cta.discover': 'Avasta',
   'cta.readRules': 'Loe reegleid',
+  'cta.joinBeta': 'Liitu beetaga',
 
   'breadcrumb.label': 'Navigatsiooniahel',
 

@@ -193,6 +193,19 @@ const languageFallback = appHasLocale(app.slug, locale)
               </a>
             )
           }
+          {
+            /*
+              Test fermé en cours : le bouton mène à la page d'inscription, un
+              fichier plat FR + EN servi depuis public/. Les locales autres que
+              fr atterrissent sur la section anglaise (#en). Le badge « Bientôt
+              disponible » reste : les deux ensemble disent la vérité.
+            */
+            app.betaUrl && (
+              <a class="cta" href={locale === DEFAULT_LOCALE ? app.betaUrl : `${app.betaUrl}#en`}>
+                {t('cta.joinBeta')}
+              </a>
+            )
+          }
           {app.status === 'coming-soon' && <span class="badge">{t('apps.comingSoon')}</span>}
         </p>
 

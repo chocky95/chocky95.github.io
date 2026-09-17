@@ -32,6 +32,7 @@ const ja: UiDict = {
   'cta.webApp': 'ブラウザで開く',
   'cta.discover': '詳しく見る',
   'cta.readRules': 'ルールを読む',
+  'cta.joinBeta': 'ベータ版に参加',
 
   'breadcrumb.label': 'パンくずリスト',
 

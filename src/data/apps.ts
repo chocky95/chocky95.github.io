@@ -63,6 +63,14 @@ export interface AppFacts {
   readonly nativeLocales: readonly Locale[];
   readonly status: 'published' | 'coming-soon';
   readonly playUrl: string | null;
+  /**
+   * Chemin SITE (jamais Play) d'une page d'inscription au test fermé, servie
+   * en fichier plat depuis `public/` (ex. `/mojogo/beta.html`). Réservé aux
+   * applications `coming-soon` : une application publiée a un lien Play, pas
+   * un lien bêta. La page produit y pose un bouton « Rejoindre la bêta ».
+   * L'audit exige la présence du fichier dans `dist/` (FLAT_PAGES).
+   */
+  readonly betaUrl: string | null;
   /** Version web jouable/utilisable, quand elle existe. */
   readonly webAppUrl: string | null;
   readonly stores: readonly Store[];
@@ -105,6 +113,7 @@ export const APPS: readonly AppFacts[] = [
     nativeLocales: ['fr', 'en', 'de', 'fi', 'ja', 'es', 'sv', 'et', 'cs'],
     status: 'published',
     playUrl: PLAY + 'com.chocky.molkkyscore',
+    betaUrl: null,
     webAppUrl: null,
     stores: ['play'],
     buildTargets: ALL_PLATFORMS,
@@ -128,6 +137,7 @@ export const APPS: readonly AppFacts[] = [
     nativeLocales: CARD_GAME_LOCALES,
     status: 'published',
     playUrl: PLAY + 'com.chocky.papayoo',
+    betaUrl: null,
     webAppUrl: null,
     stores: ['play'],
     buildTargets: ALL_PLATFORMS,
@@ -149,6 +159,7 @@ export const APPS: readonly AppFacts[] = [
     nativeLocales: ['fr'],
     status: 'published',
     playUrl: PLAY + 'com.chocky.easycompta',
+    betaUrl: null,
     webAppUrl: 'https://easycompta.web.app',
     stores: ['play', 'web'],
     buildTargets: ['android', 'web'],
@@ -169,6 +180,7 @@ export const APPS: readonly AppFacts[] = [
     nativeLocales: ['fr', 'en', 'de', 'ja', 'es', 'it', 'nl', 'pt', 'sv', 'da', 'nb', 'ko'],
     status: 'published',
     playUrl: PLAY + 'com.chocky.scanfree',
+    betaUrl: null,
     webAppUrl: null,
     stores: ['play'],
     buildTargets: ['android'],
@@ -190,6 +202,9 @@ export const APPS: readonly AppFacts[] = [
     nativeLocales: CARD_GAME_LOCALES,
     status: 'coming-soon',
     playUrl: null,
+    // Test fermé Google Play en cours : la page produit mène à la page
+    // d'inscription. À la sortie, repasser à null et renseigner playUrl/stores.
+    betaUrl: '/mojogo/beta.html',
     webAppUrl: null,
     stores: [],
     buildTargets: ALL_PLATFORMS,
@@ -310,5 +325,13 @@ for (const app of APPS) {
   }
   if (app.status === 'coming-soon' && app.playUrl !== null) {
     throw new Error(where + ' : "coming-soon" ne doit pas avoir de lien Play.');
+  }
+  // Un lien bêta n'a de sens qu'avant la publication : une fois l'app publiée,
+  // le bouton Play le remplace. Rappel au moment de basculer `status`.
+  if (app.betaUrl !== null && app.status !== 'coming-soon') {
+    throw new Error(where + ' : betaUrl renseigné alors que l\'application est publiée — repasser betaUrl à null.');
+  }
+  if (app.betaUrl !== null && !/^\/[a-z0-9/-]+\.html$/.test(app.betaUrl)) {
+    throw new Error(where + ' : betaUrl doit être un chemin site absolu vers un fichier .html plat (ex. /mojogo/beta.html).');
   }
 }

@@ -45,6 +45,7 @@ const fr = {
   'cta.webApp': 'Utiliser dans le navigateur',
   'cta.discover': 'Découvrir',
   'cta.readRules': 'Lire les règles',
+  'cta.joinBeta': 'Rejoindre la bêta',
 
   // Fil d'Ariane
   'breadcrumb.label': "Fil d'Ariane",

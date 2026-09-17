@@ -32,6 +32,7 @@ const ro: UiDict = {
   'cta.webApp': 'Folosește în browser',
   'cta.discover': 'Descoperă',
   'cta.readRules': 'Citește regulile',
+  'cta.joinBeta': 'Alătură-te versiunii beta',
 
   'breadcrumb.label': 'Fir de navigare',
 

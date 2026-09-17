@@ -32,6 +32,7 @@ const fi: UiDict = {
   'cta.webApp': 'Avaa selaimessa',
   'cta.discover': 'Tutustu',
   'cta.readRules': 'Lue säännöt',
+  'cta.joinBeta': 'Liity betatestiin',
 
   'breadcrumb.label': 'Murupolku',
 

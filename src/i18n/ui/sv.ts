@@ -32,6 +32,7 @@ const sv: UiDict = {
   'cta.webApp': 'Använd i webbläsaren',
   'cta.discover': 'Upptäck',
   'cta.readRules': 'Läs reglerna',
+  'cta.joinBeta': 'Gå med i betan',
 
   'breadcrumb.label': 'Sökväg',
 

@@ -32,6 +32,7 @@ const nl: UiDict = {
   'cta.webApp': 'Gebruiken in de browser',
   'cta.discover': 'Ontdekken',
   'cta.readRules': 'Regels lezen',
+  'cta.joinBeta': 'Doe mee aan de bèta',
 
   'breadcrumb.label': 'Kruimelpad',
 

@@ -180,3 +180,19 @@ déploiement** si elles disparaissent.
   tous les `.html` de `dist/`. CSS inliné.
 - **Ajouter une langue = ajouter une `<section lang="xx">` dans le fichier existant.**
   Jamais une seconde page : l'URL déclarée à Google doit rester unique et stable.
+
+### Autres pages plates hors `legal/`
+
+Même mécanique (fichier plat, `noindex`, zéro script, CSS inliné), autres raisons
+d'exister :
+
+- `public/papayoo/invite.html` — lien de parrainage imprimé dans les QR codes de
+  Papayoo. Seule page autorisée à porter un `<script>` (redirection par OS).
+- `public/mojogo/beta.html` — inscription au test fermé de Mojogo, FR + EN. C'est la
+  cible du bouton « Rejoindre la bêta » des 18 pages `/apps/mojogo/`
+  (`src/data/apps.ts`, champ `betaUrl`, réservé aux apps `coming-soon`).
+
+**Lier une page plate depuis une page Astro** demande une exception nominative :
+`checkPage` de `audit-dist.mjs` rejette tout lien interne sans slash final ou hors
+inventaire. Déclarer le chemin dans `FLAT_PAGES` (même fichier) : le lien est alors
+exempté et, en retour, l'audit exige la présence du fichier dans `dist/`.
