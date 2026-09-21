@@ -12,15 +12,30 @@
   présence dans dist/.
 
   RÔLE
-    Expliquer aux testeurs le parcours en trois temps du test fermé Google
-    Play : Google Group -> lien d'inscription Play -> installation. Et dire
-    clairement que la boutique de la bêta est la vraie : tout achat est
-    débité.
+    Faire aboutir un testeur en trois gestes : Google Group -> lien
+    d'inscription Play -> installation. Ces trois étapes sont la page ;
+    tout le reste est replié dans des <details>. Et dire clairement que la
+    boutique de la bêta est la vraie : tout achat est débité (cet
+    avertissement-là reste visible, jamais replié).
+
+  BASCULE DE LANGUE — SANS JAVASCRIPT
+    Une seule langue est affichée à la fois, par :target :
+
+        #en              { display: none; }
+        #en:target       { display: block; }
+        #en:target ~ #fr { display: none; }
+
+    D'où une CONTRAINTE D'ORDRE DU DOM : le volet #en doit venir AVANT
+    #fr, parce que le combinateur frère `~` ne remonte pas en arrière.
+    Sans hash, ou sur #fr, c'est le français qui s'affiche.
+    Si le CSS ne s'applique pas, les deux volets s'affichent : dégradation
+    sans perte d'information.
 
   CONTRAINTES DE CE FICHIER
     - fichier PLAT (.html, pas .../index.html) : les index.html de dist/ sont
       comptés par l'audit et doivent rester exactement 144.
-    - ZÉRO balise script : checkNoClientJs() scanne tous les .html de dist/.
+    - ZÉRO balise script : checkNoClientJs() scanne tous les .html de dist/,
+      par simple recherche de texte — y compris dans les commentaires.
     - CSS inliné, aucune dépendance externe.
     - noindex : page temporaire, hors sitemap, sans valeur de référencement.
     - Ne rien promettre ici qui n'existe pas dans l'application.
@@ -31,8 +46,11 @@
   doit rester valide.
 
   AJOUTER UNE LANGUE
-    Ajouter une <section lang="xx"> et son entrée dans le sommaire, DANS CE
-    FICHIER. Ne jamais créer une seconde page.
+    Dans CE FICHIER, jamais dans une seconde page. Dupliquer un volet
+    <section id="xx" class="pane" lang="xx"> et l'insérer AVANT #fr, ajouter
+    `#xx { display: none } #xx:target { display: block } #xx:target ~ #fr {
+    display: none }`, puis ajouter le lien dans le nav.langs de CHAQUE volet
+    (chacun porte sa propre langue active en dur).
   ==========================================================================
 -->
 <html lang="fr">
@@ -41,7 +59,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
 <title>Rejoindre la bêta de Mojogo — Chocky Dev</title>
-<meta name="description" content="Comment participer au test fermé de Mojogo sur Google Play : rejoindre le groupe de testeurs, accepter l'invitation, installer l'application et donner son avis.">
+<meta name="description" content="Trois étapes pour participer au test fermé de Mojogo sur Google Play : rejoindre le groupe de testeurs, accepter l'invitation, installer l'application.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <style>
   :root {
@@ -55,7 +73,8 @@
     --accent: #d4c4a8;
     --warn: #e0a458;
     --radius: 14px;
-    --measure: 68ch;
+    --radius-lg: 18px;
+    --measure: 40rem;
   }
   * { box-sizing: border-box; }
   html { -webkit-text-size-adjust: 100%; }
@@ -65,274 +84,385 @@
     color: var(--text-300);
     font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     font-size: clamp(1rem, 0.96rem + 0.2vw, 1.06rem);
-    line-height: 1.65;
+    line-height: 1.6;
   }
-  .wrap { max-width: var(--measure); margin: 0 auto; padding: 2.5rem 1.25rem 5rem; }
-  header.top { border-bottom: 1px solid var(--glass-border); padding-bottom: 1.5rem; margin-bottom: 2rem; }
-  .identity { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+  .wrap { max-width: var(--measure); margin: 0 auto; padding: 1.75rem 1.25rem 4rem; }
+
+  /* --- bascule de langue : voir le commentaire d'en-tête ----------------- */
+  #en { display: none; }
+  #en:target { display: block; }
+  #en:target ~ #fr { display: none; }
+
+  /* --- en-tête ---------------------------------------------------------- */
+  .top {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 1rem 1.5rem; flex-wrap: wrap;
+    padding-bottom: 1.25rem; margin-bottom: 1.75rem;
+    border-bottom: 1px solid var(--glass-border);
+  }
+  .brand { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; color: inherit; }
   .icon {
-    width: 88px; height: 88px; border-radius: 20px; flex: none;
-    box-shadow: 0 0 0 1px var(--glass-border), 0 18px 40px -22px var(--accent);
+    width: 56px; height: 56px; border-radius: 14px; flex: none;
+    box-shadow: 0 0 0 1px var(--glass-border), 0 14px 30px -20px var(--accent);
   }
-  .eyebrow { color: var(--accent); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 0.5rem; }
-  h1 { color: var(--text-100); font-size: clamp(1.6rem, 1.4rem + 1vw, 2.2rem); line-height: 1.15; margin: 0 0 0.75rem; }
-  h2 {
-    color: var(--text-100); font-size: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
-    line-height: 1.2; margin: 3rem 0 0.75rem; padding-top: 1.5rem;
-    border-top: 1px solid var(--glass-border);
+  .brand-name { display: block; color: var(--text-100); font-weight: 600; }
+  .brand-sub { display: block; color: var(--text-500); font-size: 0.85rem; }
+  .brand:hover .brand-name { color: var(--accent); }
+  .langs { display: flex; gap: 0.3rem; margin-left: auto; }
+  .langs a {
+    padding: 0.3rem 0.85rem; border-radius: 999px;
+    border: 1px solid transparent;
+    color: var(--text-500); font-size: 0.9rem; text-decoration: none;
   }
-  h3 { color: var(--text-100); font-size: 1.05rem; margin: 2rem 0 0.5rem; }
-  p, ul, ol { margin: 0 0 1rem; }
-  ul, ol { padding-left: 1.25rem; }
-  li { margin-bottom: 0.4rem; }
+  .langs a:hover { color: var(--text-100); }
+  .langs a.on {
+    background: var(--glass-bg); border-color: var(--glass-border-hover);
+    color: var(--text-100); font-weight: 600;
+  }
+
+  h1 {
+    color: var(--text-100); font-weight: 600;
+    font-size: clamp(1.7rem, 1.4rem + 1.4vw, 2.35rem);
+    line-height: 1.12; letter-spacing: -0.015em; margin: 0 0 0.6rem;
+  }
+  .lede { color: var(--text-300); margin: 0 0 1.25rem; max-width: 34rem; }
+  .help {
+    background: var(--glass-bg); border: 1px solid var(--glass-border);
+    border-left: 3px solid var(--accent); border-radius: var(--radius);
+    padding: 0.9rem 1.25rem; margin: 0 0 1.75rem;
+  }
+  .help p { margin: 0; }
+  .help a { font-weight: 700; }
+  p, ul { margin: 0 0 1rem; }
   a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; overflow-wrap: anywhere; }
   a:hover { color: var(--text-100); }
   strong { color: var(--text-100); font-weight: 600; }
-  code { font-size: 0.9em; color: var(--text-100); background: var(--glass-bg); padding: 0.1em 0.35em; border-radius: 4px; }
-  .meta { color: var(--text-500); font-size: 0.9rem; margin: 0; }
-  nav.toc { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 2.5rem; }
-  nav.toc p { color: var(--text-500); font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 0.5rem; }
-  nav.toc ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; }
-  .callout { background: var(--glass-bg); border: 1px solid var(--glass-border); border-left: 3px solid var(--accent); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 0 0 1.5rem; }
-  .callout.warn { border-left-color: var(--warn); }
-  .callout :last-child { margin-bottom: 0; }
-  .steps { counter-reset: s; list-style: none; padding: 0; }
-  .steps > li { counter-increment: s; position: relative; padding-left: 2.25rem; margin-bottom: 1.25rem; }
-  .steps > li::before {
-    content: counter(s); position: absolute; left: 0; top: 0.1rem;
-    width: 1.6rem; height: 1.6rem; border-radius: 50%;
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+  /* --- les trois étapes, traitées comme trois cartes à jouer ------------- */
+  .steps { counter-reset: s; list-style: none; padding: 0; margin: 0 0 1.75rem; }
+  .step {
+    counter-increment: s; position: relative; overflow: hidden;
     background: var(--glass-bg); border: 1px solid var(--glass-border);
-    color: var(--accent); font-size: 0.85rem; font-weight: 600;
-    display: grid; place-items: center;
+    border-radius: var(--radius-lg);
+    padding: 1.4rem 1.4rem 1.4rem 5.4rem;
+    margin-bottom: 0.9rem;
   }
-  .steps > li p { margin: 0 0 0.35rem; }
-  .steps > li p:last-child { margin-bottom: 0; }
-  .steps .note { color: var(--text-500); font-size: 0.92rem; }
+  .step::before {
+    content: counter(s);
+    position: absolute; left: 1.4rem; top: 1rem;
+    font-size: 3.25rem; line-height: 1; font-weight: 300;
+    color: var(--accent); font-variant-numeric: lining-nums;
+  }
+  .step::after {
+    content: counter(s);
+    position: absolute; right: 1.1rem; bottom: 0.9rem;
+    font-size: 1rem; line-height: 1; font-weight: 300;
+    color: var(--accent); opacity: 0.28; transform: rotate(180deg);
+  }
+  .step h2 {
+    color: var(--text-100); font-size: 1.15rem; font-weight: 600;
+    line-height: 1.25; margin: 0 0 0.35rem;
+  }
+  .step p { margin: 0 0 0.9rem; max-width: 30rem; }
+  .step .btn { margin-bottom: 0; }
+
   .btn {
-    display: inline-block; margin-top: 0.4rem;
-    padding: 0.6em 1.25em; border-radius: 999px;
+    display: inline-block;
+    padding: 0.7em 1.35em; border-radius: 999px;
     background: var(--accent); color: var(--ink-900);
     font-weight: 700; text-decoration: none;
   }
   .btn:hover { color: var(--ink-900); filter: brightness(1.08); }
   .btn--ghost { background: transparent; color: var(--accent); border: 1px solid var(--glass-border-hover); }
   .btn--ghost:hover { color: var(--text-100); filter: none; }
-  footer.bottom { border-top: 1px solid var(--glass-border); margin-top: 4rem; padding-top: 1.5rem; color: var(--text-500); font-size: 0.9rem; }
-  :target { scroll-margin-top: 1rem; }
+
+  /* --- avertissement achats : visible, jamais replié --------------------- */
+  .warn {
+    background: var(--glass-bg); border: 1px solid var(--glass-border);
+    border-left: 3px solid var(--warn); border-radius: var(--radius);
+    padding: 1rem 1.25rem; margin: 0 0 2.5rem;
+  }
+  .warn p { margin: 0; font-size: 0.97rem; }
+  .warn strong { color: var(--warn); }
+
+  /* --- le reste, replié -------------------------------------------------- */
+  .more { border-top: 1px solid var(--glass-border); }
+  .more details { border-bottom: 1px solid var(--glass-border); }
+  .more summary {
+    position: relative; cursor: pointer;
+    padding: 0.95rem 2.25rem 0.95rem 0;
+    color: var(--text-100); font-weight: 600;
+    list-style: none;
+  }
+  .more summary::-webkit-details-marker { display: none; }
+  .more summary::after {
+    content: "+"; position: absolute; right: 0.3rem; top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent); font-size: 1.35rem; font-weight: 400; line-height: 1;
+  }
+  .more details[open] summary::after { content: "\2013"; }
+  .more summary:hover { color: var(--accent); }
+  .more .body { padding: 0 0 1.25rem; font-size: 0.97rem; }
+  .more .body > :last-child { margin-bottom: 0; }
+  .more ul { padding-left: 1.15rem; }
+  .more li { margin-bottom: 0.4rem; }
+
+  footer.bottom { margin-top: 3rem; color: var(--text-500); font-size: 0.88rem; }
+  footer.bottom p { margin: 0; }
+  :target { scroll-margin-top: 0; }
+
+  @media (max-width: 30rem) {
+    .step { padding: 1.2rem; }
+    .step::before { position: static; display: block; font-size: 2.5rem; margin-bottom: 0.2rem; }
+    .step::after { display: none; }
+  }
 </style>
 </head>
 <body>
 <div class="wrap">
+<main>
+
+<!-- =================================================================== -->
+<!-- ENGLISH — doit rester AVANT le volet #fr (combinateur frère `~`)     -->
+<!-- =================================================================== -->
+<section id="en" class="pane" lang="en">
 
 <header class="top">
-  <div class="identity">
-    <img class="icon" src="/mojogo/icon-512.png" width="88" height="88" alt="Icône de l’application Mojogo">
-    <div>
-      <p class="eyebrow">Mojogo — Chocky Dev</p>
-      <p class="meta">Test fermé Google Play &middot; Closed testing on Google Play</p>
-    </div>
-  </div>
-  <h1>Rejoindre la bêta de Mojogo</h1>
-  <p class="meta"><a href="/apps/mojogo/">Présentation de l’application</a> &middot; <a href="/en/apps/mojogo/">About the app (English)</a></p>
+  <a class="brand" href="/en/apps/mojogo/">
+    <img class="icon" src="/mojogo/icon-512.png" width="56" height="56" alt="Mojogo app icon">
+    <span>
+      <span class="brand-name">Mojogo</span>
+      <span class="brand-sub">Closed testing on Google Play</span>
+    </span>
+  </a>
+  <nav class="langs" aria-label="Language">
+    <a href="#fr" lang="fr">Français</a>
+    <a class="on" href="#en" aria-current="true">English</a>
+  </nav>
 </header>
 
-<nav class="toc">
-  <p>Langues / Languages</p>
-  <ul>
-    <li><a href="#fr">Français</a></li>
-    <li><a href="#en">English</a></li>
-  </ul>
-</nav>
+<h1>Join the Mojogo beta</h1>
+<p class="lede">Three steps, in order, using the Google account your Android phone’s
+Play Store is signed in with.</p>
 
-<!-- =================================================================== -->
-<!-- FRANÇAIS                                                            -->
-<!-- =================================================================== -->
-<section id="fr" lang="fr">
-
-<h2>Français</h2>
-
-<p>Merci de nous aider à tester <strong>Mojogo</strong> avant sa sortie. Mojogo réunit
-deux jeux de cartes originaux dans une seule application : le <strong>Mojo</strong>
-(78 cartes, 5 couleurs, et le fameux Mojo Time) et le <strong>Jungo</strong> (72 cartes,
-des combinaisons et cinq jokers). On y joue seul contre des bots à trois niveaux, ou
-en ligne jusqu’à 6 joueurs, dans 15 langues. Aucune inscription, aucun mot de passe :
-on choisit un pseudo et on joue.</p>
-
-<p>L’application est distribuée en <strong>test fermé</strong> sur Google Play : elle
-n’apparaît pas dans les recherches du Play Store. Pour l’installer, il faut suivre les
-trois étapes ci-dessous, dans l’ordre, <strong>avec le compte Google utilisé par le
-Play Store de votre téléphone Android</strong>.</p>
-
-<h3>Les trois étapes</h3>
+<div class="help">
+  <p>Stuck on any of the three steps? Email me at
+  <a href="mailto:djchocky@gmail.com?subject=Mojogo%20beta">djchocky@gmail.com</a>
+  and I will help you get in.</p>
+</div>
 
 <ol class="steps">
-  <li>
-    <p><strong>Rejoignez le groupe de testeurs.</strong> Ouvrez le groupe Google
-    <a href="https://groups.google.com/g/mojogotesting" rel="noopener">mojogotesting</a>
-    et cliquez sur « Rejoindre le groupe ». C’est ce groupe qui autorise votre compte
-    à voir l’application.</p>
-    <p><a class="btn" href="https://groups.google.com/g/mojogotesting" rel="noopener">Rejoindre le groupe Google</a></p>
-    <p class="note">Vous pouvez désactiver les e-mails du groupe au moment de
-    l’inscription ; cela ne change rien à votre accès.</p>
+  <li class="step">
+    <h2>Join the testers group</h2>
+    <p>This group is what allows your account to see the app.</p>
+    <a class="btn" href="https://groups.google.com/g/mojogotesting" rel="noopener">Join the Google Group</a>
   </li>
-  <li>
-    <p><strong>Acceptez l’invitation au test.</strong> Patientez quelques minutes,
-    puis ouvrez le lien d’inscription au test et appuyez sur « Devenir testeur »
-    (<em>Become a tester</em>).</p>
-    <p><a class="btn btn--ghost" href="https://play.google.com/apps/testing/com.chocky.mojogo" rel="noopener">Ouvrir la page d’inscription au test</a></p>
-    <p class="note">Si la page indique que vous n’êtes pas autorisé, l’étape 1 n’est
-    pas encore prise en compte : attendez un peu et rechargez.</p>
+  <li class="step">
+    <h2>Accept the testing invitation</h2>
+    <p>Wait a few minutes, then tap “Become a tester”.</p>
+    <a class="btn btn--ghost" href="https://play.google.com/apps/testing/com.chocky.mojogo" rel="noopener">Open the opt-in page</a>
   </li>
-  <li>
-    <p><strong>Installez l’application.</strong> Patientez à nouveau quelques
-    minutes, puis ouvrez la fiche Mojogo sur Google Play et installez-la comme
-    n’importe quelle application. La fiche précise que vous êtes testeur.</p>
-    <p><a class="btn btn--ghost" href="https://play.google.com/store/apps/details?id=com.chocky.mojogo" rel="noopener">Ouvrir Mojogo sur Google Play</a></p>
+  <li class="step">
+    <h2>Install the app</h2>
+    <p>Wait a few more minutes, then install Mojogo like any other app.</p>
+    <a class="btn btn--ghost" href="https://play.google.com/store/apps/details?id=com.chocky.mojogo" rel="noopener">Open Mojogo on Google Play</a>
   </li>
 </ol>
 
-<div class="callout">
-  <p><strong>Ça ne marche pas ?</strong> Dans l’immense majorité des cas, le compte
-  Google du groupe n’est pas celui du Play Store du téléphone : vérifiez dans Play
-  Store &rsaquo; votre avatar en haut à droite. La prise en compte côté Google peut
-  prendre de quelques minutes à quelques heures. Si la fiche affiche « Élément
-  introuvable », fermez le Play Store, attendez, puis réessayez depuis le lien de
-  l’étape 3.</p>
+<div class="warn">
+  <p><strong>The beta shop is the real shop.</strong> Any purchase made in Mojogo during
+  the test is real and charged to your Google Play account, exactly as in a published
+  app. Everything earned for free in the game works as usual.</p>
 </div>
 
-<h3>Boutique et achats intégrés</h3>
+<div class="more">
 
-<div class="callout warn">
+  <details>
+    <summary>It’s not working</summary>
+    <div class="body">
+      <p>Almost always, the Google account in the group is not the one the phone’s Play
+      Store uses: check under Play Store &rsaquo; your avatar in the top-right corner.</p>
+      <p>Propagation on Google’s side takes from a few minutes to a few hours. If step 2
+      says you are not allowed, step 1 has not gone through yet — wait and reload. If the
+      Play listing says “Item not found”, close the Play Store, wait, then try step 3
+      again.</p>
+      <p>You can turn off the group’s emails when joining; it does not affect your access.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Send feedback</summary>
+    <div class="body">
+      <p>That is the whole point of the test. What helps us most:</p>
+      <ul>
+        <li><strong>solo games</strong> against the bots, at all three levels, in both Mojo and Jungo;</li>
+        <li><strong>online games</strong> with several players, in public rooms and in private code rooms;</li>
+        <li>the app <strong>in your language</strong>: odd translations, truncated text;</li>
+        <li>any <strong>crash, freeze or slowdown</strong>, and what you were doing right before.</li>
+      </ul>
+      <p>Post in the <a href="https://groups.google.com/g/mojogotesting" rel="noopener">Google Group</a>
+      or email <a href="mailto:djchocky@gmail.com?subject=Mojogo%20beta">djchocky@gmail.com</a>,
+      stating if possible your <strong>phone model</strong>, <strong>Android version</strong>,
+      <strong>Mojogo nickname</strong> and a screenshot when the issue is visual.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>What is Mojogo?</summary>
+    <div class="body">
+      <p>Two original card games in a single app: <strong>Mojo</strong> (78 cards, 5
+      colours, and the famous Mojo Time) and <strong>Jungo</strong> (72 cards,
+      combinations and five jokers). Play solo against bots with three difficulty levels,
+      or online with up to 6 players, in 15 languages. No sign-up, no password: pick a
+      nickname and play.</p>
+      <p><a href="/en/apps/mojogo/">About the app</a></p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Your data</summary>
+    <div class="body">
+      <p>Your data is handled as described in the
+      <a href="/legal/mojogo-privacy.html#en">privacy policy</a>. You can
+      <a href="/legal/mojogo-delete-account.html#en">request deletion of your account</a>
+      at any time, or leave the test by unsubscribing from the Google Group and
+      uninstalling the app.</p>
+    </div>
+  </details>
+
+</div>
+
+<footer class="bottom">
+  <p>Chocky Dev &mdash; <a href="mailto:djchocky@gmail.com">djchocky@gmail.com</a>
+  &middot; <a href="https://chocky.dev/">chocky.dev</a></p>
+</footer>
+
+</section>
+
+<!-- =================================================================== -->
+<!-- FRANÇAIS — volet par défaut, doit rester en DERNIER                 -->
+<!-- =================================================================== -->
+<section id="fr" class="pane" lang="fr">
+
+<header class="top">
+  <a class="brand" href="/apps/mojogo/">
+    <img class="icon" src="/mojogo/icon-512.png" width="56" height="56" alt="Icône de l’application Mojogo">
+    <span>
+      <span class="brand-name">Mojogo</span>
+      <span class="brand-sub">Test fermé Google Play</span>
+    </span>
+  </a>
+  <nav class="langs" aria-label="Langue">
+    <a class="on" href="#fr" aria-current="true">Français</a>
+    <a href="#en" lang="en">English</a>
+  </nav>
+</header>
+
+<h1>Rejoindre la bêta de Mojogo</h1>
+<p class="lede">Trois étapes, dans l’ordre, avec le compte Google utilisé par le Play
+Store de votre téléphone Android.</p>
+
+<div class="help">
+  <p>Bloqué à l’une des trois étapes ? Écrivez-moi à
+  <a href="mailto:djchocky@gmail.com?subject=B%C3%AAta%20Mojogo">djchocky@gmail.com</a>,
+  je vous aide à entrer dans le test.</p>
+</div>
+
+<ol class="steps">
+  <li class="step">
+    <h2>Rejoignez le groupe de testeurs</h2>
+    <p>C’est lui qui autorise votre compte à voir l’application.</p>
+    <a class="btn" href="https://groups.google.com/g/mojogotesting" rel="noopener">Rejoindre le groupe Google</a>
+  </li>
+  <li class="step">
+    <h2>Acceptez l’invitation au test</h2>
+    <p>Patientez quelques minutes, puis appuyez sur « Devenir testeur ».</p>
+    <a class="btn btn--ghost" href="https://play.google.com/apps/testing/com.chocky.mojogo" rel="noopener">Ouvrir la page d’inscription</a>
+  </li>
+  <li class="step">
+    <h2>Installez l’application</h2>
+    <p>Patientez encore quelques minutes, puis installez Mojogo comme n’importe quelle application.</p>
+    <a class="btn btn--ghost" href="https://play.google.com/store/apps/details?id=com.chocky.mojogo" rel="noopener">Ouvrir Mojogo sur Google Play</a>
+  </li>
+</ol>
+
+<div class="warn">
   <p><strong>La boutique de la bêta est la vraie boutique.</strong> Tout achat effectué
-  dans Mojogo pendant le test (suppression des publicités, pièces d’or, variante du
-  Mojo…) est <strong>réel et débité</strong> sur votre compte Google Play, exactement
-  comme dans une application publiée. N’achetez rien « pour tester » si vous ne
-  souhaitez pas être facturé. Tout ce qui se gagne gratuitement dans le jeu
-  (récompenses quotidiennes, or, progression) fonctionne normalement.</p>
+  dans Mojogo pendant le test est réel et débité sur votre compte Google Play, exactement
+  comme dans une application publiée. Tout ce qui se gagne gratuitement dans le jeu
+  fonctionne normalement.</p>
 </div>
 
-<h3>Donner votre avis</h3>
+<div class="more">
 
-<p>C’est le but du test. Ce qui nous aide le plus :</p>
+  <details>
+    <summary>Ça ne marche pas</summary>
+    <div class="body">
+      <p>Dans l’immense majorité des cas, le compte Google du groupe n’est pas celui du
+      Play Store du téléphone : vérifiez dans Play Store &rsaquo; votre avatar en haut à
+      droite.</p>
+      <p>La prise en compte côté Google prend de quelques minutes à quelques heures. Si
+      l’étape 2 indique que vous n’êtes pas autorisé, l’étape 1 n’est pas encore passée :
+      attendez et rechargez. Si la fiche Play affiche « Élément introuvable », fermez le
+      Play Store, attendez, puis réessayez l’étape 3.</p>
+      <p>Vous pouvez désactiver les e-mails du groupe au moment de l’inscription ; cela ne
+      change rien à votre accès.</p>
+    </div>
+  </details>
 
-<ul>
-  <li>des <strong>parties solo</strong> contre les bots, aux trois niveaux, au Mojo et au Jungo ;</li>
-  <li>des <strong>parties en ligne</strong> à plusieurs, en salon public comme en salon privé à code ;</li>
-  <li>l’application <strong>dans votre langue</strong> : traductions douteuses, textes coupés ;</li>
-  <li>tout <strong>plantage, blocage ou lenteur</strong>, et ce que vous faisiez juste avant.</li>
-</ul>
+  <details>
+    <summary>Donner votre avis</summary>
+    <div class="body">
+      <p>C’est le but du test. Ce qui nous aide le plus :</p>
+      <ul>
+        <li>des <strong>parties solo</strong> contre les bots, aux trois niveaux, au Mojo et au Jungo ;</li>
+        <li>des <strong>parties en ligne</strong> à plusieurs, en salon public comme en salon privé à code ;</li>
+        <li>l’application <strong>dans votre langue</strong> : traductions douteuses, textes coupés ;</li>
+        <li>tout <strong>plantage, blocage ou lenteur</strong>, et ce que vous faisiez juste avant.</li>
+      </ul>
+      <p>Écrivez dans le <a href="https://groups.google.com/g/mojogotesting" rel="noopener">groupe Google</a>
+      ou à <a href="mailto:djchocky@gmail.com?subject=B%C3%AAta%20Mojogo">djchocky@gmail.com</a>,
+      en indiquant si possible le <strong>modèle de votre téléphone</strong>, la
+      <strong>version d’Android</strong>, votre <strong>pseudo Mojogo</strong> et une
+      capture d’écran si le problème est visuel.</p>
+    </div>
+  </details>
 
-<p>Envoyez vos retours par message dans le
-<a href="https://groups.google.com/g/mojogotesting" rel="noopener">groupe Google</a>
-ou par courriel à
-<a href="mailto:djchocky@gmail.com?subject=B%C3%AAta%20Mojogo">djchocky@gmail.com</a>,
-en indiquant si possible le <strong>modèle de votre téléphone</strong>, la
-<strong>version d’Android</strong>, votre <strong>pseudo Mojogo</strong> et une capture
-d’écran si le problème est visuel.</p>
+  <details>
+    <summary>C’est quoi Mojogo ?</summary>
+    <div class="body">
+      <p>Deux jeux de cartes originaux dans une seule application : le <strong>Mojo</strong>
+      (78 cartes, 5 couleurs, et le fameux Mojo Time) et le <strong>Jungo</strong>
+      (72 cartes, des combinaisons et cinq jokers). On y joue seul contre des bots à trois
+      niveaux, ou en ligne jusqu’à 6 joueurs, dans 15 langues. Aucune inscription, aucun
+      mot de passe : on choisit un pseudo et on joue.</p>
+      <p><a href="/apps/mojogo/">Présentation de l’application</a></p>
+    </div>
+  </details>
 
-<p>Vos données sont traitées comme décrit dans la
-<a href="/legal/mojogo-privacy.html#fr">politique de confidentialité</a>. Vous pouvez à
-tout moment <a href="/legal/mojogo-delete-account.html#fr">demander la suppression de
-votre compte</a>, ou quitter le test en vous désabonnant du groupe Google et en
-désinstallant l’application.</p>
+  <details>
+    <summary>Vos données</summary>
+    <div class="body">
+      <p>Vos données sont traitées comme décrit dans la
+      <a href="/legal/mojogo-privacy.html#fr">politique de confidentialité</a>. Vous pouvez
+      à tout moment <a href="/legal/mojogo-delete-account.html#fr">demander la suppression
+      de votre compte</a>, ou quitter le test en vous désabonnant du groupe Google et en
+      désinstallant l’application.</p>
+    </div>
+  </details>
 
-</section>
-
-<!-- =================================================================== -->
-<!-- ENGLISH                                                             -->
-<!-- =================================================================== -->
-<section id="en" lang="en">
-
-<h2>English</h2>
-
-<p>Thank you for helping us test <strong>Mojogo</strong> before its release. Mojogo
-brings two original card games together in a single app: <strong>Mojo</strong> (78
-cards, 5 colours, and the famous Mojo Time) and <strong>Jungo</strong> (72 cards,
-combinations and five jokers). Play solo against bots with three difficulty levels, or
-online with up to 6 players, in 15 languages. No sign-up, no password: pick a nickname
-and play.</p>
-
-<p>The app is distributed as a <strong>closed test</strong> on Google Play: it does not
-show up in Play Store searches. To install it, follow the three steps below, in order,
-<strong>with the Google account used by the Play Store on your Android phone</strong>.</p>
-
-<h3>The three steps</h3>
-
-<ol class="steps">
-  <li>
-    <p><strong>Join the testers group.</strong> Open the Google Group
-    <a href="https://groups.google.com/g/mojogotesting" rel="noopener">mojogotesting</a>
-    and click “Join group”. This group is what allows your account to see the app.</p>
-    <p><a class="btn" href="https://groups.google.com/g/mojogotesting" rel="noopener">Join the Google Group</a></p>
-    <p class="note">You can turn off the group’s emails when joining; it does not
-    affect your access.</p>
-  </li>
-  <li>
-    <p><strong>Accept the testing invitation.</strong> Wait a few minutes, then open
-    the testing opt-in link and tap “Become a tester”.</p>
-    <p><a class="btn btn--ghost" href="https://play.google.com/apps/testing/com.chocky.mojogo" rel="noopener">Open the testing opt-in page</a></p>
-    <p class="note">If the page says you are not allowed, step 1 has not propagated
-    yet: wait a little and reload.</p>
-  </li>
-  <li>
-    <p><strong>Install the app.</strong> Wait a few more minutes, then open the Mojogo
-    listing on Google Play and install it like any other app. The listing states that
-    you are a tester.</p>
-    <p><a class="btn btn--ghost" href="https://play.google.com/store/apps/details?id=com.chocky.mojogo" rel="noopener">Open Mojogo on Google Play</a></p>
-  </li>
-</ol>
-
-<div class="callout">
-  <p><strong>Not working?</strong> Almost always, the Google account in the group is
-  not the one the phone’s Play Store uses: check under Play Store &rsaquo; your avatar in
-  the top-right corner. Propagation on Google’s side can take from a few minutes to a
-  few hours. If the listing says “Item not found”, close the Play Store, wait, then try
-  again from the link in step 3.</p>
 </div>
-
-<h3>Shop and in-app purchases</h3>
-
-<div class="callout warn">
-  <p><strong>The beta shop is the real shop.</strong> Any purchase made in Mojogo
-  during the test (ad removal, gold coins, the Mojo variant…) is <strong>real and
-  charged</strong> to your Google Play account, exactly as in a published app. Do not
-  buy anything “just to test” unless you are happy to be billed. Everything that is
-  earned for free in the game (daily rewards, gold, progression) works as usual.</p>
-</div>
-
-<h3>Give your feedback</h3>
-
-<p>That is the whole point of the test. What helps us most:</p>
-
-<ul>
-  <li><strong>solo games</strong> against the bots, at all three levels, in both Mojo and Jungo;</li>
-  <li><strong>online games</strong> with several players, in public rooms and in private code rooms;</li>
-  <li>the app <strong>in your language</strong>: odd translations, truncated text;</li>
-  <li>any <strong>crash, freeze or slowdown</strong>, and what you were doing right before.</li>
-</ul>
-
-<p>Send your feedback as a post in the
-<a href="https://groups.google.com/g/mojogotesting" rel="noopener">Google Group</a>
-or by email to
-<a href="mailto:djchocky@gmail.com?subject=Mojogo%20beta">djchocky@gmail.com</a>,
-stating if possible your <strong>phone model</strong>, <strong>Android version</strong>,
-<strong>Mojogo nickname</strong> and a screenshot when the issue is visual.</p>
-
-<p>Your data is handled as described in the
-<a href="/legal/mojogo-privacy.html#en">privacy policy</a>. You can
-<a href="/legal/mojogo-delete-account.html#en">request deletion of your account</a> at
-any time, or leave the test by unsubscribing from the Google Group and uninstalling the
-app.</p>
-
-</section>
 
 <footer class="bottom">
   <p>Chocky Dev &mdash; <a href="mailto:djchocky@gmail.com">djchocky@gmail.com</a>
   &middot; <a href="https://chocky.dev/">chocky.dev</a>
-  &middot; <a href="/apps/mojogo/">Mojogo</a>
   &middot; <a href="/legal/mojogo-privacy.html">Politique de confidentialité</a></p>
 </footer>
 
+</section>
+
+</main>
 </div>
 </body>
 </html>
