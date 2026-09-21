@@ -7,9 +7,7 @@ h1: 'Chocky Dev: useful apps and games'
 lead: >-
   Five Android apps: two card games, a score keeper for Mölkky,
   a document scanner, and accounting for the self-employed. All of them are free
-  to download. Each does one thing and does it all the way through — which is
-  what you can afford when you build alone, with nobody else's roadmap to
-  follow.
+  to download. Each does one thing and does it all the way through.
 translationStatus: authored
 updatedOn: 2026-09-07
 faq:

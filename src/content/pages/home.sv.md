@@ -7,8 +7,7 @@ h1: 'Chocky Dev: användbara appar och spel'
 lead: >-
   Fem Android-appar: två kortspel, en poängräknare för Mölkky, en
   dokumentskanner och en bokföring för egenföretagare. Alla är gratis att ladda
-  ner. Var och en gör en sak och gör den hela vägen — det har man råd med
-  när man utvecklar ensam och inte behöver följa någon annans färdplan.
+  ner. Var och en gör en sak och gör den hela vägen.
 translationStatus: authored
 updatedOn: 2026-09-07
 faq:

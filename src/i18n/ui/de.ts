@@ -23,6 +23,7 @@ const de: UiDict = {
   'apps.family.business': 'Verwaltung',
   'apps.family.utility': 'Werkzeuge',
   'apps.comingSoon': 'Demnächst verfügbar',
+  'apps.onPlay': 'Bei Google Play',
   'apps.comingToIos': 'Demnächst für iOS',
   'apps.version': 'Version',
   'apps.availableOn': 'Verfügbar auf',

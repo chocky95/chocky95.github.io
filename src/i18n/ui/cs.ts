@@ -23,6 +23,7 @@ const cs: UiDict = {
   'apps.family.business': 'Správa',
   'apps.family.utility': 'Nástroje',
   'apps.comingSoon': 'Již brzy',
+  'apps.onPlay': 'Na Google Play',
   'apps.comingToIos': 'Brzy na iOS',
   'apps.version': 'Verze',
   'apps.availableOn': 'Dostupné na',

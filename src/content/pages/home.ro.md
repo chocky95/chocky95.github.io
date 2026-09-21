@@ -8,8 +8,7 @@ lead: >-
   Cinci aplicații Android: două jocuri de cărți, un contor de
   puncte pentru Mölkky, un scaner de documente și o contabilitate pentru
   liber-profesioniști. Toate se descarcă gratuit. Fiecare face un
-  singur lucru și îl duce până la capăt — asta îți poți permite când dezvolți
-  singur și nu urmezi foaia de drum a nimănui.
+  singur lucru și îl duce până la capăt.
 translationStatus: authored
 updatedOn: 2026-09-07
 faq:

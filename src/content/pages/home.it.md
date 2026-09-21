@@ -8,8 +8,7 @@ lead: >-
   Cinque applicazioni Android: due giochi di carte, un
   contapunti per il Mölkky, uno scanner di documenti e una contabilità per chi
   lavora in autonomia. Si scaricano tutte gratuitamente. Ognuna fa una cosa e la
-  fa fino in fondo — è ciò che si può permettere chi sviluppa da solo, senza la
-  roadmap di nessun altro da seguire.
+  fa fino in fondo.
 translationStatus: authored
 updatedOn: 2026-09-07
 faq:

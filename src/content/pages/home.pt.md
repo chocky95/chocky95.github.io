@@ -8,8 +8,7 @@ lead: >-
   Cinco aplicações Android: dois jogos de cartas, um
   contador de pontos para o Mölkky, um digitalizador de documentos e uma
   contabilidade para trabalhadores independentes. Descarregam-se todas
-  gratuitamente. Cada uma faz uma coisa e fá-la até ao fim — é o que se pode dar ao
-  luxo de fazer quem desenvolve sozinho, sem seguir o roteiro de ninguém.
+  gratuitamente. Cada uma faz uma coisa e fá-la até ao fim.
 translationStatus: authored
 updatedOn: 2026-09-07
 faq:

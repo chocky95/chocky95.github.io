@@ -8,8 +8,7 @@ lead: >-
   Fünf Android-Apps: zwei Kartenspiele, einen Punktezähler
   für Mölkky, einen Dokumentenscanner und eine Buchhaltung für Selbstständige.
   Alle sind kostenlos herunterzuladen. Jede tut eine Sache und tut sie zu
-  Ende — das kann man sich erlauben, wenn man allein entwickelt und keiner
-  fremden Roadmap folgen muss.
+  Ende.
 translationStatus: authored
 updatedOn: 2026-09-07
 faq:

@@ -7,8 +7,7 @@ h1: 'Chocky Dev: hyödyllisiä sovelluksia ja pelejä'
 lead: >-
   Viisi Android-sovellusta: kaksi korttipeliä, mölkyn
   pisteenlaskurin, dokumenttiskannerin ja kirjanpidon yksinyrittäjälle. Kaikki
-  ovat ilmaisia ladata. Jokainen tekee yhden asian ja tekee sen loppuun asti —
-  siihen on varaa, kun kehittää yksin eikä seuraa kenenkään muun tiekarttaa.
+  ovat ilmaisia ladata. Jokainen tekee yhden asian ja tekee sen loppuun asti.
 translationStatus: authored
 updatedOn: 2026-09-07
 faq:

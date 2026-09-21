@@ -23,6 +23,7 @@ const et: UiDict = {
   'apps.family.business': 'Haldus',
   'apps.family.utility': 'Tööriistad',
   'apps.comingSoon': 'Tulekul',
+  'apps.onPlay': 'Google Plays',
   'apps.comingToIos': 'Peagi iOS-is',
   'apps.version': 'Versioon',
   'apps.availableOn': 'Saadaval',

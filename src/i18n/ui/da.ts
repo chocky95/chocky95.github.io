@@ -23,6 +23,7 @@ const da: UiDict = {
   'apps.family.business': 'Administration',
   'apps.family.utility': 'Værktøjer',
   'apps.comingSoon': 'Kommer snart',
+  'apps.onPlay': 'På Google Play',
   'apps.comingToIos': 'Snart på iOS',
   'apps.version': 'Version',
   'apps.availableOn': 'Tilgængelig på',

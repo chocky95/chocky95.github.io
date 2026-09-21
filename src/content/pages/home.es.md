@@ -8,8 +8,7 @@ lead: >-
   Cinco aplicaciones de Android: dos juegos de cartas, un
   contador de puntos para el Mölkky, un escáner de documentos y una contabilidad
   para autónomos. Todas se descargan gratis. Cada una hace una cosa y la
-  hace hasta el final — eso se puede permitir quien desarrolla solo, sin seguir
-  la hoja de ruta de nadie.
+  hace hasta el final.
 translationStatus: authored
 updatedOn: 2026-09-07
 faq:

@@ -23,6 +23,7 @@ const ja: UiDict = {
   'apps.family.business': '業務',
   'apps.family.utility': 'ユーティリティ',
   'apps.comingSoon': '近日公開',
+  'apps.onPlay': 'Google Play で配信中',
   'apps.comingToIos': 'iOS 版は近日公開',
   'apps.version': 'バージョン',
   'apps.availableOn': '対応プラットフォーム',

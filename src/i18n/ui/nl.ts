@@ -23,6 +23,7 @@ const nl: UiDict = {
   'apps.family.business': 'Beheer',
   'apps.family.utility': 'Hulpprogramma\'s',
   'apps.comingSoon': 'Binnenkort beschikbaar',
+  'apps.onPlay': 'Op Google Play',
   'apps.comingToIos': 'Binnenkort op iOS',
   'apps.version': 'Versie',
   'apps.availableOn': 'Beschikbaar op',

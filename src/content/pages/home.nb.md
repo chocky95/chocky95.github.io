@@ -7,8 +7,7 @@ h1: 'Chocky Dev: nyttige apper og spill'
 lead: >-
   Fem Android-apper: to kortspill, en poengteller for Mölkky, en
   dokumentskanner og et regnskap for selvstendig næringsdrivende. Alle er gratis
-  å laste ned. Hver app gjør én ting og gjør den helt ferdig — det har man
-  råd til når man utvikler alene og ikke må følge noen andres veikart.
+  å laste ned. Hver app gjør én ting og gjør den helt ferdig.
 translationStatus: authored
 updatedOn: 2026-09-07
 faq:

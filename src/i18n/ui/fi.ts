@@ -23,6 +23,7 @@ const fi: UiDict = {
   'apps.family.business': 'Hallinto',
   'apps.family.utility': 'Työkalut',
   'apps.comingSoon': 'Tulossa pian',
+  'apps.onPlay': 'Google Playssa',
   'apps.comingToIos': 'Pian iOS:lle',
   'apps.version': 'Versio',
   'apps.availableOn': 'Saatavilla',

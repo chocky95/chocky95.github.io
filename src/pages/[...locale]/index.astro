@@ -115,17 +115,29 @@ const canonical = absolute(locale, '');
             <a href={href(locale, `apps/${app.slug}`)}>
               <span class="family">{t(FAMILY_KEY[app.family])}</span>
               <span class="name">{app.name}</span>
-              {app.status === 'coming-soon' && (
-                <span class="badge">{t('apps.comingSoon')}</span>
-              )}
               {/*
-                Jamais les deux : « Bientôt disponible » dit que l'application
-                n'existe pas encore, « Bientôt sur iOS » qu'elle existe ailleurs.
-                Les empiler donnerait une carte qui se contredit.
+                Où c'est installable aujourd'hui, puis ce qui arrive — dans cet
+                ordre, parce que la première question est « puis-je l'avoir ? ».
+
+                « Bientôt disponible » exclut les deux autres : il dit que rien
+                n'est installable, donc un badge Play à côté se contredirait.
+                Les badges viennent des faits (`stores`, `comingToIos`), jamais
+                d'une liste tenue à la main.
               */}
-              {app.status !== 'coming-soon' && app.comingToIos && (
-                <span class="badge badge--ios">{t('apps.comingToIos')}</span>
-              )}
+              <span class="badges">
+                {app.status === 'coming-soon' ? (
+                  <span class="badge">{t('apps.comingSoon')}</span>
+                ) : (
+                  <>
+                    {app.stores.includes('play') && (
+                      <span class="badge badge--play">{t('apps.onPlay')}</span>
+                    )}
+                    {app.comingToIos && (
+                      <span class="badge badge--ios">{t('apps.comingToIos')}</span>
+                    )}
+                  </>
+                )}
+              </span>
             </a>
           </li>
         ))
@@ -212,17 +224,31 @@ const canonical = absolute(locale, '');
     font-size: var(--step-1);
     font-weight: 800;
   }
+  /* Les badges passent à la ligne plutôt que de serrer la carte : en finnois
+     et en allemand, « Google Playssa » + « Demnächst für iOS » ne tiennent pas
+     côte à côte sur un téléphone. */
+  .badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
   .badge {
-    justify-self: start;
     padding: 0.2em 0.7em;
     border: 1px solid var(--glass-border-hover);
     border-radius: 999px;
     font-size: var(--step--1);
     color: var(--text-500);
   }
-  /* L'annonce iOS porte la couleur de l'application, contrairement au badge
-     « Bientôt disponible » qui reste gris : l'une parle d'un produit qui existe
-     déjà, l'autre d'un produit qu'on ne peut pas encore installer. */
+  /* Le badge plein dit ce qui est installable maintenant ; les deux autres
+     restent en contour, parce qu'ils ne mènent nulle part aujourd'hui. C'est
+     la seule différence de poids sur la carte, et elle porte l'information la
+     plus utile. */
+  .badge--play {
+    border-color: transparent;
+    background: var(--accent-text);
+    color: var(--ink-900);
+    font-weight: 700;
+  }
   .badge--ios {
     border-color: var(--accent-text);
     color: var(--accent-text);

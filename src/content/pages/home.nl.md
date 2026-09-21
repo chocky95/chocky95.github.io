@@ -7,9 +7,7 @@ h1: 'Chocky Dev: nuttige apps en spellen'
 lead: >-
   Vijf Android-apps: twee kaartspellen, een puntenteller voor
   Mölkky, een documentscanner en een boekhouding voor zelfstandigen. Ze zijn
-  allemaal gratis te downloaden. Elke app doet één ding en doet dat helemaal af — dat
-  kun je je veroorloven als je alleen ontwikkelt en niemands routekaart hoeft te
-  volgen.
+  allemaal gratis te downloaden. Elke app doet één ding en doet dat helemaal af.
 translationStatus: authored
 updatedOn: 2026-09-07
 faq:

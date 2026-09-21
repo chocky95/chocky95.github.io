@@ -8,8 +8,7 @@ lead: >-
   Cinq applications Android : deux jeux de cartes, un
   compteur de points pour le Mölkky, un scanner de documents et une comptabilité
   de micro-entrepreneur. Toutes se téléchargent gratuitement. Chacune fait une chose et
-  la fait complètement — c'est ce qu'on peut se permettre en développant seul,
-  sans feuille de route imposée par personne.
+  la fait complètement.
 translationStatus: authored
 updatedOn: 2026-09-07
 faq:

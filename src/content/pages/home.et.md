@@ -7,8 +7,7 @@ h1: 'Chocky Dev: kasulikud rakendused ja mängud'
 lead: >-
   Viis Android-rakendust: kaks kaardimängu, mölkky punktilugeja,
   dokumendiskanneri ja raamatupidamise füüsilisest isikust ettevõtjale. Kõiki
-  saab tasuta alla laadida. Igaüks teeb ühte asja ja teeb selle lõpuni — seda saab
-  endale lubada, kui arendad üksi ega pea järgima kellegi teise tegevuskava.
+  saab tasuta alla laadida. Igaüks teeb ühte asja ja teeb selle lõpuni.
 translationStatus: authored
 updatedOn: 2026-09-07
 faq:
