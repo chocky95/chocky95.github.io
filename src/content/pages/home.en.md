@@ -3,9 +3,9 @@ title: 'Chocky Dev: five free Android apps'
 metaDescription: >-
   Two card games, a Mölkky score keeper, a document scanner and accounting for
   the self-employed. All of them free to download, on Android.
-h1: 'Chocky Dev: useful apps and games, built by one independent developer'
+h1: 'Chocky Dev: useful apps and games'
 lead: >-
-  Chocky Dev makes five Android apps: two card games, a score keeper for Mölkky,
+  Five Android apps: two card games, a score keeper for Mölkky,
   a document scanner, and accounting for the self-employed. All of them are free
   to download. Each does one thing and does it all the way through — which is
   what you can afford when you build alone, with nobody else's roadmap to
@@ -39,8 +39,7 @@ faq:
 do not have to. The three-miss rule and the drop back to 25 after overshooting
 apply by themselves, knockout tournaments take a few taps to set up, and an ELO
 ranking accounts for how strong your opponents actually were. Scoring,
-tournaments and history all work offline, with no sign-up. The
-[full rules of Mölkky](/en/molkky-rules/) are covered in a separate guide.
+tournaments and history all work offline, with no sign-up.
 
 [Papayoo](/en/apps/papayoo/) inverts the usual logic of a card game: the player
 with the **fewest** points wins. So you spend the game avoiding Payoos, and

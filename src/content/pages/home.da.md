@@ -3,9 +3,9 @@ title: 'Chocky Dev: fem gratis Android-apps'
 metaDescription: >-
   To kortspil, en pointtæller til Mölkky, en dokumentscanner og et regnskab for
   selvstændige. Alle gratis at hente, til Android.
-h1: 'Chocky Dev: nyttige apps og spil, lavet af én enkelt udvikler'
+h1: 'Chocky Dev: nyttige apps og spil'
 lead: >-
-  Chocky Dev laver fem Android-apps: to kortspil, en pointtæller til Mölkky, en
+  Fem Android-apps: to kortspil, en pointtæller til Mölkky, en
   dokumentscanner og et regnskab for selvstændige. De kan alle hentes gratis.
   Hver app gør én ting og gør den helt færdig — det kan man tillade
   sig, når man udvikler alene og ikke skal følge nogen andens plan.

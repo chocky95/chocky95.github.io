@@ -3,9 +3,9 @@ title: 'Chocky Dev: cinci aplicații Android gratuite'
 metaDescription: >-
   Două jocuri de cărți, un contor de puncte pentru Mölkky, un scaner de documente
   și o contabilitate pentru liber-profesioniști. Toate gratuite, pentru Android.
-h1: 'Chocky Dev: aplicații utile și jocuri, create de o singură persoană'
+h1: 'Chocky Dev: aplicații utile și jocuri'
 lead: >-
-  Chocky Dev dezvoltă cinci aplicații Android: două jocuri de cărți, un contor de
+  Cinci aplicații Android: două jocuri de cărți, un contor de
   puncte pentru Mölkky, un scaner de documente și o contabilitate pentru
   liber-profesioniști. Toate se descarcă gratuit. Fiecare face un
   singur lucru și îl duce până la capăt — asta îți poți permite când dezvolți

@@ -23,6 +23,7 @@ const ko: UiDict = {
   'apps.family.business': '관리',
   'apps.family.utility': '유틸리티',
   'apps.comingSoon': '출시 예정',
+  'apps.comingToIos': 'iOS 출시 예정',
   'apps.version': '버전',
   'apps.availableOn': '지원 플랫폼',
   'apps.free': '무료',

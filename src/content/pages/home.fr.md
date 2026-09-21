@@ -3,9 +3,9 @@ title: 'Chocky Dev : cinq applications Android gratuites'
 metaDescription: >-
   Deux jeux de cartes, un compteur de points de Mölkky, un scanner de documents
   et une comptabilité de micro-entrepreneur. Tous gratuits au téléchargement.
-h1: 'Chocky Dev : des applications utiles et des jeux, développés par une seule personne'
+h1: 'Chocky Dev : des applications utiles et des jeux'
 lead: >-
-  Chocky Dev développe cinq applications Android : deux jeux de cartes, un
+  Cinq applications Android : deux jeux de cartes, un
   compteur de points pour le Mölkky, un scanner de documents et une comptabilité
   de micro-entrepreneur. Toutes se téléchargent gratuitement. Chacune fait une chose et
   la fait complètement — c'est ce qu'on peut se permettre en développant seul,
@@ -42,8 +42,7 @@ votre place. La règle des trois ratés et la redescente à 25 en cas de
 dépassement s'appliquent d'elles-mêmes, les tournois à élimination directe se
 montent en quelques touches, et un classement ELO tient compte du niveau réel de
 vos adversaires. Le comptage, les tournois et l'historique fonctionnent hors
-ligne, sans inscription. Les [règles complètes du Mölkky](/regles-du-molkky/)
-sont détaillées dans un guide à part.
+ligne, sans inscription.
 
 [Papayoo](/apps/papayoo/) inverse la logique habituelle des jeux de cartes :
 c'est celui qui marque le **moins** de points qui gagne. Il faut donc fuir les

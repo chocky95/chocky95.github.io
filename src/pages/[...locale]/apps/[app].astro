@@ -240,6 +240,12 @@ const languageFallback = appHasLocale(app.slug, locale)
                   <span>{t('apps.comingSoon')}</span>
                 )
               }
+              {/*
+                Annonce, pas boutique : aucune URL App Store n'existe, donc pas
+                de lien. Séparée des boutiques réelles par une ligne propre,
+                pour qu'on ne la lise pas comme un troisième lien mort.
+              */}
+              {app.comingToIos && <span class="soon-ios">{t('apps.comingToIos')}</span>}
             </dd>
 
             <dt>{t('lang.label')}</dt>
@@ -572,6 +578,12 @@ const languageFallback = appHasLocale(app.slug, locale)
   .spec-list dd {
     margin-inline-start: 0;
     color: var(--text-300);
+  }
+  /* Sur sa propre ligne, en retrait de ton : c'est une annonce, pas une
+     boutique où l'on peut cliquer aujourd'hui. */
+  .soon-ios {
+    display: block;
+    color: var(--text-500);
   }
   @media (max-width: 26rem) {
     .spec-list {

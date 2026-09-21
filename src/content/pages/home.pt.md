@@ -3,9 +3,9 @@ title: 'Chocky Dev: cinco aplicações Android gratuitas'
 metaDescription: >-
   Dois jogos de cartas, um contador de pontos de Mölkky, um digitalizador de
   documentos e uma contabilidade para independentes. Todas gratuitas, em Android.
-h1: 'Chocky Dev: aplicações úteis e jogos, feitos por uma única pessoa'
+h1: 'Chocky Dev: aplicações úteis e jogos'
 lead: >-
-  A Chocky Dev desenvolve cinco aplicações Android: dois jogos de cartas, um
+  Cinco aplicações Android: dois jogos de cartas, um
   contador de pontos para o Mölkky, um digitalizador de documentos e uma
   contabilidade para trabalhadores independentes. Descarregam-se todas
   gratuitamente. Cada uma faz uma coisa e fá-la até ao fim — é o que se pode dar ao

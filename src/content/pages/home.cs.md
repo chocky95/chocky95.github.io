@@ -3,9 +3,9 @@ title: 'Chocky Dev: pět bezplatných aplikací pro Android'
 metaDescription: >-
   Dvě karetní hry, počítadlo bodů pro Mölkky, skener dokumentů a účetnictví pro
   samostatně podnikající. Všechny zdarma ke stažení, pro Android.
-h1: 'Chocky Dev: užitečné aplikace a hry, které vyvíjí jeden člověk'
+h1: 'Chocky Dev: užitečné aplikace a hry'
 lead: >-
-  Chocky Dev vyvíjí pět aplikací pro Android: dvě karetní hry, počítadlo bodů pro
+  Pět aplikací pro Android: dvě karetní hry, počítadlo bodů pro
   Mölkky, skener dokumentů a účetnictví pro samostatně podnikající. Všechny se
   dají stáhnout zdarma. Každá dělá jednu věc a dovede ji do konce — to si může
   dovolit ten, kdo vyvíjí sám a nemusí plnit cizí plán.

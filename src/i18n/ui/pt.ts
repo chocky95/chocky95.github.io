@@ -23,6 +23,7 @@ const pt: UiDict = {
   'apps.family.business': 'Gestão',
   'apps.family.utility': 'Utilitários',
   'apps.comingSoon': 'Brevemente disponível',
+  'apps.comingToIos': 'Brevemente no iOS',
   'apps.version': 'Versão',
   'apps.availableOn': 'Disponível em',
   'apps.free': 'Grátis',

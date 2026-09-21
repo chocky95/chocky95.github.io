@@ -3,9 +3,9 @@ title: 'Chocky Dev: viisi ilmaista Android-sovellusta'
 metaDescription: >-
   Kaksi korttipeliä, mölkyn pisteenlaskuri, dokumenttiskanneri ja kirjanpito
   yksinyrittäjälle. Kaikki ilmaisia ladata, Android-laitteille.
-h1: 'Chocky Dev: hyödyllisiä sovelluksia ja pelejä, yhden kehittäjän tekemiä'
+h1: 'Chocky Dev: hyödyllisiä sovelluksia ja pelejä'
 lead: >-
-  Chocky Dev tekee viisi Android-sovellusta: kaksi korttipeliä, mölkyn
+  Viisi Android-sovellusta: kaksi korttipeliä, mölkyn
   pisteenlaskurin, dokumenttiskannerin ja kirjanpidon yksinyrittäjälle. Kaikki
   ovat ilmaisia ladata. Jokainen tekee yhden asian ja tekee sen loppuun asti —
   siihen on varaa, kun kehittää yksin eikä seuraa kenenkään muun tiekarttaa.
@@ -39,7 +39,6 @@ Kolmen hutin sääntö ja pudotus 25:een ylityksen jälkeen toimivat itsestään
 cup-turnaukset syntyvät parilla painalluksella, ja ELO-luokitus ottaa huomioon
 vastustajien todellisen tason. Pisteenlasku, turnaukset ja historia toimivat
 verkotta, ilman rekisteröitymistä.
-[Mölkyn täydelliset säännöt](/fi/molkky-saannot/) on koottu omaan oppaaseensa.
 
 [Papayoo](/fi/apps/papayoo/) kääntää korttipelin tavallisen logiikan päälaelleen:
 voittaja on se, joka kerää **vähiten** pisteitä. Peliä pelataan siis väistellen

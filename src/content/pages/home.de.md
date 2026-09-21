@@ -3,9 +3,9 @@ title: 'Chocky Dev: fünf kostenlose Android-Apps'
 metaDescription: >-
   Zwei Kartenspiele, ein Punktezähler für Mölkky, ein Dokumentenscanner und eine
   Buchhaltung für Selbstständige. Alle kostenlos herunterzuladen, für Android.
-h1: 'Chocky Dev: nützliche Apps und Spiele, entwickelt von einer einzigen Person'
+h1: 'Chocky Dev: nützliche Apps und Spiele'
 lead: >-
-  Chocky Dev entwickelt fünf Android-Apps: zwei Kartenspiele, einen Punktezähler
+  Fünf Android-Apps: zwei Kartenspiele, einen Punktezähler
   für Mölkky, einen Dokumentenscanner und eine Buchhaltung für Selbstständige.
   Alle sind kostenlos herunterzuladen. Jede tut eine Sache und tut sie zu
   Ende — das kann man sich erlauben, wenn man allein entwickelt und keiner
@@ -40,9 +40,7 @@ faq:
 Sie. Die Drei-Fehlwürfe-Regel und der Rückfall auf 25 beim Überschreiten greifen
 von selbst, K.-o.-Turniere sind mit wenigen Tipps aufgesetzt, und eine
 ELO-Wertung berücksichtigt die tatsächliche Stärke der Gegner. Zählen, Turniere
-und Verlauf funktionieren offline, ohne Registrierung. Die
-[vollständigen Mölkky-Regeln](/de/molkky-regeln/) stehen in einem eigenen
-Leitfaden.
+und Verlauf funktionieren offline, ohne Registrierung.
 
 [Papayoo](/de/apps/papayoo/) dreht die gewohnte Logik eines Kartenspiels um: Es
 gewinnt, wer am **wenigsten** Punkte sammelt. Man weicht also den Payoos aus und

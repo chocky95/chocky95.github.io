@@ -3,9 +3,9 @@ title: 'Chocky Dev: fem gratis Android-appar'
 metaDescription: >-
   Två kortspel, en poängräknare för Mölkky, en dokumentskanner och en bokföring
   för egenföretagare. Alla gratis att ladda ner, för Android.
-h1: 'Chocky Dev: användbara appar och spel, byggda av en enda utvecklare'
+h1: 'Chocky Dev: användbara appar och spel'
 lead: >-
-  Chocky Dev gör fem Android-appar: två kortspel, en poängräknare för Mölkky, en
+  Fem Android-appar: två kortspel, en poängräknare för Mölkky, en
   dokumentskanner och en bokföring för egenföretagare. Alla är gratis att ladda
   ner. Var och en gör en sak och gör den hela vägen — det har man råd med
   när man utvecklar ensam och inte behöver följa någon annans färdplan.
@@ -39,7 +39,6 @@ dig. Regeln om tre bommar och nedgången till 25 vid överskridande tillämpas a
 sig själva, cupturneringar sätts upp med några tryck, och en ELO-ranking tar
 hänsyn till motståndarnas verkliga nivå. Räkning, turneringar och historik
 fungerar offline och utan registrering.
-[Mölkkys fullständiga regler](/sv/molkky-regler/) finns i en egen guide.
 
 [Papayoo](/sv/apps/papayoo/) vänder upp och ner på den vanliga logiken i ett
 kortspel: den som samlar **minst** poäng vinner. Man spelar alltså undan från

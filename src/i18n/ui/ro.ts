@@ -23,6 +23,7 @@ const ro: UiDict = {
   'apps.family.business': 'Gestiune',
   'apps.family.utility': 'Utilitare',
   'apps.comingSoon': 'Disponibil în curând',
+  'apps.comingToIos': 'În curând pe iOS',
   'apps.version': 'Versiune',
   'apps.availableOn': 'Disponibil pe',
   'apps.free': 'Gratuit',

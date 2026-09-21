@@ -3,9 +3,9 @@ title: 'Chocky Dev: cinque app Android gratuite'
 metaDescription: >-
   Due giochi di carte, un contapunti per il Mölkky, uno scanner di documenti e
   una contabilità per partite IVA. Tutte gratuite da scaricare, per Android.
-h1: 'Chocky Dev: app utili e giochi, sviluppati da una sola persona'
+h1: 'Chocky Dev: app utili e giochi'
 lead: >-
-  Chocky Dev sviluppa cinque applicazioni Android: due giochi di carte, un
+  Cinque applicazioni Android: due giochi di carte, un
   contapunti per il Mölkky, uno scanner di documenti e una contabilità per chi
   lavora in autonomia. Si scaricano tutte gratuitamente. Ognuna fa una cosa e la
   fa fino in fondo — è ciò che si può permettere chi sviluppa da solo, senza la

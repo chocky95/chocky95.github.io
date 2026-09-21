@@ -3,9 +3,9 @@ title: 'Chocky Dev: pięć darmowych aplikacji na Androida'
 metaDescription: >-
   Dwie gry karciane, licznik punktów do Mölkky, skaner dokumentów i księgowość
   dla samozatrudnionych. Wszystkie darmowe do pobrania, na Androida.
-h1: 'Chocky Dev: przydatne aplikacje i gry, tworzone przez jedną osobę'
+h1: 'Chocky Dev: przydatne aplikacje i gry'
 lead: >-
-  Chocky Dev tworzy pięć aplikacji na Androida: dwie gry karciane, licznik
+  Pięć aplikacji na Androida: dwie gry karciane, licznik
   punktów do Mölkky, skaner dokumentów i księgowość dla osób pracujących na
   własny rachunek. Wszystkie można pobrać bezpłatnie. Każda robi jedną rzecz i robi
   ją do końca — na to może sobie pozwolić ktoś, kto tworzy sam i nie musi

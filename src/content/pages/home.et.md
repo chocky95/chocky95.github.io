@@ -3,9 +3,9 @@ title: 'Chocky Dev: viis tasuta Android-rakendust'
 metaDescription: >-
   Kaks kaardimängu, mölkky punktilugeja, dokumendiskanner ja raamatupidamine
   füüsilisest isikust ettevõtjale. Kõik tasuta alla laadida, Androidile.
-h1: 'Chocky Dev: kasulikud rakendused ja mängud, mille on teinud üks arendaja'
+h1: 'Chocky Dev: kasulikud rakendused ja mängud'
 lead: >-
-  Chocky Dev teeb viis Android-rakendust: kaks kaardimängu, mölkky punktilugeja,
+  Viis Android-rakendust: kaks kaardimängu, mölkky punktilugeja,
   dokumendiskanneri ja raamatupidamise füüsilisest isikust ettevõtjale. Kõiki
   saab tasuta alla laadida. Igaüks teeb ühte asja ja teeb selle lõpuni — seda saab
   endale lubada, kui arendad üksi ega pea järgima kellegi teise tegevuskava.

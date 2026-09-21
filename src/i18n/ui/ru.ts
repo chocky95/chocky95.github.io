@@ -23,6 +23,7 @@ const ru: UiDict = {
   'apps.family.business': 'Управление',
   'apps.family.utility': 'Утилиты',
   'apps.comingSoon': 'Скоро',
+  'apps.comingToIos': 'Скоро на iOS',
   'apps.version': 'Версия',
   'apps.availableOn': 'Доступно на',
   'apps.free': 'Бесплатно',

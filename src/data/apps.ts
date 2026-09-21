@@ -19,9 +19,11 @@ export type BuildTarget = 'android' | 'ios' | 'web' | 'windows' | 'macos' | 'lin
 /**
  * Boutique où l'application est RÉELLEMENT téléchargeable.
  *
- * Les cinq projets compilent pour iOS, mais aucun n'est publié sur l'App Store
- * (aucune URL apps.apple.com n'existe dans les dépôts). Le site n'affiche donc
- * que des badges Google Play : annoncer iOS sans lien serait une promesse cassée.
+ * Aucune application n'est publiée sur l'App Store (aucune URL apps.apple.com
+ * n'existe dans les dépôts). Ce type ne liste donc que les boutiques réellement
+ * ouvertes : un lien iOS serait une promesse cassée.
+ *
+ * Un portage annoncé se dit par `comingToIos`, qui n'affiche jamais de lien.
  */
 export type Store = 'play' | 'web';
 
@@ -62,6 +64,20 @@ export interface AppFacts {
    */
   readonly nativeLocales: readonly Locale[];
   readonly status: 'published' | 'coming-soon';
+  /**
+   * Portage iOS annoncé, sans date et sans lien.
+   *
+   * Nuance à tenir : `buildTargets` dit que le projet COMPILE pour iOS — c'est
+   * vrai de presque tous, et ça n'intéresse personne. Ce drapeau-ci dit qu'une
+   * sortie App Store est réellement prévue, donc qu'on peut l'annoncer. Il
+   * n'affiche jamais de lien : `stores` reste la seule source des liens, et un
+   * badge « Bientôt sur iOS » n'est pas une promesse de date.
+   *
+   * À la publication sur l'App Store : repasser à `false`, ajouter le store
+   * `ios` et son URL — pas l'inverse, sinon la page annonce et propose à la
+   * fois, ce qui se lit comme une erreur.
+   */
+  readonly comingToIos: boolean;
   readonly playUrl: string | null;
   /**
    * Chemin SITE (jamais Play) d'une page d'inscription au test fermé, servie
@@ -111,6 +127,7 @@ export const APPS: readonly AppFacts[] = [
     family: 'game',
     schemaCategory: 'GameApplication',
     nativeLocales: ['fr', 'en', 'de', 'fi', 'ja', 'es', 'sv', 'et', 'cs'],
+    comingToIos: false,
     status: 'published',
     playUrl: PLAY + 'com.chocky.molkkyscore',
     betaUrl: null,
@@ -135,6 +152,7 @@ export const APPS: readonly AppFacts[] = [
     family: 'game',
     schemaCategory: 'GameApplication',
     nativeLocales: CARD_GAME_LOCALES,
+    comingToIos: true,
     status: 'published',
     playUrl: PLAY + 'com.chocky.papayoo',
     betaUrl: null,
@@ -157,12 +175,14 @@ export const APPS: readonly AppFacts[] = [
     // Français uniquement : aucun fichier .arb, et l'URSSAF est une
     // institution française. Une page localisée n'aurait aucun sens.
     nativeLocales: ['fr'],
+    comingToIos: true,
     status: 'published',
     playUrl: PLAY + 'com.chocky.easycompta',
     betaUrl: null,
     webAppUrl: 'https://easycompta.web.app',
     stores: ['play', 'web'],
-    buildTargets: ['android', 'web'],
+    // 'ios' ajoute avec `comingToIos` : le portage est en cours.
+    buildTargets: ['android', 'ios', 'web'],
     screenshotLocales: ['fr'],
     trademarkNotice: null,
   },
@@ -178,12 +198,14 @@ export const APPS: readonly AppFacts[] = [
     family: 'utility',
     schemaCategory: 'UtilitiesApplication',
     nativeLocales: ['fr', 'en', 'de', 'ja', 'es', 'it', 'nl', 'pt', 'sv', 'da', 'nb', 'ko'],
+    comingToIos: true,
     status: 'published',
     playUrl: PLAY + 'com.chocky.scanfree',
     betaUrl: null,
     webAppUrl: null,
     stores: ['play'],
-    buildTargets: ['android'],
+    // 'ios' ajouté avec `comingToIos` : le portage est en cours.
+    buildTargets: ['android', 'ios'],
     // 36 captures dans exactement ses 12 langues : chaque page ScanFree a des
     // captures dans sa propre langue. C'est le meilleur signal anti-contenu-mince
     // dont dispose le site.
@@ -200,6 +222,7 @@ export const APPS: readonly AppFacts[] = [
     family: 'game',
     schemaCategory: 'GameApplication',
     nativeLocales: CARD_GAME_LOCALES,
+    comingToIos: false,
     status: 'coming-soon',
     playUrl: null,
     // Test fermé Google Play en cours : la page produit mène à la page
@@ -325,6 +348,13 @@ for (const app of APPS) {
   }
   if (app.status === 'coming-soon' && app.playUrl !== null) {
     throw new Error(where + ' : "coming-soon" ne doit pas avoir de lien Play.');
+  }
+  // Annoncer iOS sur une application qui ne compile pas pour iOS serait une
+  // promesse en l'air. Le drapeau et la cible de build doivent rester d'accord.
+  if (app.comingToIos && !app.buildTargets.includes('ios')) {
+    throw new Error(
+      where + ' : comingToIos sans cible de build "ios" — ajouter la cible, ou retirer l\'annonce.',
+    );
   }
   // Un lien bêta n'a de sens qu'avant la publication : une fois l'app publiée,
   // le bouton Play le remplace. Rappel au moment de basculer `status`.

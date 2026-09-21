@@ -3,9 +3,9 @@ title: 'Chocky Dev: vijf gratis Android-apps'
 metaDescription: >-
   Twee kaartspellen, een puntenteller voor Mölkky, een documentscanner en een
   boekhouding voor zzp'ers. Allemaal gratis te downloaden, voor Android.
-h1: 'Chocky Dev: nuttige apps en spellen, gemaakt door één ontwikkelaar'
+h1: 'Chocky Dev: nuttige apps en spellen'
 lead: >-
-  Chocky Dev maakt vijf Android-apps: twee kaartspellen, een puntenteller voor
+  Vijf Android-apps: twee kaartspellen, een puntenteller voor
   Mölkky, een documentscanner en een boekhouding voor zelfstandigen. Ze zijn
   allemaal gratis te downloaden. Elke app doet één ding en doet dat helemaal af — dat
   kun je je veroorloven als je alleen ontwikkelt en niemands routekaart hoeft te
