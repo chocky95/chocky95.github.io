@@ -1,0 +1,167 @@
+<!doctype html>
+<!--
+  ==========================================================================
+  URL EMBARQUÉE DANS L'APPLICATION PAPAYOO — NE PAS SUPPRIMER NI RENOMMER.
+
+  https://chocky.dev/mojogo/invite?ref=<uid>
+
+  C'est le lien de parrainage : il est IMPRIMÉ dans les QR codes que les
+  joueurs partagent (écran « Inviter un ami ») et envoyé par le bouton
+  « Partager ». Des QR déjà distribués pointent ici pour des années.
+  Source côté app : lib/services/store_links.dart (StoreLinks.inviteBaseUrl).
+
+  RÔLE
+    Rediriger le visiteur vers le bon store selon son téléphone :
+      - Android  -> Google Play, en conservant le paramètre `referrer=<uid>`
+                    (l'app le lit au premier lancement : parrainage automatique) ;
+      - iPhone/iPad -> App Store (ou la page Mojogo du site tant que
+                    l'identifiant App Store n'est pas connu) ;
+      - ordinateur -> aucune redirection, deux boutons.
+
+  CONTRAINTES DE CE FICHIER
+    - fichier PLAT (.html, pas .../index.html) : GitHub Pages le sert sans
+      extension à /mojogo/invite ; les index.html de dist/ sont comptés par
+      scripts/audit-dist.mjs et doivent rester exactement 144.
+    - SEULE page du site autorisée à porter un <script> : la redirection par
+      OS est impossible sans JavaScript. L'exception est nominative dans
+      checkNoClientJs() (audit-dist.mjs). Ne pas en ajouter d'autres.
+    - CSS inliné, aucune dépendance externe, aucun appel réseau.
+    - Le <noscript> et les deux boutons restent fonctionnels sans JS
+      (le lien Play perd alors le referrer, ce qui est acceptable).
+
+  IDENTIFIANT APP STORE
+    Renseigner APP_STORE_ID ci-dessous après la création de la fiche dans
+    App Store Connect (carte Trello [iOS] K1, fiche creee le 29/09/2026). Même valeur que
+    StoreLinks.mojogoAppStoreId côté app.
+  ==========================================================================
+-->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Rejoignez-moi sur Mojogo — Chocky Dev</title>
+<meta name="description" content="Un ami vous invite à jouer à Mojogo, le jeu de cartes de Chocky Dev. Téléchargez l'application sur Google Play ou l'App Store.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+  :root {
+    --ink-900: #070a0d;
+    --text-100: #f2f5f7;
+    --text-300: #c2ccd4;
+    --text-500: #8b98a3;
+    --glass-bg: rgb(255 255 255 / 4%);
+    --glass-border: rgb(255 255 255 / 9%);
+    --accent: #d4c4a8;
+    --radius: 14px;
+    --measure: 44ch;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    background: var(--ink-900);
+    color: var(--text-300);
+    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: clamp(1rem, 0.96rem + 0.2vw, 1.06rem);
+    line-height: 1.65;
+  }
+  .wrap { max-width: var(--measure); margin: 0 auto; padding: 2.5rem 1.25rem 3rem; text-align: center; }
+  .eyebrow { color: var(--accent); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 0.5rem; }
+  h1 { color: var(--text-100); font-size: clamp(1.6rem, 1.4rem + 1vw, 2.2rem); line-height: 1.15; margin: 0 0 0.75rem; }
+  p { margin: 0 0 1rem; }
+  .card {
+    background: var(--glass-bg); border: 1px solid var(--glass-border);
+    border-radius: var(--radius); padding: 1.5rem 1.25rem; margin: 1.5rem 0;
+  }
+  .stores { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; margin: 1.25rem 0 0; }
+  .btn {
+    display: inline-block; min-width: 12rem; padding: 0.85rem 1.25rem;
+    border-radius: 999px; border: 1px solid var(--glass-border);
+    background: var(--accent); color: var(--ink-900); font-weight: 600;
+    text-decoration: none;
+  }
+  .btn.alt { background: transparent; color: var(--text-100); }
+  .btn:hover { filter: brightness(1.08); }
+  .meta { color: var(--text-500); font-size: 0.9rem; margin: 1.5rem 0 0; }
+  .meta a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .meta a:hover { color: var(--text-100); }
+  .en { color: var(--text-500); font-size: 0.95rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p class="eyebrow">Mojogo — Chocky Dev</p>
+  <h1>Un ami vous invite à jouer à Mojogo</h1>
+  <p>Le jeu de cartes Mojogo, en solo contre des bots ou en ligne entre amis.
+  Ouvrez ce lien depuis votre téléphone, ou téléchargez l'application ci-dessous.</p>
+  <p class="en" lang="en">A friend invited you to play Mojogo. Open this link on
+  your phone, or download the app below.</p>
+
+  <div class="card">
+    <p><strong>Téléchargez l'application</strong> · <span lang="en">Get the app</span></p>
+    <div class="stores">
+      <a id="play" class="btn" href="https://play.google.com/store/apps/details?id=com.chocky.mojogo" rel="noopener">Google Play</a>
+      <a id="apple" class="btn alt" href="/apps/mojogo/" rel="noopener">App Store</a>
+    </div>
+  </div>
+
+  <!-- Android : Install Referrer de Google Play (rattachement à l'installation).
+       iOS : lien universel (.well-known/apple-app-site-association) → si l'app
+       est DÉJÀ installée, le lien l'ouvre et propose l'ajout en ami ; après une
+       installation depuis l'App Store, Apple ne transmet rien : QR code. -->
+  <p class="meta">Sur <strong>Android</strong>, installer le jeu depuis ce lien vous
+  relie automatiquement à la personne qui vous a invité. Sur <strong>iPhone</strong>,
+  si le jeu est déjà installé, ce lien l'ouvre et vous propose d'ajouter votre ami ;
+  sinon, installez-le puis rouvrez ce lien, ou scannez son QR code depuis
+  <em>Mes Amis</em>.</p>
+  <p class="meta en" lang="en">On <strong>Android</strong>, installing from this link
+  connects you to your friend automatically. On <strong>iPhone</strong>, if the game is
+  already installed this link opens it and offers to add your friend; otherwise install
+  it, then open this link again or scan their QR code from <em>My Friends</em>.</p>
+
+  <noscript>
+    <p class="meta">La redirection automatique nécessite JavaScript : choisissez
+    votre store ci-dessus. · <span lang="en">Pick your store above.</span></p>
+  </noscript>
+
+  <p class="meta"><a href="/apps/mojogo/">En savoir plus sur Mojogo</a>
+  &middot; <a href="https://chocky.dev/">chocky.dev</a></p>
+
+</div>
+
+<script>
+(function () {
+  // Fiche App Store créée le 29/09/2026. Vide = repli sur la page du site.
+  // ⚠️ Même valeur dans Mojogo lib/services/store_links.dart (mojogoAppStoreId).
+  var APP_STORE_ID = '6817273085';
+  var PKG = 'com.chocky.mojogo';
+
+  var ref = '';
+  try { ref = new URLSearchParams(location.search).get('ref') || ''; } catch (e) { ref = ''; }
+  // UID Firebase : 28 caractères alphanumériques. Tout autre contenu est ignoré.
+  if (!/^[A-Za-z0-9_-]{1,64}$/.test(ref)) ref = '';
+
+  var play = 'https://play.google.com/store/apps/details?id=' + PKG + (ref ? '&referrer=' + ref : '');
+  var apple = APP_STORE_ID ? 'https://apps.apple.com/app/id' + APP_STORE_ID : '/apps/mojogo/';
+
+  var playEl = document.getElementById('play');
+  var appleEl = document.getElementById('apple');
+  if (playEl) playEl.href = play;
+  if (appleEl) appleEl.href = apple;
+
+  var ua = navigator.userAgent || '';
+  var isAndroid = /Android/i.test(ua);
+  // iPadOS 13+ se présente comme un Mac : on le reconnaît à l'écran tactile.
+  var isIOS = /iPhone|iPad|iPod/i.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+
+  if (isAndroid) location.replace(play);
+  else if (isIOS) location.replace(apple);
+  // Ordinateur : pas de redirection, les deux boutons suffisent.
+})();
+</script>
+</body>
+</html>

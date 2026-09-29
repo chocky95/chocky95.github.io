@@ -268,6 +268,7 @@ async function checkInventory(expected, forbidden) {
   for (const declared of [
     'legal/mojogo-privacy.html',
     'legal/mojogo-delete-account.html',
+    'legal/mojogo-terms.html',
     // Papayoo : declarees dans Play Console ET App Store Connect, et ouvertes
     // depuis l'application (lib/services/legal_links.dart, ancres #fr / #en).
     'legal/papayoo-privacy.html',
@@ -292,7 +293,8 @@ async function checkInventory(expected, forbidden) {
    * pour des annees : la supprimer casserait leur parrainage.
    * Source cote app : Papayoo lib/services/store_links.dart (inviteBaseUrl).
    */
-  for (const embedded of ['papayoo/invite.html']) {
+  // Idem pour Mojogo (/mojogo/invite?ref=<uid>, Mojogo lib/services/store_links.dart, 29/09/2026).
+  for (const embedded of ['papayoo/invite.html', 'mojogo/invite.html']) {
     if (!existsSync(path.join(DIST, embedded))) {
       fail(`dist/${embedded} manquant — URL embarquee dans l'application (QR de parrainage).`);
     }
@@ -510,7 +512,7 @@ async function checkNoClientJs() {
    * L'exception est nominative : toute autre page portant un <script> fait
    * toujours echouer le deploiement. Voir l'en-tete de public/papayoo/invite.html.
    */
-  const INLINE_JS_ALLOWLIST = new Set(['papayoo/invite.html']);
+  const INLINE_JS_ALLOWLIST = new Set(['papayoo/invite.html', 'mojogo/invite.html']);
 
   // Un <script> inline échapperait au contrôle précédent.
   for (const page of files.filter((f) => f.endsWith('.html'))) {
