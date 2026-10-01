@@ -512,7 +512,7 @@ async function checkNoClientJs() {
    * L'exception est nominative : toute autre page portant un <script> fait
    * toujours echouer le deploiement. Voir l'en-tete de public/papayoo/invite.html.
    */
-  const INLINE_JS_ALLOWLIST = new Set(['papayoo/invite.html', 'mojogo/invite.html']);
+  const INLINE_JS_ALLOWLIST = new Set(['papayoo/invite.html', 'mojogo/invite.html', 'tcg/invite.html']);
 
   // Un <script> inline échapperait au contrôle précédent.
   for (const page of files.filter((f) => f.endsWith('.html'))) {

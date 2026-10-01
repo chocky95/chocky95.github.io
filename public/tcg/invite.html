@@ -1,0 +1,155 @@
+<!doctype html>
+<!--
+  ==========================================================================
+  URL EMBARQUÉE DANS UNE APPLICATION (dépôt tcg) — NE PAS SUPPRIMER NI RENOMMER.
+
+  https://chocky.dev/tcg/invite?ref=<uid>
+
+  C'est le lien d'ami : il est IMPRIMÉ dans les QR codes que les joueurs
+  montrent (Profil → Mes amis → « Mon QR code ») et envoyé par « Partager mon
+  lien ». Source : dépôt tcg, docs/site/ (copie de référence) et
+  apps/mobile/lib/features/friends/domain/invite_link.dart.
+  Page volontairement neutre : le projet n'est pas encore annoncé.
+
+  RÔLE
+    - App installée : la page n'est pas affichée. Android ouvre l'app par les
+      App Links (.well-known/assetlinks.json) ; iOS, plus tard, par le lien
+      universel (.well-known/apple-app-site-association). L'app propose
+      d'ajouter l'ami.
+    - App absente : redirection selon le téléphone.
+        Android -> Google Play, en conservant `referrer=<uid>` (l'app le lit
+                   au premier lancement et propose l'ajout) ;
+        iPhone/iPad -> pas encore d'app iOS : message, pas de redirection ;
+        ordinateur -> aucune redirection, le bouton suffit.
+
+  CONTRAINTES DE CE FICHIER (mêmes règles que papayoo/invite.html)
+    - fichier PLAT (.html, pas .../index.html) : GitHub Pages le sert sans
+      extension à /tcg/invite ; les index.html de dist/ sont comptés par
+      scripts/audit-dist.mjs.
+    - page autorisée à porter un <script> : exception nominative dans
+      checkNoClientJs() (audit-dist.mjs).
+    - CSS inliné, aucune dépendance externe, aucun appel réseau.
+    - Le <noscript> et le bouton restent fonctionnels sans JS (le lien Play
+      perd alors le referrer, ce qui est acceptable).
+
+  IDENTIFIANT APP STORE
+    Renseigner APP_STORE_ID ci-dessous à la phase iOS, et ajouter l'entrée
+    <TEAM_ID>.com.chocky.tcg (chemins /tcg/invite et /tcg/invite/*) dans
+    .well-known/apple-app-site-association.
+  ==========================================================================
+-->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Invitation — Chocky Dev</title>
+<meta name="description" content="Un ami t'invite dans un jeu Chocky Dev.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+  :root {
+    --ink-900: #070a0d;
+    --text-100: #f2f5f7;
+    --text-300: #c2ccd4;
+    --text-500: #8b98a3;
+    --glass-bg: rgb(255 255 255 / 4%);
+    --glass-border: rgb(255 255 255 / 9%);
+    --accent: #d4c4a8;
+    --radius: 14px;
+    --measure: 44ch;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    background: var(--ink-900);
+    color: var(--text-300);
+    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: clamp(1rem, 0.96rem + 0.2vw, 1.06rem);
+    line-height: 1.65;
+  }
+  .wrap { max-width: var(--measure); margin: 0 auto; padding: 2.5rem 1.25rem 3rem; text-align: center; }
+  .eyebrow { color: var(--accent); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 0.5rem; }
+  h1 { color: var(--text-100); font-size: clamp(1.6rem, 1.4rem + 1vw, 2.2rem); line-height: 1.15; margin: 0 0 0.75rem; }
+  p { margin: 0 0 1rem; }
+  .card {
+    background: var(--glass-bg); border: 1px solid var(--glass-border);
+    border-radius: var(--radius); padding: 1.5rem 1.25rem; margin: 1.5rem 0;
+  }
+  .stores { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; margin: 1.25rem 0 0; }
+  .btn {
+    display: inline-block; min-width: 12rem; padding: 0.85rem 1.25rem;
+    border-radius: 999px; border: 1px solid var(--glass-border);
+    background: var(--accent); color: var(--ink-900); font-weight: 600;
+    text-decoration: none;
+  }
+  .btn:hover { filter: brightness(1.08); }
+  .meta { color: var(--text-500); font-size: 0.9rem; margin: 1.5rem 0 0; }
+  .meta a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .meta a:hover { color: var(--text-100); }
+  .en { color: var(--text-500); font-size: 0.95rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p class="eyebrow">Chocky Dev</p>
+  <h1>Un ami t'invite à jouer</h1>
+  <p>Avec le jeu installé, ce lien l'ouvre et te propose d'ajouter ton ami.</p>
+  <p class="en" lang="en">A friend invited you to play. With the game installed,
+  this link opens it and offers to add your friend.</p>
+
+  <div class="card">
+    <p><strong>Installe le jeu</strong> · <span lang="en">Get the game</span></p>
+    <div class="stores">
+      <a id="play" class="btn" href="https://play.google.com/store/apps/details?id=com.chocky.tcg" rel="noopener">Google Play</a>
+    </div>
+  </div>
+
+  <!-- Android : Install Referrer de Google Play (l'ami est proposé au premier lancement).
+       iOS : pas encore d'application ; le lien universel viendra avec elle. -->
+  <p class="meta">Sur <strong>Android</strong>, installer le jeu depuis ce lien te
+  propose ton ami dès le premier lancement. Sur <strong>iPhone</strong>, le jeu
+  arrive bientôt.</p>
+  <p class="meta en" lang="en">On <strong>Android</strong>, installing from this link
+  offers your friend at first launch. The <strong>iPhone</strong> version is coming soon.</p>
+
+  <noscript>
+    <p class="meta">La redirection automatique nécessite JavaScript : utilise le
+    bouton ci-dessus. · <span lang="en">Use the button above.</span></p>
+  </noscript>
+
+  <p class="meta"><a href="https://chocky.dev/">chocky.dev</a></p>
+
+</div>
+
+<script>
+(function () {
+  // Phase iOS : renseigner l'identifiant de la fiche App Store. Vide = pas de redirection iPhone.
+  var APP_STORE_ID = '';
+  var PKG = 'com.chocky.tcg';
+
+  var ref = '';
+  try { ref = new URLSearchParams(location.search).get('ref') || ''; } catch (e) { ref = ''; }
+  // UID Firebase : 28 caractères alphanumériques. Tout autre contenu est ignoré.
+  if (!/^[A-Za-z0-9_-]{20,64}$/.test(ref)) ref = '';
+
+  var play = 'https://play.google.com/store/apps/details?id=' + PKG + (ref ? '&referrer=' + ref : '');
+  var playEl = document.getElementById('play');
+  if (playEl) playEl.href = play;
+
+  var ua = navigator.userAgent || '';
+  var isAndroid = /Android/i.test(ua);
+  // iPadOS 13+ se présente comme un Mac : on le reconnaît à l'écran tactile.
+  var isIOS = /iPhone|iPad|iPod/i.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+
+  if (isAndroid) location.replace(play);
+  else if (isIOS && APP_STORE_ID) location.replace('https://apps.apple.com/app/id' + APP_STORE_ID);
+  // Ordinateur, ou iPhone sans app : pas de redirection.
+})();
+</script>
+</body>
+</html>

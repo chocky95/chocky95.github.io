@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.chocky.tcg.staging",
+      "sha256_cert_fingerprints": [
+        "51:00:9C:79:C7:32:5D:02:88:55:17:B5:FB:42:88:FD:1F:DF:13:6A:2E:C3:F4:65:CE:D0:32:8E:F4:F2:65:19"
+      ]
+    }
+  }
+]
