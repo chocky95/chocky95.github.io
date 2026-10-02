@@ -86,7 +86,7 @@
 <header class="top">
   <p class="eyebrow">Mölkky Score — Chocky Dev</p>
   <h1>Politique de confidentialité</h1>
-  <p class="meta">Dernière mise à jour : 17 septembre 2026 &middot;
+  <p class="meta">Dernière mise à jour : 2 octobre 2026 &middot;
   <a href="/apps/molkky-score/">Présentation de l'application</a></p>
 </header>
 
@@ -106,8 +106,8 @@
 <h2>Français</h2>
 
 <p>Cette politique décrit les données personnelles traitées par l'application
-<strong>Mölkky Score</strong> (<code>com.chocky.molkkyscore</code> sur Google Play),
-éditée par <strong>Chocky Dev</strong>, et les droits dont vous disposez.</p>
+<strong>Mölkky Score</strong> (<code>com.chocky.molkkyscore</code> sur Google Play,
+<code>com.chocky.molkkyscore.ios</code> sur l'App Store), éditée par <strong>Chocky Dev</strong>, et les droits dont vous disposez.</p>
 
 <div class="callout">
   <p><strong>Responsable du traitement :</strong> Chocky Dev &mdash;
@@ -161,7 +161,7 @@ personne disposant du lien ou du QR code</strong>, via la page web
   <li>Utilisez des prénoms ou des pseudonymes si vous ne souhaitez pas que des noms
   complets apparaissent sur la page publique.</li>
   <li>Le partage comprend un quota gratuit ; au-delà, un <em>pass partage</em> d'un
-  mois est proposé via Google Play (voir §6).</li>
+  mois est proposé via Google Play ou l'App Store (voir §6).</li>
 </ul>
 
 <h3>4. Appareil photo, capteurs et fichiers</h3>
@@ -173,6 +173,8 @@ personne disposant du lien ou du QR code</strong>, via la page web
   <li><strong>Placement des quilles en réalité augmentée :</strong> cet écran des
   règles utilise la caméra et les capteurs de mouvement en direct pour superposer la
   disposition des quilles. Rien n'est enregistré ni envoyé.</li>
+  <li><strong>Capteurs de mouvement :</strong> secouer le téléphone mélange les équipes
+  sur l'écran de composition. La détection se fait sur l'appareil, rien n'est envoyé.</li>
   <li><strong>Fichiers :</strong> l'enregistrement d'un PDF passe par le sélecteur de
   fichiers du système.</li>
   <li>Mölkky Score n'accède ni à vos contacts, ni à votre position, ni à votre
@@ -204,12 +206,12 @@ personne disposant du lien ou du QR code</strong>, via la page web
       <td>Exécution du service que vous demandez ; effacé après 48 h</td>
     </tr>
     <tr>
-      <td>Statut d'achat (Premium, pass partage) et jetons de transaction Google Play</td>
+      <td>Statut d'achat (Premium, pass partage) et jetons de transaction Google Play ou App Store</td>
       <td>Débloquer les fonctions achetées, restaurer un achat</td>
       <td>Exécution du contrat</td>
     </tr>
     <tr>
-      <td>Identifiant publicitaire de l'appareil</td>
+      <td>Identifiant publicitaire de l'appareil (identifiant Android, ou IDFA sur iPhone et iPad si vous l'autorisez)</td>
       <td>Diffusion des annonces (Google AdMob)</td>
       <td>Consentement (voir §6)</td>
     </tr>
@@ -234,19 +236,26 @@ demande si vous acceptez la publicité personnalisée. En cas de refus, des anno
 non personnalisées peuvent être affichées. Votre choix est <strong>modifiable à tout
 moment</strong> depuis les paramètres de l'application.</p>
 
+<p>Sur iPhone et iPad, l'application vous demande d'abord, par la fenêtre système
+<em>App Tracking Transparency</em>, si vous autorisez le suivi publicitaire. Sans votre
+accord, l'identifiant publicitaire (IDFA) reste inaccessible et seules des annonces
+non personnalisées sont affichées. Ce choix se modifie à tout moment dans
+<em>Réglages › Confidentialité et sécurité › Suivi</em>.</p>
+
 <p>Deux achats intégrés sont proposés, réglés <strong>entièrement par Google
-Play</strong> : le <strong>Premium</strong> (achat unique) supprime toute publicité et
+Play</strong> ou, sur iPhone et iPad, <strong>par l'App Store d'Apple</strong> : le <strong>Premium</strong> (achat unique) supprime toute publicité et
 débloque les tournois officiels de plus de 24 joueurs ; le <strong>pass
 partage</strong> étend pendant un mois le quota de partage en direct. Chocky Dev ne
 reçoit aucune information de paiement (ni carte, ni identité, ni adresse) ;
-l'application interroge seulement Google Play pour savoir si l'achat est actif et
+l'application interroge seulement le store (Google Play ou l'App Store) pour savoir si l'achat est actif et
 mémorise ce statut sur l'appareil. Avec le Premium, le SDK publicitaire n'est plus
 sollicité.</p>
 
 <h3>7. Destinataires</h3>
 
 <p>Chocky Dev ne reçoit aucune donnée directement. Les seuls services tiers intégrés
-à l'application sont des services <strong>Google</strong> :</p>
+à l'application sont des services <strong>Google</strong> et, sur iPhone et iPad,
+l'<strong>App Store d'Apple</strong> pour les achats :</p>
 
 <ul>
   <li><strong>Google AdMob</strong> — publicité (avec son formulaire de consentement)</li>
@@ -255,11 +264,14 @@ sollicité.</p>
   l'activez</li>
   <li><strong>Firebase Hosting</strong> — page web publique <code>molkky-live.web.app</code>
   consultée par les personnes à qui vous envoyez le lien</li>
-  <li><strong>Google Play Billing</strong> — achats intégrés</li>
+  <li><strong>Google Play Billing</strong> — achats intégrés sur Android</li>
+  <li><strong>Apple App Store (StoreKit)</strong> — achats intégrés sur iPhone et iPad</li>
 </ul>
 
 <p>Google peut traiter ces données en dehors de l'Union européenne, sur la base des
 clauses contractuelles types de la Commission européenne. Détails :
+<a href="https://www.apple.com/fr/legal/privacy/" rel="noopener">confidentialité
+Apple</a>,
 <a href="https://policies.google.com/privacy" rel="noopener">règles de
 confidentialité Google</a>,
 <a href="https://firebase.google.com/support/privacy" rel="noopener">confidentialité
@@ -321,8 +333,8 @@ jour de la date affichée en haut.</p>
 <h2>English</h2>
 
 <p>This policy describes the personal data processed by the <strong>Mölkky
-Score</strong> application (<code>com.chocky.molkkyscore</code> on Google Play),
-published by <strong>Chocky Dev</strong>, and your rights. The French version above
+Score</strong> application (<code>com.chocky.molkkyscore</code> on Google Play,
+<code>com.chocky.molkkyscore.ios</code> on the App Store), published by <strong>Chocky Dev</strong>, and your rights. The French version above
 is the reference text.</p>
 
 <div class="callout">
@@ -372,7 +384,7 @@ by <strong>anyone who has the link or QR code</strong>, through the web page
   <li>Use first names or nicknames if you do not want full names to appear on the
   public page.</li>
   <li>Sharing includes a free quota; beyond it, a one-month <em>share pass</em> is
-  offered through Google Play (see §6).</li>
+  offered through Google Play or the App Store (see §6).</li>
 </ul>
 
 <h3>4. Camera, sensors and files</h3>
@@ -384,6 +396,8 @@ by <strong>anyone who has the link or QR code</strong>, through the web page
   <li><strong>Augmented-reality pin placement:</strong> this rules screen uses the
   live camera feed and motion sensors to overlay the pin layout. Nothing is recorded
   or sent.</li>
+  <li><strong>Motion sensors:</strong> shaking the phone shuffles the teams on the team
+  setup screen. Detection happens on the device; nothing is sent.</li>
   <li><strong>Files:</strong> saving a PDF goes through the system file picker.</li>
   <li>Mölkky Score accesses neither your contacts, nor your location, nor your
   microphone.</li>
@@ -400,8 +414,8 @@ by <strong>anyone who has the link or QR code</strong>, through the web page
     <tr><td>Players (name, optional photo), games, throws, tournaments, statistics, ELO</td><td>App functionality, <em>on the device only</em></td><td>Performance of the service</td></tr>
     <tr><td>Preferences: language, sounds, default rules, consent choices</td><td>Remember your settings, on the device</td><td>Performance of the service</td></tr>
     <tr><td>Live sharing: player and team names, scores, throws, settings, anonymous installation identifier</td><td>Display the game on the public web page you broadcast</td><td>Performance of the service you request; deleted after 48 h</td></tr>
-    <tr><td>Purchase status (Premium, share pass) and Google Play transaction tokens</td><td>Unlock purchased features, restore a purchase</td><td>Performance of the contract</td></tr>
-    <tr><td>Device advertising identifier</td><td>Ad delivery (Google AdMob)</td><td>Consent (see §6)</td></tr>
+    <tr><td>Purchase status (Premium, share pass) and Google Play or App Store transaction tokens</td><td>Unlock purchased features, restore a purchase</td><td>Performance of the contract</td></tr>
+    <tr><td>Device advertising identifier (Android advertising ID, or IDFA on iPhone and iPad if you allow it)</td><td>Ad delivery (Google AdMob)</td><td>Consent (see §6)</td></tr>
   </tbody>
 </table>
 </div>
@@ -422,18 +436,26 @@ you accept personalised advertising. If you decline, non-personalised ads may be
 shown. You can <strong>change your choice at any time</strong> from the app
 settings.</p>
 
-<p>Two in-app purchases are offered, handled <strong>entirely by Google Play</strong>:
+<p>On iPhone and iPad, the app first asks, through the system <em>App Tracking
+Transparency</em> prompt, whether you allow advertising tracking. Without your
+permission, the advertising identifier (IDFA) stays inaccessible and only
+non-personalised ads are shown. You can change this at any time in
+<em>Settings › Privacy &amp; Security › Tracking</em>.</p>
+
+<p>Two in-app purchases are offered, handled <strong>entirely by Google Play</strong>
+or, on iPhone and iPad, <strong>by Apple's App Store</strong>:
 <strong>Premium</strong> (one-time purchase) removes all advertising and unlocks
 official tournaments with more than 24 players; the <strong>share pass</strong>
 extends the live-sharing quota for one month. Chocky Dev receives no payment
-information (no card, identity or address); the app only asks Google Play whether the
+information (no card, identity or address); the app only asks the store (Google Play or the App Store) whether the
 purchase is active and stores that status on the device. With Premium, the
 advertising SDK is no longer used.</p>
 
 <h3>7. Recipients</h3>
 
 <p>Chocky Dev receives no data directly. The only third-party services embedded in
-the app are <strong>Google</strong> services:</p>
+the app are <strong>Google</strong> services and, on iPhone and iPad, <strong>Apple's
+App Store</strong> for purchases:</p>
 
 <ul>
   <li><strong>Google AdMob</strong> — advertising (with its consent form)</li>
@@ -441,11 +463,14 @@ the app are <strong>Google</strong> services:</p>
   Firestore</strong> — live score sharing, only if you enable it</li>
   <li><strong>Firebase Hosting</strong> — public web page <code>molkky-live.web.app</code>
   viewed by the people you send the link to</li>
-  <li><strong>Google Play Billing</strong> — in-app purchases</li>
+  <li><strong>Google Play Billing</strong> — in-app purchases on Android</li>
+  <li><strong>Apple App Store (StoreKit)</strong> — in-app purchases on iPhone and iPad</li>
 </ul>
 
 <p>Google may process this data outside the European Union under the European
 Commission's standard contractual clauses. Details:
+<a href="https://www.apple.com/legal/privacy/" rel="noopener">Apple privacy
+policy</a>,
 <a href="https://policies.google.com/privacy" rel="noopener">Google privacy
 policy</a>, <a href="https://firebase.google.com/support/privacy" rel="noopener">Firebase
 privacy</a>.</p>
