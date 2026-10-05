@@ -9,7 +9,10 @@ permissions:
 
 jobs:
   verify:
-    runs-on: ubuntu-latest
+    # Epingle sur 24.04 (02/10/2026) : `ubuntu-latest` bascule vers Ubuntu 26.04 entre
+    # le 19/10 et le 19/11/2026 (/tmp devient un tmpfs en RAM avec quota ~7,8 Go,
+    # runner-images #14777). Migration vers `ubuntu-26.04` a faire explicitement.
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v5
 
