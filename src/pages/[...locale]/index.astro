@@ -133,7 +133,7 @@ const canonical = absolute(locale, '');
                       <span class="badge badge--play">{t('apps.onPlay')}</span>
                     )}
                     {app.stores.includes('ios') && (
-                      <span class="badge badge--ios">App Store</span>
+                      <span class="badge badge--play">App Store</span>
                     )}
                     {app.comingToIos && (
                       <span class="badge badge--ios">{t('apps.comingToIos')}</span>
@@ -242,7 +242,7 @@ const canonical = absolute(locale, '');
     font-size: var(--step--1);
     color: var(--text-500);
   }
-  /* Le badge plein dit ce qui est installable maintenant ; les deux autres
+  /* Le badge plein (Play comme App Store) dit ce qui est installable maintenant ; les autres
      restent en contour, parce qu'ils ne mènent nulle part aujourd'hui. C'est
      la seule différence de poids sur la carte, et elle porte l'information la
      plus utile. */
@@ -252,9 +252,10 @@ const canonical = absolute(locale, '');
     color: var(--ink-900);
     font-weight: 700;
   }
+  /* « Bientôt sur iOS » : même contour neutre que « Bientôt disponible ». */
   .badge--ios {
-    border-color: var(--accent-text);
-    color: var(--accent-text);
+    border-color: var(--glass-border-hover);
+    color: var(--text-500);
   }
 
   /* Lien vers le hub comparatif, sous la grille : l'endroit exact où le geste
