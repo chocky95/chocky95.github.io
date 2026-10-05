@@ -27,9 +27,7 @@ faq:
       zonder account.
   - q: Op welke platforms werken deze apps?
     a: >-
-      Op Android, via Google Play. Van EasyCompta bestaat daarnaast een gratis
-      webversie die in de browser werkt zonder iets te installeren. Geen van de
-      apps staat op dit moment in de App Store van Apple.
+      Op Android, via Google Play. Papayoo en ScanFree staan ook in de App Store van Apple; Mölkky Score en Mojogo wachten op goedkeuring. Van EasyCompta bestaat daarnaast een gratis webversie die in de browser werkt zonder iets te installeren.
 ---
 
 ## Twee gezelschapsspellen, en een derde in voorbereiding

@@ -95,13 +95,13 @@ if (app) {
     : undefined;
 
   // `operatingSystem` ne liste que les plateformes où l'application est
-  // REELLEMENT telechargeable. Les cinq projets compilent pour iOS, mais aucun
-  // n'est publie sur l'App Store : l'annoncer serait faux.
-  const operatingSystem = app.stores.includes('play')
-    ? app.webAppUrl
-      ? 'Android, Web'
-      : 'Android'
-    : undefined;
+  // REELLEMENT telechargeable : iOS seulement une fois la fiche App Store validee.
+  const platforms = [
+    app.stores.includes('play') && 'Android',
+    app.stores.includes('ios') && 'iOS',
+    app.webAppUrl && 'Web',
+  ].filter(Boolean);
+  const operatingSystem = platforms.length > 0 ? platforms.join(', ') : undefined;
 
   graph.push({
     '@type': 'SoftwareApplication',

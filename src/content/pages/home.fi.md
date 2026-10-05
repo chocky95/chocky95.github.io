@@ -26,9 +26,7 @@ faq:
       tarvitsevat profiilin vain verkkopeleihin; soolotilat toimivat ilman tiliä.
   - q: Millä laitteilla nämä sovellukset toimivat?
     a: >-
-      Androidilla, Google Playn kautta. EasyComptasta on lisäksi ilmainen
-      verkkoversio, joka toimii selaimessa ilman asennusta. Yhtäkään ei ole
-      julkaistu Applen App Storessa tällä hetkellä.
+      Androidilla, Google Playn kautta. Papayoo ja ScanFree löytyvät myös Applen App Storesta; Mölkky Score ja Mojogo odottavat hyväksyntää. EasyComptasta on lisäksi ilmainen verkkoversio, joka toimii selaimessa ilman asennusta.
 ---
 
 ## Kaksi lautapeliä, kolmas valmistelussa

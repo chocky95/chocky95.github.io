@@ -26,9 +26,7 @@ faq:
       bare en profil for spill på nett; solomodusene virker uten konto.
   - q: Hvilke plattformer virker disse appene på?
     a: >-
-      På Android, via Google Play. EasyCompta finnes i tillegg som en gratis
-      nettversjon som kjører i nettleseren uten å installere noe. Ingen av dem er
-      i dag utgitt i Apples App Store.
+      På Android, via Google Play. Papayoo og ScanFree finnes også i Apples App Store; Mölkky Score og Mojogo venter på godkjenning. EasyCompta finnes i tillegg som en gratis nettversjon som kjører i nettleseren uten å installere noe.
 ---
 
 ## To selskapsspill, og et tredje på vei

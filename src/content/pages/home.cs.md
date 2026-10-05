@@ -26,9 +26,7 @@ faq:
       hru po síti; režimy pro jednoho hráče fungují bez účtu.
   - q: Na jakých platformách tyto aplikace fungují?
     a: >-
-      Na Androidu, přes Google Play. EasyCompta má navíc bezplatnou webovou
-      verzi, která běží v prohlížeči bez instalace. Žádná z nich dnes není
-      vydána v App Storu firmy Apple.
+      Na Androidu přes Google Play. Papayoo a ScanFree jsou k dispozici i v App Storu firmy Apple; Mölkky Score a Mojogo čekají na schválení. EasyCompta má navíc bezplatnou webovou verzi, která běží v prohlížeči bez instalace.
 ---
 
 ## Dvě společenské hry a třetí v přípravě

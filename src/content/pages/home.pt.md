@@ -27,9 +27,7 @@ faq:
       perfil para as partidas online; os modos a solo funcionam sem conta.
   - q: Em que plataformas funcionam estas aplicações?
     a: >-
-      Em Android, através do Google Play. O EasyCompta tem além disso uma versão
-      web gratuita que corre no navegador sem instalar nada. Nenhuma está hoje
-      publicada na App Store da Apple.
+      Em Android, através do Google Play. O Papayoo e o ScanFree estão também na App Store da Apple; o Mölkky Score e o Mojogo aguardam validação. O EasyCompta tem além disso uma versão web gratuita que corre no navegador sem instalar nada.
 ---
 
 ## Dois jogos de tabuleiro, e um terceiro em preparação

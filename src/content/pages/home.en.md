@@ -26,9 +26,7 @@ faq:
       for online play; their solo modes work without an account.
   - q: Which platforms do these apps run on?
     a: >-
-      Android, through Google Play. EasyCompta also has a free web version that
-      runs in the browser with nothing to install. None of them is published on
-      the Apple App Store today.
+      Android, through Google Play. Papayoo and ScanFree are also on the Apple App Store; Mölkky Score and Mojogo are awaiting approval. EasyCompta also has a free web version that runs in the browser with nothing to install.
 ---
 
 ## Two board games, with a third on the way

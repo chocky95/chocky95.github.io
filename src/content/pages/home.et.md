@@ -27,9 +27,7 @@ faq:
       kontota.
   - q: Millistel platvormidel need rakendused töötavad?
     a: >-
-      Androidis, Google Play kaudu. EasyComptal on lisaks tasuta veebiversioon,
-      mis töötab brauseris ilma midagi paigaldamata. Ükski neist pole praegu
-      Apple'i App Store'is avaldatud.
+      Androidis, Google Play kaudu. Papayoo ja ScanFree on saadaval ka Apple'i App Store'is; Mölkky Score ja Mojogo ootavad kinnitamist. EasyComptal on lisaks tasuta veebiversioon, mis töötab brauseris ilma midagi paigaldamata.
 ---
 
 ## Kaks lauamängu, kolmas ettevalmistamisel

@@ -27,9 +27,7 @@ faq:
       profilu tylko do gry online; tryby jednoosobowe działają bez konta.
   - q: Na jakich platformach działają te aplikacje?
     a: >-
-      Na Androidzie, przez Google Play. EasyCompta ma dodatkowo darmową wersję
-      przeglądarkową, która działa bez instalowania czegokolwiek. Żadna z nich
-      nie jest dziś opublikowana w App Store firmy Apple.
+      Na Androidzie, przez Google Play. Papayoo i ScanFree są dostępne także w App Store firmy Apple; Mölkky Score i Mojogo czekają na zatwierdzenie. EasyCompta ma dodatkowo darmową wersję przeglądarkową, która działa bez instalowania czegokolwiek.
 ---
 
 ## Dwie gry towarzyskie i trzecia w przygotowaniu

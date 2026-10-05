@@ -28,9 +28,7 @@ faq:
       cuenta.
   - q: ¿En qué plataformas funcionan estas aplicaciones?
     a: >-
-      En Android, a través de Google Play. EasyCompta tiene además una versión
-      web gratuita que funciona en el navegador sin instalar nada. Ninguna está
-      publicada hoy en la App Store de Apple.
+      En Android, a través de Google Play. Papayoo y ScanFree están también en la App Store de Apple; Mölkky Score y Mojogo esperan su validación. EasyCompta tiene además una versión web gratuita que funciona en el navegador sin instalar nada.
 ---
 
 ## Dos juegos de mesa, y un tercero en preparación

@@ -28,9 +28,7 @@ faq:
       brauchen ein Profil nur für Onlinepartien; die Solomodi laufen ohne Konto.
   - q: Auf welchen Plattformen laufen diese Apps?
     a: >-
-      Unter Android, über Google Play. EasyCompta gibt es zusätzlich als
-      kostenlose Webversion, die ohne Installation im Browser läuft. Keine der
-      Apps ist derzeit im Apple App Store veröffentlicht.
+      Unter Android über Google Play. Papayoo und ScanFree gibt es zusätzlich im Apple App Store; Mölkky Score und Mojogo warten noch auf die Freigabe. EasyCompta gibt es außerdem als kostenlose Webversion, die ohne Installation im Browser läuft.
 ---
 
 ## Zwei Gesellschaftsspiele, ein drittes in Vorbereitung

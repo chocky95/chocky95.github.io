@@ -19,13 +19,12 @@ export type BuildTarget = 'android' | 'ios' | 'web' | 'windows' | 'macos' | 'lin
 /**
  * Boutique où l'application est RÉELLEMENT téléchargeable.
  *
- * Aucune application n'est publiée sur l'App Store (aucune URL apps.apple.com
- * n'existe dans les dépôts). Ce type ne liste donc que les boutiques réellement
- * ouvertes : un lien iOS serait une promesse cassée.
+ * Ce type ne liste que les boutiques réellement ouvertes : un lien vers une
+ * fiche pas encore validée par Apple serait une promesse cassée.
  *
  * Un portage annoncé se dit par `comingToIos`, qui n'affiche jamais de lien.
  */
-export type Store = 'play' | 'web';
+export type Store = 'play' | 'ios' | 'web';
 
 export interface AppFacts {
   /** Segment d'URL. Sert aussi de clé de contenu et de dossier d'assets. */
@@ -79,6 +78,8 @@ export interface AppFacts {
    */
   readonly comingToIos: boolean;
   readonly playUrl: string | null;
+  /** Fiche App Store, renseignée uniquement quand `stores` contient `ios`. */
+  readonly appStoreUrl: string | null;
   /**
    * Chemin SITE (jamais Play) d'une page d'inscription au test fermé, servie
    * en fichier plat depuis `public/` (ex. `/mojogo/beta.html`). Réservé aux
@@ -101,6 +102,7 @@ export interface AppFacts {
 }
 
 const PLAY = 'https://play.google.com/store/apps/details?id=';
+const APP_STORE = 'https://apps.apple.com/app/id';
 
 const ALL_PLATFORMS: readonly BuildTarget[] = [
   'android',
@@ -127,9 +129,12 @@ export const APPS: readonly AppFacts[] = [
     family: 'game',
     schemaCategory: 'GameApplication',
     nativeLocales: ['fr', 'en', 'de', 'fi', 'ja', 'es', 'sv', 'et', 'cs'],
-    comingToIos: false,
+    // En attente de validation Apple (2026-10-05). À la validation : repasser à
+    // false, ajouter 'ios' aux stores et appStoreUrl = APP_STORE + '6818510069'.
+    comingToIos: true,
     status: 'published',
     playUrl: PLAY + 'com.chocky.molkkyscore',
+    appStoreUrl: null,
     betaUrl: null,
     webAppUrl: null,
     stores: ['play'],
@@ -152,12 +157,13 @@ export const APPS: readonly AppFacts[] = [
     family: 'game',
     schemaCategory: 'GameApplication',
     nativeLocales: CARD_GAME_LOCALES,
-    comingToIos: true,
+    comingToIos: false,
     status: 'published',
     playUrl: PLAY + 'com.chocky.papayoo',
+    appStoreUrl: APP_STORE + '6811035662',
     betaUrl: null,
     webAppUrl: null,
-    stores: ['play'],
+    stores: ['play', 'ios'],
     buildTargets: ALL_PLATFORMS,
     screenshotLocales: [],
     trademarkNotice:
@@ -178,6 +184,7 @@ export const APPS: readonly AppFacts[] = [
     comingToIos: true,
     status: 'published',
     playUrl: PLAY + 'com.chocky.easycompta',
+    appStoreUrl: null,
     betaUrl: null,
     webAppUrl: 'https://easycompta.web.app',
     stores: ['play', 'web'],
@@ -198,13 +205,13 @@ export const APPS: readonly AppFacts[] = [
     family: 'utility',
     schemaCategory: 'UtilitiesApplication',
     nativeLocales: ['fr', 'en', 'de', 'ja', 'es', 'it', 'nl', 'pt', 'sv', 'da', 'nb', 'ko'],
-    comingToIos: true,
+    comingToIos: false,
     status: 'published',
     playUrl: PLAY + 'com.chocky.scanfree',
+    appStoreUrl: APP_STORE + '6813035192',
     betaUrl: null,
     webAppUrl: null,
-    stores: ['play'],
-    // 'ios' ajouté avec `comingToIos` : le portage est en cours.
+    stores: ['play', 'ios'],
     buildTargets: ['android', 'ios'],
     // 36 captures dans exactement ses 12 langues : chaque page ScanFree a des
     // captures dans sa propre langue. C'est le meilleur signal anti-contenu-mince
@@ -222,9 +229,12 @@ export const APPS: readonly AppFacts[] = [
     family: 'game',
     schemaCategory: 'GameApplication',
     nativeLocales: CARD_GAME_LOCALES,
-    comingToIos: false,
+    // En attente de validation Apple (2026-10-05) ; à la sortie, appStoreUrl =
+    // APP_STORE + '6817273085' et 'ios' dans stores.
+    comingToIos: true,
     status: 'coming-soon',
     playUrl: null,
+    appStoreUrl: null,
     // Test fermé Google Play en cours : la page produit mène à la page
     // d'inscription. À la sortie, repasser à null et renseigner playUrl/stores.
     betaUrl: '/mojogo/beta.html',
@@ -342,6 +352,13 @@ for (const app of APPS) {
   }
   if (app.stores.includes('play') !== (app.playUrl !== null)) {
     throw new Error(where + ' : incohérence entre stores "play" et playUrl.');
+  }
+  if (app.stores.includes('ios') !== (app.appStoreUrl !== null)) {
+    throw new Error(where + ' : incohérence entre stores "ios" et appStoreUrl.');
+  }
+  // Annonce ET lien à la fois se liraient comme une erreur (cf. comingToIos).
+  if (app.comingToIos && app.stores.includes('ios')) {
+    throw new Error(where + " : comingToIos alors que l'app est déjà sur l'App Store — repasser à false.");
   }
   if (app.stores.includes('web') !== (app.webAppUrl !== null)) {
     throw new Error(where + ' : incohérence entre stores "web" et webAppUrl.');

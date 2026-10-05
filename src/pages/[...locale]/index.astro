@@ -132,6 +132,9 @@ const canonical = absolute(locale, '');
                     {app.stores.includes('play') && (
                       <span class="badge badge--play">{t('apps.onPlay')}</span>
                     )}
+                    {app.stores.includes('ios') && (
+                      <span class="badge badge--ios">App Store</span>
+                    )}
                     {app.comingToIos && (
                       <span class="badge badge--ios">{t('apps.comingToIos')}</span>
                     )}

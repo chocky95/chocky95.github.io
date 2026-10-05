@@ -109,6 +109,7 @@ const breadcrumbs = [
  */
 const stores: { label: string; url: string }[] = [];
 if (app.playUrl) stores.push({ label: 'Google Play', url: app.playUrl });
+if (app.appStoreUrl) stores.push({ label: 'App Store', url: app.appStoreUrl });
 if (app.webAppUrl) stores.push({ label: t('cta.webApp'), url: app.webAppUrl });
 
 /**
@@ -187,6 +188,13 @@ const languageFallback = appHasLocale(app.slug, locale)
             )
           }
           {
+            app.appStoreUrl && (
+              <a class="cta" href={app.appStoreUrl} rel="noopener">
+                App Store
+              </a>
+            )
+          }
+          {
             app.webAppUrl && (
               <a class="cta cta--ghost" href={app.webAppUrl} rel="noopener">
                 {t('cta.webApp')}
@@ -241,8 +249,8 @@ const languageFallback = appHasLocale(app.slug, locale)
                 )
               }
               {/*
-                Annonce, pas boutique : aucune URL App Store n'existe, donc pas
-                de lien. Séparée des boutiques réelles par une ligne propre,
+                Annonce, pas boutique : la fiche App Store n'est pas encore validée,
+                donc pas de lien. Séparée des boutiques réelles par une ligne propre,
                 pour qu'on ne la lise pas comme un troisième lien mort.
               */}
               {app.comingToIos && <span class="soon-ios">{t('apps.comingToIos')}</span>}

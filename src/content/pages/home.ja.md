@@ -21,8 +21,7 @@ faq:
       はオンライン対戦のときだけプロフィールが必要で、ひとり用モードはアカウントなしで遊べます。
   - q: これらのアプリはどの環境で動きますか？
     a: >-
-      Android で、Google Play から入手できます。EasyCompta
-      には無料のウェブ版もあり、インストールせずブラウザで使えます。現時点では Apple の App Store には出していません。
+      Android では Google Play から入手できます。Papayoo と ScanFree は Apple の App Store でも配信中で、Mölkky Score と Mojogo は審査待ちです。EasyCompta には無料のウェブ版もあり、インストールせずブラウザで使えます。
 ---
 
 ## ボードゲームが2本、3本目は準備中
