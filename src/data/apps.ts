@@ -182,12 +182,15 @@ export const APPS: readonly AppFacts[] = [
     // institution française. Une page localisée n'aurait aucun sens.
     nativeLocales: ['fr'],
     comingToIos: true,
-    status: 'published',
-    playUrl: PLAY + 'com.chocky.easycompta',
+    // En attente de validation Google Play et Apple (2026-10-05) : seule la
+    // version web est ouverte. À la sortie : status 'published', playUrl =
+    // PLAY + 'com.chocky.easycompta' et 'play' dans stores.
+    status: 'coming-soon',
+    playUrl: null,
     appStoreUrl: null,
     betaUrl: null,
     webAppUrl: 'https://easycompta.web.app',
-    stores: ['play', 'web'],
+    stores: ['web'],
     // 'ios' ajoute avec `comingToIos` : le portage est en cours.
     buildTargets: ['android', 'ios', 'web'],
     screenshotLocales: ['fr'],
