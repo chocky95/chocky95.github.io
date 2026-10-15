@@ -10,14 +10,14 @@ lead: >-
   własny rachunek. Wszystkie można pobrać bezpłatnie. Każda robi jedną rzecz i robi
   ją do końca.
 translationStatus: authored
-updatedOn: 2026-09-07
+updatedOn: 2026-10-15
 faq:
   - q: Czy aplikacje Chocky Dev są darmowe?
     a: >-
       Wszystkie można pobrać bezpłatnie. Mölkky Score jest po prostu darmowy.
       ScanFree również, finansowany filmem z nagrodą w momencie eksportu i bez
-      żadnej wersji płatnej. Papayoo finansuje się reklamami, a Premium w
-      jednorazowym zakupie je usuwa. EasyCompta jest jedyną aplikacją z
+      żadnej wersji płatnej. Papayoo i Mojogo finansują się reklamami, a
+      Premium w jednorazowym zakupie je usuwa. EasyCompta jest jedyną aplikacją z
       abonamentem, i obejmuje on wyłącznie zaawansowane analizy oraz eksporty:
       prowadzenie księgi przychodów pozostaje darmowe i bez ograniczeń.
   - q: Czy potrzebuję konta, aby z nich korzystać?
@@ -30,7 +30,7 @@ faq:
       Na Androidzie, przez Google Play. Papayoo i ScanFree są dostępne także w App Store firmy Apple; Mölkky Score i Mojogo czekają na zatwierdzenie. EasyCompta ma dodatkowo darmową wersję przeglądarkową, która działa bez instalowania czegokolwiek.
 ---
 
-## Dwie gry towarzyskie i trzecia w przygotowaniu
+## Trzy aplikacje do grania
 
 [Mölkky Score](/pl/apps/molkky-score/) liczy punkty twoich partii Mölkky za
 ciebie. Zasada trzech pudeł i spadek do 25 punktów po przekroczeniu stosują się
@@ -44,9 +44,9 @@ wszystkim od Papayoo, które samo warte jest 40 punktów. Zagraj sam przeciw
 czterem poziomom botów, od Łatwego do Eksperta, albo online z przyjaciółmi. Pełne
 zasady są w aplikacji.
 
-[Mojogo](/pl/apps/mojogo/) połączy dwie gry w jednej aplikacji: Mojo, w którym
+[Mojogo](/pl/apps/mojogo/) łączy dwie gry w jednej aplikacji: Mojo, w którym
 partia kończy się, gdy gracz osiągnie 50, a wygrywa najniższy wynik, oraz Jungo,
-grę na kombinacje. Aplikacji nie ma jeszcze w Google Play.
+grę na kombinacje. Solo przeciw botom albo online z przyjaciółmi.
 
 ## Dwa narzędzia na codzień
 

@@ -9,14 +9,14 @@ lead: >-
   a document scanner, and accounting for the self-employed. All of them are free
   to download. Each does one thing and does it all the way through.
 translationStatus: authored
-updatedOn: 2026-09-07
+updatedOn: 2026-10-15
 faq:
   - q: Are the Chocky Dev apps free?
     a: >-
       All of them are free to download. Mölkky Score is simply free. So is
       ScanFree, funded by a rewarded video at export time, with no paid version
-      at all. Papayoo is ad-funded, with a one-time Premium purchase that
-      removes the ads. EasyCompta is the only one with a subscription, and it
+      at all. Papayoo and Mojogo are ad-funded, with a one-time Premium
+      purchase that removes the ads. EasyCompta is the only one with a subscription, and it
       covers only the advanced analytics and exports: keeping the income ledger
       itself stays free and unlimited.
   - q: Do I need an account to use them?
@@ -29,7 +29,7 @@ faq:
       Android, through Google Play. Papayoo and ScanFree are also on the Apple App Store; Mölkky Score and Mojogo are awaiting approval. EasyCompta also has a free web version that runs in the browser with nothing to install.
 ---
 
-## Two board games, with a third on the way
+## Three apps for game night
 
 [Mölkky Score](/en/apps/molkky-score/) keeps score for your Mölkky games so you
 do not have to. The three-miss rule and the drop back to 25 after overshooting
@@ -43,9 +43,9 @@ above all the Papayoo, worth 40 on its own. Play solo against four levels of
 bots, from Easy to Expert, or online with friends. The complete rules ship
 inside the app.
 
-[Mojogo](/en/apps/mojogo/) will bring two games together in one app: Mojo, where
-the round ends as soon as a player reaches 50 and the lowest score wins, and
-Jungo, a game of combinations. It is not on Google Play yet.
+[Mojogo](/en/apps/mojogo/) brings two games together in one app: Mojo, where the
+round ends as soon as a player reaches 50 and the lowest score wins, and Jungo,
+a game of combinations. Play solo against bots or online with friends.
 
 ## Two tools for everyday use
 

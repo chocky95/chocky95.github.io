@@ -11,7 +11,7 @@ lead: >-
   wat elke app doet, hoe hij wordt gefinancierd, in hoeveel talen zijn interface
   werkelijk bestaat, en wat hij van je telefoon vraagt.
 translationStatus: authored
-updatedOn: 2026-08-24
+updatedOn: 2026-10-15
 faq:
   - q: Welke app kies je om punten te tellen bij Mölkky?
     a: >-
@@ -38,7 +38,7 @@ faq:
 |---|---|---|---|
 | Mölkky Score | Puntenteller | Gratis | 9 talen |
 | Papayoo | Kaartspel | Advertenties, Premium eenmalige aankoop | 15 talen |
-| Mojogo | Kaartspellen, binnenkort | Advertenties, Premium eenmalige aankoop | 15 talen |
+| Mojogo | Kaartspellen | Advertenties, Premium eenmalige aankoop | 15 talen |
 | ScanFree | Documentscanner | Gratis, beloningsvideo bij export | 12 talen |
 | EasyCompta | Boekhouding | Gratis, Premium met abonnement | Alleen Frans |
 
@@ -49,7 +49,7 @@ de geavanceerde analyses en de exports. De andere vier hebben er geen.
 
 - **Je speelt Mölkky** en bent pen en papier zat → Mölkky Score.
 - **Je wilt een kaartspel** om solo tegen de AI of online met vrienden te spelen →
-  Papayoo, en Mojogo zodra hij uitkomt.
+  Papayoo, of Mojogo voor twee spellen in één app.
 - **Je moet een gescand document versturen** zonder een betaalde dienst te
   installeren → ScanFree.
 - **Je bent Frans micro-ondernemer** en houdt een inkomstenboek bij → EasyCompta.

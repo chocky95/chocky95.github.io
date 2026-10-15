@@ -11,7 +11,7 @@ lead: >-
   puesta en plano: qué hace cada una, cómo se financia, en cuántos idiomas existe
   realmente su interfaz y qué pide a tu teléfono.
 translationStatus: authored
-updatedOn: 2026-08-24
+updatedOn: 2026-10-15
 faq:
   - q: ¿Qué aplicación elegir para contar los puntos en el Mölkky?
     a: >-
@@ -40,7 +40,7 @@ faq:
 |---|---|---|---|
 | Mölkky Score | Contador de puntos | Gratuita | 9 idiomas |
 | Papayoo | Juego de cartas | Publicidad, Premium de pago único | 15 idiomas |
-| Mojogo | Juegos de cartas, en camino | Publicidad, Premium de pago único | 15 idiomas |
+| Mojogo | Juegos de cartas | Publicidad, Premium de pago único | 15 idiomas |
 | ScanFree | Escáner de documentos | Gratuita, vídeo recompensado al exportar | 12 idiomas |
 | EasyCompta | Contabilidad | Gratuita, Premium por suscripción | Solo francés |
 
@@ -51,7 +51,7 @@ análisis avanzados y sus exportaciones. Las otras cuatro no tienen ninguna.
 
 - **Juegas al Mölkky** y estás harto del lápiz y el papel → Mölkky Score.
 - **Quieres un juego de cartas** para jugar en solitario contra la IA o en línea
-  con amigos → Papayoo, y Mojogo cuando salga.
+  con amigos → Papayoo, o Mojogo para dos juegos en una sola aplicación.
 - **Tienes que enviar un documento escaneado** sin instalar un servicio de pago →
   ScanFree.
 - **Eres micro-emprendedor en Francia** y llevas un libro de ingresos →

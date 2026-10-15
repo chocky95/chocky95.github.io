@@ -9,14 +9,14 @@ lead: >-
   dokumendiskanneri ja raamatupidamise füüsilisest isikust ettevõtjale. Kõiki
   saab tasuta alla laadida. Igaüks teeb ühte asja ja teeb selle lõpuni.
 translationStatus: authored
-updatedOn: 2026-09-07
+updatedOn: 2026-10-15
 faq:
   - q: Kas Chocky Devi rakendused on tasuta?
     a: >-
       Kõiki saab tasuta alla laadida. Mölkky Score on lihtsalt tasuta. Samuti
       ScanFree, mida rahastatakse eksportimise hetkel näidatava tasuvideoga ja
-      millel pole üldse tasulist versiooni. Papayoo rahastatakse reklaamidest, ja
-      ühekordse ostuna saadav Premium eemaldab need. EasyCompta on ainus, millel
+      millel pole üldse tasulist versiooni. Papayoo ja Mojogo rahastatakse
+      reklaamidest, ja ühekordse ostuna saadav Premium eemaldab need. EasyCompta on ainus, millel
       on tellimus, ja see puudutab üksnes täiustatud analüüse ja eksporte:
       tuluraamatu pidamine ise jääb tasuta ja piiranguteta.
   - q: Kas nende kasutamiseks on vaja kontot?
@@ -30,7 +30,7 @@ faq:
       Androidis, Google Play kaudu. Papayoo ja ScanFree on saadaval ka Apple'i App Store'is; Mölkky Score ja Mojogo ootavad kinnitamist. EasyComptal on lisaks tasuta veebiversioon, mis töötab brauseris ilma midagi paigaldamata.
 ---
 
-## Kaks lauamängu, kolmas ettevalmistamisel
+## Kolm rakendust mängimiseks
 
 [Mölkky Score](/et/apps/molkky-score/) loeb sinu mölkkymängude punktid sinu eest.
 Kolme möödalasu reegel ja langus 25 peale ületamisel rakenduvad iseenesest,
@@ -46,7 +46,7 @@ Täielikud reeglid tulevad rakendusega kaasa.
 
 [Mojogo](/et/apps/mojogo/) toob kaks mängu ühte rakendusse: Mojo, kus partii
 lõpeb kohe, kui mängija jõuab 50-ni ja võidab madalaim tulemus, ning Jungo,
-kombinatsioonimäng. Google Plays seda veel ei ole.
+kombinatsioonimäng. Üksi bottide vastu või võrgus koos sõpradega.
 
 ## Kaks igapäevast tööriista
 

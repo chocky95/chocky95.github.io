@@ -2,7 +2,7 @@
 title: 'Mojogo: twee kaartspellen, Mojo en Jungo'
 metaDescription: >-
   Twee kaartspellen in één app: Mojo, waarbij je zo weinig mogelijk punten
-  moet scoren, en Jungo met zijn combinaties. Binnenkort beschikbaar.
+  moet scoren, en Jungo met zijn combinaties. Gratis op Google Play.
 h1: 'Mojogo: twee kaartspellen in één app, Mojo en Jungo'
 lead: >-
   Mojogo brengt twee kaartspellen samen in één app. Bij Mojo is het doel zo
@@ -10,7 +10,7 @@ lead: >-
   bereikt: de laagste score wint. Bij Jungo bouw je combinaties. Solo tegen
   bots of online met vrienden.
 translationStatus: authored
-updatedOn: 2026-08-20
+updatedOn: 2026-10-15
 heroAlt: >-
   Mojogo — illustratie van het kaartspel, een aap die twee kaarten omhoog
   houdt in een jungledecor
@@ -23,11 +23,11 @@ highlights:
   - Meer dan vijftien te ontgrendelen prestaties in Jungo
   - AI-hulp die de beste zet voorstelt
 faq:
-  - q: Wanneer wordt Mojogo beschikbaar?
+  - q: Waar kan je Mojogo downloaden?
     a: >-
-      De app is in ontwikkeling en nog niet gepubliceerd op Google Play.
-      Deze pagina wordt bijgewerkt bij de lancering, en de downloadlink
-      verschijnt hier zodra de app online is.
+      Op Google Play, gratis, voor Android. De iPhone-versie wacht nog op
+      goedkeuring door Apple: de App Store-link verschijnt op deze pagina
+      zodra die online is.
   - q: Wat is het verschil tussen Mojo en Jungo?
     a: >-
       Mojo is een afleggspel waarbij je zo weinig mogelijk punten probeert
@@ -51,11 +51,11 @@ faq:
       het kost 10 strafpunten en keert de speelrichting om.
   - q: Kan je online spelen met vrienden?
     a: >-
-      Ja, er is een online multiplayermodus gepland, met uitnodigingen, een
-      vriendenlijst, een multiplayer-hub en profiel delen via QR-code.
-  - q: Komt er reclame?
+      Ja, de online multiplayermodus biedt uitnodigingen, een vriendenlijst,
+      een multiplayer-hub en profiel delen via QR-code.
+  - q: Is er reclame?
     a: >-
-      Het spel wordt gratis en advertentiegefinancierd, met een eenmalige
+      Het spel is gratis en advertentiegefinancierd, met een eenmalige
       Premium-aankoop — geen abonnement — die de reclame verwijdert en alle
       jokers ontgrendelt.
 ---
@@ -136,6 +136,6 @@ onbeperkt, permanente voordelen.
 
 ## Beschikbaarheid
 
-Mojogo is in ontwikkeling en **nog niet gepubliceerd**. Deze pagina wordt
-bijgewerkt bij de lancering, en de downloadlink verschijnt hier zodra de
-app online is.
+Mojogo is gratis beschikbaar op **Google Play**, voor Android. De versie voor
+iPhone en iPad wacht nog op goedkeuring door Apple; de App Store-link
+verschijnt hier zodra die gepubliceerd is.

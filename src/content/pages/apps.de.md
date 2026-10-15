@@ -12,7 +12,7 @@ lead: >-
   vielen Sprachen ihre Oberfläche tatsächlich existiert und was sie von Ihrem
   Telefon verlangt.
 translationStatus: authored
-updatedOn: 2026-08-24
+updatedOn: 2026-10-15
 faq:
   - q: Welche App nehme ich zum Punktezählen bei Mölkky?
     a: >-
@@ -39,7 +39,7 @@ faq:
 |---|---|---|---|
 | Mölkky Score | Punktezähler | Kostenlos | 9 Sprachen |
 | Papayoo | Kartenspiel | Werbung, Premium als Einmalkauf | 15 Sprachen |
-| Mojogo | Kartenspiele, demnächst | Werbung, Premium als Einmalkauf | 15 Sprachen |
+| Mojogo | Kartenspiele | Werbung, Premium als Einmalkauf | 15 Sprachen |
 | ScanFree | Dokumentenscanner | Kostenlos, Belohnungsvideo beim Export | 12 Sprachen |
 | EasyCompta | Buchhaltung | Kostenlos, Premium im Abo | Nur Französisch |
 
@@ -50,7 +50,7 @@ ihre erweiterten Auswertungen und Exporte. Die anderen vier haben keines.
 
 - **Sie spielen Mölkky** und haben Stift und Papier satt → Mölkky Score.
 - **Sie wollen ein Kartenspiel**, solo gegen die KI oder online mit Freunden →
-  Papayoo, und Mojogo sobald es erscheint.
+  Papayoo, oder Mojogo für zwei Spiele in einer App.
 - **Sie müssen ein gescanntes Dokument verschicken**, ohne einen
   kostenpflichtigen Dienst zu installieren → ScanFree.
 - **Sie sind französischer Kleinunternehmer** und führen ein Einnahmenbuch →

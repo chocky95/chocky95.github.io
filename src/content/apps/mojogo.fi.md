@@ -2,7 +2,8 @@
 title: 'Mojogo: kaksi korttipeliä, Mojo ja Jungo'
 metaDescription: >-
   Kaksi korttipeliä yhdessä sovelluksessa: Mojo, jossa pitää saada
-  mahdollisimman vähän pisteitä, ja Jungo yhdistelmineen. Tulossa pian.
+  mahdollisimman vähän pisteitä, ja Jungo yhdistelmineen. Ilmainen Google
+  Playssa.
 h1: 'Mojogo: kaksi korttipeliä yhdessä sovelluksessa, Mojo ja Jungo'
 lead: >-
   Mojogo kokoaa kaksi korttipeliä yhteen sovellukseen. Mojossa pitää saada
@@ -10,7 +11,7 @@ lead: >-
   pienin pistemäärä voittaa. Jungossa rakennetaan yhdistelmiä. Yksin bottien
   vastaan tai verkossa kavereiden kanssa.
 translationStatus: authored
-updatedOn: 2026-08-24
+updatedOn: 2026-10-15
 heroAlt: >-
   Mojogo — korttipelin kuvitus, apina kohottaa kahta korttia viidakkomaisemassa
 highlights:
@@ -22,11 +23,11 @@ highlights:
   - Yli viisitoista avattavaa saavutusta Jungossa
   - Tekoälyapu joka ehdottaa parasta siirtoa
 faq:
-  - q: Milloin Mojogo julkaistaan?
+  - q: Mistä Mojogon voi ladata?
     a: >-
-      Sovellus on valmistelussa eikä sitä ole vielä julkaistu Google Playssa.
-      Tämä sivu päivittyy julkaisun myötä, ja latauslinkki ilmestyy tähän heti
-      kun sovellus on verkossa.
+      Google Playsta, ilmaiseksi, Androidille. iPhone-versio odottaa Applen
+      hyväksyntää: App Store -linkki ilmestyy tälle sivulle heti kun se on
+      verkossa.
   - q: Mitä eroa on Mojolla ja Jungolla?
     a: >-
       Mojo on poistopeli, jossa tavoitellaan mahdollisimman pientä pistemäärää:
@@ -48,9 +49,9 @@ faq:
       kääntää pelisuunnan.
   - q: Voiko verkossa pelata kavereiden kanssa?
     a: >-
-      Kyllä, verkkomoninpeli on suunnitteilla: kutsut, kaverilista,
-      moninpelikeskus ja profiilin jako QR-koodilla.
-  - q: Tuleeko peliin mainoksia?
+      Kyllä, verkkomoninpelissä on kutsut, kaverilista, moninpelikeskus ja
+      profiilin jako QR-koodilla.
+  - q: Onko pelissä mainoksia?
     a: >-
       Peli on ilmainen ja mainosrahoitteinen, ja kertaostoksena saatava
       Premium — ei tilaus — poistaa mainokset ja avaa kaikki jokerit.
@@ -130,5 +131,6 @@ pysyvät edut.
 
 ## Saatavuus
 
-Mojogo on valmistelussa eikä sitä ole **vielä julkaistu**. Tämä sivu päivittyy
-julkaisun myötä, ja latauslinkki ilmestyy tähän heti kun sovellus on verkossa.
+Mojogo on saatavilla ilmaiseksi **Google Playssa** Androidille. iPhone- ja
+iPad-versio odottaa Applen hyväksyntää; App Store -linkki ilmestyy tähän heti
+julkaisun jälkeen.

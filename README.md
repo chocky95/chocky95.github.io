@@ -188,9 +188,11 @@ d'exister :
 
 - `public/papayoo/invite.html` — lien de parrainage imprimé dans les QR codes de
   Papayoo. Seule page autorisée à porter un `<script>` (redirection par OS).
-- `public/mojogo/beta.html` — inscription au test fermé de Mojogo, FR + EN. C'est la
-  cible du bouton « Rejoindre la bêta » des 18 pages `/apps/mojogo/`
-  (`src/data/apps.ts`, champ `betaUrl`, réservé aux apps `coming-soon`).
+- `public/mojogo/beta.html` — ancienne inscription au test fermé de Mojogo. Depuis
+  la sortie sur Google Play (2026-10-15), elle renvoie vers la fiche Play : son URL
+  a été partagée aux testeurs et doit rester valide. Le champ `betaUrl` de
+  `src/data/apps.ts` (réservé aux apps `coming-soon`) reste disponible pour une
+  prochaine bêta.
 
 **Lier une page plate depuis une page Astro** demande une exception nominative :
 `checkPage` de `audit-dist.mjs` rejette tout lien interne sans slash final ou hors

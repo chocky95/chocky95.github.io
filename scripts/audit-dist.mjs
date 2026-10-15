@@ -143,9 +143,11 @@ const NAMED_CASES = [
  * retour la présence de chaque fichier dans dist/ : sa disparition casse le
  * build, pas les boutons qui y mènent.
  *
- *   /mojogo/beta.html — bouton « Rejoindre la bêta » des 18 pages /apps/mojogo/
- *                       (src/data/apps.ts, champ `betaUrl`). Les locales autres
- *                       que fr y arrivent avec l'ancre #en, déjà ignorée.
+ *   /mojogo/beta.html — ancienne page d'inscription au test fermé, liée par le
+ *                       champ `betaUrl` de src/data/apps.ts jusqu'à la sortie
+ *                       de Mojogo (2026-10-15). Plus liée depuis le site, elle
+ *                       renvoie vers la fiche Play ; gardée ici parce que son
+ *                       URL a été partagée aux testeurs et doit survivre.
  */
 const FLAT_PAGES = new Set(['/mojogo/beta.html']);
 

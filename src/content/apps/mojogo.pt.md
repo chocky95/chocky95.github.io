@@ -2,7 +2,8 @@
 title: 'Mojogo: dois jogos de cartas, o Mojo e o Jungo'
 metaDescription: >-
   Dois jogos de cartas numa só aplicação: o Mojo, em que é preciso somar o
-  menor número de pontos, e o Jungo com as suas combinações. Brevemente disponível.
+  menor número de pontos, e o Jungo com as suas combinações. Gratuito na
+  Google Play.
 h1: 'Mojogo: dois jogos de cartas numa aplicação, o Mojo e o Jungo'
 lead: >-
   O Mojogo reúne dois jogos de cartas numa só aplicação. No Mojo, o objetivo
@@ -10,7 +11,7 @@ lead: >-
   jogador atinge 50: ganha a pontuação mais baixa. No Jungo, constroem-se
   combinações. Sozinho contra bots ou online com amigos.
 translationStatus: authored
-updatedOn: 2026-08-20
+updatedOn: 2026-10-15
 heroAlt: >-
   Mojogo — ilustração do jogo de cartas, um macaco a exibir duas cartas
   num cenário de selva
@@ -23,11 +24,11 @@ highlights:
   - Mais de quinze conquistas para desbloquear no Jungo
   - Ajuda da IA que sugere a melhor jogada
 faq:
-  - q: Quando estará o Mojogo disponível?
+  - q: Onde descarregar o Mojogo?
     a: >-
-      A aplicação está em desenvolvimento e ainda não foi publicada na
-      Google Play. Esta página será atualizada no lançamento, e o link de
-      download aparecerá aqui assim que estiver disponível.
+      Na Google Play, gratuitamente, para Android. A versão para iPhone
+      aguarda validação da Apple: o link da App Store aparecerá nesta página
+      assim que estiver disponível.
   - q: Qual é a diferença entre o Mojo e o Jungo?
     a: >-
       O Mojo é um jogo de descarte onde se procura somar o menor número de
@@ -50,11 +51,11 @@ faq:
       penalidade de 10 pontos e inverte o sentido do jogo.
   - q: É possível jogar online com amigos?
     a: >-
-      Sim, está previsto um modo multijogador online, com convites, lista
-      de amigos, centro de multijogador e partilha de perfil por código QR.
-  - q: Haverá publicidade?
+      Sim, o modo multijogador online oferece convites, lista de amigos,
+      centro de multijogador e partilha de perfil por código QR.
+  - q: Há publicidade?
     a: >-
-      O jogo será gratuito e financiado por publicidade, com um Premium em
+      O jogo é gratuito e financiado por publicidade, com um Premium em
       compra única — não uma subscrição — que a remove e desbloqueia todos
       os curingas.
 ---
@@ -136,6 +137,6 @@ curingas ilimitados, vantagens permanentes.
 
 ## Disponibilidade
 
-O Mojogo está em desenvolvimento e **ainda não foi publicado**. Esta
-página será atualizada no lançamento, e o link de download aparecerá aqui
-assim que estiver disponível.
+O Mojogo está disponível gratuitamente na **Google Play**, para Android. A
+versão para iPhone e iPad aguarda validação da Apple; o link da App Store
+aparecerá aqui assim que for publicada.

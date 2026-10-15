@@ -11,7 +11,7 @@ lead: >-
   does, how it is funded, how many languages its interface actually exists in,
   and what it asks of your phone.
 translationStatus: authored
-updatedOn: 2026-08-24
+updatedOn: 2026-10-15
 faq:
   - q: Which app should I use to keep score at Mölkky?
     a: >-
@@ -38,7 +38,7 @@ faq:
 |---|---|---|---|
 | Mölkky Score | Score keeper | Free | 9 languages |
 | Papayoo | Card game | Ads, one-time Premium purchase | 15 languages |
-| Mojogo | Card games, coming soon | Ads, one-time Premium purchase | 15 languages |
+| Mojogo | Card games | Ads, one-time Premium purchase | 15 languages |
 | ScanFree | Document scanner | Free, rewarded video on export | 12 languages |
 | EasyCompta | Bookkeeping | Free, Premium by subscription | French only |
 
@@ -49,7 +49,7 @@ advanced analytics and exports. The other four have none.
 
 - **You play Mölkky** and you are tired of pen and paper → Mölkky Score.
 - **You want a card game** to play solo against the AI or online with friends →
-  Papayoo, and Mojogo when it ships.
+  Papayoo, or Mojogo for two games in one app.
 - **You need to send a scanned document** without installing a paid service →
   ScanFree.
 - **You are registered as a French micro-entrepreneur** and have to keep an

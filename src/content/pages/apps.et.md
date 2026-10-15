@@ -11,7 +11,7 @@ lead: >-
   laotud: mida igaüks teeb, kuidas ta rahastub, mitmes keeles ta liides tõesti
   olemas on ja mida ta sinu telefonilt küsib.
 translationStatus: authored
-updatedOn: 2026-08-24
+updatedOn: 2026-10-15
 faq:
   - q: Millise rakenduse valida mölkky punktide lugemiseks?
     a: >-
@@ -37,7 +37,7 @@ faq:
 |---|---|---|---|
 | Mölkky Score | Punktilugeja | Tasuta | 9 keelde |
 | Papayoo | Kaardimäng | Reklaamid, Premium ühekordse ostuna | 15 keelde |
-| Mojogo | Kaardimängud, tulekul | Reklaamid, Premium ühekordse ostuna | 15 keelde |
+| Mojogo | Kaardimängud | Reklaamid, Premium ühekordse ostuna | 15 keelde |
 | ScanFree | Dokumendiskanner | Tasuta, tasuvideo eksportimisel | 12 keelde |
 | EasyCompta | Raamatupidamine | Tasuta, Premium tellimusena | Ainult prantsuse |
 
@@ -48,7 +48,7 @@ täiustatud analüüse ja eksporte. Ülejäänud neljal pole ühtki.
 
 - **Mängid mölkkyt** ja pliiats-paber on tüütuks muutunud → Mölkky Score.
 - **Tahad kaardimängu**, üksi tehisintellekti vastu või võrgus sõpradega →
-  Papayoo, ja Mojogo kui see välja tuleb.
+  Papayoo, või Mojogo, mis pakub kaht mängu ühes rakenduses.
 - **Pead saatma skannitud dokumendi** ilma tasulist teenust paigaldamata →
   ScanFree.
 - **Oled Prantsuse mikroettevõtja** ja pead tuluraamatut → EasyCompta.

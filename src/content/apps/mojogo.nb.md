@@ -2,7 +2,7 @@
 title: 'Mojogo: to kortspill, Mojo og Jungo'
 metaDescription: >-
   To kortspill i én app: Mojo, der man skal ha så få poeng som mulig, og
-  Jungo med sine kombinasjoner. Kommer snart.
+  Jungo med sine kombinasjoner. Gratis på Google Play.
 h1: 'Mojogo: to kortspill i én app, Mojo og Jungo'
 lead: >-
   Mojogo samler to kortspill i én app. I Mojo gjelder det å få så få poeng
@@ -10,7 +10,7 @@ lead: >-
   vinner. I Jungo bygger man kombinasjoner. Alene mot bots eller online med
   venner.
 translationStatus: authored
-updatedOn: 2026-08-20
+updatedOn: 2026-10-15
 heroAlt: >-
   Mojogo — illustrasjon av kortspillet, en ape som holder opp to kort i en
   jungelkulisse
@@ -23,11 +23,11 @@ highlights:
   - Over femten prestasjoner å låse opp i Jungo
   - AI-hjelp som foreslår det beste trekket
 faq:
-  - q: Når blir Mojogo tilgjengelig?
+  - q: Hvor laster man ned Mojogo?
     a: >-
-      Appen er under utvikling og er ennå ikke publisert på Google Play.
-      Denne siden oppdateres ved lansering, og nedlastingslenken vises her
-      så snart appen er online.
+      På Google Play, gratis, for Android. iPhone-versjonen venter på
+      godkjenning fra Apple: App Store-lenken vises på denne siden så snart
+      den er online.
   - q: Hva er forskjellen mellom Mojo og Jungo?
     a: >-
       Mojo er et kastespill der man prøver å få så få poeng som mulig:
@@ -49,11 +49,11 @@ faq:
       koster 10 straffepoeng og snur spillretningen.
   - q: Kan man spille online med venner?
     a: >-
-      Ja, en online multiplayer-modus er planlagt, med invitasjoner,
-      venneliste, multiplayer-hub og profildeling via QR-kode.
-  - q: Blir det reklame?
+      Ja, online multiplayer-modusen byr på invitasjoner, venneliste,
+      multiplayer-hub og profildeling via QR-kode.
+  - q: Er det reklame?
     a: >-
-      Spillet blir gratis og reklamefinansiert, med et engangskjøp av
+      Spillet er gratis og reklamefinansiert, med et engangskjøp av
       Premium — ikke et abonnement — som fjerner den og låser opp alle
       jokere.
 ---
@@ -133,6 +133,6 @@ ubegrenset, permanente fordeler.
 
 ## Tilgjengelighet
 
-Mojogo er under utvikling og **ennå ikke publisert**. Denne siden
-oppdateres ved lansering, og nedlastingslenken vises her så snart appen er
-online.
+Mojogo er tilgjengelig gratis på **Google Play**, for Android. Versjonen for
+iPhone og iPad venter på godkjenning fra Apple; App Store-lenken vises her så
+snart den er publisert.

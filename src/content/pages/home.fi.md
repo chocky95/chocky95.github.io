@@ -9,16 +9,16 @@ lead: >-
   pisteenlaskurin, dokumenttiskannerin ja kirjanpidon yksinyrittäjälle. Kaikki
   ovat ilmaisia ladata. Jokainen tekee yhden asian ja tekee sen loppuun asti.
 translationStatus: authored
-updatedOn: 2026-09-07
+updatedOn: 2026-10-15
 faq:
   - q: Ovatko Chocky Devin sovellukset ilmaisia?
     a: >-
       Kaikki ovat ilmaisia ladata. Mölkky Score on yksinkertaisesti ilmainen.
       Samoin ScanFree, joka rahoittuu palkintovideolla vientihetkellä eikä sillä
-      ole lainkaan maksullista versiota. Papayoo rahoittuu mainoksilla, ja
-      kertaostoksena saatava Premium poistaa ne. EasyCompta on ainoa, jossa on
-      tilaus, ja se kattaa vain edistyneet analyysit ja viennit: tulokirjan
-      pitäminen itsessään pysyy ilmaisena ja rajoittamattomana.
+      ole lainkaan maksullista versiota. Papayoo ja Mojogo rahoittuvat
+      mainoksilla, ja kertaostoksena saatava Premium poistaa ne. EasyCompta on
+      ainoa, jossa on tilaus, ja se kattaa vain edistyneet analyysit ja viennit:
+      tulokirjan pitäminen itsessään pysyy ilmaisena ja rajoittamattomana.
   - q: Tarvitsenko tilin niiden käyttöön?
     a: >-
       Et Mölkky Scoreen, ScanFreeen tai EasyComptaan: ne toimivat ilman
@@ -29,7 +29,7 @@ faq:
       Androidilla, Google Playn kautta. Papayoo ja ScanFree löytyvät myös Applen App Storesta; Mölkky Score ja Mojogo odottavat hyväksyntää. EasyComptasta on lisäksi ilmainen verkkoversio, joka toimii selaimessa ilman asennusta.
 ---
 
-## Kaksi lautapeliä, kolmas valmistelussa
+## Kolme sovellusta pelaamiseen
 
 [Mölkky Score](/fi/apps/molkky-score/) laskee mölkkypelien pisteet puolestasi.
 Kolmen hutin sääntö ja pudotus 25:een ylityksen jälkeen toimivat itsestään,
@@ -45,7 +45,8 @@ kavereiden kanssa. Täydelliset säännöt tulevat sovelluksen mukana.
 
 [Mojogo](/fi/apps/mojogo/) yhdistää kaksi peliä yhteen sovellukseen: Mojon,
 jossa erä päättyy heti kun pelaaja saavuttaa 50 ja pienin pistemäärä voittaa,
-sekä Jungon, yhdistelmäpelin. Sovellus ei ole vielä Google Playssa.
+sekä Jungon, yhdistelmäpelin. Yksin botteja vastaan tai verkossa kavereiden
+kanssa.
 
 ## Kaksi arjen työkalua
 

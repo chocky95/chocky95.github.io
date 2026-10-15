@@ -11,7 +11,7 @@ lead: >-
   miten se rahoittuu, monellako kielellä sen käyttöliittymä todella on, ja mitä
   se puhelimeltasi pyytää.
 translationStatus: authored
-updatedOn: 2026-08-24
+updatedOn: 2026-10-15
 faq:
   - q: Mikä sovellus mölkyn pisteiden laskemiseen?
     a: >-
@@ -37,7 +37,7 @@ faq:
 |---|---|---|---|
 | Mölkky Score | Pisteenlaskuri | Ilmainen | 9 kielelle |
 | Papayoo | Korttipeli | Mainokset, Premium kertaostoksena | 15 kielelle |
-| Mojogo | Korttipelit, tulossa | Mainokset, Premium kertaostoksena | 15 kielelle |
+| Mojogo | Korttipelit | Mainokset, Premium kertaostoksena | 15 kielelle |
 | ScanFree | Dokumenttiskanneri | Ilmainen, palkintovideo vientiin | 12 kielelle |
 | EasyCompta | Kirjanpito | Ilmainen, Premium tilauksena | Vain ranskaksi |
 
@@ -48,7 +48,7 @@ edistyneet analyysit ja viennit. Neljällä muulla ei ole yhtään.
 
 - **Pelaat mölkkyä** ja kynä ja paperi riittää → Mölkky Score.
 - **Haluat korttipelin**, yksin tekoälyä vastaan tai verkossa kavereiden kanssa →
-  Papayoo, ja Mojogo kun se julkaistaan.
+  Papayoo, tai Mojogo, jossa on kaksi peliä yhdessä sovelluksessa.
 - **Sinun on lähetettävä skannattu asiakirja** asentamatta maksullista palvelua →
   ScanFree.
 - **Olet ranskalainen mikroyrittäjä** ja pidät tulokirjaa → EasyCompta.

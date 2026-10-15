@@ -10,14 +10,14 @@ lead: >-
   liber-profesioniști. Toate se descarcă gratuit. Fiecare face un
   singur lucru și îl duce până la capăt.
 translationStatus: authored
-updatedOn: 2026-09-07
+updatedOn: 2026-10-15
 faq:
   - q: Aplicațiile Chocky Dev sunt gratuite?
     a: >-
       Toate se descarcă gratuit. Mölkky Score este pur și simplu gratuită. La
       fel și ScanFree, finanțată printr-un videoclip cu recompensă la export și
-      fără nicio versiune plătită. Papayoo se finanțează prin reclame, iar un
-      Premium cu achiziție unică le elimină. EasyCompta este singura cu
+      fără nicio versiune plătită. Papayoo și Mojogo se finanțează prin
+      reclame, iar un Premium cu achiziție unică le elimină. EasyCompta este singura cu
       abonament, iar acesta acoperă doar analizele avansate și exporturile:
       ținerea registrului de venituri rămâne gratuită și fără limită.
   - q: Am nevoie de un cont pentru a le folosi?
@@ -31,7 +31,7 @@ faq:
       Pe Android, prin Google Play. Papayoo și ScanFree sunt disponibile și în App Store-ul Apple; Mölkky Score și Mojogo așteaptă validarea. EasyCompta are în plus o versiune web gratuită, care rulează în browser fără a instala nimic.
 ---
 
-## Două jocuri de societate, iar al treilea în pregătire
+## Trei aplicații pentru joacă
 
 [Mölkky Score](/ro/apps/molkky-score/) numără punctele partidelor tale de Mölkky
 în locul tău. Regula celor trei ratări și coborârea la 25 în caz de depășire se
@@ -45,9 +45,10 @@ Payoo-uri și mai ales de Papayoo, care valorează 40 de puncte de unul singur.
 Joacă singur împotriva a patru niveluri de boți, de la Ușor la Expert, sau online
 cu amicii. Regulile complete vin în aplicație.
 
-[Mojogo](/ro/apps/mojogo/) va reuni două jocuri într-o singură aplicație: Mojo,
+[Mojogo](/ro/apps/mojogo/) reunește două jocuri într-o singură aplicație: Mojo,
 în care partida se încheie de îndată ce un jucător ajunge la 50 și câștigă cel
-mai mic punctaj, și Jungo, un joc de combinații. Încă nu este pe Google Play.
+mai mic punctaj, și Jungo, un joc de combinații. Solo împotriva boților sau
+online cu amicii.
 
 ## Două unelte pentru fiecare zi
 

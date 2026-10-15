@@ -2,7 +2,7 @@
 title: 'Mojogo: kaks kaardimängu, Mojo ja Jungo'
 metaDescription: >-
   Kaks kaardimängu ühes rakenduses: Mojo, kus tuleb koguda võimalikult vähe
-  punkte, ja Jungo oma kombinatsioonidega. Varsti saadaval.
+  punkte, ja Jungo oma kombinatsioonidega. Tasuta Google Plays.
 h1: 'Mojogo: kaks kaardimängu ühes rakenduses, Mojo ja Jungo'
 lead: >-
   Mojogo koondab kaks kaardimängu ühte rakendusse. Mojos tuleb koguda
@@ -10,7 +10,7 @@ lead: >-
   madalaim tulemus. Jungos ehitatakse kombinatsioone. Üksi bottide vastu või
   võrgus koos sõpradega.
 translationStatus: authored
-updatedOn: 2026-08-24
+updatedOn: 2026-10-15
 heroAlt: >-
   Mojogo — kaardimängu illustratsioon, ahv hoiab kahte kaarti džunglimaastikus
 highlights:
@@ -22,11 +22,10 @@ highlights:
   - Üle viieteistkümne avatava saavutuse Jungos
   - Tehisintellekti abi, mis pakub parima käigu
 faq:
-  - q: Millal Mojogo saadavale tuleb?
+  - q: Kust Mojogo alla laadida?
     a: >-
-      Rakendus on ettevalmistamisel ja pole veel Google Plays avaldatud. See leht
-      uueneb koos väljalaskega ja allalaadimislink ilmub siia kohe, kui rakendus
-      on võrgus.
+      Google Playst, tasuta, Androidile. iPhone'i versioon ootab Apple'i
+      heakskiitu: App Store'i link ilmub sellele lehele kohe, kui see on võrgus.
   - q: Mis vahe on Mojol ja Jungol?
     a: >-
       Mojo on äraviskamismäng, kus püütakse saada võimalikult vähe punkte:
@@ -47,11 +46,11 @@ faq:
       mängusuuna ümber.
   - q: Kas võrgus saab sõpradega mängida?
     a: >-
-      Jah, võrgus mitmikmäng on kavas: kutsed, sõbranimekiri, mitmikmängu keskus
-      ja profiili jagamine QR-koodi abil.
-  - q: Kas mängus tuleb reklaame?
+      Jah, võrgus mitmikmängus on kutsed, sõbranimekiri, mitmikmängu keskus ja
+      profiili jagamine QR-koodi abil.
+  - q: Kas mängus on reklaame?
     a: >-
-      Mäng tuleb tasuta ja reklaamirahastusega, ning ühekordse ostuna saadav
+      Mäng on tasuta ja reklaamirahastusega, ning ühekordse ostuna saadav
       Premium — mitte tellimus — eemaldab reklaamid ja avab kõik jokkerid.
 ---
 
@@ -130,5 +129,6 @@ piiramatult, püsivad eelised.
 
 ## Saadavus
 
-Mojogo on ettevalmistamisel ja **pole veel avaldatud**. See leht uueneb koos
-väljalaskega ja allalaadimislink ilmub siia kohe, kui rakendus on võrgus.
+Mojogo on tasuta saadaval **Google Plays** Androidile. iPhone'i ja iPadi
+versioon ootab Apple'i heakskiitu; App Store'i link ilmub siia kohe pärast
+avaldamist.

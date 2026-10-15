@@ -2,7 +2,7 @@
 title: 'Mojogo : deux jeux de cartes, le Mojo et le Jungo'
 metaDescription: >-
   Deux jeux de cartes dans une seule application : le Mojo, où il faut marquer
-  le moins de points, et le Jungo et ses combinaisons. Bientôt disponible.
+  le moins de points, et le Jungo et ses combinaisons. Gratuit sur Google Play.
 h1: 'Mojogo : deux jeux de cartes en une application, le Mojo et le Jungo'
 lead: >-
   Mojogo réunit deux jeux de cartes dans une seule application. Au Mojo, il faut
@@ -10,7 +10,7 @@ lead: >-
   atteint 50 : le score le plus bas gagne. Au Jungo, on construit des
   combinaisons. Solo contre des bots ou en ligne entre amis.
 translationStatus: authored
-updatedOn: 2026-08-20
+updatedOn: 2026-10-15
 heroAlt: >-
   Mojogo — illustration du jeu de cartes, un singe brandissant deux cartes dans
   un décor de jungle
@@ -23,11 +23,11 @@ highlights:
   - Plus de quinze succès à débloquer au Jungo
   - Aide de l'IA qui suggère le meilleur coup à jouer
 faq:
-  - q: Quand Mojogo sera-t-il disponible ?
+  - q: Où télécharger Mojogo ?
     a: >-
-      L'application est en préparation et n'est pas encore publiée sur Google
-      Play. Cette page évoluera avec la sortie, et le lien de téléchargement
-      apparaîtra ici dès qu'elle sera en ligne.
+      Sur Google Play, gratuitement, pour Android. La version iPhone est en
+      attente de validation par Apple : le lien App Store apparaîtra sur cette
+      page dès qu'elle sera en ligne.
   - q: Quelle est la différence entre le Mojo et le Jungo ?
     a: >-
       Le Mojo est un jeu de défausse où l'on cherche à marquer le moins de
@@ -51,11 +51,11 @@ faq:
       dix points de pénalité et inverse le sens du jeu.
   - q: Peut-on jouer en ligne avec ses amis ?
     a: >-
-      Oui, un mode multijoueur en ligne est prévu, avec invitations, liste
-      d'amis, hub multijoueur et partage de profil par QR code.
-  - q: Y aura-t-il de la publicité ?
+      Oui, le mode multijoueur en ligne propose invitations, liste d'amis, hub
+      multijoueur et partage de profil par QR code.
+  - q: Y a-t-il de la publicité ?
     a: >-
-      Le jeu sera gratuit et financé par la publicité, avec un Premium en achat
+      Le jeu est gratuit et financé par la publicité, avec un Premium en achat
       unique — pas un abonnement — qui la supprime et débloque tous les jokers.
 ---
 
@@ -135,6 +135,6 @@ volonté, avantages permanents.
 
 ## Disponibilité
 
-Mojogo est en préparation et n'est **pas encore publié**. Cette page évoluera
-avec la sortie, et le lien de téléchargement y apparaîtra dès qu'elle sera en
-ligne.
+Mojogo est disponible gratuitement sur **Google Play**, pour Android. La version
+iPhone et iPad est en attente de validation par Apple ; le lien App Store
+apparaîtra ici dès sa publication.

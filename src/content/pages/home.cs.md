@@ -9,14 +9,14 @@ lead: >-
   Mölkky, skener dokumentů a účetnictví pro samostatně podnikající. Všechny se
   dají stáhnout zdarma. Každá dělá jednu věc a dovede ji do konce.
 translationStatus: authored
-updatedOn: 2026-09-07
+updatedOn: 2026-10-15
 faq:
   - q: Jsou aplikace Chocky Dev zdarma?
     a: >-
       Všechny se dají stáhnout bezplatně. Mölkky Score je prostě zdarma. Stejně
       tak ScanFree, financovaný odměnovým videem ve chvíli exportu a bez jakékoli
-      placené verze. Papayoo se financuje reklamou a Premium v jednorázovém
-      nákupu ji odstraní. EasyCompta je jediná s předplatným, a to se týká jen
+      placené verze. Papayoo a Mojogo se financují reklamou a Premium
+      v jednorázovém nákupu ji odstraní. EasyCompta je jediná s předplatným, a to se týká jen
       pokročilých analýz a exportů: vedení knihy příjmů zůstává zdarma a bez
       omezení.
   - q: Potřebuji k jejich používání účet?
@@ -29,7 +29,7 @@ faq:
       Na Androidu přes Google Play. Papayoo a ScanFree jsou k dispozici i v App Storu firmy Apple; Mölkky Score a Mojogo čekají na schválení. EasyCompta má navíc bezplatnou webovou verzi, která běží v prohlížeči bez instalace.
 ---
 
-## Dvě společenské hry a třetí v přípravě
+## Tři aplikace na hraní
 
 [Mölkky Score](/cs/apps/molkky-score/) počítá body vašich partií Mölkky za vás.
 Pravidlo tří minutí a návrat na 25 bodů při překročení se uplatní samo, turnaje
@@ -43,9 +43,9 @@ kartě Papayoo, která má sama hodnotu 40 bodů. Hrajte sami proti čtyřem úr
 botů, od lehké po expertní, nebo po síti s přáteli. Úplná pravidla jsou součástí
 aplikace.
 
-[Mojogo](/cs/apps/mojogo/) spojí dvě hry do jedné aplikace: Mojo, kde partie
+[Mojogo](/cs/apps/mojogo/) spojuje dvě hry do jedné aplikace: Mojo, kde partie
 skončí, jakmile hráč dosáhne 50, a vyhrává nejnižší skóre, a Jungo, hru na
-kombinace. V Google Play aplikace ještě není.
+kombinace. Sami proti botům, nebo po síti s přáteli.
 
 ## Dva nástroje na každý den
 

@@ -11,7 +11,7 @@ lead: >-
   flatt: hva hver app gjør, hvordan den finansieres, i hvor mange språk
   grensesnittet faktisk finnes, og hva den ber telefonen din om.
 translationStatus: authored
-updatedOn: 2026-08-24
+updatedOn: 2026-10-15
 faq:
   - q: Hvilken app velger man for å telle poeng i Mölkky?
     a: >-
@@ -28,7 +28,7 @@ faq:
     a: >-
       Ikke for Mölkky Score, ScanFree eller EasyCompta: de virker uten
       registrering og beholder dataene sine på enheten. Papayoo og Mojogo trenger
-      bare en profil for spill på nett; sololmodusene virker uten konto.
+      bare en profil for spill på nett; solomodusene virker uten konto.
 ---
 
 ## Sammenligningen
@@ -37,7 +37,7 @@ faq:
 |---|---|---|---|
 | Mölkky Score | Poengteller | Gratis | 9 språk |
 | Papayoo | Kortspill | Annonser, Premium som engangskjøp | 15 språk |
-| Mojogo | Kortspill, på vei | Annonser, Premium som engangskjøp | 15 språk |
+| Mojogo | Kortspill | Annonser, Premium som engangskjøp | 15 språk |
 | ScanFree | Dokumentskanner | Gratis, belønningsvideo ved eksport | 12 språk |
 | EasyCompta | Regnskap | Gratis, Premium på abonnement | Bare fransk |
 
@@ -48,7 +48,7 @@ avanserte analyser og eksporter. De andre fire har ingen.
 
 - **Du spiller Mölkky** og er lei av blyant og papir → Mölkky Score.
 - **Du vil ha et kortspill** å spille alene mot KI-en eller på nett med venner →
-  Papayoo, og Mojogo når det kommer.
+  Papayoo, eller Mojogo for to spill i én app.
 - **Du må sende et skannet dokument** uten å installere en betalt tjeneste →
   ScanFree.
 - **Du er fransk mikrobedrift** og fører en inntektsbok → EasyCompta.

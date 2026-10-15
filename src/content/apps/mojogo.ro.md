@@ -2,7 +2,8 @@
 title: 'Mojogo: două jocuri de cărți, Mojo și Jungo'
 metaDescription: >-
   Două jocuri de cărți într-o singură aplicație: Mojo, unde trebuie să
-  acumulezi cât mai puține puncte, și Jungo cu combinațiile sale. Disponibil în curând.
+  acumulezi cât mai puține puncte, și Jungo cu combinațiile sale. Gratuit pe
+  Google Play.
 h1: 'Mojogo: două jocuri de cărți într-o aplicație, Mojo și Jungo'
 lead: >-
   Mojogo reunește două jocuri de cărți într-o singură aplicație. La Mojo,
@@ -11,7 +12,7 @@ lead: >-
   Jungo se construiesc combinații. Solo împotriva boților sau online cu
   prietenii.
 translationStatus: authored
-updatedOn: 2026-08-20
+updatedOn: 2026-10-15
 heroAlt: >-
   Mojogo — ilustrație a jocului de cărți, o maimuță ținând două cărți
   într-un decor de junglă
@@ -24,11 +25,11 @@ highlights:
   - Peste cincisprezece realizări de deblocat la Jungo
   - Asistență AI care sugerează cea mai bună mutare
 faq:
-  - q: Când va fi disponibil Mojogo?
+  - q: De unde se descarcă Mojogo?
     a: >-
-      Aplicația este în curs de dezvoltare și nu este încă publicată pe
-      Google Play. Această pagină va fi actualizată la lansare, iar linkul
-      de descărcare va apărea aici de îndată ce aplicația va fi online.
+      De pe Google Play, gratuit, pentru Android. Versiunea pentru iPhone
+      așteaptă validarea Apple: linkul App Store va apărea pe această pagină
+      de îndată ce va fi online.
   - q: Care este diferența dintre Mojo și Jungo?
     a: >-
       Mojo este un joc de aruncare a cărților în care se urmărește
@@ -53,11 +54,11 @@ faq:
       costă o penalizare de 10 puncte și inversează sensul jocului.
   - q: Se poate juca online cu prietenii?
     a: >-
-      Da, este planificat un mod multiplayer online, cu invitații, listă de
-      prieteni, hub multiplayer și partajarea profilului prin cod QR.
-  - q: Va exista publicitate?
+      Da, modul multiplayer online oferă invitații, listă de prieteni, hub
+      multiplayer și partajarea profilului prin cod QR.
+  - q: Există publicitate?
     a: >-
-      Jocul va fi gratuit și finanțat prin publicitate, cu un Premium cu
+      Jocul este gratuit și finanțat prin publicitate, cu un Premium cu
       achiziție unică — nu un abonament — care o elimină și deblochează
       toți jokerii.
 ---
@@ -139,6 +140,6 @@ nelimitați, avantaje permanente.
 
 ## Disponibilitate
 
-Mojogo este în curs de dezvoltare și **nu este încă publicat**. Această
-pagină va fi actualizată la lansare, iar linkul de descărcare va apărea
-aici de îndată ce aplicația va fi online.
+Mojogo este disponibil gratuit pe **Google Play**, pentru Android. Versiunea
+pentru iPhone și iPad așteaptă validarea Apple; linkul App Store va apărea
+aici de îndată ce va fi publicată.

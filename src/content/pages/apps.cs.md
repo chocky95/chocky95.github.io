@@ -11,7 +11,7 @@ lead: >-
   plochy: co která dělá, jak se financuje, v kolika jazycích její rozhraní
   skutečně existuje a o co žádá váš telefon.
 translationStatus: authored
-updatedOn: 2026-08-24
+updatedOn: 2026-10-15
 faq:
   - q: Kterou aplikaci vybrat na počítání bodů v Mölkky?
     a: >-
@@ -37,7 +37,7 @@ faq:
 |---|---|---|---|
 | Mölkky Score | Počítadlo bodů | Zdarma | 9 jazyků |
 | Papayoo | Karetní hra | Reklama, Premium v jednorázovém nákupu | 15 jazyků |
-| Mojogo | Karetní hry, již brzy | Reklama, Premium v jednorázovém nákupu | 15 jazyků |
+| Mojogo | Karetní hry | Reklama, Premium v jednorázovém nákupu | 15 jazyků |
 | ScanFree | Skener dokumentů | Zdarma, odměnové video při exportu | 12 jazyků |
 | EasyCompta | Účetnictví | Zdarma, Premium na předplatné | Jen francouzsky |
 
@@ -48,7 +48,7 @@ pokročilých analýz a exportů. Ostatní čtyři žádné nemají.
 
 - **Hrajete Mölkky** a máte dost tužky a papíru → Mölkky Score.
 - **Chcete karetní hru**, sami proti umělé inteligenci nebo po síti s přáteli →
-  Papayoo, a Mojogo až vyjde.
+  Papayoo, nebo Mojogo se dvěma hrami v jedné aplikaci.
 - **Musíte poslat naskenovaný dokument** bez instalace placené služby → ScanFree.
 - **Jste francouzský mikropodnikatel** a vedete knihu příjmů → EasyCompta.
 

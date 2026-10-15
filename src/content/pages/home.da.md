@@ -9,14 +9,14 @@ lead: >-
   dokumentscanner og et regnskab for selvstændige. De kan alle hentes gratis.
   Hver app gør én ting og gør den helt færdig.
 translationStatus: authored
-updatedOn: 2026-09-07
+updatedOn: 2026-10-15
 faq:
   - q: Er Chocky Devs apps gratis?
     a: >-
       De kan alle hentes gratis. Mölkky Score er simpelthen gratis. Det er
       ScanFree også, finansieret af en belønningsvideo ved eksport og helt uden
-      betalt version. Papayoo finansieres af reklamer, og et Premium som
-      engangskøb fjerner dem. EasyCompta er den eneste med et abonnement, og det
+      betalt version. Papayoo og Mojogo finansieres af reklamer, og et Premium
+      som engangskøb fjerner dem. EasyCompta er den eneste med et abonnement, og det
       dækker kun de avancerede analyser og eksporter: at føre indtægtsbogen er
       fortsat gratis og uden grænser.
   - q: Skal jeg oprette en konto for at bruge dem?
@@ -29,7 +29,7 @@ faq:
       På Android via Google Play. Papayoo og ScanFree findes også i Apples App Store; Mölkky Score og Mojogo afventer godkendelse. EasyCompta findes desuden i en gratis webversion, der kører i browseren uden at installere noget.
 ---
 
-## To selskabsspil, og et tredje på vej
+## Tre apps at spille med
 
 [Mölkky Score](/da/apps/molkky-score/) tæller pointene i dine Mölkky-partier for
 dig. Reglen om tre forbiere og faldet tilbage til 25 ved overskridelse virker af
@@ -44,7 +44,7 @@ Let til Ekspert, eller online med venner. De fuldstændige regler følger med ap
 
 [Mojogo](/da/apps/mojogo/) samler to spil i én app: Mojo, hvor partiet slutter,
 så snart en spiller når 50, og den laveste score vinder, og Jungo, et
-kombinationsspil. Appen er endnu ikke på Google Play.
+kombinationsspil. Solo mod bots eller online med venner.
 
 ## To værktøjer til hverdagen
 

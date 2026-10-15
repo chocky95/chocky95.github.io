@@ -2,14 +2,14 @@
 title: 'Mojogo: dvě karetní hry, Mojo a Jungo'
 metaDescription: >-
   Dvě karetní hry v jedné aplikaci: Mojo, kde je třeba nasbírat co nejméně
-  bodů, a Jungo se svými kombinacemi. Již brzy k dispozici.
+  bodů, a Jungo se svými kombinacemi. Zdarma v Google Play.
 h1: 'Mojogo: dvě karetní hry v jedné aplikaci, Mojo a Jungo'
 lead: >-
   Mojogo spojuje dvě karetní hry do jedné aplikace. V Mojo je třeba nasbírat co
   nejméně bodů a partie skončí, jakmile hráč dosáhne 50: vyhrává nejnižší skóre.
   V Jungo se staví kombinace. Sami proti botům, nebo po síti s přáteli.
 translationStatus: authored
-updatedOn: 2026-08-24
+updatedOn: 2026-10-15
 heroAlt: >-
   Mojogo — ilustrace karetní hry, opice zvedá dvě karty v džunglové kulise
 highlights:
@@ -21,11 +21,11 @@ highlights:
   - Přes patnáct odemykatelných úspěchů v Jungo
   - Pomoc umělé inteligence, která navrhne nejlepší tah
 faq:
-  - q: Kdy bude Mojogo k dispozici?
+  - q: Kde si Mojogo stáhnout?
     a: >-
-      Aplikace se připravuje a ještě není vydána v Google Play. Tato stránka se
-      s vydáním aktualizuje a odkaz ke stažení se zde objeví, jakmile bude
-      aplikace online.
+      V Google Play, zdarma, pro Android. Verze pro iPhone čeká na schválení
+      společností Apple: odkaz do App Store se na této stránce objeví, jakmile
+      bude online.
   - q: Jaký je rozdíl mezi Mojo a Jungo?
     a: >-
       Mojo je odhazovací hra, kde se snažíte nasbírat co nejméně bodů: partie
@@ -45,11 +45,11 @@ faq:
       protiúder stává nebezpečným: stojí 10 trestných bodů a obrací směr hry.
   - q: Lze hrát po síti s přáteli?
     a: >-
-      Ano, hra po síti se plánuje: pozvánky, seznam přátel, rozcestník pro hru
-      více hráčů a sdílení profilu přes QR kód.
-  - q: Budou ve hře reklamy?
+      Ano, hra po síti nabízí pozvánky, seznam přátel, rozcestník pro hru více
+      hráčů a sdílení profilu přes QR kód.
+  - q: Jsou ve hře reklamy?
     a: >-
-      Hra bude zdarma a financovaná reklamou, s Premium v jednorázovém nákupu —
+      Hra je zdarma a financovaná reklamou, s Premium v jednorázovém nákupu —
       nikoli předplatným — které reklamy odstraní a odemkne všechny žolíky.
 ---
 
@@ -127,5 +127,6 @@ omezení, trvalé výhody.
 
 ## Dostupnost
 
-Mojogo se připravuje a **ještě není vydáno**. Tato stránka se s vydáním
-aktualizuje a odkaz ke stažení se zde objeví, jakmile bude aplikace online.
+Mojogo je k dispozici zdarma v **Google Play** pro Android. Verze pro iPhone a
+iPad čeká na schválení společností Apple; odkaz do App Store se zde objeví,
+jakmile bude zveřejněna.

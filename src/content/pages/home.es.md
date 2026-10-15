@@ -10,14 +10,14 @@ lead: >-
   para autónomos. Todas se descargan gratis. Cada una hace una cosa y la
   hace hasta el final.
 translationStatus: authored
-updatedOn: 2026-09-07
+updatedOn: 2026-10-15
 faq:
   - q: ¿Las apps de Chocky Dev son gratuitas?
     a: >-
       Todas se descargan gratis. Mölkky Score es simplemente gratuita. También
       ScanFree, financiada con un vídeo recompensado al exportar y sin ninguna
-      versión de pago. Papayoo se financia con publicidad, y un Premium de pago
-      único la elimina. EasyCompta es la única con suscripción, y solo cubre los
+      versión de pago. Papayoo y Mojogo se financian con publicidad, y un
+      Premium de pago único la elimina. EasyCompta es la única con suscripción, y solo cubre los
       análisis avanzados y las exportaciones: llevar el libro de ingresos sigue
       siendo gratuito y sin límite.
   - q: ¿Hace falta crear una cuenta para usarlas?
@@ -31,7 +31,7 @@ faq:
       En Android, a través de Google Play. Papayoo y ScanFree están también en la App Store de Apple; Mölkky Score y Mojogo esperan su validación. EasyCompta tiene además una versión web gratuita que funciona en el navegador sin instalar nada.
 ---
 
-## Dos juegos de mesa, y un tercero en preparación
+## Tres aplicaciones para jugar
 
 [Mölkky Score](/es/apps/molkky-score/) cuenta los puntos de tus partidas de
 Mölkky por ti. La regla de los tres fallos y la bajada a 25 al pasarse se
@@ -45,9 +45,10 @@ Payoos y sobre todo del Papayoo, que vale 40 por sí solo. Juega en solitario
 contra cuatro niveles de bots, de Fácil a Experto, o en línea con tus amigos.
 Las reglas completas vienen dentro de la aplicación.
 
-[Mojogo](/es/apps/mojogo/) reunirá dos juegos en una sola aplicación: el Mojo,
+[Mojogo](/es/apps/mojogo/) reúne dos juegos en una sola aplicación: el Mojo,
 donde la partida termina en cuanto un jugador llega a 50 y gana la puntuación
-más baja, y el Jungo, un juego de combinaciones. Todavía no está en Google Play.
+más baja, y el Jungo, un juego de combinaciones. En solitario contra bots o en
+línea con amigos.
 
 ## Dos herramientas para el día a día
 

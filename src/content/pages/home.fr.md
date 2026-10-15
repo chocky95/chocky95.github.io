@@ -10,14 +10,14 @@ lead: >-
   de micro-entrepreneur. Toutes se téléchargent gratuitement. Chacune fait une chose et
   la fait complètement.
 translationStatus: authored
-updatedOn: 2026-09-07
+updatedOn: 2026-10-15
 faq:
   - q: Les applications de Chocky Dev sont-elles gratuites ?
     a: >-
       Toutes se téléchargent gratuitement. Mölkky Score est simplement gratuite.
       ScanFree l'est aussi, financée par une vidéo récompensée au moment de
-      l'export, sans aucune version payante. Papayoo se finance par la
-      publicité, avec un Premium en achat unique qui la supprime. EasyCompta est
+      l'export, sans aucune version payante. Papayoo et Mojogo se financent par
+      la publicité, avec un Premium en achat unique qui la supprime. EasyCompta est
       la seule à proposer un abonnement, et il ne porte que sur les analyses
       avancées et les exports : la tenue du livre des recettes reste gratuite et
       sans limite.
@@ -32,7 +32,7 @@ faq:
       Sur Android, par Google Play. Papayoo et ScanFree sont aussi disponibles sur l'App Store d'Apple ; Mölkky Score et Mojogo sont en attente de validation. EasyCompta existe en plus en version web gratuite, utilisable dans le navigateur sans rien installer.
 ---
 
-## Deux jeux de société, et un troisième en préparation
+## Trois applications pour jouer
 
 [Mölkky Score](/apps/molkky-score/) compte les points de vos parties de Mölkky à
 votre place. La règle des trois ratés et la redescente à 25 en cas de
@@ -47,10 +47,10 @@ Payoos, et surtout le Papayoo, qui en vaut 40 à lui seul. Jouez en solo contre
 quatre niveaux de bots, du Facile à l'Expert, ou en ligne avec vos amis. Les
 règles complètes sont intégrées à l'application.
 
-[Mojogo](/apps/mojogo/) réunira deux jeux dans une seule application : le Mojo,
+[Mojogo](/apps/mojogo/) réunit deux jeux dans une seule application : le Mojo,
 où la partie s'arrête dès qu'un joueur atteint 50 points et où le score le plus
-bas gagne, et le Jungo, un jeu de combinaisons. L'application n'est pas encore
-publiée sur Google Play.
+bas gagne, et le Jungo, un jeu de combinaisons. En solo contre des bots ou en
+ligne entre amis.
 
 ## Deux outils pour le quotidien
 

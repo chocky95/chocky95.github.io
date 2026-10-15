@@ -226,7 +226,7 @@ export const APPS: readonly AppFacts[] = [
     slug: 'mojogo',
     name: 'Mojogo',
     packageId: 'com.chocky.mojogo',
-    version: '1.0.0',
+    version: '1.0.17',
     accent: '#D4C4A8',
     accentText: '#D4C4A8', // 11.22:1 sur le fond : conforme tel quel
     family: 'game',
@@ -235,14 +235,14 @@ export const APPS: readonly AppFacts[] = [
     // En attente de validation Apple (2026-10-05) ; à la sortie, appStoreUrl =
     // APP_STORE + '6817273085' et 'ios' dans stores.
     comingToIos: true,
-    status: 'coming-soon',
-    playUrl: null,
+    // En production sur Google Play depuis le 2026-10-15. L'ancienne page de
+    // bêta (/mojogo/beta.html) renvoie désormais vers la fiche Play.
+    status: 'published',
+    playUrl: PLAY + 'com.chocky.mojogo',
     appStoreUrl: null,
-    // Test fermé Google Play en cours : la page produit mène à la page
-    // d'inscription. À la sortie, repasser à null et renseigner playUrl/stores.
-    betaUrl: '/mojogo/beta.html',
+    betaUrl: null,
     webAppUrl: null,
-    stores: [],
+    stores: ['play'],
     buildTargets: ALL_PLATFORMS,
     screenshotLocales: [],
     trademarkNotice: null,

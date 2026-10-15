@@ -11,7 +11,7 @@ lead: >-
   informație pusă în plan: ce face fiecare, cum se finanțează, în câte limbi
   există într-adevăr interfața ei și ce cere telefonului tău.
 translationStatus: authored
-updatedOn: 2026-08-24
+updatedOn: 2026-10-15
 faq:
   - q: Ce aplicație să alegi pentru numărarea punctelor la Mölkky?
     a: >-
@@ -39,7 +39,7 @@ faq:
 |---|---|---|---|
 | Mölkky Score | Contor de puncte | Gratuită | 9 limbi |
 | Papayoo | Joc de cărți | Reclame, Premium cu achiziție unică | 15 limbi |
-| Mojogo | Jocuri de cărți, în curând | Reclame, Premium cu achiziție unică | 15 limbi |
+| Mojogo | Jocuri de cărți | Reclame, Premium cu achiziție unică | 15 limbi |
 | ScanFree | Scaner de documente | Gratuită, videoclip cu recompensă la export | 12 limbi |
 | EasyCompta | Contabilitate | Gratuită, Premium cu abonament | Doar franceză |
 
@@ -50,7 +50,7 @@ analizele sale avansate și exporturile. Celelalte patru nu au niciunul.
 
 - **Joci Mölkky** și te-ai săturat de creion și hârtie → Mölkky Score.
 - **Vrei un joc de cărți** de jucat solo împotriva IA sau online cu amicii →
-  Papayoo, și Mojogo când va apărea.
+  Papayoo, sau Mojogo pentru două jocuri într-o singură aplicație.
 - **Trebuie să trimiți un document scanat** fără să instalezi un serviciu plătit →
   ScanFree.
 - **Ești micro-întreprinzător în Franța** și ții un registru de venituri →

@@ -10,14 +10,15 @@ lead: >-
   Alle sind kostenlos herunterzuladen. Jede tut eine Sache und tut sie zu
   Ende.
 translationStatus: authored
-updatedOn: 2026-09-07
+updatedOn: 2026-10-15
 faq:
   - q: Sind die Apps von Chocky Dev kostenlos?
     a: >-
       Alle sind kostenlos herunterzuladen. Mölkky Score ist schlicht kostenlos.
       ScanFree ebenso, finanziert über ein Belohnungsvideo beim Export und ganz
-      ohne Kaufversion. Papayoo finanziert sich über Werbung, mit einem
-      einmaligen Premium-Kauf, der sie entfernt. EasyCompta ist die einzige mit
+      ohne Kaufversion. Papayoo und Mojogo finanzieren sich über Werbung, mit
+      einem einmaligen Premium-Kauf, der sie entfernt. EasyCompta ist die
+      einzige mit
       einem Abonnement, und es betrifft nur die erweiterten Auswertungen und
       Exporte: das Einnahmenbuch selbst zu führen bleibt kostenlos und
       unbegrenzt.
@@ -31,7 +32,7 @@ faq:
       Unter Android über Google Play. Papayoo und ScanFree gibt es zusätzlich im Apple App Store; Mölkky Score und Mojogo warten noch auf die Freigabe. EasyCompta gibt es außerdem als kostenlose Webversion, die ohne Installation im Browser läuft.
 ---
 
-## Zwei Gesellschaftsspiele, ein drittes in Vorbereitung
+## Drei Apps zum Spielen
 
 [Mölkky Score](/de/apps/molkky-score/) zählt die Punkte Ihrer Mölkky-Partien für
 Sie. Die Drei-Fehlwürfe-Regel und der Rückfall auf 25 beim Überschreiten greifen
@@ -45,10 +46,10 @@ vor allem dem Papayoo, der allein 40 Punkte wert ist. Spielen Sie solo gegen
 vier Botstufen, von Leicht bis Experte, oder online mit Freunden. Die
 vollständigen Regeln sind in der App enthalten.
 
-[Mojogo](/de/apps/mojogo/) wird zwei Spiele in einer App vereinen: Mojo, wo die
+[Mojogo](/de/apps/mojogo/) vereint zwei Spiele in einer App: Mojo, wo die
 Partie endet, sobald ein Spieler 50 erreicht, und die niedrigste Punktzahl
-gewinnt, sowie Jungo, ein Kombinationsspiel. Bei Google Play ist die App noch
-nicht erschienen.
+gewinnt, sowie Jungo, ein Kombinationsspiel. Solo gegen Bots oder online mit
+Freunden.
 
 ## Zwei Werkzeuge für den Alltag
 

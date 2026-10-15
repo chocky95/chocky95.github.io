@@ -10,14 +10,15 @@ lead: >-
   lavora in autonomia. Si scaricano tutte gratuitamente. Ognuna fa una cosa e la
   fa fino in fondo.
 translationStatus: authored
-updatedOn: 2026-09-07
+updatedOn: 2026-10-15
 faq:
   - q: Le app di Chocky Dev sono gratuite?
     a: >-
       Si scaricano tutte gratuitamente. Mölkky Score è semplicemente gratuita.
       Lo è anche ScanFree, finanziata da un video con premio al momento
-      dell'esportazione e senza alcuna versione a pagamento. Papayoo si finanzia
-      con la pubblicità, e un Premium ad acquisto unico la rimuove. EasyCompta è
+      dell'esportazione e senza alcuna versione a pagamento. Papayoo e Mojogo
+      si finanziano con la pubblicità, e un Premium ad acquisto unico la
+      rimuove. EasyCompta è
       la sola con un abbonamento, e riguarda soltanto le analisi avanzate e le
       esportazioni: tenere il libro delle entrate resta gratuito e senza limiti.
   - q: Serve un account per usarle?
@@ -31,7 +32,7 @@ faq:
       Su Android, tramite Google Play. Papayoo e ScanFree sono disponibili anche sull'App Store di Apple; Mölkky Score e Mojogo sono in attesa di approvazione. EasyCompta ha inoltre una versione web gratuita che gira nel browser senza installare nulla.
 ---
 
-## Due giochi da tavolo, e un terzo in preparazione
+## Tre app per giocare
 
 [Mölkky Score](/it/apps/molkky-score/) conta i punti delle tue partite di Mölkky
 al posto tuo. La regola dei tre errori e il ritorno a 25 quando si supera il
@@ -46,10 +47,10 @@ soprattutto dal Papayoo, che da solo ne vale 40. Gioca in solitaria contro
 quattro livelli di bot, da Facile a Esperto, oppure online con gli amici. Le
 regole complete sono incluse nell'applicazione.
 
-[Mojogo](/it/apps/mojogo/) riunirà due giochi in una sola applicazione: il Mojo,
-in cui la partita si chiude appena un giocatore raggiunge 50 e vince il
-punteggio più basso, e il Jungo, un gioco di combinazioni. Non è ancora su
-Google Play.
+[Mojogo](/it/apps/mojogo/) riunisce due giochi in una sola applicazione: il
+Mojo, in cui la partita si chiude appena un giocatore raggiunge 50 e vince il
+punteggio più basso, e il Jungo, un gioco di combinazioni. In solitaria contro i
+bot o online con gli amici.
 
 ## Due strumenti per tutti i giorni
 

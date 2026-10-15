@@ -2,7 +2,7 @@
 title: 'Mojogo: two card games, Mojo and Jungo'
 metaDescription: >-
   Two card games in one app: Mojo, where you aim to score the fewest points,
-  and Jungo with its combinations. Coming soon.
+  and Jungo with its combinations. Free on Google Play.
 h1: 'Mojogo: two card games in one app, Mojo and Jungo'
 lead: >-
   Mojogo brings together two card games in one app. In Mojo, the goal is to
@@ -10,7 +10,7 @@ lead: >-
   hits 50: the lowest score wins. In Jungo, you build combinations. Solo
   against bots or online with friends.
 translationStatus: authored
-updatedOn: 2026-08-20
+updatedOn: 2026-10-15
 heroAlt: >-
   Mojogo — card game illustration, a monkey holding up two cards in a jungle
   setting
@@ -23,10 +23,10 @@ highlights:
   - Over fifteen achievements to unlock in Jungo
   - AI assistance that suggests the best move to play
 faq:
-  - q: When will Mojogo be available?
+  - q: Where can I download Mojogo?
     a: >-
-      The app is in development and not yet published on Google Play. This
-      page will update at launch, and the download link will appear here as
+      On Google Play, for free, on Android. The iPhone version is awaiting
+      approval from Apple: the App Store link will appear on this page as
       soon as it's live.
   - q: What's the difference between Mojo and Jungo?
     a: >-
@@ -49,11 +49,11 @@ faq:
       a 10-point penalty and reverses the direction of play.
   - q: Can you play online with friends?
     a: >-
-      Yes, an online multiplayer mode is planned, with invitations, a
-      friends list, a multiplayer hub and profile sharing by QR code.
-  - q: Will there be ads?
+      Yes, the online multiplayer mode offers invitations, a friends list, a
+      multiplayer hub and profile sharing by QR code.
+  - q: Are there ads?
     a: >-
-      The game will be free and ad-supported, with a one-time Premium
+      The game is free and ad-supported, with a one-time Premium
       purchase — not a subscription — that removes them and unlocks all
       jokers.
 ---
@@ -133,5 +133,6 @@ unlimited, permanent benefits.
 
 ## Availability
 
-Mojogo is in development and **not yet published**. This page will update
-at launch, and the download link will appear here as soon as it's live.
+Mojogo is available for free on **Google Play**, for Android. The iPhone and
+iPad version is awaiting approval from Apple; the App Store link will appear
+here as soon as it's published.

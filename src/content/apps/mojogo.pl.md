@@ -2,7 +2,7 @@
 title: 'Mojogo: dwie gry karciane, Mojo i Jungo'
 metaDescription: >-
   Dwie gry karciane w jednej aplikacji: Mojo, w której trzeba zdobyć jak
-  najmniej punktów, oraz Jungo z jej kombinacjami. Wkrótce dostępne.
+  najmniej punktów, oraz Jungo z jej kombinacjami. Za darmo w Google Play.
 h1: 'Mojogo: dwie gry karciane w jednej aplikacji, Mojo i Jungo'
 lead: >-
   Mojogo łączy dwie gry karciane w jednej aplikacji. W Mojo celem jest
@@ -10,7 +10,7 @@ lead: >-
   osiągnie 50 punktów: wygrywa najniższy wynik. W Jungo buduje się
   kombinacje. Solo przeciwko botom lub online ze znajomymi.
 translationStatus: authored
-updatedOn: 2026-08-20
+updatedOn: 2026-10-15
 heroAlt: >-
   Mojogo — ilustracja gry karcianej, małpa trzymająca dwie karty na tle
   dżungli
@@ -23,11 +23,11 @@ highlights:
   - Ponad piętnaście osiągnięć do odblokowania w Jungo
   - Pomoc AI sugerująca najlepszy ruch
 faq:
-  - q: Kiedy Mojogo będzie dostępne?
+  - q: Gdzie pobrać Mojogo?
     a: >-
-      Aplikacja jest w trakcie rozwoju i nie została jeszcze opublikowana w
-      Google Play. Ta strona zostanie zaktualizowana przy premierze, a link
-      do pobrania pojawi się tutaj, gdy tylko aplikacja będzie dostępna.
+      W Google Play, za darmo, na Androida. Wersja na iPhone'a czeka na
+      zatwierdzenie przez Apple: link do App Store pojawi się na tej stronie,
+      gdy tylko będzie dostępna.
   - q: Jaka jest różnica między Mojo a Jungo?
     a: >-
       Mojo to gra polegająca na odrzucaniu kart, w której dąży się do
@@ -51,11 +51,11 @@ faq:
       punktów kary i odwraca kierunek gry.
   - q: Czy można grać online ze znajomymi?
     a: >-
-      Tak, planowany jest tryb multiplayer online, z zaproszeniami, listą
-      znajomych, centrum multiplayer i udostępnianiem profilu przez kod QR.
-  - q: Czy będą reklamy?
+      Tak, tryb multiplayer online oferuje zaproszenia, listę znajomych,
+      centrum multiplayer i udostępnianie profilu przez kod QR.
+  - q: Czy są reklamy?
     a: >-
-      Gra będzie darmowa i finansowana z reklam, z jednorazowym zakupem
+      Gra jest darmowa i finansowana z reklam, z jednorazowym zakupem
       Premium — nie subskrypcją — który je usuwa i odblokowuje wszystkie
       żetony.
 ---
@@ -135,6 +135,6 @@ może sugerować najlepszy ruch podczas nauki.
 
 ## Dostępność
 
-Mojogo jest w trakcie rozwoju i **nie zostało jeszcze opublikowane**. Ta
-strona zostanie zaktualizowana przy premierze, a link do pobrania pojawi
-się tutaj, gdy tylko aplikacja będzie dostępna.
+Mojogo jest dostępne za darmo w **Google Play**, na Androida. Wersja na
+iPhone'a i iPada czeka na zatwierdzenie przez Apple; link do App Store pojawi
+się tutaj, gdy tylko zostanie opublikowana.

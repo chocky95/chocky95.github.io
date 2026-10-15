@@ -10,14 +10,14 @@ lead: >-
   contabilidade para trabalhadores independentes. Descarregam-se todas
   gratuitamente. Cada uma faz uma coisa e fá-la até ao fim.
 translationStatus: authored
-updatedOn: 2026-09-07
+updatedOn: 2026-10-15
 faq:
   - q: As aplicações da Chocky Dev são gratuitas?
     a: >-
       Todas se descarregam gratuitamente. O Mölkky Score é simplesmente
       gratuito. O ScanFree também, financiado por um vídeo recompensado no
-      momento da exportação e sem qualquer versão paga. O Papayoo financia-se com
-      publicidade, e um Premium de compra única remove-a. O EasyCompta é o único
+      momento da exportação e sem qualquer versão paga. O Papayoo e o Mojogo
+      financiam-se com publicidade, e um Premium de compra única remove-a. O EasyCompta é o único
       com subscrição, e ela cobre apenas as análises avançadas e as exportações:
       manter o livro de receitas continua gratuito e sem limite.
   - q: É preciso criar uma conta para as usar?
@@ -30,7 +30,7 @@ faq:
       Em Android, através do Google Play. O Papayoo e o ScanFree estão também na App Store da Apple; o Mölkky Score e o Mojogo aguardam validação. O EasyCompta tem além disso uma versão web gratuita que corre no navegador sem instalar nada.
 ---
 
-## Dois jogos de tabuleiro, e um terceiro em preparação
+## Três aplicações para jogar
 
 O [Mölkky Score](/pt/apps/molkky-score/) conta os pontos das suas partidas de
 Mölkky por você. A regra dos três falhados e a descida a 25 em caso de excesso
@@ -44,9 +44,9 @@ sobretudo do Papayoo, que vale 40 só por si. Jogue a solo contra quatro níveis
 de bots, do Fácil ao Especialista, ou online com os amigos. As regras completas
 vêm dentro da aplicação.
 
-O [Mojogo](/pt/apps/mojogo/) vai reunir dois jogos numa só aplicação: o Mojo, em
-que a partida acaba assim que um jogador chega a 50 e ganha a pontuação mais
-baixa, e o Jungo, um jogo de combinações. Ainda não está no Google Play.
+O [Mojogo](/pt/apps/mojogo/) reúne dois jogos numa só aplicação: o Mojo, em que
+a partida acaba assim que um jogador chega a 50 e ganha a pontuação mais baixa,
+e o Jungo, um jogo de combinações. A solo contra bots ou online com os amigos.
 
 ## Duas ferramentas para o dia a dia
 
