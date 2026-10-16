@@ -39,3 +39,9 @@ sharethrough.com, 4194, RESELLER, 060d053dcf45cbf3
 # Ligne recopiee telle quelle depuis l'email de PubMatic (15/10/2026) ;
 # 159856 est l'ID editeur PubMatic de Chocky Dev.
 pubmatic.com, 159856, DIRECT, 5d62403b186f2ace
+
+# OpenX : partenaire d'encheres AdMob (Open Bidding).
+# Ligne tiree de l'email d'OpenX (16/10/2026), qui laissait le choix entre
+# DIRECT et RESELLER : DIRECT, parce que 631488057 est l'ID editeur OpenX
+# propre a Chocky Dev (meme cas que PubMatic ci-dessus).
+openx.com, 631488057, DIRECT, 6a698e2ec38604c6
