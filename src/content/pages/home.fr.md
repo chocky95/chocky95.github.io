@@ -62,7 +62,7 @@ ligne entre amis.
 
 [Garage Master TCG](/apps/garage-master-tcg/) est un jeu de cartes à
 collectionner sur le thème automobile, en cours de finalisation. Des boosters
-gratuits toutes les huit heures, des voitures réelles en six éditions, de la
+gratuits toutes les quatre heures, des voitures réelles en six éditions, de la
 Standard à la Prestige numérotée, des albums à compléter, et un marché pour
 vendre ou échanger ses doubles avec les autres joueurs, en pièces virtuelles
 seulement. Bientôt sur Google Play, puis sur iPhone.

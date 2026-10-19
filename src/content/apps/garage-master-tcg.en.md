@@ -13,7 +13,7 @@ lead: >-
 translationStatus: authored
 updatedOn: 2026-10-19
 highlights:
-  - Free boosters that refill every eight hours, plus a welcome booster on the house
+  - Free boosters that refill every four hours, plus a welcome booster on the house
   - Real cars, from city cars to hypercars, ranked from class D to class S by rarity
   - Six editions, from Standard to Prestige; Gold cards and above are numbered
   - Albums by make, country, decade and category, each with a completion reward
@@ -65,7 +65,7 @@ faq:
 
 ## A garage, boosters, a collection
 
-Everything starts in the **Garage**. A free booster refills there every eight
+Everything starts in the **Garage**. A free booster refills there every four
 hours, two at most in reserve, and a **welcome booster** is waiting on first
 launch with a guaranteed Gold card or better. Each booster holds **six
 cards**: five ordinary cards and one rare card, never Standard. The draw is
