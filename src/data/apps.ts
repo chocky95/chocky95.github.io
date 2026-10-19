@@ -120,32 +120,6 @@ const CARD_GAME_LOCALES: readonly Locale[] = [
 
 export const APPS: readonly AppFacts[] = [
   {
-    slug: 'molkky-score',
-    name: 'Mölkky Score',
-    packageId: 'com.chocky.molkkyscore',
-    version: '1.0.21',
-    accent: '#E69500',
-    accentText: '#E69500', // 7.93:1 sur le fond : conforme tel quel
-    family: 'game',
-    schemaCategory: 'GameApplication',
-    nativeLocales: ['fr', 'en', 'de', 'fi', 'ja', 'es', 'sv', 'et', 'cs'],
-    // En attente de validation Apple (2026-10-05). À la validation : repasser à
-    // false, ajouter 'ios' aux stores et appStoreUrl = APP_STORE + '6818510069'.
-    comingToIos: true,
-    status: 'published',
-    playUrl: PLAY + 'com.chocky.molkkyscore',
-    appStoreUrl: null,
-    betaUrl: null,
-    webAppUrl: null,
-    stores: ['play'],
-    buildTargets: ALL_PLATFORMS,
-    // Aucune capture store : on utilise les schémas de placement des quilles,
-    // qui sont un atout SEO réel (absents de la fiche Play).
-    screenshotLocales: [],
-    trademarkNotice:
-      'Mölkky® est une marque déposée. Mölkky Score est une application indépendante, non affiliée au détenteur de la marque.',
-  },
-  {
     slug: 'papayoo',
     name: 'Papayoo',
     packageId: 'com.chocky.papayoo',
@@ -168,59 +142,6 @@ export const APPS: readonly AppFacts[] = [
     screenshotLocales: [],
     trademarkNotice:
       'Papayoo est un jeu édité par Gigamic. Cette application est une adaptation indépendante, non affiliée à l’éditeur.',
-  },
-  {
-    slug: 'easycompta',
-    name: 'EasyCompta',
-    packageId: 'com.chocky.easycompta',
-    version: '1.7.9',
-    accent: '#159B8C',
-    accentText: '#159B8C', // 5.58:1 sur le fond : conforme tel quel
-    family: 'business',
-    schemaCategory: 'BusinessApplication',
-    // Français uniquement : aucun fichier .arb, et l'URSSAF est une
-    // institution française. Une page localisée n'aurait aucun sens.
-    nativeLocales: ['fr'],
-    comingToIos: true,
-    // En attente de validation Google Play et Apple (2026-10-05) : seule la
-    // version web est ouverte. À la sortie : status 'published', playUrl =
-    // PLAY + 'com.chocky.easycompta' et 'play' dans stores.
-    status: 'coming-soon',
-    playUrl: null,
-    appStoreUrl: null,
-    betaUrl: null,
-    webAppUrl: 'https://easycompta.web.app',
-    stores: ['web'],
-    // 'ios' ajoute avec `comingToIos` : le portage est en cours.
-    buildTargets: ['android', 'ios', 'web'],
-    screenshotLocales: ['fr'],
-    trademarkNotice: null,
-  },
-  {
-    slug: 'scanfree',
-    name: 'ScanFree',
-    packageId: 'com.chocky.scanfree',
-    version: '1.0.7',
-    accent: '#00696D',
-    // Le teal de marque ne donne que 2.97:1 sur l'encre : sous le seuil.
-    // Éclairci en conservant la teinte (182°) -> 6.40:1.
-    accentText: '#12A5AA',
-    family: 'utility',
-    schemaCategory: 'UtilitiesApplication',
-    nativeLocales: ['fr', 'en', 'de', 'ja', 'es', 'it', 'nl', 'pt', 'sv', 'da', 'nb', 'ko'],
-    comingToIos: false,
-    status: 'published',
-    playUrl: PLAY + 'com.chocky.scanfree',
-    appStoreUrl: APP_STORE + '6813035192',
-    betaUrl: null,
-    webAppUrl: null,
-    stores: ['play', 'ios'],
-    buildTargets: ['android', 'ios'],
-    // 36 captures dans exactement ses 12 langues : chaque page ScanFree a des
-    // captures dans sa propre langue. C'est le meilleur signal anti-contenu-mince
-    // dont dispose le site.
-    screenshotLocales: ['fr', 'en', 'de', 'ja', 'es', 'it', 'nl', 'pt', 'sv', 'da', 'nb', 'ko'],
-    trademarkNotice: null,
   },
   {
     slug: 'mojogo',
@@ -276,6 +197,85 @@ export const APPS: readonly AppFacts[] = [
     screenshotLocales: [],
     trademarkNotice:
       'Toutes les marques automobiles citées appartiennent à leurs propriétaires respectifs. Garage Master TCG est un jeu indépendant, ni affilié ni approuvé par les constructeurs.',
+  },
+  {
+    slug: 'scanfree',
+    name: 'ScanFree',
+    packageId: 'com.chocky.scanfree',
+    version: '1.0.7',
+    accent: '#00696D',
+    // Le teal de marque ne donne que 2.97:1 sur l'encre : sous le seuil.
+    // Éclairci en conservant la teinte (182°) -> 6.40:1.
+    accentText: '#12A5AA',
+    family: 'utility',
+    schemaCategory: 'UtilitiesApplication',
+    nativeLocales: ['fr', 'en', 'de', 'ja', 'es', 'it', 'nl', 'pt', 'sv', 'da', 'nb', 'ko'],
+    comingToIos: false,
+    status: 'published',
+    playUrl: PLAY + 'com.chocky.scanfree',
+    appStoreUrl: APP_STORE + '6813035192',
+    betaUrl: null,
+    webAppUrl: null,
+    stores: ['play', 'ios'],
+    buildTargets: ['android', 'ios'],
+    // 36 captures dans exactement ses 12 langues : chaque page ScanFree a des
+    // captures dans sa propre langue. C'est le meilleur signal anti-contenu-mince
+    // dont dispose le site.
+    screenshotLocales: ['fr', 'en', 'de', 'ja', 'es', 'it', 'nl', 'pt', 'sv', 'da', 'nb', 'ko'],
+    trademarkNotice: null,
+  },
+  {
+    slug: 'molkky-score',
+    name: 'Mölkky Score',
+    packageId: 'com.chocky.molkkyscore',
+    version: '1.0.21',
+    accent: '#E69500',
+    accentText: '#E69500', // 7.93:1 sur le fond : conforme tel quel
+    family: 'game',
+    schemaCategory: 'GameApplication',
+    nativeLocales: ['fr', 'en', 'de', 'fi', 'ja', 'es', 'sv', 'et', 'cs'],
+    // En attente de validation Apple (2026-10-05). À la validation : repasser à
+    // false, ajouter 'ios' aux stores et appStoreUrl = APP_STORE + '6818510069'.
+    comingToIos: true,
+    status: 'published',
+    playUrl: PLAY + 'com.chocky.molkkyscore',
+    appStoreUrl: null,
+    betaUrl: null,
+    webAppUrl: null,
+    stores: ['play'],
+    buildTargets: ALL_PLATFORMS,
+    // Aucune capture store : on utilise les schémas de placement des quilles,
+    // qui sont un atout SEO réel (absents de la fiche Play).
+    screenshotLocales: [],
+    trademarkNotice:
+      'Mölkky® est une marque déposée. Mölkky Score est une application indépendante, non affiliée au détenteur de la marque.',
+  },
+  {
+    slug: 'easycompta',
+    name: 'EasyCompta',
+    packageId: 'com.chocky.easycompta',
+    version: '1.7.9',
+    accent: '#159B8C',
+    accentText: '#159B8C', // 5.58:1 sur le fond : conforme tel quel
+    family: 'business',
+    schemaCategory: 'BusinessApplication',
+    // Français uniquement : aucun fichier .arb, et l'URSSAF est une
+    // institution française. Une page localisée n'aurait aucun sens.
+    nativeLocales: ['fr'],
+    comingToIos: true,
+    // En attente de validation Google Play et Apple (2026-10-05) : seule la
+    // version web est ouverte. À la sortie : status 'published', playUrl =
+    // PLAY + 'com.chocky.easycompta' et 'play' dans stores.
+    status: 'coming-soon',
+    playUrl: null,
+    appStoreUrl: null,
+    betaUrl: null,
+    webAppUrl: 'https://easycompta.web.app',
+    stores: ['web'],
+    // 'ios' ajoute avec `comingToIos` : le portage est en cours.
+    buildTargets: ['android', 'ios', 'web'],
+    screenshotLocales: ['fr'],
+    trademarkNotice: null,
   },
 ];
 
