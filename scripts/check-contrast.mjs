@@ -56,6 +56,8 @@ const ACCENTS = {
   easycompta: { accent: '#159B8C', accentText: '#159B8C' },
   scanfree: { accent: '#00696D', accentText: '#12A5AA' },
   mojogo: { accent: '#D4C4A8', accentText: '#D4C4A8' },
+  // Rouge oxyde du jeu : 4.47:1, juste sous AA. Variante allumée pour le texte.
+  'garage-master-tcg': { accent: '#C9554A', accentText: '#D2665B' },
 };
 
 /** Seuils WCAG AA : 4.5 pour du texte courant, 3.0 pour du grand texte. */

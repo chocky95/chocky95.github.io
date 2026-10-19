@@ -1,0 +1,740 @@
+<!doctype html>
+<!--
+  ==========================================================================
+  URL À DÉCLARER DANS GOOGLE PLAY CONSOLE ET APP STORE CONNECT —
+  NE PAS SUPPRIMER NI RENOMMER.
+
+  https://chocky.dev/legal/garage-master-tcg-privacy.html
+  Champ « Règles de confidentialité » de la fiche Play de com.chocky.tcg
+  (et « Privacy Policy URL » d'App Store Connect à la phase iOS). Google
+  revérifie périodiquement cette adresse : un 404 vaut un avertissement de
+  conformité et peut bloquer les mises à jour.
+
+  Rédigée le 19/10/2026 depuis le code du dépôt tcg (apps/mobile, functions,
+  spec §14.5 et §22), avant la sortie publique. Toute évolution de l'app qui
+  touche aux données (nouveau SDK, nouvelle permission, chat, Apple) doit
+  être reportée ici, puis la date mise à jour.
+
+  scripts/audit-dist.mjs exige la présence de ce fichier dans dist/ : le
+  déploiement échoue s'il disparaît. C'est volontaire.
+
+  CONTRAINTES DE CE FICHIER
+    - fichier PLAT (.html, pas .../index.html) : les index.html de dist/ sont
+      comptés par l'audit et doivent rester exactement ceux de l'inventaire.
+    - ZÉRO balise script : checkNoClientJs() scanne tous les .html de dist/.
+    - CSS inliné, aucune dépendance externe.
+
+  AJOUTER UNE LANGUE
+    Ajouter une <section lang="xx"> et son entrée dans le sommaire, DANS CE
+    FICHIER. Ne jamais créer une seconde page : l'URL ci-dessus doit rester
+    la seule et unique politique de confidentialité de Garage Master TCG.
+  ==========================================================================
+-->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Politique de confidentialité — Garage Master TCG</title>
+<meta name="description" content="Politique de confidentialité du jeu Garage Master TCG (Chocky Dev) : compte Google, données de jeu, marché et échanges, publicité récompensée, achats, droits et suppression de compte.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+  :root {
+    --ink-900: #070a0d;
+    --ink-800: #0b0f14;
+    --ink-700: #11171d;
+    --text-100: #f2f5f7;
+    --text-300: #c2ccd4;
+    --text-500: #8b98a3;
+    --glass-bg: rgb(255 255 255 / 4%);
+    --glass-border: rgb(255 255 255 / 9%);
+    --accent: #d2665b;
+    --radius: 14px;
+    --measure: 68ch;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--ink-900);
+    color: var(--text-300);
+    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: clamp(1rem, 0.96rem + 0.2vw, 1.06rem);
+    line-height: 1.65;
+  }
+  .wrap { max-width: var(--measure); margin: 0 auto; padding: 2.5rem 1.25rem 5rem; }
+  header.top { border-bottom: 1px solid var(--glass-border); padding-bottom: 1.5rem; margin-bottom: 2rem; }
+  .eyebrow { color: var(--accent); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 0.5rem; }
+  h1 { color: var(--text-100); font-size: clamp(1.6rem, 1.4rem + 1vw, 2.2rem); line-height: 1.15; margin: 0 0 0.75rem; }
+  h2 {
+    color: var(--text-100); font-size: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
+    line-height: 1.2; margin: 3rem 0 0.75rem; padding-top: 1.5rem;
+    border-top: 1px solid var(--glass-border);
+  }
+  h3 { color: var(--text-100); font-size: 1.05rem; margin: 2rem 0 0.5rem; }
+  p, ul, ol, table { margin: 0 0 1rem; }
+  ul, ol { padding-left: 1.25rem; }
+  li { margin-bottom: 0.4rem; }
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:hover { color: var(--text-100); }
+  strong { color: var(--text-100); font-weight: 600; }
+  code { font-size: 0.9em; color: var(--text-100); background: var(--glass-bg); padding: 0.1em 0.35em; border-radius: 4px; }
+  .meta { color: var(--text-500); font-size: 0.9rem; margin: 0; }
+  nav.toc { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 2.5rem; }
+  nav.toc p { color: var(--text-500); font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 0.5rem; }
+  nav.toc ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; }
+  .callout { background: var(--glass-bg); border: 1px solid var(--glass-border); border-left: 3px solid var(--accent); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 0 0 1.5rem; }
+  .callout :last-child { margin-bottom: 0; }
+  .scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0 0 1.5rem; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.94rem; }
+  th, td { text-align: left; vertical-align: top; padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--glass-border); }
+  th { color: var(--text-100); font-weight: 600; background: var(--glass-bg); white-space: nowrap; }
+  footer.bottom { border-top: 1px solid var(--glass-border); margin-top: 4rem; padding-top: 1.5rem; color: var(--text-500); font-size: 0.9rem; }
+  :target { scroll-margin-top: 1rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <p class="eyebrow">Garage Master TCG — Chocky Dev</p>
+  <h1>Politique de confidentialité</h1>
+  <p class="meta">Dernière mise à jour : 19 octobre 2026 &middot; <a href="https://chocky.dev/">chocky.dev</a></p>
+</header>
+
+<nav class="toc">
+  <p>Langues / Languages</p>
+  <ul>
+    <li><a href="#fr">Français</a></li>
+    <li><a href="#en">English</a></li>
+  </ul>
+</nav>
+
+<!-- =================================================================== -->
+<!-- FRANÇAIS                                                            -->
+<!-- =================================================================== -->
+<section id="fr" lang="fr">
+
+<h2>Français</h2>
+
+<p>Cette politique décrit les données personnelles traitées par le jeu
+<strong>Garage Master TCG</strong> (<code>com.chocky.tcg</code>), édité par
+<strong>Chocky Dev</strong>, et les droits dont vous disposez.</p>
+
+<div class="callout">
+  <p><strong>Responsable du traitement :</strong> Chocky Dev &mdash;
+  <a href="mailto:djchocky@gmail.com">djchocky@gmail.com</a></p>
+  <p><strong>Garage Master TCG ne collecte ni votre position, ni vos contacts, ni vos
+  photos, ni vos coordonnées bancaires, et ne contient aucun chat.</strong></p>
+</div>
+
+<h3>1. Le compte de jeu</h3>
+
+<p>Garage Master TCG demande une <strong>connexion avec un compte Google</strong> dès
+le premier lancement. Il n'y a pas de mode anonyme : toute la logique du jeu
+(tirages, soldes, marché, échanges) est exécutée sur le serveur, et votre collection
+doit être rattachée à une identité pour être retrouvée sur un autre appareil. Sur
+iPhone, la connexion avec un compte Apple sera proposée au même titre.</p>
+
+<p>Firebase Authentication conserve l'<strong>identifiant</strong>, l'<strong>adresse
+e-mail</strong>, le nom et la photo de votre compte Google. Le jeu n'affiche ni ce nom
+ni cette photo : les autres joueurs ne voient que le <strong>pseudo</strong> que vous
+choisissez ensuite (3 à 16 caractères, filtré à la création) et votre casque
+d'avatar.</p>
+
+<h3>2. Données traitées</h3>
+
+<div class="scroll">
+<table>
+  <thead>
+    <tr><th>Donnée</th><th>Finalité</th><th>Base légale</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identifiant et adresse e-mail du compte Google (nom et photo du compte
+      conservés par Firebase Authentication, jamais affichés)</td>
+      <td>Vous connecter, retrouver votre collection, vous répondre en cas de
+      demande ou de litige</td>
+      <td>Exécution du service</td>
+    </tr>
+    <tr>
+      <td><strong>Pseudo</strong> (public), casque d'avatar, niveau, vitrine, badge
+      Premium</td>
+      <td>Vous identifier auprès des autres joueurs</td>
+      <td>Exécution du service</td>
+    </tr>
+    <tr>
+      <td>Données de jeu : collection (cartes et exemplaires numérotés), soldes de
+      pièces, gemmes, poussière et jetons, grand livre des mouvements, ouvertures de
+      boosters (graine du tirage, cartes tirées, version des paramètres), missions,
+      série de connexion, succès, albums, statistiques</td>
+      <td>Faire fonctionner le jeu, prouver l'équité d'un tirage, régler un
+      litige</td>
+      <td>Exécution du service</td>
+    </tr>
+    <tr>
+      <td>Marché et échanges : annonces (carte, prix, pseudo, niveau, nombre de
+      ventes), achats et ventes, échanges proposés et acceptés, historique des
+      propriétaires d'une carte numérotée</td>
+      <td>Faire fonctionner le marché et les échanges entre joueurs</td>
+      <td>Exécution du service</td>
+    </tr>
+    <tr>
+      <td>Amis : liste d'amis (identifiant, pseudo, niveau, casque), lien d'invitation
+      et QR code portant votre identifiant de compte, source d'installation (Google
+      Play Install Referrer)</td>
+      <td>Ajouter un ami, lui montrer votre collection, proposer un échange</td>
+      <td>Exécution du service</td>
+    </tr>
+    <tr>
+      <td>Signalements : pseudo signalé, auteur, motif (pseudo ou vitrine), note
+      facultative de 200 caractères au plus, ce que l'auteur a vu</td>
+      <td>Modérer les pseudos et les vitrines</td>
+      <td>Intérêt légitime</td>
+    </tr>
+    <tr>
+      <td>Notifications : jeton Firebase Cloud Messaging (5 appareils au plus),
+      langue, fuseau horaire, préférences par type, date de dernière activité</td>
+      <td>Vous prévenir d'un booster prêt, d'une mission, d'une vente, d'un échange
+      ou d'une actualité du jeu</td>
+      <td>Consentement (autorisation du système, interrupteur par type dans les
+      Réglages)</td>
+    </tr>
+    <tr>
+      <td>Achats : identifiant masqué de votre compte transmis à Google Play,
+      empreinte du jeton d'achat (SHA-256, jamais le jeton lui-même), identifiant de
+      commande, produit, état (actif, résilié, remboursé), dates des
+      remboursements</td>
+      <td>Vérifier et verser les achats, suivre les renouvellements et
+      remboursements, lutter contre la fraude</td>
+      <td>Exécution du contrat, obligation comptable</td>
+    </tr>
+    <tr>
+      <td>Publicité : identifiant publicitaire de l'appareil ; identifiant de compte
+      et clé de la récompense transmis à AdMob pour la vérification serveur d'une
+      vidéo regardée jusqu'au bout</td>
+      <td>Diffuser les vidéos récompensées et créditer la récompense une seule
+      fois</td>
+      <td>Consentement (voir §5)</td>
+    </tr>
+    <tr>
+      <td>Mesure d'audience (Firebase Analytics) : écrans consultés, ouvertures de
+      boosters, achats, missions, niveau, version de l'application, type
+      d'appareil</td>
+      <td>Comprendre les usages pour améliorer le jeu</td>
+      <td>Intérêt légitime</td>
+    </tr>
+    <tr>
+      <td>Rapports de plantage (Firebase Crashlytics) : trace de l'erreur, modèle et
+      version du système, version de l'application, état de l'application au moment
+      du plantage</td>
+      <td>Corriger les bugs</td>
+      <td>Intérêt légitime</td>
+    </tr>
+    <tr>
+      <td>Intégrité de l'appareil (Firebase App Check, Play Integrity) : attestation
+      que l'application est authentique et l'appareil fiable</td>
+      <td>Protéger le serveur contre les clients modifiés</td>
+      <td>Intérêt légitime</td>
+    </tr>
+    <tr>
+      <td>Journaux techniques du serveur : identifiant de compte, fonction appelée,
+      résultat, durée ; adresse IP dans les journaux d'hébergement</td>
+      <td>Sécurité, diagnostic, maîtrise des coûts</td>
+      <td>Intérêt légitime</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3>3. Ce que voient les autres joueurs</h3>
+
+<ul>
+  <li>Votre <strong>profil public</strong> : pseudo, casque, niveau, badge Premium et
+  vitrine. Il s'ouvre depuis le marché, le classement ou la liste d'amis.</li>
+  <li>Le <strong>classement</strong> quotidien des cent plus grosses collections :
+  pseudo, casque, niveau et valeur estimée.</li>
+  <li>Vos <strong>annonces</strong> sur le marché : la carte, le prix, votre pseudo,
+  votre niveau et votre nombre de ventes. L'acheteur et le vendeur voient leurs
+  pseudos respectifs dans leur historique.</li>
+  <li>L'<strong>historique de propriété</strong> d'une carte numérotée : les pseudos de
+  ses propriétaires successifs.</li>
+  <li>Votre <strong>liste d'amis</strong> n'est visible que de vous. Chaque ami peut
+  consulter votre collection complète une fois par jour.</li>
+  <li>Votre <strong>lien d'invitation</strong> et votre QR code contiennent votre
+  identifiant de compte, une chaîne pseudonyme — jamais votre adresse e-mail.
+  Quiconque obtient ce lien peut vous ajouter en ami et voir votre collection une
+  fois par jour. Vous pouvez retirer un ami à tout moment.</li>
+</ul>
+
+<h3>4. Ce que Garage Master TCG ne fait pas</h3>
+
+<ul>
+  <li><strong>Aucune géolocalisation.</strong> L'application ne demande aucune
+  autorisation de localisation.</li>
+  <li><strong>Aucun accès à vos contacts, photos, fichiers ou microphone.</strong>
+  L'appareil photo n'est utilisé que si vous scannez vous-même le QR code d'un ami :
+  l'image est analysée sur l'appareil et n'est ni conservée, ni transmise.</li>
+  <li><strong>Les capteurs de mouvement</strong> (gyroscope) servent uniquement à
+  l'effet d'inclinaison des cartes à l'écran : lus sur l'appareil, jamais enregistrés
+  ni transmis.</li>
+  <li><strong>Aucun chat.</strong> Les joueurs ne peuvent pas s'écrire. Le seul texte
+  libre est la note facultative d'un signalement, lue par la modération seulement.</li>
+  <li><strong>Aucune vente ni location de vos données</strong> à des tiers.</li>
+  <li><strong>Aucun profilage publicitaire à partir de vos données de jeu.</strong></li>
+  <li><strong>Aucune coordonnée bancaire</strong> ne transite par le jeu : les
+  paiements sont intégralement gérés par Google Play, puis par l'App Store, qui ne
+  nous communiquent jamais votre moyen de paiement.</li>
+  <li><strong>Aucune bannière, aucun interstitiel :</strong> la publicité se limite à
+  des vidéos récompensées que vous lancez vous-même.</li>
+</ul>
+
+<h3>5. Publicité et consentement</h3>
+
+<p>Garage Master TCG diffuse des <strong>vidéos récompensées</strong> fournies par
+<strong>Google AdMob</strong>, et rien d'autre. Vous les lancez vous-même, en échange
+d'un avantage annoncé : raccourcir le minuteur du prochain booster, gagner quelques
+pièces, obtenir un booster bonus.</p>
+
+<p>Avant la première vidéo, un formulaire de consentement Google (<em>User Messaging
+Platform</em>) vous demande, là où la réglementation l'exige, si vous acceptez la
+publicité personnalisée. Sans consentement, les annonces sont non personnalisées ou
+ne sont pas diffusées. Vous pouvez modifier vos choix publicitaires à tout moment
+dans les réglages Android (<em>Google &rsaquo; Annonces</em> : réinitialiser
+l'identifiant publicitaire, refuser la personnalisation) et sur
+<a href="https://adssettings.google.com/" rel="noopener">adssettings.google.com</a>.</p>
+
+<p>En production, la récompense n'est créditée que sur le rappel signé qu'AdMob
+envoie à notre serveur après une vidéo regardée jusqu'au bout. Ce rappel porte votre
+identifiant de compte et la clé de la récompense, pour qu'elle ne soit versée qu'une
+fois.</p>
+
+<h3>6. Achats intégrés</h3>
+
+<p>Les packs de gemmes et le Pass Premium sont vendus par <strong>Google Play</strong>
+(puis par l'App Store), au prix affiché par la boutique. À l'achat, l'application
+transmet à Google Play un identifiant masqué de votre compte, puis envoie le jeton
+d'achat à notre serveur, qui le vérifie auprès de Google et n'en conserve qu'une
+empreinte. Google Play nous notifie ensuite les renouvellements, résiliations et
+remboursements. Nous ne voyons jamais votre moyen de paiement.</p>
+
+<h3>7. Destinataires</h3>
+
+<p>Garage Master TCG s'appuie sur des services <strong>Google</strong>, qui agissent
+comme sous-traitants ou responsables conjoints selon le service :</p>
+
+<ul>
+  <li><strong>Firebase Authentication</strong> — connexion avec le compte Google</li>
+  <li><strong>Cloud Firestore</strong> — profils, collections, marché, échanges, grand
+  livre, signalements</li>
+  <li><strong>Cloud Functions</strong> et <strong>Cloud Tasks</strong> — toute la
+  logique du jeu et les notifications programmées</li>
+  <li><strong>Cloud Storage</strong> et <strong>Firebase Hosting</strong> — catalogue,
+  photos des voitures, prix, vues du marché, classement</li>
+  <li><strong>Firebase Cloud Messaging</strong> — notifications</li>
+  <li><strong>Firebase Remote Config</strong> — paramètres du jeu (probabilités, prix,
+  récompenses)</li>
+  <li><strong>Firebase App Check</strong> et <strong>Play Integrity</strong> — intégrité
+  de l'application et de l'appareil</li>
+  <li><strong>Firebase Analytics</strong> — mesure d'audience</li>
+  <li><strong>Firebase Crashlytics</strong> — rapports de plantage</li>
+  <li><strong>Google AdMob</strong> — vidéos récompensées</li>
+  <li><strong>Google Play</strong> — facturation, notifications d'achat, Install
+  Referrer</li>
+</ul>
+
+<p>Les bases de données et les fonctions sont hébergées dans l'Union européenne
+(région <code>europe-west1</code>, Belgique). Google peut traiter certaines de ces
+données en dehors de l'Union européenne, sur la base des clauses contractuelles
+types de la Commission européenne. Détails :
+<a href="https://firebase.google.com/support/privacy" rel="noopener">confidentialité
+Firebase</a> et <a href="https://policies.google.com/privacy" rel="noopener">règles de
+confidentialité Google</a>.</p>
+
+<p>Les photos des voitures proviennent de Wikimedia Commons mais sont copiées sur
+notre propre hébergement : l'application n'appelle jamais Wikimedia. Aucune autre
+entreprise ne reçoit vos données.</p>
+
+<h3>8. Sécurité</h3>
+
+<ul>
+  <li>Tous les échanges avec les serveurs sont <strong>chiffrés en transit</strong> (TLS).</li>
+  <li><strong>Le téléphone n'écrit jamais directement dans la base.</strong> Chaque
+  action passe par une fonction serveur qui vérifie l'identité, l'intégrité de
+  l'appareil, la cadence des appels et l'unicité de l'opération.</li>
+  <li>Les règles de sécurité de la base limitent chaque joueur à la lecture de ses
+  propres données ; un profil public ne se lit qu'un par un, par un joueur
+  connecté.</li>
+  <li>Les jetons d'achat sont conservés sous forme d'empreinte SHA-256.</li>
+  <li>La copie locale de votre collection est enregistrée dans l'espace privé de
+  l'application sur l'appareil, inaccessible aux autres applications.</li>
+</ul>
+
+<h3>9. Durée de conservation</h3>
+
+<ul>
+  <li>Vos données sont conservées <strong>aussi longtemps que votre compte
+  existe</strong>.</li>
+  <li>À la suppression du compte (§10), le compte est anonymisé immédiatement. Le
+  grand livre et les ouvertures de boosters sont conservés <strong>12 mois</strong>,
+  rattachés au seul identifiant de compte, pour les litiges d'achat. Les
+  justificatifs d'achat (identifiant de commande, empreinte du jeton, produit, date)
+  sont conservés <strong>10 ans</strong>, sans pseudo, durée des pièces comptables
+  imposée par l'article L123-22 du code de commerce français.</li>
+  <li>Les signalements restent dans la file de modération, avec le pseudo tel qu'il a
+  été vu au moment du signalement.</li>
+  <li>Mesure d'audience : selon les réglages de conservation de Google Analytics pour
+  Firebase, <strong>14 mois au plus</strong> pour les données rattachées à un
+  utilisateur. Rapports de plantage : <strong>90 jours</strong>. Journaux techniques :
+  <strong>30 jours</strong>.</li>
+</ul>
+
+<h3>10. Vos droits</h3>
+
+<p>Vous disposez d'un droit d'accès, de rectification, d'effacement, de portabilité,
+de limitation et d'opposition.</p>
+
+<ul>
+  <li><strong>Accès et portabilité, en libre-service :</strong> <em>Réglages &rsaquo;
+  Exporter mes données</em> copie dans le presse-papiers, au format JSON, tout ce que
+  le jeu enregistre sur vous : profil, collection et les 1 000 derniers mouvements du
+  grand livre. Cette fonction reste disponible même si votre compte est suspendu.</li>
+  <li><strong>Effacement, en libre-service :</strong> <em>Profil &rsaquo; menu
+  &#9881; &rsaquo; Supprimer mon compte</em>. La procédure, ce qui est supprimé et ce
+  qui est conservé sont détaillés sur la page
+  <a href="/legal/garage-master-tcg-delete-account.html">Suppression du compte</a>.</li>
+  <li><strong>Les autres demandes :</strong> écrivez à
+  <a href="mailto:djchocky@gmail.com">djchocky@gmail.com</a>, depuis l'adresse Google
+  de votre compte, en précisant votre pseudo. Réponse sous <strong>30 jours</strong>.</li>
+</ul>
+
+<p>Vous pouvez également introduire une réclamation auprès de l'autorité de
+protection des données de votre pays &mdash; en France, la
+<a href="https://www.cnil.fr/" rel="noopener">CNIL</a>.</p>
+
+<h3>11. Enfants</h3>
+
+<p>Garage Master TCG n'est pas destiné aux enfants de moins de <strong>13 ans</strong>
+et n'est pas conçu pour un public familial au sens du programme Google Play « Conçu
+pour les familles ». Le jeu comporte des tirages aléatoires (boosters) dont certains
+s'achètent avec des gemmes payantes, des achats intégrés, un abonnement, des vidéos
+publicitaires et des classements publics. Les probabilités de tirage sont publiées
+dans l'application. La classification d'âge figure sur la fiche de la boutique.</p>
+
+<h3>12. Modifications</h3>
+
+<p>Toute évolution de cette politique est publiée sur cette même page, avec mise à
+jour de la date affichée en haut. Une modification substantielle sera signalée dans
+l'application.</p>
+
+</section>
+
+<!-- =================================================================== -->
+<!-- ENGLISH                                                             -->
+<!-- =================================================================== -->
+<section id="en" lang="en">
+
+<h2>English</h2>
+
+<p>This policy describes the personal data processed by the game <strong>Garage
+Master TCG</strong> (<code>com.chocky.tcg</code>), published by <strong>Chocky
+Dev</strong>, and the rights available to you. The French version above is the
+reference text.</p>
+
+<div class="callout">
+  <p><strong>Data controller:</strong> Chocky Dev &mdash;
+  <a href="mailto:djchocky@gmail.com">djchocky@gmail.com</a></p>
+  <p><strong>Garage Master TCG does not collect your location, your contacts, your
+  photos or your payment details, and contains no chat.</strong></p>
+</div>
+
+<h3>1. The game account</h3>
+
+<p>Garage Master TCG requires <strong>signing in with a Google account</strong> on
+first launch. There is no anonymous mode: all of the game's logic (draws, balances,
+market, trades) runs on the server, and your collection must be tied to an identity
+to be recovered on another device. On iPhone, signing in with an Apple account will
+be offered on the same terms.</p>
+
+<p>Firebase Authentication keeps the <strong>identifier</strong>, the <strong>email
+address</strong>, the name and the photo of your Google account. The game displays
+neither that name nor that photo: other players only see the <strong>nickname</strong>
+you choose next (3 to 16 characters, filtered at creation) and your helmet
+avatar.</p>
+
+<h3>2. Data processed</h3>
+
+<div class="scroll">
+<table>
+  <thead>
+    <tr><th>Data</th><th>Purpose</th><th>Legal basis</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Google account identifier and email address (the account's name and photo
+      are kept by Firebase Authentication, never displayed)</td>
+      <td>Sign you in, recover your collection, answer a request or a dispute</td>
+      <td>Performance of the service</td>
+    </tr>
+    <tr>
+      <td><strong>Nickname</strong> (public), helmet avatar, level, showcase, Premium
+      badge</td>
+      <td>Identify you to other players</td>
+      <td>Performance of the service</td>
+    </tr>
+    <tr>
+      <td>Game data: collection (cards and numbered copies), balances of coins, gems,
+      dust and tokens, ledger of movements, booster openings (draw seed, cards drawn,
+      parameter version), missions, login streak, achievements, albums,
+      statistics</td>
+      <td>Run the game, prove a draw was fair, settle a dispute</td>
+      <td>Performance of the service</td>
+    </tr>
+    <tr>
+      <td>Market and trades: listings (card, price, nickname, level, number of sales),
+      purchases and sales, trades proposed and accepted, ownership history of a
+      numbered card</td>
+      <td>Run the market and trades between players</td>
+      <td>Performance of the service</td>
+    </tr>
+    <tr>
+      <td>Friends: friend list (identifier, nickname, level, helmet), invitation link
+      and QR code carrying your account identifier, install source (Google Play
+      Install Referrer)</td>
+      <td>Add a friend, show them your collection, propose a trade</td>
+      <td>Performance of the service</td>
+    </tr>
+    <tr>
+      <td>Reports: reported nickname, reporter, reason (nickname or showcase), optional
+      note of up to 200 characters, what the reporter saw</td>
+      <td>Moderate nicknames and showcases</td>
+      <td>Legitimate interest</td>
+    </tr>
+    <tr>
+      <td>Notifications: Firebase Cloud Messaging token (5 devices at most), language,
+      time zone, per-type preferences, last activity date</td>
+      <td>Tell you about a ready booster, a mission, a sale, a trade or game news</td>
+      <td>Consent (system permission, one switch per type in Settings)</td>
+    </tr>
+    <tr>
+      <td>Purchases: obfuscated account identifier passed to Google Play, fingerprint of
+      the purchase token (SHA-256, never the token itself), order identifier, product,
+      state (active, cancelled, refunded), refund dates</td>
+      <td>Verify and pay out purchases, track renewals and refunds, fight fraud</td>
+      <td>Performance of the contract, accounting obligation</td>
+    </tr>
+    <tr>
+      <td>Advertising: device advertising identifier; account identifier and reward key
+      passed to AdMob for the server-side verification of a video watched to the
+      end</td>
+      <td>Serve rewarded videos and credit the reward exactly once</td>
+      <td>Consent (see §5)</td>
+    </tr>
+    <tr>
+      <td>Analytics (Firebase Analytics): screens viewed, booster openings, purchases,
+      missions, level, app version, device type</td>
+      <td>Understand usage to improve the game</td>
+      <td>Legitimate interest</td>
+    </tr>
+    <tr>
+      <td>Crash reports (Firebase Crashlytics): error trace, device model and system
+      version, app version, app state at the time of the crash</td>
+      <td>Fix bugs</td>
+      <td>Legitimate interest</td>
+    </tr>
+    <tr>
+      <td>Device integrity (Firebase App Check, Play Integrity): attestation that the
+      app is genuine and the device trustworthy</td>
+      <td>Protect the server against modified clients</td>
+      <td>Legitimate interest</td>
+    </tr>
+    <tr>
+      <td>Server logs: account identifier, function called, outcome, duration; IP
+      address in hosting logs</td>
+      <td>Security, diagnostics, cost control</td>
+      <td>Legitimate interest</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3>3. What other players see</h3>
+
+<ul>
+  <li>Your <strong>public profile</strong>: nickname, helmet, level, Premium badge and
+  showcase. It opens from the market, the leaderboard or the friend list.</li>
+  <li>The daily <strong>leaderboard</strong> of the hundred most valuable collections:
+  nickname, helmet, level and estimated value.</li>
+  <li>Your <strong>listings</strong> on the market: the card, the price, your nickname,
+  your level and your number of sales. Buyer and seller see each other's nickname in
+  their history.</li>
+  <li>The <strong>ownership history</strong> of a numbered card: the nicknames of its
+  successive owners.</li>
+  <li>Your <strong>friend list</strong> is visible to you only. Each friend can view
+  your full collection once a day.</li>
+  <li>Your <strong>invitation link</strong> and QR code carry your account identifier, a
+  pseudonymous string — never your email address. Anyone who gets that link can add
+  you as a friend and see your collection once a day. You can remove a friend at any
+  time.</li>
+</ul>
+
+<h3>4. What Garage Master TCG does not do</h3>
+
+<ul>
+  <li><strong>No geolocation.</strong> The app requests no location permission.</li>
+  <li><strong>No access to your contacts, photos, files or microphone.</strong> The
+  camera is used only if you choose to scan a friend's QR code: the image is analysed
+  on the device and is neither stored nor transmitted.</li>
+  <li><strong>Motion sensors</strong> (gyroscope) only drive the tilt effect of cards on
+  screen: read on the device, never recorded nor transmitted.</li>
+  <li><strong>No chat.</strong> Players cannot write to each other. The only free text
+  is the optional note of a report, read by moderation only.</li>
+  <li><strong>No sale or rental of your data</strong> to third parties.</li>
+  <li><strong>No advertising profiling based on your game data.</strong></li>
+  <li><strong>No payment details</strong> pass through the game: payments are handled
+  entirely by Google Play, then the App Store, which never disclose your payment
+  method to us.</li>
+  <li><strong>No banners, no interstitials:</strong> advertising is limited to rewarded
+  videos that you start yourself.</li>
+</ul>
+
+<h3>5. Advertising and consent</h3>
+
+<p>Garage Master TCG shows <strong>rewarded videos</strong> served by <strong>Google
+AdMob</strong>, and nothing else. You start them yourself, in exchange for a stated
+benefit: shortening the timer of the next booster, earning a few coins, getting a
+bonus booster.</p>
+
+<p>Before the first video, a Google consent form (<em>User Messaging Platform</em>)
+asks, where regulation requires it, whether you accept personalised advertising.
+Without consent, ads are non-personalised or not shown. You can change your
+advertising choices at any time in the Android settings (<em>Google &rsaquo;
+Ads</em>: reset the advertising identifier, opt out of personalisation) and at
+<a href="https://adssettings.google.com/" rel="noopener">adssettings.google.com</a>.</p>
+
+<p>In production, the reward is credited only on the signed callback that AdMob
+sends to our server after a video watched to the end. That callback carries your
+account identifier and the reward key, so that it is paid out only once.</p>
+
+<h3>6. In-app purchases</h3>
+
+<p>Gem packs and the Premium Pass are sold by <strong>Google Play</strong> (then the App
+Store), at the price shown by the store. At purchase, the app passes an obfuscated
+identifier of your account to Google Play, then sends the purchase token to our
+server, which verifies it with Google and keeps only a fingerprint. Google Play then
+notifies us of renewals, cancellations and refunds. We never see your payment
+method.</p>
+
+<h3>7. Recipients</h3>
+
+<p>Garage Master TCG relies on <strong>Google</strong> services, acting as processors or
+joint controllers depending on the service:</p>
+
+<ul>
+  <li><strong>Firebase Authentication</strong> — Google sign-in</li>
+  <li><strong>Cloud Firestore</strong> — profiles, collections, market, trades, ledger,
+  reports</li>
+  <li><strong>Cloud Functions</strong> and <strong>Cloud Tasks</strong> — all of the game
+  logic and scheduled notifications</li>
+  <li><strong>Cloud Storage</strong> and <strong>Firebase Hosting</strong> — catalogue,
+  car photos, prices, market views, leaderboard</li>
+  <li><strong>Firebase Cloud Messaging</strong> — notifications</li>
+  <li><strong>Firebase Remote Config</strong> — game parameters (odds, prices,
+  rewards)</li>
+  <li><strong>Firebase App Check</strong> and <strong>Play Integrity</strong> — app and
+  device integrity</li>
+  <li><strong>Firebase Analytics</strong> — analytics</li>
+  <li><strong>Firebase Crashlytics</strong> — crash reports</li>
+  <li><strong>Google AdMob</strong> — rewarded videos</li>
+  <li><strong>Google Play</strong> — billing, purchase notifications, Install
+  Referrer</li>
+</ul>
+
+<p>Databases and functions are hosted in the European Union (<code>europe-west1</code>
+region, Belgium). Google may process some of this data outside the European Union,
+on the basis of the European Commission's standard contractual clauses. See
+<a href="https://firebase.google.com/support/privacy" rel="noopener">Firebase
+privacy</a> and <a href="https://policies.google.com/privacy" rel="noopener">Google's
+privacy policy</a>.</p>
+
+<p>Car photos come from Wikimedia Commons but are copied to our own hosting: the app
+never calls Wikimedia. No other company receives your data.</p>
+
+<h3>8. Security</h3>
+
+<ul>
+  <li>All exchanges with the servers are <strong>encrypted in transit</strong> (TLS).</li>
+  <li><strong>The phone never writes to the database directly.</strong> Every action goes
+  through a server function that checks identity, device integrity, call rate and the
+  uniqueness of the operation.</li>
+  <li>Database security rules limit each player to reading their own data; a public
+  profile can only be read one at a time, by a signed-in player.</li>
+  <li>Purchase tokens are stored as SHA-256 fingerprints.</li>
+  <li>The local copy of your collection is stored in the app's private storage on the
+  device, out of reach of other apps.</li>
+</ul>
+
+<h3>9. Retention</h3>
+
+<ul>
+  <li>Your data is kept <strong>for as long as your account exists</strong>.</li>
+  <li>When the account is deleted (§10), it is anonymised immediately. The ledger and
+  booster openings are kept for <strong>12 months</strong>, tied to the account
+  identifier only, for purchase disputes. Purchase records (order identifier, token
+  fingerprint, product, date) are kept for <strong>10 years</strong>, without
+  nickname: the retention period for accounting documents required by article
+  L123-22 of the French commercial code.</li>
+  <li>Reports stay in the moderation queue, with the nickname as it was seen at the
+  time of the report.</li>
+  <li>Analytics: as set by the retention settings of Google Analytics for Firebase,
+  <strong>14 months at most</strong> for user-level data. Crash reports: <strong>90
+  days</strong>. Server logs: <strong>30 days</strong>.</li>
+</ul>
+
+<h3>10. Your rights</h3>
+
+<p>You have the right of access, rectification, erasure, portability, restriction and
+objection.</p>
+
+<ul>
+  <li><strong>Access and portability, self-service:</strong> <em>Settings &rsaquo;
+  Export my data</em> copies to the clipboard, as JSON, everything the game stores
+  about you: profile, collection and the latest 1,000 ledger lines. This remains
+  available even if your account is suspended.</li>
+  <li><strong>Erasure, self-service:</strong> <em>Profile &rsaquo; &#9881; menu &rsaquo;
+  Delete my account</em>. The procedure, what is deleted and what is kept are set out
+  on the <a href="/legal/garage-master-tcg-delete-account.html#en">Account
+  deletion</a> page.</li>
+  <li><strong>Any other request:</strong> write to
+  <a href="mailto:djchocky@gmail.com">djchocky@gmail.com</a> from the Google address of
+  your account, stating your nickname. We answer within <strong>30 days</strong>.</li>
+</ul>
+
+<p>You may also lodge a complaint with your country's data protection authority
+&mdash; in France, the <a href="https://www.cnil.fr/" rel="noopener">CNIL</a>.</p>
+
+<h3>11. Children</h3>
+
+<p>Garage Master TCG is not intended for children under <strong>13</strong> and is not
+designed for a family audience within the meaning of Google Play's "Designed for
+Families" programme. The game contains random draws (boosters), some of which are
+bought with paid gems, in-app purchases, a subscription, advertising videos and
+public leaderboards. Drop rates are published in the app. The age rating is shown on
+the store listing.</p>
+
+<h3>12. Changes</h3>
+
+<p>Any change to this policy is published on this same page, with the date at the top
+updated. A substantial change will be announced in the app.</p>
+
+</section>
+
+<footer class="bottom">
+  <p>Chocky Dev &mdash; <a href="mailto:djchocky@gmail.com">djchocky@gmail.com</a>
+  &middot; <a href="https://chocky.dev/">chocky.dev</a>
+  &middot; <a href="/legal/garage-master-tcg-terms.html">Conditions d'utilisation</a>
+  &middot; <a href="/legal/garage-master-tcg-delete-account.html">Suppression du compte</a></p>
+</footer>
+
+</div>
+</body>
+</html>

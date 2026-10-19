@@ -41,6 +41,9 @@ const APPS = [
   { slug: 'mojogo', name: 'Mojogo', accent: '#D4C4A8', accentText: '#D4C4A8', kicker: 'Jeux' },
   { slug: 'easycompta', name: 'EasyCompta', accent: '#159B8C', accentText: '#159B8C', kicker: 'Gestion' },
   { slug: 'scanfree', name: 'ScanFree', accent: '#00696D', accentText: '#12A5AA', kicker: 'Utilitaires' },
+  // Pas encore d'icône : le projet tcg porte toujours le logo Flutter par
+  // défaut. L'image est générée sans badge jusqu'à `npm run assets:sync`.
+  { slug: 'garage-master-tcg', name: 'Garage Master TCG', accent: '#C9554A', accentText: '#D2665B', kicker: 'Jeux' },
 ];
 
 const FONT = "system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif";

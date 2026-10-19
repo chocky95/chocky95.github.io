@@ -1,0 +1,360 @@
+<!doctype html>
+<!--
+  ==========================================================================
+  URL À DÉCLARER DANS GOOGLE PLAY CONSOLE — NE PAS SUPPRIMER NI RENOMMER.
+
+  https://chocky.dev/legal/garage-master-tcg-delete-account.html
+  Champ « Suppression du compte » (section Sécurité des données) de la fiche
+  Play de com.chocky.tcg. Google exige cette URL dès lors qu'une application
+  permet de créer un compte, et la revérifie périodiquement.
+
+  C'est aussi le « lien web de demande de suppression » attendu par l'écran
+  « Compte suspendu » de l'app (spec §14.5) : un compte banni ne peut pas se
+  supprimer dans l'app (deleteAccount refuse `banned`), il passe par ici.
+
+  Le parcours in-app décrit ci-dessous est celui du code au 19/10/2026 :
+  Profil › menu ⚙ › « Supprimer mon compte » › confirmation › deleteAccount
+  (functions/src/user/userFunctions.ts : anonymisation, annonces et échanges
+  annulés, amis prévenus, jeton push effacé, utilisateur Auth supprimé).
+
+  scripts/audit-dist.mjs exige la présence de ce fichier dans dist/.
+  CONTRAINTES : fichier PLAT (.html), ZÉRO balise script, CSS inliné.
+  AJOUTER UNE LANGUE : une <section lang="xx"> dans ce fichier, jamais une
+  seconde page.
+  ==========================================================================
+-->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Suppression du compte — Garage Master TCG</title>
+<meta name="description" content="Comment supprimer votre compte Garage Master TCG et vos données : depuis l'application ou par e-mail, délai, ce qui est supprimé et ce qui est conservé.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+  :root {
+    --ink-900: #070a0d;
+    --text-100: #f2f5f7;
+    --text-300: #c2ccd4;
+    --text-500: #8b98a3;
+    --glass-bg: rgb(255 255 255 / 4%);
+    --glass-border: rgb(255 255 255 / 9%);
+    --accent: #d2665b;
+    --warn: #e0a458;
+    --radius: 14px;
+    --measure: 68ch;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--ink-900);
+    color: var(--text-300);
+    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: clamp(1rem, 0.96rem + 0.2vw, 1.06rem);
+    line-height: 1.65;
+  }
+  .wrap { max-width: var(--measure); margin: 0 auto; padding: 2.5rem 1.25rem 5rem; }
+  header.top { border-bottom: 1px solid var(--glass-border); padding-bottom: 1.5rem; margin-bottom: 2rem; }
+  .eyebrow { color: var(--accent); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 0.5rem; }
+  h1 { color: var(--text-100); font-size: clamp(1.6rem, 1.4rem + 1vw, 2.2rem); line-height: 1.15; margin: 0 0 0.75rem; }
+  h2 {
+    color: var(--text-100); font-size: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
+    line-height: 1.2; margin: 3rem 0 0.75rem; padding-top: 1.5rem;
+    border-top: 1px solid var(--glass-border);
+  }
+  h3 { color: var(--text-100); font-size: 1.05rem; margin: 2rem 0 0.5rem; }
+  p, ul, ol { margin: 0 0 1rem; }
+  ul, ol { padding-left: 1.25rem; }
+  li { margin-bottom: 0.4rem; }
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:hover { color: var(--text-100); }
+  strong { color: var(--text-100); font-weight: 600; }
+  code { font-size: 0.9em; color: var(--text-100); background: var(--glass-bg); padding: 0.1em 0.35em; border-radius: 4px; }
+  .meta { color: var(--text-500); font-size: 0.9rem; margin: 0; }
+  nav.toc { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 2.5rem; }
+  nav.toc p { color: var(--text-500); font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 0.5rem; }
+  nav.toc ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; }
+  .callout { background: var(--glass-bg); border: 1px solid var(--glass-border); border-left: 3px solid var(--accent); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 0 0 1.5rem; }
+  .callout.warn { border-left-color: var(--warn); }
+  .callout :last-child { margin-bottom: 0; }
+  .steps { counter-reset: s; list-style: none; padding: 0; }
+  .steps > li { counter-increment: s; position: relative; padding-left: 2.25rem; margin-bottom: 1rem; }
+  .steps > li::before {
+    content: counter(s); position: absolute; left: 0; top: 0.1rem;
+    width: 1.6rem; height: 1.6rem; border-radius: 50%;
+    background: var(--glass-bg); border: 1px solid var(--glass-border);
+    color: var(--accent); font-size: 0.85rem; font-weight: 600;
+    display: grid; place-items: center;
+  }
+  footer.bottom { border-top: 1px solid var(--glass-border); margin-top: 4rem; padding-top: 1.5rem; color: var(--text-500); font-size: 0.9rem; }
+  :target { scroll-margin-top: 1rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <p class="eyebrow">Garage Master TCG — Chocky Dev</p>
+  <h1>Suppression du compte et des données</h1>
+  <p class="meta">Dernière mise à jour : 19 octobre 2026 &middot; <a href="/legal/garage-master-tcg-privacy.html">Politique de confidentialité</a></p>
+</header>
+
+<nav class="toc">
+  <p>Langues / Languages</p>
+  <ul>
+    <li><a href="#fr">Français</a></li>
+    <li><a href="#en">English</a></li>
+  </ul>
+</nav>
+
+<!-- =================================================================== -->
+<!-- FRANÇAIS                                                            -->
+<!-- =================================================================== -->
+<section id="fr" lang="fr">
+
+<h2>Français</h2>
+
+<p>Cette page explique comment supprimer votre compte
+<strong>Garage Master TCG</strong> (<code>com.chocky.tcg</code>) et les données qui y
+sont rattachées.</p>
+
+<h3>Avant de supprimer</h3>
+
+<div class="callout warn">
+  <p><strong>Le Pass Premium ne s'annule pas en supprimant votre compte.</strong>
+  C'est un abonnement Google Play : résiliez-le depuis <em>Google Play &rsaquo;
+  Paiements et abonnements &rsaquo; Abonnements</em> <em>avant</em> de demander la
+  suppression, sans quoi il continue d'être facturé.</p>
+</div>
+
+<p>Si vous souhaitez garder une trace de votre collection, exportez-la d'abord :
+<em>Réglages &rsaquo; Exporter mes données</em> copie dans le presse-papiers, au format
+JSON, votre profil, votre collection et vos 1 000 derniers mouvements.</p>
+
+<h3>Depuis l'application (recommandé)</h3>
+
+<p class="callout"><em>Profil &rsaquo; menu &#9881; (en haut à droite) &rsaquo; Supprimer
+mon compte</em>, puis confirmer. La suppression est <strong>immédiate</strong> : le
+compte est anonymisé, la session est fermée et la connexion Google est retirée.
+Aucun e-mail n'est nécessaire.</p>
+
+<h3>Par e-mail</h3>
+
+<p>Si vous n'avez plus accès à l'application, ou si votre compte est
+<strong>suspendu</strong> (l'écran « Compte suspendu » ne permet pas la suppression
+dans l'application) :</p>
+
+<ol class="steps">
+  <li>Écrivez à <a href="mailto:djchocky@gmail.com?subject=Suppression%20de%20compte%20Garage%20Master%20TCG">djchocky@gmail.com</a>
+  avec pour objet <strong>« Suppression de compte Garage Master TCG »</strong>.</li>
+  <li>Envoyez le message <strong>depuis l'adresse Google</strong> avec laquelle vous
+  vous connectez au jeu : c'est ce qui nous confirme que le compte est bien le
+  vôtre.</li>
+  <li>Indiquez votre <strong>pseudo</strong>, exactement tel qu'il apparaît dans le
+  jeu.</li>
+  <li>Nous supprimons le compte et vous le confirmons par retour de courriel, sous
+  <strong>30 jours au plus</strong>, et généralement bien avant.</li>
+</ol>
+
+<div class="callout warn">
+  <p><strong>La suppression est définitive.</strong> Votre collection, vos cartes
+  numérotées, vos pièces, vos gemmes, votre poussière, vos jetons, vos casques, votre
+  niveau, vos succès et votre série de connexion sont perdus sans possibilité de
+  restauration. Votre pseudo est libéré et pourra être repris par un autre
+  joueur.</p>
+</div>
+
+<h3>Ce qui est supprimé</h3>
+
+<ul>
+  <li>Votre <strong>compte de connexion</strong> : le lien avec votre compte Google,
+  votre adresse e-mail, le nom et la photo de ce compte</li>
+  <li>Votre <strong>pseudo</strong> et votre <strong>profil public</strong> (casque,
+  niveau, vitrine, badge)</li>
+  <li>Vos <strong>relations</strong> : vous êtes retiré de la liste d'amis de chacun de
+  vos amis, et votre liste est effacée</li>
+  <li>Vos <strong>annonces</strong> en cours sur le marché, annulées ; vos
+  <strong>échanges</strong> en attente, envoyés et reçus, annulés, les cartes offertes
+  rendues à leur propriétaire et votre pseudo effacé de ces documents</li>
+  <li>Vos <strong>notifications</strong> : jetons d'appareil, langue, fuseau horaire et
+  préférences, ce qui met fin à toute notification, y compris les actualités</li>
+  <li>Votre entrée au <strong>classement</strong>, dès sa prochaine publication
+  nocturne</li>
+</ul>
+
+<p>Ce qui reste sur le serveur est rattaché à un identifiant de compte anonyme, sans
+pseudo ni adresse e-mail. La copie de votre collection enregistrée sur le téléphone
+disparaît à la désinstallation de l'application.</p>
+
+<h3>Ce qui est conservé, et pourquoi</h3>
+
+<ul>
+  <li><strong>Le grand livre et les ouvertures de boosters</strong>, pendant
+  <strong>12 mois</strong>, rattachés au seul identifiant de compte : ils servent à
+  régler un litige d'achat ou une contestation de tirage.</li>
+  <li><strong>Les justificatifs d'achat</strong> (identifiant de commande Google Play,
+  empreinte du jeton d'achat, produit, date), sans pseudo, pendant
+  <strong>10 ans</strong> : c'est la durée de conservation des pièces comptables
+  imposée par l'article L123-22 du code de commerce français. Ils ne servent qu'à la
+  comptabilité et à la lutte contre la fraude.</li>
+  <li><strong>Les signalements</strong> que vous avez envoyés ou reçus, dans la file de
+  modération, avec le pseudo tel qu'il a été vu.</li>
+  <li><strong>Les cartes qui ont changé de main</strong> gardent leur historique de
+  propriété : votre pseudo y est remplacé par une mention anonyme à la prochaine
+  consultation. Dites-le-nous dans votre demande si une carte précise vous
+  préoccupe.</li>
+  <li><strong>Les statistiques agrégées</strong> (nombre de boosters ouverts sur le jeu,
+  par exemple), qui ne permettent plus de vous identifier.</li>
+</ul>
+
+<h3>Deux points à ne pas confondre avec la suppression</h3>
+
+<ul>
+  <li>Les <strong>packs de gemmes</strong> sont des achats consommés : les gemmes qu'ils
+  ont versées disparaissent avec le compte et ne sont pas remboursables. Le
+  <strong>Pass Premium</strong> reste rattaché à votre compte Google Play jusqu'à sa
+  résiliation (voir plus haut).</li>
+  <li><strong>Se déconnecter</strong> (<em>Profil &rsaquo; menu &#9881; &rsaquo; Se
+  déconnecter</em>) ne supprime rien : votre collection vous attend à la prochaine
+  connexion avec le même compte Google.</li>
+</ul>
+
+<h3>Supprimer seulement une partie de vos données</h3>
+
+<p>Vous n'êtes pas obligé de tout supprimer. Vous pouvez demander, <strong>sans
+supprimer votre compte</strong>, l'effacement ou la correction d'une donnée en
+particulier — par exemple retirer votre pseudo de l'historique de propriété d'une
+carte, ou effacer un signalement que vous avez envoyé. Même adresse, même délai :
+écrivez à
+<a href="mailto:djchocky@gmail.com?subject=Suppression%20partielle%20de%20donn%C3%A9es%20Garage%20Master%20TCG">djchocky@gmail.com</a>
+en indiquant votre pseudo et la donnée concernée. Réponse sous 30 jours au plus.</p>
+
+</section>
+
+<!-- =================================================================== -->
+<!-- ENGLISH                                                             -->
+<!-- =================================================================== -->
+<section id="en" lang="en">
+
+<h2>English</h2>
+
+<p>This page explains how to delete your <strong>Garage Master TCG</strong> account
+(<code>com.chocky.tcg</code>) and the data attached to it. The French version above
+is the reference text.</p>
+
+<h3>Before you delete</h3>
+
+<div class="callout warn">
+  <p><strong>Deleting your account does not cancel the Premium Pass.</strong> It is a
+  Google Play subscription: cancel it from <em>Google Play &rsaquo; Payments and
+  subscriptions &rsaquo; Subscriptions</em> <em>before</em> requesting deletion,
+  otherwise billing continues.</p>
+</div>
+
+<p>If you want to keep a record of your collection, export it first: <em>Settings
+&rsaquo; Export my data</em> copies to the clipboard, as JSON, your profile, your
+collection and your latest 1,000 ledger lines.</p>
+
+<h3>From the app (recommended)</h3>
+
+<p class="callout"><em>Profile &rsaquo; &#9881; menu (top right) &rsaquo; Delete my
+account</em>, then confirm. Deletion is <strong>immediate</strong>: the account is
+anonymised, the session is closed and the Google sign-in is removed. No email is
+needed.</p>
+
+<h3>By email</h3>
+
+<p>If you no longer have access to the app, or if your account is
+<strong>suspended</strong> (the "Account suspended" screen does not allow deletion from
+the app):</p>
+
+<ol class="steps">
+  <li>Email <a href="mailto:djchocky@gmail.com?subject=Garage%20Master%20TCG%20account%20deletion">djchocky@gmail.com</a>
+  with the subject <strong>"Garage Master TCG account deletion"</strong>.</li>
+  <li>Send the message <strong>from the Google address</strong> you sign in to the game
+  with: this is what confirms the account is yours.</li>
+  <li>State your <strong>nickname</strong>, exactly as it appears in the game.</li>
+  <li>We delete the account and confirm by reply, within <strong>30 days at the
+  latest</strong>, and usually well before.</li>
+</ol>
+
+<div class="callout warn">
+  <p><strong>Deletion is permanent.</strong> Your collection, numbered cards, coins,
+  gems, dust, tokens, helmets, level, achievements and login streak are lost with no
+  way to restore them. Your nickname is released and may be taken by another
+  player.</p>
+</div>
+
+<h3>What is deleted</h3>
+
+<ul>
+  <li>Your <strong>sign-in account</strong>: the link with your Google account, your
+  email address, and that account's name and photo</li>
+  <li>Your <strong>nickname</strong> and your <strong>public profile</strong> (helmet,
+  level, showcase, badge)</li>
+  <li>Your <strong>relationships</strong>: you are removed from each of your friends'
+  lists, and your own list is erased</li>
+  <li>Your active <strong>listings</strong> on the market, cancelled; your pending
+  <strong>trades</strong>, sent and received, cancelled, the offered cards returned to
+  their owner and your nickname blanked on those documents</li>
+  <li>Your <strong>notifications</strong>: device tokens, language, time zone and
+  preferences, which ends all notifications, news included</li>
+  <li>Your <strong>leaderboard</strong> entry, from its next nightly publication</li>
+</ul>
+
+<p>What remains on the server is tied to an anonymous account identifier, with no
+nickname and no email address. The copy of your collection stored on the phone
+disappears when the app is uninstalled.</p>
+
+<h3>What is kept, and why</h3>
+
+<ul>
+  <li><strong>The ledger and booster openings</strong>, for <strong>12 months</strong>,
+  tied to the account identifier only: they serve to settle a purchase dispute or a
+  contested draw.</li>
+  <li><strong>Purchase records</strong> (Google Play order identifier, purchase token
+  fingerprint, product, date), without nickname, for <strong>10 years</strong>: that is
+  the retention period for accounting documents required by article L123-22 of the
+  French commercial code. They serve accounting and anti-fraud purposes only.</li>
+  <li><strong>Reports</strong> you sent or received, in the moderation queue, with the
+  nickname as it was seen.</li>
+  <li><strong>Cards that changed hands</strong> keep their ownership history: your
+  nickname there is replaced by an anonymous mention the next time it is viewed. Tell
+  us in your request if a specific card concerns you.</li>
+  <li><strong>Aggregated statistics</strong> (such as the total number of boosters
+  opened across the game), which can no longer identify you.</li>
+</ul>
+
+<h3>Two things not to confuse with deletion</h3>
+
+<ul>
+  <li><strong>Gem packs</strong> are consumed purchases: the gems they paid out disappear
+  with the account and are not refundable. The <strong>Premium Pass</strong> stays
+  attached to your Google Play account until you cancel it (see above).</li>
+  <li><strong>Signing out</strong> (<em>Profile &rsaquo; &#9881; menu &rsaquo; Sign
+  out</em>) deletes nothing: your collection is waiting for you the next time you
+  sign in with the same Google account.</li>
+</ul>
+
+<h3>Deleting only part of your data</h3>
+
+<p>You do not have to delete everything. You may request, <strong>without deleting
+your account</strong>, the erasure or correction of one specific item — for instance
+removing your nickname from a card's ownership history, or erasing a report you
+sent. Same address, same deadline: write to
+<a href="mailto:djchocky@gmail.com?subject=Partial%20data%20deletion%20Garage%20Master%20TCG">djchocky@gmail.com</a>
+stating your nickname and the data concerned. We answer within 30 days at the
+latest.</p>
+
+</section>
+
+<footer class="bottom">
+  <p>Chocky Dev &mdash; <a href="mailto:djchocky@gmail.com">djchocky@gmail.com</a>
+  &middot; <a href="https://chocky.dev/">chocky.dev</a>
+  &middot; <a href="/legal/garage-master-tcg-privacy.html">Politique de confidentialité</a>
+  &middot; <a href="/legal/garage-master-tcg-terms.html">Conditions d'utilisation</a></p>
+</footer>
+
+</div>
+</body>
+</html>

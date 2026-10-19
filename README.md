@@ -1,6 +1,6 @@
 # Chocky Dev — site vitrine
 
-Site statique multilingue présentant les cinq applications de Chocky Dev.
+Site statique multilingue présentant les six applications de Chocky Dev.
 Construit pour être référencé : une URL HTML réelle par application et par
 langue, zéro JavaScript côté client, hreflang calculés par machine.
 
@@ -30,7 +30,7 @@ npm run verify       # astro check + build + audit-dist
 
 ```
 src/
-├─ data/apps.ts          Faits sur les 5 apps + invariants vérifiés au build
+├─ data/apps.ts          Faits sur les 6 apps + invariants vérifiés au build
 ├─ i18n/
 │  ├─ locales.ts         Les 18 locales, paliers, endonymes
 │  ├─ routes.ts          ★ La clé de voûte — voir ci-dessous
@@ -70,8 +70,15 @@ de ses fichiers `lib/l10n/app_*.arb`.
 | Mojogo | idem Papayoo | 15 |
 | ScanFree | `da de en es fr it ja ko nb nl pt sv` | 12 |
 | EasyCompta | `fr` — l'URSSAF est française | 1 |
+| Garage Master TCG | `fr en` — les deux langues de son lancement | 2 |
 
 `fr` est présent partout : c'est ce qui en fait la cible de `x-default`.
+
+Garage Master TCG (`coming-soon`, 19/10/2026) n'a de prose qu'en `fr` et `en` :
+ses 16 autres pages sont le repli factuel en `noindex` décrit ci-dessous. Son
+icône n'est pas encore synchronisée (le projet `tcg` porte toujours le logo
+Flutter par défaut) : `sync-assets.mjs` n'a pas d'entrée pour elle, et son image
+OG est générée sans badge.
 
 ### Contenu et déploiement par vagues
 
@@ -167,9 +174,15 @@ impossible sur `github.io`, qui figure sur la Public Suffix List.
 ## Pages légales — `public/legal/`
 
 Servies en **fichiers plats** (`mojogo-privacy.html`, non `mojogo-privacy/index.html`) :
-le comptage de `audit-dist.mjs` n'admet que les 144 pages de l'inventaire, un
-`index.html` de plus le ferait échouer. Elles restent donc hors sitemap, sans
-hreflang et `noindex` — statut normal d'une page légale.
+le comptage de `audit-dist.mjs` n'admet que les pages de l'inventaire, un
+`index.html` de plus le ferait échouer. Elles restent donc hors sitemap et sans
+hreflang — statut normal d'une page légale.
+
+Garage Master TCG a les siennes depuis le 19/10/2026, rédigées avant la sortie
+depuis le code du dépôt `tcg` : `garage-master-tcg-privacy.html`,
+`garage-master-tcg-terms.html` et `garage-master-tcg-delete-account.html`
+(FR + EN). L'app ne les ouvre pas encore ; les URL sont à déclarer dans Play
+Console puis App Store Connect.
 
 Leurs URL sont **déclarées dans Google Play Console** (« Règles de confidentialité »
 et « Suppression du compte »). Google les revisite : un 404 vaut un avertissement de
@@ -186,8 +199,10 @@ déploiement** si elles disparaissent.
 Même mécanique (fichier plat, `noindex`, zéro script, CSS inliné), autres raisons
 d'exister :
 
-- `public/papayoo/invite.html` — lien de parrainage imprimé dans les QR codes de
-  Papayoo. Seule page autorisée à porter un `<script>` (redirection par OS).
+- `public/papayoo/invite.html`, `public/mojogo/invite.html`,
+  `public/tcg/invite.html` — liens de parrainage ou d'ami imprimés dans les QR
+  codes des applications. Seules pages autorisées à porter un `<script>`
+  (redirection par OS), par exception nominative dans `audit-dist.mjs`.
 - `public/mojogo/beta.html` — ancienne inscription au test fermé de Mojogo. Depuis
   la sortie sur Google Play (2026-10-15), elle renvoie vers la fiche Play : son URL
   a été partagée aux testeurs et doit rester valide. Le champ `betaUrl` de

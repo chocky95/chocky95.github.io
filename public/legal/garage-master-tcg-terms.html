@@ -1,0 +1,509 @@
+<!doctype html>
+<!--
+  ==========================================================================
+  URL À DÉCLARER DANS APP STORE CONNECT (EULA / Terms) ET À OUVRIR DEPUIS
+  L'APPLICATION — NE PAS SUPPRIMER NI RENOMMER.
+
+  https://chocky.dev/legal/garage-master-tcg-terms.html
+  Ancres #fr / #en. L'app n'ouvre pas encore ces pages (19/10/2026) : à
+  brancher dans le dépôt tcg (écran de connexion, Boutique, Réglages), comme
+  Mojogo le fait avec lib/config/legal_config.dart.
+
+  Les règles chiffrées ci-dessous (pseudo, marché, échanges, Pass Premium,
+  remboursements) sont celles du code et de remoteconfig.template.json au
+  19/10/2026 ; les valeurs vivent dans Remote Config et peuvent évoluer, ce
+  que le texte dit explicitement.
+
+  scripts/audit-dist.mjs exige la présence de ce fichier dans dist/.
+  CONTRAINTES : fichier PLAT (.html), ZÉRO balise script, CSS inliné.
+  ==========================================================================
+-->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conditions d'utilisation — Garage Master TCG</title>
+<meta name="description" content="Conditions d'utilisation du jeu Garage Master TCG (Chocky Dev) : compte et pseudo, règles de conduite, cartes et monnaies virtuelles, marché et échanges, boosters, achats, publicité, modération.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+  :root {
+    --ink-900: #070a0d;
+    --text-100: #f2f5f7;
+    --text-300: #c2ccd4;
+    --text-500: #8b98a3;
+    --glass-bg: rgb(255 255 255 / 4%);
+    --glass-border: rgb(255 255 255 / 9%);
+    --accent: #d2665b;
+    --warn: #e0a458;
+    --radius: 14px;
+    --measure: 68ch;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--ink-900);
+    color: var(--text-300);
+    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: clamp(1rem, 0.96rem + 0.2vw, 1.06rem);
+    line-height: 1.65;
+  }
+  .wrap { max-width: var(--measure); margin: 0 auto; padding: 2.5rem 1.25rem 5rem; }
+  header.top { border-bottom: 1px solid var(--glass-border); padding-bottom: 1.5rem; margin-bottom: 2rem; }
+  .eyebrow { color: var(--accent); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 0.5rem; }
+  h1 { color: var(--text-100); font-size: clamp(1.6rem, 1.4rem + 1vw, 2.2rem); line-height: 1.15; margin: 0 0 0.75rem; }
+  h2 {
+    color: var(--text-100); font-size: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
+    line-height: 1.2; margin: 3rem 0 0.75rem; padding-top: 1.5rem;
+    border-top: 1px solid var(--glass-border);
+  }
+  h3 { color: var(--text-100); font-size: 1.05rem; margin: 2rem 0 0.5rem; }
+  p, ul, ol { margin: 0 0 1rem; }
+  ul, ol { padding-left: 1.25rem; }
+  li { margin-bottom: 0.4rem; }
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:hover { color: var(--text-100); }
+  strong { color: var(--text-100); font-weight: 600; }
+  code { font-size: 0.9em; color: var(--text-100); background: var(--glass-bg); padding: 0.1em 0.35em; border-radius: 4px; }
+  .meta { color: var(--text-500); font-size: 0.9rem; margin: 0; }
+  nav.toc { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 2.5rem; }
+  nav.toc p { color: var(--text-500); font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 0.5rem; }
+  nav.toc ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; }
+  .callout { background: var(--glass-bg); border: 1px solid var(--glass-border); border-left: 3px solid var(--accent); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 0 0 1.5rem; }
+  .callout.warn { border-left-color: var(--warn); }
+  .callout :last-child { margin-bottom: 0; }
+  footer.bottom { border-top: 1px solid var(--glass-border); margin-top: 4rem; padding-top: 1.5rem; color: var(--text-500); font-size: 0.9rem; }
+  :target { scroll-margin-top: 1rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <p class="eyebrow">Garage Master TCG — Chocky Dev</p>
+  <h1>Conditions d'utilisation</h1>
+  <p class="meta">Version du 19 octobre 2026 &middot;
+  <a href="/legal/garage-master-tcg-privacy.html">Politique de confidentialité</a> &middot;
+  <a href="/legal/garage-master-tcg-delete-account.html">Suppression du compte</a></p>
+</header>
+
+<nav class="toc">
+  <p>Langues / Languages</p>
+  <ul>
+    <li><a href="#fr">Français</a></li>
+    <li><a href="#en">English</a></li>
+  </ul>
+</nav>
+
+<!-- =================================================================== -->
+<!-- FRANÇAIS                                                            -->
+<!-- =================================================================== -->
+<section id="fr" lang="fr">
+
+<h2>Français</h2>
+
+<h3>1. Objet et acceptation</h3>
+
+<p>Les présentes conditions encadrent l'utilisation du jeu mobile
+<strong>Garage Master TCG</strong>, édité par <strong>Chocky Dev</strong>
+(<a href="mailto:djchocky@gmail.com">djchocky@gmail.com</a>), disponible sur Google
+Play et, à terme, sur l'App Store. En vous connectant et en choisissant votre
+pseudo, vous les acceptez, ainsi que la
+<a href="/legal/garage-master-tcg-privacy.html">politique de confidentialité</a>. Si
+vous les refusez, n'utilisez pas le jeu.</p>
+
+<h3>2. Compte et pseudo</h3>
+
+<ul>
+  <li>Vous devez avoir <strong>16 ans ou plus</strong> pour utiliser Garage Master
+  TCG.</li>
+  <li>Le jeu exige une connexion avec un <strong>compte Google</strong> (ou Apple, sur
+  iPhone). Vous pouvez avoir plusieurs comptes ; ce qui est interdit, c'est de vous
+  en servir pour contourner les règles du marché et des échanges (§5).</li>
+  <li>Votre <strong>pseudo</strong> est public. Il compte 3 à 16 caractères (lettres
+  latines, chiffres, espace, <code>_</code>, <code>-</code>, <code>'</code>), ne doit
+  être ni injurieux, ni discriminatoire, ni obscène, ni usurper l'identité d'une
+  autre personne, ni contenir de coordonnées, ni imiter le nom du jeu ou de son
+  équipe. Il est filtré à la création ; un pseudo passé au travers du filtre peut être
+  changé par la modération, qui vous demande alors d'en choisir un autre.</li>
+  <li>Le premier changement de pseudo est gratuit ; les suivants coûtent des pièces
+  du jeu, au tarif annoncé avant validation.</li>
+  <li>Vous êtes responsable de la sécurité de votre appareil et de votre compte
+  Google, et de l'usage qui est fait de votre compte de jeu.</li>
+</ul>
+
+<h3>3. Règles de conduite</h3>
+
+<p>Garage Master TCG met des joueurs réels en relation par le marché, les échanges et
+les listes d'amis. Vous vous engagez à :</p>
+<ul>
+  <li>jouer <strong>loyalement</strong> : pas de client modifié, d'automatisation,
+  d'exploitation de bug ni de manipulation des prix ;</li>
+  <li>ne pas organiser de <strong>transfert de valeur hors prix de marché</strong>
+  entre comptes, par des annonces au plancher convenues à l'avance ou des échanges
+  déséquilibrés ;</li>
+  <li>garder un pseudo et une vitrine décents, et respecter les autres joueurs ;</li>
+  <li>ne pas tenter d'accéder aux données d'autres joueurs ni de perturber le
+  service.</li>
+</ul>
+
+<h3>4. Cartes, monnaies et objets virtuels</h3>
+
+<p>Les cartes, pièces, gemmes, poussière, jetons d'échange, casques, niveaux et
+points d'expérience sont des <strong>éléments virtuels</strong> sans valeur
+monétaire. Ils sont concédés sous licence, pour votre usage personnel dans le jeu ;
+ils ne sont ni remboursables, ni convertibles en argent réel, et ne se transfèrent
+qu'au sein du jeu, par le marché et les échanges (§5). Ils disparaissent avec la
+suppression du compte.</p>
+
+<p>La <strong>valeur estimée</strong> d'une carte est calculée par le jeu, chaque
+nuit, d'après sa classe, son édition et le nombre d'exemplaires en circulation ; elle
+sert de repère et peut évoluer. Une carte reçue par achat ou par échange est
+<strong>verrouillée 24 heures</strong> : ni vendable, ni échangeable, ni fusionnable.
+Une carte marquée favorite est protégée contre toute action par erreur.</p>
+
+<h3>5. Marché et échanges</h3>
+
+<ul>
+  <li>Le <strong>marché</strong> s'ouvre au niveau 4, après 48 heures d'ancienneté du
+  compte. Une annonce fixe un prix en pièces, entre la moitié et le triple de la
+  valeur estimée de la carte, pour 24 heures, 3 jours ou 7 jours ; la carte est mise
+  sous séquestre pendant la vente. Une <strong>taxe</strong> (10 % au 19 octobre 2026)
+  est prélevée sur chaque vente et détruite. Le nombre d'annonces simultanées est
+  limité (5, ou 10 avec le Pass Premium).</li>
+  <li>Le marché est <strong>public</strong> : il n'existe aucun moyen de vendre une carte
+  à une personne précise. Une annonce sous-évaluée peut être achetée par n'importe
+  qui.</li>
+  <li>Les <strong>échanges directs</strong> s'ouvrent au niveau 7, entre amis
+  seulement, cartes contre cartes, sans pièces. Chaque échange accepté consomme un
+  jeton d'échange par participant (3 par semaine, 6 au plus en réserve). Le jeu refuse
+  un échange trop déséquilibré et demande une confirmation au-delà d'un premier
+  seuil ; les échanges acceptés entre ces deux seuils sont examinés.</li>
+  <li>Le jeu peut annuler une annonce ou un échange en attente lorsqu'un des joueurs
+  supprime son compte ou est suspendu ; les cartes reviennent à leur propriétaire.</li>
+  <li>Les seuils, taxes, durées et limites ci-dessus sont des paramètres du jeu : ils
+  peuvent évoluer, et les valeurs en vigueur sont celles affichées dans
+  l'application.</li>
+</ul>
+
+<h3>6. Boosters et probabilités</h3>
+
+<p>Les boosters sont des <strong>tirages aléatoires</strong>, effectués par le serveur.
+Les probabilités de chaque classe et de chaque édition, les garanties (une Platine ou
+mieux tous les quinze boosters, une Diamant ou mieux tous les soixante, par
+campagne), la chance d'un god pack et, pour le booster Premium, la chance d'une carte
+de la collection Premium et son nombre d'exemplaires limité, sont publiées dans
+l'écran <em>Probabilités</em> de l'application et correspondent exactement à celles
+du serveur. Une série thématique sort du tirage à la fin de sa campagne ; ses cartes
+restent disponibles sur le marché et par fusion.</p>
+
+<h3>7. Achats intégrés</h3>
+
+<ul>
+  <li>Les achats (packs de gemmes, Pass Premium) sont réalisés et facturés par
+  <strong>Google Play</strong> ou l'<strong>App Store</strong>, aux prix affichés dans
+  la Boutique du jeu, dans votre devise. Ils sont vérifiés par notre serveur avant
+  d'être versés.</li>
+  <li>Le <strong>Pass Premium</strong> est un <strong>abonnement mensuel à
+  renouvellement automatique</strong>. Il donne, tant qu'il est actif : dix ventes
+  simultanées, cinq boosters gratuits en réserve, deux fabrications par jour, six
+  cartes en vitrine, une mission de plus par jour et par semaine, cinquante gemmes au
+  début de chaque mois payé et un badge. Il se résilie à tout moment depuis la page
+  des abonnements de Google Play (ou de l'App Store) ; les avantages durent jusqu'à
+  la fin de la période payée, puis les limites reviennent à la base. Les gemmes déjà
+  versées restent acquises.</li>
+  <li>Le premier achat de chaque pack de gemmes est doublé, une fois par pack et par
+  compte.</li>
+  <li>Les achats définitifs sont rattachés à votre compte de boutique et peuvent être
+  <strong>restaurés</strong> depuis la Boutique du jeu.</li>
+  <li>Les remboursements relèvent des règles de Google Play ou d'Apple ; Chocky Dev
+  ne rembourse pas directement. Un remboursement obtenu auprès de la boutique
+  entraîne le retrait de l'avantage correspondant : les gemmes du pack remboursé sont
+  reprises sur votre solde, et si elles ont déjà été dépensées, l'accès au marché est
+  suspendu jusqu'à examen. Après deux remboursements en 90 jours, les nouveaux
+  achats sont refusés pendant 90 jours au plus ; les renouvellements d'un Pass déjà
+  souscrit et les restaurations ne sont pas concernés.</li>
+</ul>
+
+<h3>8. Publicité</h3>
+
+<p>Le jeu diffuse uniquement des <strong>vidéos récompensées</strong>, fournies par
+Google AdMob, que vous lancez vous-même ; jamais de bannière ni d'interstitiel.
+Chocky Dev n'est pas l'éditeur de ces annonces. Regarder une vidéo jusqu'au bout est
+le seul moyen d'obtenir la récompense associée ; la récompense est créditée par le
+serveur, une seule fois par vidéo, dans les limites quotidiennes affichées dans
+l'application. Vos choix de consentement publicitaire sont décrits dans la
+<a href="/legal/garage-master-tcg-privacy.html">politique de confidentialité</a>.</p>
+
+<h3>9. Modération, signalement et sanctions</h3>
+
+<p>Depuis le profil public d'un joueur (pseudo touchable dans le classement, le
+marché, la liste d'amis ou l'historique), vous pouvez <strong>signaler</strong> son
+pseudo ou sa vitrine, avec une note facultative. Tout autre manquement peut être
+signalé à
+<a href="mailto:djchocky@gmail.com?subject=Garage%20Master%20TCG%20%E2%80%93%20Signalement">djchocky@gmail.com</a>
+(objet « Garage Master TCG – Signalement »), en indiquant le pseudo concerné et les
+faits. Les signalements sont examinés dans les meilleurs délais, en général sous
+<strong>48 heures</strong>.</p>
+
+<p>Selon la gravité, Chocky Dev peut : avertir, imposer un nouveau pseudo, vider une
+vitrine, fermer l'accès au marché et aux échanges, ou <strong>suspendre le
+compte</strong>. Un compte suspendu garde l'accès à l'export de ses données et peut
+demander sa suppression par e-mail. Une décision peut être contestée par le même
+canal. En cas de transfert de valeur hors marché, Chocky Dev peut aussi annuler les
+transactions concernées et reprendre les cartes ou les pièces indûment
+obtenues.</p>
+
+<h3>10. Disponibilité et évolution du service</h3>
+
+<p>Garage Master TCG est fourni <strong>« en l'état »</strong>. Chocky Dev s'efforce
+d'assurer la disponibilité du service mais ne la garantit pas (maintenance, panne
+d'un fournisseur, mise à jour obligatoire). Les règles du jeu, les probabilités, les
+prix en monnaie virtuelle, les récompenses, le catalogue de voitures, les séries et
+les présentes conditions peuvent évoluer ; une modification substantielle est
+signalée dans l'application. Chocky Dev peut mettre fin au service avec un préavis
+raisonnable.</p>
+
+<h3>11. Propriété intellectuelle</h3>
+
+<p>Le code, les graphismes, les textes, les sons et la marque <em>Chocky Dev</em> sont
+la propriété de Chocky Dev ou de leurs auteurs respectifs. Vous disposez d'un droit
+d'usage personnel, non exclusif et non transférable du jeu. Toute reproduction,
+décompilation ou exploitation commerciale non autorisée est interdite.</p>
+
+<p>Les noms de constructeurs et de modèles sont utilisés à titre descriptif.
+<strong>Toutes les marques citées appartiennent à leurs propriétaires respectifs ; ce
+jeu n'est ni affilié ni approuvé par les constructeurs.</strong> Les photos des
+voitures proviennent de Wikimedia Commons et sont utilisées selon leur licence
+(domaine public, CC0, CC BY, CC BY-SA), avec leur auteur et leur licence dans l'écran
+<em>Crédits photos</em>. Un ayant droit qui souhaite le retrait d'une image ou d'un
+contenu écrit à
+<a href="mailto:djchocky@gmail.com">djchocky@gmail.com</a>.</p>
+
+<h3>12. Responsabilité</h3>
+
+<p>Dans les limites permises par la loi, Chocky Dev ne saurait être tenu responsable
+des pertes de progression dues à votre appareil ou à la perte d'accès à votre compte
+Google, des variations de la valeur estimée des cartes, ni des dommages indirects
+liés à l'utilisation ou à l'indisponibilité du jeu. Rien dans les présentes ne limite
+vos droits légaux de consommateur.</p>
+
+<h3>13. Résiliation</h3>
+
+<p>Vous pouvez cesser d'utiliser Garage Master TCG à tout moment et
+<a href="/legal/garage-master-tcg-delete-account.html">supprimer votre compte</a>
+depuis <em>Profil &rsaquo; menu &#9881;</em>. Chocky Dev peut suspendre ou supprimer un
+compte en cas de manquement grave ou répété aux présentes conditions.</p>
+
+<h3>14. Droit applicable et contact</h3>
+
+<p>Les présentes conditions sont régies par le <strong>droit français</strong>. En cas
+de litige, une solution amiable sera recherchée en priorité ; les consommateurs
+peuvent recourir à la plateforme européenne de règlement en ligne des litiges. Pour
+toute question : <a href="mailto:djchocky@gmail.com">djchocky@gmail.com</a>.</p>
+
+</section>
+
+<!-- =================================================================== -->
+<!-- ENGLISH                                                             -->
+<!-- =================================================================== -->
+<section id="en" lang="en">
+
+<h2>English</h2>
+
+<p>The French version above is the reference text.</p>
+
+<h3>1. Scope and acceptance</h3>
+
+<p>These terms govern the use of the <strong>Garage Master TCG</strong> mobile game,
+published by <strong>Chocky Dev</strong> (<a href="mailto:djchocky@gmail.com">djchocky@gmail.com</a>),
+available on Google Play and, in time, on the App Store. By signing in and choosing
+your nickname, you accept them together with the
+<a href="/legal/garage-master-tcg-privacy.html#en">privacy policy</a>. If you do not
+accept them, do not use the game.</p>
+
+<h3>2. Account and nickname</h3>
+
+<ul>
+  <li>You must be <strong>16 or older</strong> to use Garage Master TCG.</li>
+  <li>The game requires signing in with a <strong>Google account</strong> (or Apple, on
+  iPhone). You may have several accounts; what is forbidden is using them to get
+  around the rules of the market and trades (§5).</li>
+  <li>Your <strong>nickname</strong> is public. It is 3 to 16 characters long (Latin
+  letters, digits, space, <code>_</code>, <code>-</code>, <code>'</code>), must not be
+  offensive, discriminatory or obscene, impersonate someone else, contain contact
+  details, or imitate the name of the game or its team. It is filtered at creation;
+  a nickname that slips through may be changed by moderation, which then asks you to
+  pick another one.</li>
+  <li>The first nickname change is free; later ones cost in-game coins, at the price
+  announced before you confirm.</li>
+  <li>You are responsible for the security of your device and your Google account,
+  and for the use made of your game account.</li>
+</ul>
+
+<h3>3. Rules of conduct</h3>
+
+<p>Garage Master TCG connects real players through the market, trades and friend
+lists. You agree to:</p>
+<ul>
+  <li>play <strong>fairly</strong>: no modified client, automation, bug exploitation or
+  price manipulation;</li>
+  <li>not arrange <strong>off-market value transfers</strong> between accounts, through
+  pre-agreed floor-price listings or lopsided trades;</li>
+  <li>keep a decent nickname and showcase, and respect other players;</li>
+  <li>not attempt to access other players' data or disrupt the service.</li>
+</ul>
+
+<h3>4. Cards, currencies and virtual items</h3>
+
+<p>Cards, coins, gems, dust, trade tokens, helmets, levels and experience points are
+<strong>virtual items</strong> with no monetary value. They are licensed for your
+personal use within the game; they are neither refundable nor convertible into real
+money, and only move within the game, through the market and trades (§5). They
+disappear when the account is deleted.</p>
+
+<p>A card's <strong>estimated value</strong> is computed by the game every night from
+its class, its edition and the number of copies in circulation; it is a reference
+and may change. A card received through a purchase or a trade is <strong>locked for
+24 hours</strong>: it can be neither sold, traded nor fused. A card marked as a
+favourite is protected against any action by mistake.</p>
+
+<h3>5. Market and trades</h3>
+
+<ul>
+  <li>The <strong>market</strong> opens at level 4, once the account is 48 hours old. A
+  listing sets a price in coins, between half and three times the card's estimated
+  value, for 24 hours, 3 days or 7 days; the card is held in escrow while on sale. A
+  <strong>tax</strong> (10% as of 19 October 2026) is taken on each sale and destroyed.
+  The number of simultaneous listings is limited (5, or 10 with the Premium
+  Pass).</li>
+  <li>The market is <strong>public</strong>: there is no way to sell a card to a specific
+  person. An underpriced listing can be bought by anyone.</li>
+  <li><strong>Direct trades</strong> open at level 7, between friends only, cards for
+  cards, with no coins. Each accepted trade uses one trade token per participant
+  (3 a week, 6 at most in reserve). The game refuses a trade that is too lopsided and
+  asks for a confirmation above a first threshold; trades accepted between those two
+  thresholds are reviewed.</li>
+  <li>The game may cancel a listing or a pending trade when one of the players deletes
+  their account or is suspended; the cards go back to their owner.</li>
+  <li>The thresholds, taxes, durations and limits above are game parameters: they may
+  change, and the values in force are those shown in the app.</li>
+</ul>
+
+<h3>6. Boosters and odds</h3>
+
+<p>Boosters are <strong>random draws</strong>, made by the server. The odds of each class
+and each edition, the guarantees (a Platinum or better every fifteen boosters, a
+Diamond or better every sixty, per campaign), the chance of a god pack and, for the
+Premium booster, the chance of a Premium collection card and its limited number of
+copies, are published in the app's <em>Odds</em> screen and match the server's
+exactly. A themed series leaves the draw at the end of its campaign; its cards remain
+available on the market and through fusion.</p>
+
+<h3>7. In-app purchases</h3>
+
+<ul>
+  <li>Purchases (gem packs, Premium Pass) are made and billed by <strong>Google
+  Play</strong> or the <strong>App Store</strong>, at the prices shown in the game's
+  Shop, in your currency. They are verified by our server before being paid out.</li>
+  <li>The <strong>Premium Pass</strong> is a <strong>monthly auto-renewing
+  subscription</strong>. While active, it gives: ten simultaneous listings, five free
+  boosters in reserve, two crafts a day, six showcase slots, one extra mission a day
+  and a week, fifty gems at the start of each paid month and a badge. It can be
+  cancelled at any time from Google Play's (or the App Store's) subscriptions page;
+  the benefits last until the end of the paid period, then the limits return to
+  their base values. Gems already paid out are kept.</li>
+  <li>The first purchase of each gem pack is doubled, once per pack and per
+  account.</li>
+  <li>Permanent purchases are tied to your store account and can be
+  <strong>restored</strong> from the game's Shop.</li>
+  <li>Refunds follow Google Play's or Apple's rules; Chocky Dev does not refund
+  directly. A refund obtained from the store removes the corresponding benefit: the
+  gems of the refunded pack are taken back from your balance, and if they have
+  already been spent, market access is suspended pending review. After two refunds
+  within 90 days, new purchases are refused for up to 90 days; renewals of a Pass
+  already subscribed and restorations are not affected.</li>
+</ul>
+
+<h3>8. Advertising</h3>
+
+<p>The game only shows <strong>rewarded videos</strong>, served by Google AdMob, which you
+start yourself; never a banner or an interstitial. Chocky Dev is not the publisher
+of these ads. Watching a video to the end is the only way to obtain the associated
+reward; the reward is credited by the server, once per video, within the daily
+limits shown in the app. Your advertising consent choices are described in the
+<a href="/legal/garage-master-tcg-privacy.html#en">privacy policy</a>.</p>
+
+<h3>9. Moderation, reporting and sanctions</h3>
+
+<p>From a player's public profile (any tappable nickname in the leaderboard, the
+market, the friend list or the history), you can <strong>report</strong> their nickname
+or their showcase, with an optional note. Any other breach can be reported to
+<a href="mailto:djchocky@gmail.com?subject=Garage%20Master%20TCG%20%E2%80%93%20Report">djchocky@gmail.com</a>
+(subject "Garage Master TCG – Report"), stating the nickname concerned and the
+facts. Reports are reviewed as soon as possible, usually within
+<strong>48 hours</strong>.</p>
+
+<p>Depending on severity, Chocky Dev may: warn, impose a new nickname, clear a
+showcase, close access to the market and trades, or <strong>suspend the
+account</strong>. A suspended account keeps access to its data export and may request
+deletion by email. A decision can be appealed through the same channel. In case of
+an off-market value transfer, Chocky Dev may also cancel the transactions concerned
+and take back the cards or coins unduly obtained.</p>
+
+<h3>10. Availability and changes to the service</h3>
+
+<p>Garage Master TCG is provided <strong>"as is"</strong>. Chocky Dev strives to keep the
+service available but does not guarantee it (maintenance, provider outage, mandatory
+update). Game rules, odds, prices in virtual currency, rewards, the car catalogue,
+series and these terms may change; a substantial change is announced in the app.
+Chocky Dev may discontinue the service with reasonable notice.</p>
+
+<h3>11. Intellectual property</h3>
+
+<p>The code, graphics, texts, sounds and the <em>Chocky Dev</em> brand belong to Chocky
+Dev or their respective authors. You receive a personal, non-exclusive,
+non-transferable right to use the game. Any unauthorised reproduction, decompilation
+or commercial exploitation is prohibited.</p>
+
+<p>Manufacturer and model names are used descriptively. <strong>All brands mentioned
+belong to their respective owners; this game is neither affiliated with nor endorsed
+by the manufacturers.</strong> Car photos come from Wikimedia Commons and are used
+under their licence (public domain, CC0, CC BY, CC BY-SA), with their author and
+licence listed in the <em>Photo credits</em> screen. A rights holder who wants an
+image or a piece of content removed can write to
+<a href="mailto:djchocky@gmail.com">djchocky@gmail.com</a>.</p>
+
+<h3>12. Liability</h3>
+
+<p>To the extent permitted by law, Chocky Dev is not liable for loss of progress due
+to your device or to losing access to your Google account, for changes in the
+estimated value of cards, nor for indirect damages related to the use or
+unavailability of the game. Nothing in these terms limits your statutory consumer
+rights.</p>
+
+<h3>13. Termination</h3>
+
+<p>You may stop using Garage Master TCG at any time and
+<a href="/legal/garage-master-tcg-delete-account.html#en">delete your account</a> from
+<em>Profile &rsaquo; &#9881; menu</em>. Chocky Dev may suspend or delete an account in
+case of serious or repeated breach of these terms.</p>
+
+<h3>14. Governing law and contact</h3>
+
+<p>These terms are governed by <strong>French law</strong>. In case of dispute, an
+amicable solution will be sought first; consumers may use the European online dispute
+resolution platform. Questions: <a href="mailto:djchocky@gmail.com">djchocky@gmail.com</a>.</p>
+
+</section>
+
+<footer class="bottom">
+  <p>Chocky Dev &mdash; <a href="mailto:djchocky@gmail.com">djchocky@gmail.com</a>
+  &middot; <a href="https://chocky.dev/">chocky.dev</a>
+  &middot; <a href="/legal/garage-master-tcg-privacy.html">Politique de confidentialité</a>
+  &middot; <a href="/legal/garage-master-tcg-delete-account.html">Suppression du compte</a></p>
+</footer>
+
+</div>
+</body>
+</html>

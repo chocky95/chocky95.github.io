@@ -1,7 +1,7 @@
 import { DEFAULT_LOCALE, isLocale, type Locale } from '~/i18n/locales';
 
 /**
- * Faits invariants sur les cinq applications.
+ * Faits invariants sur les six applications.
  *
  * Ce fichier n'est PAS une collection de contenu : rien ici n'est éditorial ni
  * traduisible. La prose vit dans `src/content/apps/<slug>.<locale>.md`.
@@ -246,6 +246,36 @@ export const APPS: readonly AppFacts[] = [
     buildTargets: ALL_PLATFORMS,
     screenshotLocales: [],
     trademarkNotice: null,
+  },
+  {
+    slug: 'garage-master-tcg',
+    name: 'Garage Master TCG',
+    packageId: 'com.chocky.tcg',
+    version: '0.1.0',
+    // Rouge oxyde du thème « garage de nuit » (TcgColors.red, tcg_core). Il ne
+    // donne que 4.47:1 sur l'encre, juste sous AA. La variante allumée du même
+    // thème (TcgColors.redLit) porte le texte : 5.30:1.
+    accent: '#C9554A',
+    accentText: '#D2665B',
+    family: 'game',
+    schemaCategory: 'GameApplication',
+    // FR + EN seulement : packages/tcg_core/lib/l10n/app_{fr,en}.arb.
+    nativeLocales: ['fr', 'en'],
+    // Android d'abord. iOS est prévu dans le code (interfaces auth et achats)
+    // mais rien n'est branché tant que le compte Apple Developer n'existe pas.
+    comingToIos: true,
+    // Piste de test interne Google Play. À la publication : status 'published',
+    // playUrl = PLAY + 'com.chocky.tcg' et 'play' dans stores.
+    status: 'coming-soon',
+    playUrl: null,
+    appStoreUrl: null,
+    betaUrl: null,
+    webAppUrl: null,
+    stores: [],
+    buildTargets: ['android', 'ios'],
+    screenshotLocales: [],
+    trademarkNotice:
+      'Toutes les marques automobiles citées appartiennent à leurs propriétaires respectifs. Garage Master TCG est un jeu indépendant, ni affilié ni approuvé par les constructeurs.',
   },
 ];
 

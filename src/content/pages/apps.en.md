@@ -2,16 +2,16 @@
 slug: apps
 title: 'The Chocky Dev apps: compared, so you can choose'
 metaDescription: >-
-  The five apps side by side: type, funding model, how many languages the
+  The six apps side by side: type, funding model, how many languages the
   interface really covers, and what each one asks of your phone.
-h1: 'The five Chocky Dev apps, compared'
+h1: 'The six Chocky Dev apps, compared'
 lead: >-
-  Two card games, a Mölkky score keeper, a document scanner and accounting for
-  the French self-employed. Here is the same information laid flat: what each one
-  does, how it is funded, how many languages its interface actually exists in,
-  and what it asks of your phone.
+  Two card games, a car trading card game, a Mölkky score keeper, a document
+  scanner and accounting for the French self-employed. Here is the same
+  information laid flat: what each one does, how it is funded, how many
+  languages its interface actually exists in, and what it asks of your phone.
 translationStatus: authored
-updatedOn: 2026-10-15
+updatedOn: 2026-10-19
 faq:
   - q: Which app should I use to keep score at Mölkky?
     a: >-
@@ -23,13 +23,15 @@ faq:
     a: >-
       No, and the distinction matters. This site exists in 18 languages, but the
       app interfaces are translated into fewer: 9 for Mölkky Score, 15 for
-      Papayoo and Mojogo, 12 for ScanFree, and French only for EasyCompta. Each
-      app page says so when your language is not covered.
+      Papayoo and Mojogo, 12 for ScanFree, 2 for Garage Master TCG (English and
+      French), and French only for EasyCompta. Each app page says so when your
+      language is not covered.
   - q: Do I need to create an account?
     a: >-
       Not for Mölkky Score, ScanFree or EasyCompta: they work without signing up
       and keep their data on the device. Papayoo and Mojogo only need a profile
-      for online play; their solo modes work without an account.
+      for online play; their solo modes work without an account. Garage Master
+      TCG asks for a Google account on first launch.
 ---
 
 ## Side by side
@@ -39,17 +41,20 @@ faq:
 | Mölkky Score | Score keeper | Free | 9 languages |
 | Papayoo | Card game | Ads, one-time Premium purchase | 15 languages |
 | Mojogo | Card games | Ads, one-time Premium purchase | 15 languages |
+| Garage Master TCG | Trading card game | Rewarded videos, gems, Premium Pass subscription | 2 languages |
 | ScanFree | Document scanner | Free, rewarded video on export | 12 languages |
 | EasyCompta | Bookkeeping | Free, Premium by subscription | French only |
 
-Only one of the five offers a subscription — EasyCompta — and it covers just its
-advanced analytics and exports. The other four have none.
+Two of the six offer a subscription: EasyCompta, for its advanced analytics and
+exports only, and Garage Master TCG, with an optional Premium Pass that speeds
+up progress without making anything exclusive. The other four have none.
 
 ## How to choose
 
 - **You play Mölkky** and you are tired of pen and paper → Mölkky Score.
 - **You want a card game** to play solo against the AI or online with friends →
   Papayoo, or Mojogo for two games in one app.
+- **You love cars** and trading cards → Garage Master TCG, coming soon.
 - **You need to send a scanned document** without installing a paid service →
   ScanFree.
 - **You are registered as a French micro-entrepreneur** and have to keep an
@@ -64,8 +69,12 @@ cannot end up anywhere else.
 
 Mölkky Score and EasyCompta also keep their data on the device, with no sign-up
 and no server — EasyCompta does not even have a bank connection to authorise.
-Papayoo and Mojogo are the only two that leave the phone, and only for online
-matches.
+Papayoo and Mojogo only leave the phone for online matches.
+
+Garage Master TCG sits at the other end of the spectrum: it is an online game,
+with a mandatory Google account, because booster draws, the market and trades
+all run on the server. It asks for neither your location nor your contacts; the
+camera is used only to scan a friend's QR code.
 
 ## Why 18 languages of pages, but fewer interfaces
 
@@ -77,4 +86,5 @@ installing, not after.
 
 The table above gives the real coverage. EasyCompta is the extreme case: its
 interface exists only in French, which is coherent — it serves a French legal
-regime, with vocabulary that has no equivalent elsewhere.
+regime, with vocabulary that has no equivalent elsewhere. Garage Master TCG, for
+its part, starts in English and French, the two languages of its launch.

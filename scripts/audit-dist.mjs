@@ -47,6 +47,10 @@ const APP_LOCALES = {
   mojogo: LOCALES,
   scanfree: LOCALES,
   easycompta: LOCALES,
+  // Prose rédigée en fr et en seulement (2026-10-19) : les 16 autres pages
+  // sont le repli factuel en `noindex`, comme prévu par le déploiement par
+  // vagues. Elles existent, sont liées et portent leur cluster hreflang.
+  'garage-master-tcg': LOCALES,
 };
 
 /**
@@ -61,6 +65,7 @@ const NATIVE_LOCALES = {
   mojogo: ['fr', 'en', 'de', 'ja', 'es', 'it', 'nl', 'pt', 'sv', 'da', 'nb', 'pl', 'ro', 'ru', 'ko'],
   scanfree: ['fr', 'en', 'de', 'ja', 'es', 'it', 'nl', 'pt', 'sv', 'da', 'nb', 'ko'],
   easycompta: ['fr'],
+  'garage-master-tcg': ['fr', 'en'],
 };
 
 /**
@@ -114,6 +119,12 @@ const NAMED_CASES = [
   { url: '/apps/papayoo/', expectAlternates: 19 },
   { url: '/apps/scanfree/', expectAlternates: 19 },
   { url: '/ja/apps/mojogo/', expectAlternates: 19 },
+  // Garage Master TCG : prose en fr et en (indexables, au sitemap) ; le `de`
+  // est une page de repli en noindex, absente du sitemap, dont le cluster
+  // hreflang doit pourtant rester complet.
+  { url: '/apps/garage-master-tcg/', expectAlternates: 19 },
+  { url: '/en/apps/garage-master-tcg/', expectAlternates: 19 },
+  { url: '/de/apps/garage-master-tcg/', expectAlternates: 19 },
   /*
    * Les trois formes de guide. Leur slug est traduit, donc leur cluster relie 18
    * chemins DIFFÉRENTS — c'est le seul endroit du site où le regroupement par
@@ -282,6 +293,11 @@ async function checkInventory(expected, forbidden) {
     // AdMob (17/09/2026), en remplacement des anciennes pages Google Sites.
     'legal/molkky-score-privacy.html',
     'legal/easycompta-privacy.html',
+    // Garage Master TCG (19/10/2026) : ecrites avant la sortie, a declarer dans
+    // Play Console (confidentialite, suppression du compte) et App Store Connect.
+    'legal/garage-master-tcg-privacy.html',
+    'legal/garage-master-tcg-terms.html',
+    'legal/garage-master-tcg-delete-account.html',
   ]) {
     if (!existsSync(path.join(DIST, declared))) {
       fail(`dist/${declared} manquant — URL declaree dans Google Play Console / App Store Connect.`);
@@ -295,8 +311,10 @@ async function checkInventory(expected, forbidden) {
    * pour des annees : la supprimer casserait leur parrainage.
    * Source cote app : Papayoo lib/services/store_links.dart (inviteBaseUrl).
    */
-  // Idem pour Mojogo (/mojogo/invite?ref=<uid>, Mojogo lib/services/store_links.dart, 29/09/2026).
-  for (const embedded of ['papayoo/invite.html', 'mojogo/invite.html']) {
+  // Idem pour Mojogo (/mojogo/invite?ref=<uid>, Mojogo lib/services/store_links.dart, 29/09/2026)
+  // et pour Garage Master TCG (/tcg/invite?ref=<uid>, depot tcg
+  // apps/mobile/lib/features/friends/domain/invite_link.dart, 01/10/2026).
+  for (const embedded of ['papayoo/invite.html', 'mojogo/invite.html', 'tcg/invite.html']) {
     if (!existsSync(path.join(DIST, embedded))) {
       fail(`dist/${embedded} manquant — URL embarquee dans l'application (QR de parrainage).`);
     }
