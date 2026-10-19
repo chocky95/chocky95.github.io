@@ -200,6 +200,13 @@ const canonical = absolute(locale, '');
     gap: var(--space-2);
     margin-block: var(--space-3) 0;
   }
+  /* Deux colonnes dès que la place le permet ; une seule sur petit téléphone,
+     où les badges des cartes (« Demnächst für iOS »…) n'auraient plus la place. */
+  @media (min-width: 36rem) {
+    .grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
   .card {
     border: 1px solid var(--glass-border);
     border-radius: var(--radius-lg);
