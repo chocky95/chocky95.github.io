@@ -1,0 +1,469 @@
+<!doctype html>
+<!--
+  ==========================================================================
+  PAGE D'INSCRIPTION AU TEST FERMÉ DE GARAGE MASTER TCG — PRÉPARÉE, NON LIÉE.
+
+  https://chocky.dev/tcg/beta.html
+
+  Aucune page du site n'y mène encore : le champ `betaUrl` de
+  src/data/apps.ts reste à null tant que le test fermé n'est pas ouvert.
+  Pour la lier : betaUrl: '/tcg/beta.html' dans apps.ts ET ajout du chemin
+  dans la liste FLAT_PAGES de scripts/audit-dist.mjs, qui en exige alors la
+  présence dans dist/.
+
+  À CONFIRMER avant de diffuser : le lien d'inscription Play de l'étape 2
+  (https://play.google.com/apps/testing/com.chocky.tcg, forme standard d'un
+  test fermé), deux occurrences, une par langue.
+
+  RÔLE
+    Faire aboutir un testeur en trois gestes : Google Group -> lien
+    d'inscription Play -> installation. Ces trois étapes sont la page ;
+    tout le reste est replié dans des <details>. Et dire clairement que la
+    boutique de la bêta est la vraie : gemmes et Pass Premium sont débités
+    (cet avertissement-là reste visible, jamais replié).
+
+  BASCULE DE LANGUE — SANS JAVASCRIPT
+    Une seule langue est affichée à la fois, par :target :
+
+        #en              { display: none; }
+        #en:target       { display: block; }
+        #en:target ~ #fr { display: none; }
+
+    D'où une CONTRAINTE D'ORDRE DU DOM : le volet #en doit venir AVANT
+    #fr, parce que le combinateur frère `~` ne remonte pas en arrière.
+    Sans hash, ou sur #fr, c'est le français qui s'affiche.
+    Si le CSS ne s'applique pas, les deux volets s'affichent : dégradation
+    sans perte d'information. Le jeu n'existe qu'en français et en anglais.
+
+  CONTRAINTES DE CE FICHIER
+    - fichier PLAT (.html, pas .../index.html) : les index.html de dist/ sont
+      comptés par l'audit.
+    - ZÉRO balise script : checkNoClientJs() scanne tous les .html de dist/,
+      par simple recherche de texte — y compris dans les commentaires.
+    - CSS inliné, aucune dépendance externe.
+    - noindex : page temporaire, hors sitemap, sans valeur de référencement.
+    - Ne rien promettre ici qui n'existe pas dans l'application.
+
+  À METTRE À JOUR à la sortie en production : passer Garage Master TCG en
+  `published` dans apps.ts (betaUrl -> null), puis remplacer le contenu de
+  cette page par un renvoi vers la fiche Play, comme /mojogo/beta.html —
+  l'URL aura été partagée aux testeurs et doit rester valide.
+  ==========================================================================
+-->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Rejoindre la bêta de Garage Master TCG — Chocky Dev</title>
+<meta name="description" content="Trois étapes pour participer au test fermé de Garage Master TCG sur Google Play : rejoindre le groupe de testeurs, accepter l'invitation, installer le jeu.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+  :root {
+    --ink-900: #070a0d;
+    --text-100: #f2f5f7;
+    --text-300: #c2ccd4;
+    --text-500: #8b98a3;
+    --glass-bg: rgb(255 255 255 / 4%);
+    --glass-border: rgb(255 255 255 / 9%);
+    --glass-border-hover: rgb(255 255 255 / 18%);
+    /* Rouge oxyde du jeu (fond des boutons, texte blanc : 5.7:1) et sa
+       variante allumée pour le texte sur l'encre (accentText de apps.ts). */
+    --accent: #c9554a;
+    --accent-text: #d2665b;
+    --warn: #e0a458;
+    --radius: 14px;
+    --radius-lg: 18px;
+    --measure: 38rem;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--ink-900);
+    color: var(--text-300);
+    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: clamp(0.92rem, 0.89rem + 0.15vw, 1rem);
+    line-height: 1.6;
+  }
+  .wrap { max-width: var(--measure); margin: 0 auto; padding: 1.5rem 1.25rem 3.5rem; }
+
+  /* --- bascule de langue : voir le commentaire d'en-tête ----------------- */
+  #en { display: none; }
+  #en:target { display: block; }
+  #en:target ~ #fr { display: none; }
+
+  /* --- en-tête ---------------------------------------------------------- */
+  .top {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 1rem 1.5rem; flex-wrap: wrap;
+    padding-bottom: 1.1rem; margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--glass-border);
+  }
+  .brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: inherit; }
+  .icon {
+    width: 52px; height: 52px; border-radius: 50%; flex: none;
+    box-shadow: 0 0 0 1px var(--glass-border), 0 14px 30px -18px var(--accent);
+  }
+  .brand-name { display: block; color: var(--text-100); font-weight: 600; }
+  .brand-sub { display: block; color: var(--text-500); font-size: 0.8rem; }
+  .brand:hover .brand-name { color: var(--accent-text); }
+  .langs { display: flex; gap: 0.3rem; margin-left: auto; }
+  .langs a {
+    padding: 0.25rem 0.8rem; border-radius: 999px;
+    border: 1px solid transparent;
+    color: var(--text-500); font-size: 0.85rem; text-decoration: none;
+  }
+  .langs a:hover { color: var(--text-100); }
+  .langs a.on {
+    background: var(--glass-bg); border-color: var(--glass-border-hover);
+    color: var(--text-100); font-weight: 600;
+  }
+
+  h1 {
+    color: var(--text-100); font-weight: 600;
+    font-size: clamp(1.45rem, 1.25rem + 1vw, 1.95rem);
+    line-height: 1.15; letter-spacing: -0.015em; margin: 0 0 0.5rem;
+  }
+  .lede { color: var(--text-300); margin: 0 0 1.1rem; max-width: 34rem; }
+  .help {
+    background: var(--glass-bg); border: 1px solid var(--glass-border);
+    border-left: 3px solid var(--accent); border-radius: var(--radius);
+    padding: 0.8rem 1.1rem; margin: 0 0 1.5rem;
+  }
+  .help p { margin: 0; }
+  .help a { font-weight: 700; }
+  p, ul { margin: 0 0 0.9rem; }
+  a { color: var(--accent-text); text-decoration-thickness: 1px; text-underline-offset: 2px; overflow-wrap: anywhere; }
+  a:hover { color: var(--text-100); }
+  strong { color: var(--text-100); font-weight: 600; }
+  :focus-visible { outline: 2px solid var(--accent-text); outline-offset: 3px; border-radius: 4px; }
+
+  /* --- les trois étapes, traitées comme trois cartes à collectionner ----- */
+  .steps { counter-reset: s; list-style: none; padding: 0; margin: 0 0 1.5rem; }
+  .step {
+    counter-increment: s; position: relative; overflow: hidden;
+    background: var(--glass-bg); border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    padding: 1.2rem 1.25rem 1.2rem 4.75rem;
+    margin-bottom: 0.8rem;
+  }
+  .step::before {
+    content: counter(s);
+    position: absolute; left: 1.25rem; top: 0.9rem;
+    font-size: 2.75rem; line-height: 1; font-weight: 300;
+    color: var(--accent-text); font-variant-numeric: lining-nums;
+  }
+  .step h2 {
+    color: var(--text-100); font-size: 1.05rem; font-weight: 600;
+    line-height: 1.25; margin: 0 0 0.3rem;
+  }
+  .step p { margin: 0 0 0.8rem; max-width: 30rem; }
+
+  .btn {
+    display: inline-block;
+    padding: 0.65em 1.3em; border-radius: 999px;
+    background: var(--accent); color: #fff;
+    font-weight: 700; text-decoration: none;
+  }
+  .btn:hover { color: #fff; filter: brightness(1.1); }
+  .btn--ghost { background: transparent; color: var(--accent-text); border: 1px solid var(--glass-border-hover); }
+  .btn--ghost:hover { color: var(--text-100); filter: none; }
+
+  /* --- avertissement achats : visible, jamais replié --------------------- */
+  .warn {
+    background: var(--glass-bg); border: 1px solid var(--glass-border);
+    border-left: 3px solid var(--warn); border-radius: var(--radius);
+    padding: 0.9rem 1.1rem; margin: 0 0 2.25rem;
+  }
+  .warn p { margin: 0; font-size: 0.95em; }
+  .warn strong { color: var(--warn); }
+
+  /* --- le reste, replié -------------------------------------------------- */
+  .more { border-top: 1px solid var(--glass-border); }
+  .more details { border-bottom: 1px solid var(--glass-border); }
+  .more summary {
+    position: relative; cursor: pointer;
+    padding: 0.85rem 2.25rem 0.85rem 0;
+    color: var(--text-100); font-weight: 600;
+    list-style: none;
+  }
+  .more summary::-webkit-details-marker { display: none; }
+  .more summary::after {
+    content: "+"; position: absolute; right: 0.3rem; top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent-text); font-size: 1.25rem; font-weight: 400; line-height: 1;
+  }
+  .more details[open] summary::after { content: "\2013"; }
+  .more summary:hover { color: var(--accent-text); }
+  .more .body { padding: 0 0 1.1rem; font-size: 0.95em; }
+  .more .body > :last-child { margin-bottom: 0; }
+  .more ul { padding-left: 1.15rem; }
+  .more li { margin-bottom: 0.35rem; }
+
+  footer.bottom { margin-top: 2.5rem; color: var(--text-500); font-size: 0.82rem; }
+  footer.bottom p { margin: 0; }
+  :target { scroll-margin-top: 0; }
+
+  @media (max-width: 30rem) {
+    .step { padding: 1.1rem; }
+    .step::before { position: static; display: block; font-size: 2.25rem; margin-bottom: 0.2rem; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+<main>
+
+<!-- =================================================================== -->
+<!-- ENGLISH — doit rester AVANT le volet #fr (combinateur frère `~`)     -->
+<!-- =================================================================== -->
+<section id="en" class="pane" lang="en">
+
+<header class="top">
+  <a class="brand" href="/en/apps/garage-master-tcg/">
+    <img class="icon" src="/tcg/icon-168.webp" width="52" height="52" alt="Garage Master TCG app icon">
+    <span>
+      <span class="brand-name">Garage Master TCG</span>
+      <span class="brand-sub">Closed testing on Google Play</span>
+    </span>
+  </a>
+  <nav class="langs" aria-label="Language">
+    <a href="#fr" lang="fr">Français</a>
+    <a class="on" href="#en" aria-current="true">English</a>
+  </nav>
+</header>
+
+<h1>Join the Garage Master TCG beta</h1>
+<p class="lede">Three steps, in order, using the Google account your Android phone’s
+Play Store is signed in with.</p>
+
+<div class="help">
+  <p>Stuck on any of the three steps? Email me at
+  <a href="mailto:djchocky@gmail.com?subject=Garage%20Master%20TCG%20beta">djchocky@gmail.com</a>
+  and I will help you get in.</p>
+</div>
+
+<ol class="steps">
+  <li class="step">
+    <h2>Join the testers group</h2>
+    <p>This group is what allows your account to see the game.</p>
+    <a class="btn" href="https://groups.google.com/g/testinggm" rel="noopener">Join the Google Group</a>
+  </li>
+  <li class="step">
+    <h2>Accept the testing invitation</h2>
+    <p>Wait a few minutes, then tap “Become a tester”.</p>
+    <a class="btn btn--ghost" href="https://play.google.com/apps/testing/com.chocky.tcg" rel="noopener">Open the opt-in page</a>
+  </li>
+  <li class="step">
+    <h2>Install the game</h2>
+    <p>Wait a few more minutes, then install Garage Master TCG like any other app and
+    sign in with your Google account on first launch.</p>
+    <a class="btn btn--ghost" href="https://play.google.com/store/apps/details?id=com.chocky.tcg" rel="noopener">Open it on Google Play</a>
+  </li>
+</ol>
+
+<div class="warn">
+  <p><strong>The beta shop is the real shop.</strong> Gem packs and the Premium Pass
+  bought during the test are real purchases, charged to your Google Play account exactly
+  as in a published app; the Premium Pass is a monthly subscription that you cancel from
+  the Play Store. Everything earned for free in the game works as usual.</p>
+</div>
+
+<div class="more">
+
+  <details>
+    <summary>It’s not working</summary>
+    <div class="body">
+      <p>Almost always, the Google account in the group is not the one the phone’s Play
+      Store uses: check under Play Store &rsaquo; your avatar in the top-right corner.</p>
+      <p>Propagation on Google’s side takes from a few minutes to a few hours. If step 2
+      says you are not allowed, step 1 has not gone through yet — wait and reload. If the
+      Play listing says “Item not found”, close the Play Store, wait, then try step 3
+      again.</p>
+      <p>You can turn off the group’s emails when joining; it does not affect your access.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Send feedback</summary>
+    <div class="body">
+      <p>That is the whole point of the test. What helps us most:</p>
+      <ul>
+        <li><strong>opening boosters</strong>: the free one every two hours, the welcome booster, the opening animation;</li>
+        <li>the <strong>collection and albums</strong>, and fusing, recycling and crafting your duplicates;</li>
+        <li>the <strong>market</strong>, selling and buying cards, and <strong>trades</strong> with a friend added by QR code;</li>
+        <li>the game <strong>in English or French</strong>: odd wording, truncated text;</li>
+        <li>any <strong>crash, freeze or slowdown</strong>, and what you were doing right before.</li>
+      </ul>
+      <p>Post in the <a href="https://groups.google.com/g/testinggm" rel="noopener">Google Group</a>
+      or email <a href="mailto:djchocky@gmail.com?subject=Garage%20Master%20TCG%20beta">djchocky@gmail.com</a>,
+      stating if possible your <strong>phone model</strong>, <strong>Android version</strong>
+      and a screenshot when the issue is visual.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>What is Garage Master TCG?</summary>
+    <div class="body">
+      <p>A collectible card game for car lovers. Open free boosters, build a collection of
+      real cars in six editions, from Standard to numbered Prestige, complete albums by
+      brand, country and decade, and sell or trade your duplicates with other players —
+      in virtual coins only. In French and English.</p>
+      <p><a href="/en/apps/garage-master-tcg/">About the game</a></p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Your data</summary>
+    <div class="body">
+      <p>Your data is handled as described in the
+      <a href="/legal/garage-master-tcg-privacy.html#en">privacy policy</a> and the
+      <a href="/legal/garage-master-tcg-terms.html#en">terms of use</a>. You can
+      <a href="/legal/garage-master-tcg-delete-account.html#en">request deletion of your account</a>
+      at any time, or leave the test by unsubscribing from the Google Group and
+      uninstalling the game.</p>
+    </div>
+  </details>
+
+</div>
+
+<footer class="bottom">
+  <p>Chocky Dev &mdash; <a href="mailto:djchocky@gmail.com">djchocky@gmail.com</a>
+  &middot; <a href="https://chocky.dev/en/">chocky.dev</a>
+  &middot; <a href="/legal/garage-master-tcg-privacy.html#en">Privacy policy</a></p>
+</footer>
+
+</section>
+
+<!-- =================================================================== -->
+<!-- FRANÇAIS — volet par défaut, doit rester en DERNIER                 -->
+<!-- =================================================================== -->
+<section id="fr" class="pane" lang="fr">
+
+<header class="top">
+  <a class="brand" href="/apps/garage-master-tcg/">
+    <img class="icon" src="/tcg/icon-168.webp" width="52" height="52" alt="Icône de l’application Garage Master TCG">
+    <span>
+      <span class="brand-name">Garage Master TCG</span>
+      <span class="brand-sub">Test fermé Google Play</span>
+    </span>
+  </a>
+  <nav class="langs" aria-label="Langue">
+    <a class="on" href="#fr" aria-current="true">Français</a>
+    <a href="#en" lang="en">English</a>
+  </nav>
+</header>
+
+<h1>Rejoindre la bêta de Garage Master TCG</h1>
+<p class="lede">Trois étapes, dans l’ordre, avec le compte Google utilisé par le Play
+Store de votre téléphone Android.</p>
+
+<div class="help">
+  <p>Bloqué à l’une des trois étapes ? Écrivez-moi à
+  <a href="mailto:djchocky@gmail.com?subject=B%C3%AAta%20Garage%20Master%20TCG">djchocky@gmail.com</a>,
+  je vous aide à entrer dans le test.</p>
+</div>
+
+<ol class="steps">
+  <li class="step">
+    <h2>Rejoignez le groupe de testeurs</h2>
+    <p>C’est lui qui autorise votre compte à voir le jeu.</p>
+    <a class="btn" href="https://groups.google.com/g/testinggm" rel="noopener">Rejoindre le groupe Google</a>
+  </li>
+  <li class="step">
+    <h2>Acceptez l’invitation au test</h2>
+    <p>Patientez quelques minutes, puis appuyez sur « Devenir testeur ».</p>
+    <a class="btn btn--ghost" href="https://play.google.com/apps/testing/com.chocky.tcg" rel="noopener">Ouvrir la page d’inscription</a>
+  </li>
+  <li class="step">
+    <h2>Installez le jeu</h2>
+    <p>Patientez encore quelques minutes, puis installez Garage Master TCG comme
+    n’importe quelle application et connectez-vous avec votre compte Google au premier
+    lancement.</p>
+    <a class="btn btn--ghost" href="https://play.google.com/store/apps/details?id=com.chocky.tcg" rel="noopener">Ouvrir le jeu sur Google Play</a>
+  </li>
+</ol>
+
+<div class="warn">
+  <p><strong>La boutique de la bêta est la vraie boutique.</strong> Les packs de gemmes
+  et le Pass Premium achetés pendant le test sont réels et débités sur votre compte
+  Google Play, exactement comme dans une application publiée ; le Pass Premium est un
+  abonnement mensuel, à résilier depuis le Play Store. Tout ce qui se gagne gratuitement
+  dans le jeu fonctionne normalement.</p>
+</div>
+
+<div class="more">
+
+  <details>
+    <summary>Ça ne marche pas</summary>
+    <div class="body">
+      <p>Dans l’immense majorité des cas, le compte Google du groupe n’est pas celui du
+      Play Store du téléphone : vérifiez dans Play Store &rsaquo; votre avatar en haut à
+      droite.</p>
+      <p>La prise en compte côté Google prend de quelques minutes à quelques heures. Si
+      l’étape 2 indique que vous n’êtes pas autorisé, l’étape 1 n’est pas encore passée :
+      attendez et rechargez. Si la fiche Play affiche « Élément introuvable », fermez le
+      Play Store, attendez, puis réessayez l’étape 3.</p>
+      <p>Vous pouvez désactiver les e-mails du groupe au moment de l’inscription ; cela ne
+      change rien à votre accès.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Donner votre avis</summary>
+    <div class="body">
+      <p>C’est le but du test. Ce qui nous aide le plus :</p>
+      <ul>
+        <li>l’<strong>ouverture des boosters</strong> : le gratuit toutes les deux heures, le booster de bienvenue, l’animation d’ouverture ;</li>
+        <li>la <strong>collection et les albums</strong>, et la fusion, le recyclage et la fabrication de vos doubles ;</li>
+        <li>le <strong>marché</strong>, vendre et acheter des cartes, et les <strong>échanges</strong> avec un ami ajouté par QR code ;</li>
+        <li>le jeu <strong>en français ou en anglais</strong> : formulations douteuses, textes coupés ;</li>
+        <li>tout <strong>plantage, blocage ou lenteur</strong>, et ce que vous faisiez juste avant.</li>
+      </ul>
+      <p>Écrivez dans le <a href="https://groups.google.com/g/testinggm" rel="noopener">groupe Google</a>
+      ou à <a href="mailto:djchocky@gmail.com?subject=B%C3%AAta%20Garage%20Master%20TCG">djchocky@gmail.com</a>,
+      en indiquant si possible le <strong>modèle de votre téléphone</strong>, la
+      <strong>version d’Android</strong> et une capture d’écran si le problème est
+      visuel.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>C’est quoi Garage Master TCG ?</summary>
+    <div class="body">
+      <p>Un jeu de cartes à collectionner pour les passionnés de voitures. On ouvre des
+      boosters gratuits, on constitue une collection de voitures réelles en six éditions,
+      de la Standard à la Prestige numérotée, on complète des albums par marque, pays et
+      décennie, et on vend ou échange ses doubles avec les autres joueurs — en monnaie
+      virtuelle uniquement. En français et en anglais.</p>
+      <p><a href="/apps/garage-master-tcg/">Présentation du jeu</a></p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Vos données</summary>
+    <div class="body">
+      <p>Vos données sont traitées comme décrit dans la
+      <a href="/legal/garage-master-tcg-privacy.html#fr">politique de confidentialité</a> et les
+      <a href="/legal/garage-master-tcg-terms.html#fr">conditions d’utilisation</a>. Vous pouvez
+      à tout moment <a href="/legal/garage-master-tcg-delete-account.html#fr">demander la
+      suppression de votre compte</a>, ou quitter le test en vous désabonnant du groupe
+      Google et en désinstallant le jeu.</p>
+    </div>
+  </details>
+
+</div>
+
+<footer class="bottom">
+  <p>Chocky Dev &mdash; <a href="mailto:djchocky@gmail.com">djchocky@gmail.com</a>
+  &middot; <a href="https://chocky.dev/">chocky.dev</a>
+  &middot; <a href="/legal/garage-master-tcg-privacy.html#fr">Politique de confidentialité</a></p>
+</footer>
+
+</section>
+
+</main>
+</div>
+</body>
+</html>
