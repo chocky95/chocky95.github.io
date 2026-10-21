@@ -56,7 +56,7 @@ round ends as soon as a player reaches 50 and the lowest score wins, and Jungo,
 a game of combinations. Play solo against bots or online with friends.
 
 [Garage Master TCG](/en/apps/garage-master-tcg/) is a trading card game about
-cars, currently being finalised. Free boosters every four hours, real cars in
+cars, currently being finalised. Free boosters every two hours, real cars in
 six editions from Standard to numbered Prestige, albums to complete, and a
 market to sell or trade your duplicates with other players, in virtual coins
 only. Coming soon to Google Play, then to iPhone.

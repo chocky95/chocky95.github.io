@@ -14,7 +14,7 @@ lead: >-
 translationStatus: authored
 updatedOn: 2026-10-19
 highlights:
-  - Des boosters gratuits qui se rechargent toutes les quatre heures, et un booster de bienvenue offert
+  - Des boosters gratuits qui se rechargent toutes les deux heures, et un booster de bienvenue offert
   - Des voitures réelles, de la citadine à l'hypercar, classées de D à S selon leur rareté
   - Six éditions, de la Standard à la Prestige ; les cartes Or et au-delà sont numérotées
   - Des albums par marque, pays, décennie et catégorie, avec une récompense à la complétion
@@ -68,7 +68,7 @@ faq:
 
 ## Un garage, des boosters, une collection
 
-Tout commence au **Garage**. Un booster gratuit s'y recharge toutes les quatre
+Tout commence au **Garage**. Un booster gratuit s'y recharge toutes les deux
 heures, deux au plus en réserve, et un **booster de bienvenue** vous attend au
 premier lancement avec une carte Or ou mieux garantie. Chaque booster contient
 **six cartes** : cinq cartes ordinaires et une carte rare, jamais Standard. Le
