@@ -84,7 +84,8 @@ export interface AppFacts {
    * Chemin SITE (jamais Play) d'une page d'inscription au test fermé, servie
    * en fichier plat depuis `public/` (ex. `/mojogo/beta.html`). Réservé aux
    * applications `coming-soon` : une application publiée a un lien Play, pas
-   * un lien bêta. La page produit y pose un bouton « Rejoindre la bêta ».
+   * un lien bêta. La page produit y pose un bouton « Rejoindre la bêta », et
+   * la carte de l'accueil un badge « Version bêta » suivi du même bouton.
    * L'audit exige la présence du fichier dans `dist/` (FLAT_PAGES).
    */
   readonly betaUrl: string | null;
@@ -185,12 +186,14 @@ export const APPS: readonly AppFacts[] = [
     // Android d'abord. iOS est prévu dans le code (interfaces auth et achats)
     // mais rien n'est branché tant que le compte Apple Developer n'existe pas.
     comingToIos: true,
-    // Piste de test interne Google Play. À la publication : status 'published',
-    // playUrl = PLAY + 'com.chocky.tcg' et 'play' dans stores.
+    // Test fermé Google Play, inscription par /tcg/beta.html (groupe
+    // testinggm). À la publication : status 'published', betaUrl null,
+    // playUrl = PLAY + 'com.chocky.tcg' et 'play' dans stores — et la page
+    // bêta devient un renvoi vers la fiche Play, comme /mojogo/beta.html.
     status: 'coming-soon',
     playUrl: null,
     appStoreUrl: null,
-    betaUrl: null,
+    betaUrl: '/tcg/beta.html',
     webAppUrl: null,
     stores: [],
     buildTargets: ['android', 'ios'],

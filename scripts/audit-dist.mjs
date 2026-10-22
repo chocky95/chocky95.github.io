@@ -159,8 +159,10 @@ const NAMED_CASES = [
  *                       de Mojogo (2026-10-15). Plus liée depuis le site, elle
  *                       renvoie vers la fiche Play ; gardée ici parce que son
  *                       URL a été partagée aux testeurs et doit survivre.
+ *   /tcg/beta.html    — inscription au test fermé de Garage Master TCG, liée
+ *                       par `betaUrl` depuis l'accueil et la fiche produit.
  */
-const FLAT_PAGES = new Set(['/mojogo/beta.html']);
+const FLAT_PAGES = new Set(['/mojogo/beta.html', '/tcg/beta.html']);
 
 /* ── Utilitaires ─────────────────────────────────────────────────────────── */
 

@@ -112,36 +112,53 @@ const canonical = absolute(locale, '');
       {
         apps.map((app) => (
           <li class="card" style={`--accent: ${app.accent}; --accent-text: ${app.accentText}`}>
-            <a href={href(locale, `apps/${app.slug}`)}>
+            {/*
+              Le lien vers la fiche couvre toute la carte par son ::after, mais
+              les badges restent hors de lui : le bouton bêta est un second lien,
+              et un lien ne peut pas en contenir un autre.
+            */}
+            <a class="main" href={href(locale, `apps/${app.slug}`)}>
               <span class="family">{t(FAMILY_KEY[app.family])}</span>
               <span class="name">{app.name}</span>
-              {/*
-                Où c'est installable aujourd'hui, puis ce qui arrive — dans cet
-                ordre, parce que la première question est « puis-je l'avoir ? ».
-
-                « Bientôt disponible » exclut les deux autres : il dit que rien
-                n'est installable, donc un badge Play à côté se contredirait.
-                Les badges viennent des faits (`stores`, `comingToIos`), jamais
-                d'une liste tenue à la main.
-              */}
-              <span class="badges">
-                {app.status === 'coming-soon' ? (
-                  <span class="badge">{t('apps.comingSoon')}</span>
-                ) : (
-                  <>
-                    {app.stores.includes('play') && (
-                      <span class="badge badge--play">{t('apps.onPlay')}</span>
-                    )}
-                    {app.stores.includes('ios') && (
-                      <span class="badge badge--play">App Store</span>
-                    )}
-                    {app.comingToIos && (
-                      <span class="badge badge--ios">{t('apps.comingToIos')}</span>
-                    )}
-                  </>
-                )}
-              </span>
             </a>
+            {/*
+              Où c'est installable aujourd'hui, puis ce qui arrive — dans cet
+              ordre, parce que la première question est « puis-je l'avoir ? ».
+
+              « Bientôt disponible » exclut les deux autres : il dit que rien
+              n'est installable, donc un badge Play à côté se contredirait. Une
+              bêta ouverte (`betaUrl`) le remplace par « Version bêta » et un
+              bouton vers la page d'inscription (FR, ou son volet #en ailleurs).
+              Les badges viennent des faits (`stores`, `comingToIos`, `betaUrl`),
+              jamais d'une liste tenue à la main.
+            */}
+            <span class="badges">
+              {app.status === 'coming-soon' && app.betaUrl ? (
+                <>
+                  <span class="badge">{t('apps.beta')}</span>
+                  <a
+                    class="badge badge--play beta"
+                    href={locale === DEFAULT_LOCALE ? app.betaUrl : `${app.betaUrl}#en`}
+                  >
+                    {t('cta.joinBeta')}
+                  </a>
+                </>
+              ) : app.status === 'coming-soon' ? (
+                <span class="badge">{t('apps.comingSoon')}</span>
+              ) : (
+                <>
+                  {app.stores.includes('play') && (
+                    <span class="badge badge--play">{t('apps.onPlay')}</span>
+                  )}
+                  {app.stores.includes('ios') && (
+                    <span class="badge badge--play">App Store</span>
+                  )}
+                  {app.comingToIos && (
+                    <span class="badge badge--ios">{t('apps.comingToIos')}</span>
+                  )}
+                </>
+              )}
+            </span>
           </li>
         ))
       }
@@ -208,6 +225,10 @@ const canonical = absolute(locale, '');
     }
   }
   .card {
+    position: relative;
+    display: grid;
+    gap: var(--space-1);
+    padding: var(--space-3);
     border: 1px solid var(--glass-border);
     border-radius: var(--radius-lg);
     background: var(--glass-bg);
@@ -215,12 +236,35 @@ const canonical = absolute(locale, '');
   .card:hover {
     border-color: var(--glass-border-hover);
   }
-  .card a {
+  .card:has(.main:focus-visible) {
+    outline: 2px solid var(--accent-text);
+    outline-offset: 3px;
+  }
+  .main {
     display: grid;
     gap: var(--space-1);
-    padding: var(--space-3);
     text-decoration: none;
     color: inherit;
+  }
+  .main:focus-visible {
+    outline: none;
+  }
+  /* Toute la carte mène à la fiche, badges compris… */
+  .main::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+  }
+  /* …sauf le bouton bêta, posé au-dessus. */
+  .beta {
+    position: relative;
+    z-index: 1;
+    text-decoration: none;
+  }
+  .beta:hover {
+    color: var(--ink-900);
+    filter: brightness(1.1);
   }
   .family {
     color: var(--accent-text, var(--accent));

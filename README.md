@@ -203,6 +203,9 @@ d'exister :
   `public/tcg/invite.html` — liens de parrainage ou d'ami imprimés dans les QR
   codes des applications. Seules pages autorisées à porter un `<script>`
   (redirection par OS), par exception nominative dans `audit-dist.mjs`.
+- `public/tcg/beta.html` — inscription au test fermé de Garage Master TCG (groupe
+  `testinggm`), liée par `betaUrl` depuis la carte de l'accueil et la fiche produit.
+  À la sortie, même sort que celle de Mojogo ci-dessous.
 - `public/mojogo/beta.html` — ancienne inscription au test fermé de Mojogo. Depuis
   la sortie sur Google Play (2026-10-15), elle renvoie vers la fiche Play : son URL
   a été partagée aux testeurs et doit rester valide. Le champ `betaUrl` de

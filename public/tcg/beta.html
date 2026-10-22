@@ -1,15 +1,15 @@
 <!doctype html>
 <!--
   ==========================================================================
-  PAGE D'INSCRIPTION AU TEST FERMÉ DE GARAGE MASTER TCG — PRÉPARÉE, NON LIÉE.
+  PAGE D'INSCRIPTION AU TEST FERMÉ DE GARAGE MASTER TCG — LIÉE DEPUIS LE SITE.
 
   https://chocky.dev/tcg/beta.html
 
-  Aucune page du site n'y mène encore : le champ `betaUrl` de
-  src/data/apps.ts reste à null tant que le test fermé n'est pas ouvert.
-  Pour la lier : betaUrl: '/tcg/beta.html' dans apps.ts ET ajout du chemin
-  dans la liste FLAT_PAGES de scripts/audit-dist.mjs, qui en exige alors la
-  présence dans dist/.
+  Le bouton « Rejoindre la bêta » de la carte Garage Master de l'accueil et
+  des pages /apps/garage-master-tcg/ mène ici (src/data/apps.ts, champ
+  `betaUrl`). Les locales autres que fr pointent sur l'ancre #en. Ne pas
+  renommer ce fichier sans mettre à jour `apps.ts` ET la liste FLAT_PAGES de
+  scripts/audit-dist.mjs, qui en exige la présence dans dist/.
 
   À CONFIRMER avant de diffuser : le lien d'inscription Play de l'étape 2
   (https://play.google.com/apps/testing/com.chocky.tcg, forme standard d'un

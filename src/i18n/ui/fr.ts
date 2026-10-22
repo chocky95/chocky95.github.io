@@ -34,6 +34,7 @@ const fr = {
   'apps.family.business': 'Gestion',
   'apps.family.utility': 'Utilitaires',
   'apps.comingSoon': 'Bientôt disponible',
+  'apps.beta': 'Version bêta',
   'apps.onPlay': 'Sur Google Play',
   'apps.comingToIos': 'Bientôt sur iOS',
   'apps.version': 'Version',
