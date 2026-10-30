@@ -10,7 +10,7 @@ lead: >-
   má hodnotu 40 bodů. Hrajte sami proti čtyřem úrovním botů, od Snadné po
   Expert, nebo online s přáteli.
 translationStatus: authored
-updatedOn: 2026-08-21
+updatedOn: 2026-10-30
 heroAlt: >-
   Papayoo — ilustrace karetní hry s korunovanou sedmičkou a barevnou kostkou
 highlights:
@@ -119,8 +119,8 @@ videí.
 
 ## Na jakých zařízeních hrát?
 
-Aplikace je k dispozici pro **Android**, ve verzi 1.0.178, a přeložena do
-**patnácti jazyků**.
+Aplikace je k dispozici pro **Android**, **iPhone** a **iPad**, ve verzi
+1.0.213, a přeložena do **patnácti jazyků**.
 
 ---
 

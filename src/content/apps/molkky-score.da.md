@@ -2,7 +2,7 @@
 title: 'Mölkky Score: pointtæller og turneringsapp'
 metaDescription: >-
   Tæl mölkky-point uden pen og papir: holdkampe, udslagsturneringer,
-  ELO-rangliste og detaljeret statistik. Gratis til Android.
+  ELO-rangliste og detaljeret statistik. Gratis til Android og iPhone.
 h1: 'Mölkky Score: pointtælleren og turneringsappen til dine mölkky-kampe'
 lead: >-
   Tæl mölkky-point uden pen og papir. Mölkky Score styrer kampe solo eller i
@@ -10,7 +10,7 @@ lead: >-
   arrangerer dine udslagsturneringer og registrerer hvert kast. Gratis, ingen
   registrering.
 translationStatus: authored
-updatedOn: 2026-08-21
+updatedOn: 2026-10-30
 heroAlt: >-
   Mölkky Score — en mölkky-kamp på græsplænen, de 12 nummererede kegler
   opstillet foran kasteren
@@ -181,6 +181,7 @@ bunden af kassen.
 
 ## Hvilke enheder fungerer Mölkky Score på?
 
-Appen er tilgængelig til **Android**, i version 1.0.21. Den er oversat til
-ni sprog, blandt andet **finsk**, **svensk** og **estisk** — mölkky er et
-finsk spil, og det er der, det spilles mest. Lyst, mørkt eller systemtema.
+Appen er tilgængelig til **Android**, **iPhone** og **iPad**, i version 1.0.29.
+Den er oversat til ni sprog, blandt andet **finsk**, **svensk** og **estisk** —
+mölkky er et finsk spil, og det er der, det spilles mest. Lyst, mørkt eller
+systemtema.

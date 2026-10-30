@@ -7,10 +7,9 @@ h1: 'Chocky Dev: przydatne aplikacje i gry'
 lead: >-
   Pięć aplikacji na Androida: dwie gry karciane, licznik
   punktów do Mölkky, skaner dokumentów i księgowość dla osób pracujących na
-  własny rachunek. Wszystkie można pobrać bezpłatnie. Każda robi jedną rzecz i robi
-  ją do końca.
+  własny rachunek. Wszystkie można pobrać bezpłatnie.
 translationStatus: authored
-updatedOn: 2026-10-15
+updatedOn: 2026-10-30
 faq:
   - q: Czy aplikacje Chocky Dev są darmowe?
     a: >-
@@ -27,7 +26,7 @@ faq:
       profilu tylko do gry online; tryby jednoosobowe działają bez konta.
   - q: Na jakich platformach działają te aplikacje?
     a: >-
-      Na Androidzie, przez Google Play. Papayoo i ScanFree są dostępne także w App Store firmy Apple; Mölkky Score i Mojogo czekają na zatwierdzenie. EasyCompta ma dodatkowo darmową wersję przeglądarkową, która działa bez instalowania czegokolwiek.
+      Na Androidzie, przez Google Play. Papayoo, ScanFree i Mölkky Score są dostępne także w App Store firmy Apple; Mojogo czeka na zatwierdzenie. EasyCompta ma dodatkowo darmową wersję przeglądarkową, która działa bez instalowania czegokolwiek.
 ---
 
 ## Trzy aplikacje do grania
@@ -70,6 +69,4 @@ jedyną, która go proponuje, i tylko dla zaawansowanych analiz oraz eksportów 
 prowadzenie księgi przychodów pozostaje darmowe i bez ograniczeń.
 
 Dane zostają na urządzeniu wszędzie, gdzie to możliwe — dotyczy to czterech z
-pięciu aplikacji; piąta opuszcza telefon tylko na potrzeby gry online. A zakres
-każdej pozostaje celowo wąski: licznik punktów nie zamienia się w sieć
-społecznościową, a skaner nie zamienia się w usługę chmurową.
+pięciu aplikacji; piąta opuszcza telefon tylko na potrzeby gry online.

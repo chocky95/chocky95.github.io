@@ -2,7 +2,7 @@
 title: 'Mölkky Score: puntenteller en toernooiapp'
 metaDescription: >-
   Tel je mölkky-punten zonder pen en papier: teamwedstrijden, uitschakelings-
-  toernooien, ELO-ranglijst en gedetailleerde statistieken. Gratis op Android.
+  toernooien, ELO-ranglijst en gedetailleerde statistieken. Gratis op Android en iPhone.
 h1: 'Mölkky Score: de puntenteller en toernooiapp voor je mölkky-partijen'
 lead: >-
   Tel je mölkky-punten zonder pen en papier. Mölkky Score beheert partijen
@@ -10,7 +10,7 @@ lead: >-
   naar 25 toe, organiseert je uitschakelingstoernooien en houdt elke worp
   bij. Gratis, zonder registratie.
 translationStatus: authored
-updatedOn: 2026-08-21
+updatedOn: 2026-10-30
 heroAlt: >-
   Mölkky Score — een partij mölkky op het gras, de 12 genummerde kegels
   opgesteld voor de werper
@@ -185,7 +185,7 @@ onderin de doos.
 
 ## Op welke apparaten werkt Mölkky Score?
 
-De app is beschikbaar op **Android**, in versie 1.0.21. Ze is vertaald in
-negen talen, waaronder **Fins**, **Zweeds** en **Estisch** — mölkky is een
-Fins spel, en daar wordt het het meest gespeeld. Licht, donker of
+De app is beschikbaar op **Android**, **iPhone** en **iPad**, in versie 1.0.29.
+Ze is vertaald in negen talen, waaronder **Fins**, **Zweeds** en **Estisch** —
+mölkky is een Fins spel, en daar wordt het het meest gespeeld. Licht, donker of
 systeemthema.

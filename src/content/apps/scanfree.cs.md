@@ -10,7 +10,7 @@ lead: >-
   předplatné, žádná registrace, ani jedno vyžádané oprávnění Androidu:
   zpracování probíhá celé v telefonu.
 translationStatus: authored
-updatedOn: 2026-08-24
+updatedOn: 2026-10-30
 heroAlt: >-
   ScanFree — představení bezplatné aplikace pro skenování dokumentů
 highlights:
@@ -21,6 +21,7 @@ highlights:
   - Export do vícestránkového PDF nebo JPEG stranu po straně
   - Filtry odstíny šedi, černobílý, kontrast a odstranění stínů
   - Zcela zdarma, bez předplatného či placené služby
+  - 'Rozpoznávání textu (OCR) v telefonu: vyhledávání a kopírování textu skenů'
 faq:
   - q: Je ScanFree skutečně zdarma?
     a: >-
@@ -29,9 +30,11 @@ faq:
       exportu, která si můžete pustit, nebo ne.
   - q: Jaká oprávnění si ScanFree vyžádá?
     a: >-
-      Ani jedno. Skener běží ve vlastním okně služeb Google Play a ukládání
-      prochází výběrem souborů v Androidu, takže aplikace nepotřebuje přístup k
-      fotoaparátu ani k úložišti.
+      V Androidu ani jedno. Skener běží ve vlastním okně služeb Google Play a
+      ukládání prochází výběrem souborů v Androidu, takže aplikace nepotřebuje
+      přístup k fotoaparátu ani k úložišti. Na iPhonu a iPadu iOS vyžaduje, aby
+      si aplikace pro skenování vyžádala přístup k fotoaparátu; aplikace také
+      žádá o povolení reklamního sledování, které můžete odmítnout.
   - q: Opouštějí moje dokumenty telefon?
     a: >-
       Ne. Veškeré zpracování je místní a funguje bez připojení. Dokument opustí
@@ -49,8 +52,9 @@ faq:
 
 ## Skenování bez další instalace
 
-ScanFree používá **skener dokumentů z Google ML Kit**, který už na zařízení je
-prostřednictvím služeb Play. Konkrétně:
+V Androidu ScanFree používá **skener dokumentů z Google ML Kit**, který už na
+zařízení je prostřednictvím služeb Play; na iPhonu a iPadu skener od Applu,
+**VisionKit**, vestavěný do systému. Konkrétně:
 
 - automatické rozpoznání okrajů, s nastavitelným výřezem;
 - srovnání perspektivy — nakřivo pořízená fotografie se vyrovná;
@@ -58,13 +62,16 @@ prostřednictvím služeb Play. Konkrétně:
 
 Zpracování je místní a funguje bez připojení.
 
-## Žádná oprávnění, a to není detail
+## Žádná oprávnění v Androidu, a to není detail
 
-Většina skenovacích aplikací vyžaduje přístup k fotoaparátu a úložišti.
-ScanFree nevyžaduje **žádné**: skener běží v okně služeb Google Play a
+Většina skenovacích aplikací vyžaduje přístup k fotoaparátu a úložišti. V
+Androidu ScanFree nevyžaduje **žádné**: skener běží v okně služeb Google Play a
 ukládání prochází výběrem souborů v Androidu.
 
 To je technický důvod, proč se vaše dokumenty nikam jinam dostat nemohou.
+
+Na iPhonu a iPadu si iOS před skenováním vyžádá přístup k fotoaparátu: je to
+podmínka pro použití skeneru od Applu. Zpracování zůstává i tam stejně místní.
 
 ## Upravit, podepsat, okomentovat
 
@@ -89,6 +96,22 @@ Vaše dokumenty jsou v knihovně s náhledy — jako seznam nebo v malých či v
 dlaždicích. Můžete je přejmenovat, smazat a dokument naskenovaný před měsíci
 znovu otevřít a upravit.
 
+## Najděte dokument podle jeho textu
+
+ScanFree rozpozná text každé stránky (OCR) přímo v telefonu: bez připojení, bez
+serveru a bez příplatku. Rozpoznávání běží na pozadí, jakmile dokument přibude
+do knihovny.
+
+- **vyhledávání** v celé knihovně, v názvech dokumentů i v jejich textu, bez
+  ohledu na velká a malá písmena — více slov najednou, v libovolném pořadí, s
+  úryvkem, který ukáže, kde se shoda našla;
+- **zobrazení textu** stránky, jeho označení a **zkopírování**, po stránkách
+  nebo celé najednou;
+- nové rozpoznání textu stránky po oříznutí.
+
+Exportované PDF zůstává obrázkem: rozpoznaný text slouží k hledání a kopírování
+v aplikaci.
+
 ## Exportovat a sdílet
 
 - **Vícestránkové PDF**, přímo ke sdílení nebo k uložení přes výběr souborů v
@@ -105,5 +128,6 @@ není omezená a neexistuje placená verze, která by PDF odemkla.
 
 ## Na jakých zařízeních?
 
-**Android**, ve verzi 1.0.7, přeložený do **dvanácti jazyků**. Čeština mezi nimi
-ještě není, takže rozhraní aplikace se zobrazí v angličtině.
+**Android**, **iPhone** a **iPad**, ve verzi 1.0.21, přeložený do **dvanácti
+jazyků**. Čeština mezi nimi ještě není, takže rozhraní aplikace se zobrazí v
+angličtině.

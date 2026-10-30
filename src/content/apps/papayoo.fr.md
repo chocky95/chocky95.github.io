@@ -10,7 +10,7 @@ lead: >-
   40 à lui seul. Jouez en solo contre quatre niveaux de bots, du Facile à
   l'Expert, ou en ligne avec vos amis.
 translationStatus: authored
-updatedOn: 2026-08-20
+updatedOn: 2026-10-30
 heroAlt: >-
   Papayoo — illustration du jeu de cartes avec le 7 couronné et le dé des
   couleurs
@@ -123,8 +123,8 @@ Un **achat unique**, pas un abonnement :
 
 ## Sur quels appareils jouer ?
 
-L'application est disponible sur **Android**, en version 1.0.178, et traduite en
-**quinze langues**.
+L'application est disponible sur **Android**, **iPhone** et **iPad**, en version
+1.0.213, et traduite en **quinze langues**.
 
 ---
 

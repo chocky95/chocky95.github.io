@@ -2,7 +2,7 @@
 title: 'Mölkky Score: numărător de puncte și turnee'
 metaDescription: >-
   Numără punctele la mölkky fără hârtie și pix: partide pe echipe, turnee cu
-  eliminare directă, clasament ELO și statistici detaliate. Gratuit pe Android.
+  eliminare directă, clasament ELO și statistici detaliate. Gratuit pe Android și iPhone.
 h1: 'Mölkky Score: numărătorul de puncte și aplicația de turnee pentru partidele tale de mölkky'
 lead: >-
   Numără punctele la mölkky fără hârtie și pix. Mölkky Score gestionează
@@ -10,7 +10,7 @@ lead: >-
   și revenirea la 25, organizează turneele tale cu eliminare directă și
   înregistrează fiecare lovitură. Gratuit, fără înregistrare.
 translationStatus: authored
-updatedOn: 2026-08-21
+updatedOn: 2026-10-30
 heroAlt: >-
   Mölkky Score — o partidă de mölkky pe gazon, cele 12 popice numerotate
   alineate în fața celui care lovește
@@ -184,7 +184,7 @@ să cauți regulamentul în fundul cutiei.
 
 ## Pe ce dispozitive funcționează Mölkky Score?
 
-Aplicația este disponibilă pe **Android**, în versiunea 1.0.21. Este
-tradusă în nouă limbi, printre care **finlandeza**, **suedeza** și
-**estona** — mölkky este un joc finlandez, și acolo se joacă cel mai mult.
-Temă clară, întunecată sau după sistem.
+Aplicația este disponibilă pe **Android**, **iPhone** și **iPad**, în versiunea
+1.0.29. Este tradusă în nouă limbi, printre care **finlandeza**, **suedeza** și
+**estona** — mölkky este un joc finlandez, și acolo se joacă cel mai mult. Temă
+clară, întunecată sau după sistem.

@@ -10,7 +10,7 @@ lead: >-
   mingit tellimust, registreerumist ega ühtegi küsitud Androidi luba: töötlus
   toimub täielikult telefonis.
 translationStatus: authored
-updatedOn: 2026-08-24
+updatedOn: 2026-10-30
 heroAlt: >-
   ScanFree — tutvustuspilt tasuta rakendusest dokumentide skannimiseks
 highlights:
@@ -21,6 +21,7 @@ highlights:
   - Mitmeleheküljeline PDF-eksport või JPEG lehekülje haaval
   - Halltoonide, must-valge, kontrasti ja varjude eemaldamise filtrid
   - Täiesti tasuta, ilma tellimuse või tasulise teenuseta
+  - 'Teksti tuvastamine (OCR) telefonis: otsi ja kopeeri oma skannide teksti'
 faq:
   - q: Kas ScanFree on tõesti tasuta?
     a: >-
@@ -29,9 +30,11 @@ faq:
       tasuvideotega, mida võid vaadata või mitte.
   - q: Milliseid lube ScanFree küsib?
     a: >-
-      Mitte ühtegi. Skanner töötab Google Play teenuste enda vaates ja
+      Androidis mitte ühtegi. Skanner töötab Google Play teenuste enda vaates ja
       salvestamine käib Androidi failivalija kaudu, seega ei vaja rakendus
-      kaamera ega salvestusruumi õigust.
+      kaamera ega salvestusruumi õigust. iPhone'is ja iPadis nõuab iOS, et
+      rakendus küsiks skannimiseks ligipääsu kaamerale; lisaks küsib rakendus
+      reklaamijälgimise luba, millest võid keelduda.
   - q: Kas mu dokumendid lahkuvad telefonist?
     a: >-
       Ei. Kogu töötlus on kohalik ja toimib võrguta. Dokument lahkub telefonist
@@ -50,8 +53,9 @@ faq:
 
 ## Skannimine ilma midagi juurde paigaldamata
 
-ScanFree kasutab **Google ML Kiti dokumendiskannerit**, mis on Play teenuste
-kaudu juba seadmes olemas. Praktikas:
+Androidis kasutab ScanFree **Google ML Kiti dokumendiskannerit**, mis on Play
+teenuste kaudu juba seadmes olemas; iPhone'is ja iPadis Apple'i süsteemi
+sisseehitatud skannerit **VisionKit**. Praktikas:
 
 - servade automaatne tuvastus, kärpimine reguleeritav;
 - perspektiivi õgvendamine — viltu tehtud foto sirgeks aetud;
@@ -59,13 +63,16 @@ kaudu juba seadmes olemas. Praktikas:
 
 Töötlus on kohalik ja toimib võrguta.
 
-## Ei ühtegi luba, ja see pole pisiasi
+## Androidis ei ühtegi luba, ja see pole pisiasi
 
 Enamik skannimisrakendusi nõuab ligipääsu kaamerale ja salvestusruumile.
-ScanFree ei nõua **ühtegi**: skanner töötab Google Play teenuste vaates ja
-salvestamine käib Androidi failivalija kaudu.
+Androidis ei nõua ScanFree **ühtegi**: skanner töötab Google Play teenuste
+vaates ja salvestamine käib Androidi failivalija kaudu.
 
 See on tehniline põhjus, miks sinu dokumendid ei saagi kuhugi mujale jõuda.
+
+iPhone'is ja iPadis küsib iOS enne skannimist ligipääsu kaamerale: see on
+Apple'i skanneri kasutamise tingimus. Töötlus jääb ka seal kohalikuks.
 
 ## Muuda, allkirjasta, kommenteeri
 
@@ -90,6 +97,21 @@ Sinu dokumendid on raamatukogus koos eelvaatepiltidega — loendina või
 väikeste või suurte plaatidena. Sa saad neid ümber nimetada, kustutada ja
 kuude eest skannitud dokumendi uuesti muutmiseks avada.
 
+## Leia dokument selle teksti järgi
+
+ScanFree tuvastab iga lehe teksti (OCR) otse telefonis: ilma ühenduse, serveri
+ja lisatasuta. Tuvastus käib taustal kohe, kui dokument raamatukokku jõuab.
+
+- **otsing** kogu raamatukogust, nii dokumendi nime kui ka teksti järgi, suur-
+  ja väiketähti arvestamata — mitu sõna korraga, suvalises järjekorras, koos
+  väljavõttega, mis näitab, kust vaste leiti;
+- lehe **teksti vaatamine**, valimine ja **kopeerimine**, leht lehe haaval või
+  kõik korraga;
+- lehe teksti uuesti tuvastamine pärast kärpimist.
+
+Eksporditud PDF jääb pildiks: tuvastatud tekst on mõeldud otsimiseks ja
+kopeerimiseks rakenduses.
+
 ## Ekspordi ja jaga
 
 - **Mitmeleheküljeline PDF**, otse jagatav või Androidi failivalija kaudu
@@ -106,5 +128,6 @@ käibki: funktsiooni pole piiratud ja pole tasulist versiooni, mis PDF-i avaks.
 
 ## Millistel seadmetel?
 
-**Android**, versioon 1.0.7, tõlgitud **kaheteistkümnesse keelde**. Eesti keelt
-nende hulgas veel pole, seega kuvatakse rakenduse liides inglise keeles.
+**Android**, **iPhone** ja **iPad**, versioon 1.0.21, tõlgitud
+**kaheteistkümnesse keelde**. Eesti keelt nende hulgas veel pole, seega
+kuvatakse rakenduse liides inglise keeles.

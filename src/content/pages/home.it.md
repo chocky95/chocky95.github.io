@@ -7,10 +7,9 @@ h1: 'Chocky Dev: app utili e giochi'
 lead: >-
   Cinque applicazioni Android: due giochi di carte, un
   contapunti per il Mölkky, uno scanner di documenti e una contabilità per chi
-  lavora in autonomia. Si scaricano tutte gratuitamente. Ognuna fa una cosa e la
-  fa fino in fondo.
+  lavora in autonomia. Si scaricano tutte gratuitamente.
 translationStatus: authored
-updatedOn: 2026-10-15
+updatedOn: 2026-10-30
 faq:
   - q: Le app di Chocky Dev sono gratuite?
     a: >-
@@ -29,7 +28,7 @@ faq:
       funzionano senza account.
   - q: Su quali piattaforme funzionano queste applicazioni?
     a: >-
-      Su Android, tramite Google Play. Papayoo e ScanFree sono disponibili anche sull'App Store di Apple; Mölkky Score e Mojogo sono in attesa di approvazione. EasyCompta ha inoltre una versione web gratuita che gira nel browser senza installare nulla.
+      Su Android, tramite Google Play. Papayoo, ScanFree e Mölkky Score sono disponibili anche sull'App Store di Apple; Mojogo è in attesa di approvazione. EasyCompta ha inoltre una versione web gratuita che gira nel browser senza installare nulla.
 ---
 
 ## Tre app per giocare
@@ -76,5 +75,4 @@ esportazioni — tenere il libro delle entrate resta gratuito e senza limiti.
 
 I dati restano sul dispositivo ogni volta che è possibile — il che vale per
 quattro applicazioni su cinque; la quinta esce dal telefono solo per le partite
-online. E il perimetro di ognuna resta volutamente stretto: un contapunti non
-diventa un social network, e uno scanner non diventa un servizio cloud.
+online.

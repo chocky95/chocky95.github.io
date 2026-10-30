@@ -10,7 +10,7 @@ lead: >-
   subscription, no sign-up, no Android permission requested: processing
   happens entirely on the phone.
 translationStatus: authored
-updatedOn: 2026-08-20
+updatedOn: 2026-10-30
 heroAlt: >-
   ScanFree — promotional visual for the free document scanning app
 screenshotAlt:
@@ -27,6 +27,7 @@ highlights:
   - Multi-page PDF export or page-by-page JPEG
   - Grayscale, black and white, contrast and shadow-removal filters
   - Completely free, no subscription and no paid tier
+  - 'On-device text recognition (OCR): search and copy the text of your scans'
 faq:
   - q: Is ScanFree really free?
     a: >-
@@ -35,9 +36,11 @@ faq:
       you can watch or skip.
   - q: What permissions does the app request?
     a: >-
-      None. The scanner runs inside an activity provided by Google Play
-      Services, and saving goes through the Android file picker. ScanFree
-      therefore needs neither camera access nor storage access.
+      On Android, none. The scanner runs inside an activity provided by Google
+      Play Services, and saving goes through the Android file picker. ScanFree
+      therefore needs neither camera access nor storage access. On iPhone and
+      iPad, iOS requires asking for camera access to scan; the app also asks for
+      ad tracking permission, which you can decline.
   - q: Are my documents sent to a server?
     a: >-
       No. All processing happens on the phone: edge detection, cropping,
@@ -62,14 +65,16 @@ faq:
       page.
   - q: Which platforms is ScanFree available on?
     a: >-
-      Android only, since the app relies on Google ML Kit's document scanner,
-      which is specific to that platform.
+      Android, iPhone and iPad. The document scanner is Google ML Kit's on
+      Android and Apple's, VisionKit, on iPhone and iPad: either way, processing
+      happens on the device.
 ---
 
 ## Scan, without installing anything else
 
-ScanFree uses **Google ML Kit's document scanner**, already present on the
-device via Play Services. In practice:
+On Android, ScanFree uses **Google ML Kit's document scanner**, already present
+on the device via Play Services; on iPhone and iPad, it uses Apple's,
+**VisionKit**, built into the system. In practice:
 
 - automatic edge detection, with adjustable cropping;
 - perspective straightening — a photo taken at an angle comes out flat;
@@ -77,13 +82,16 @@ device via Play Services. In practice:
 
 Processing is local and works offline.
 
-## Zero permissions, and it's not a small detail
+## Zero permissions on Android, and it's not a small detail
 
-Most scanning apps ask for camera and storage access. ScanFree asks for
-**none**: the scanner runs inside a Google Play Services activity, and
+Most scanning apps ask for camera and storage access. On Android, ScanFree asks
+for **none**: the scanner runs inside a Google Play Services activity, and
 saving goes through the Android file picker.
 
 That's the technical reason your documents can't end up anywhere else.
+
+On iPhone and iPad, iOS asks for camera access before scanning: that is the
+condition for using Apple's scanner. Processing stays just as local there.
 
 ## Edit, sign, annotate
 
@@ -108,6 +116,22 @@ Your documents live in a library, with thumbnails — as a list, or in small or
 large tiles. You rename them, delete them, and can reopen a document scanned
 months ago to edit it.
 
+## Find a document by its text
+
+ScanFree recognizes the text on every page (OCR) right on the phone: no
+connection, no server, no extra charge. Recognition runs in the background as
+soon as a document enters the library.
+
+- **search** the whole library, by document name and by text, ignoring capitals
+  and accents — several words at once, in any order, with a snippet showing
+  where the match was found;
+- **view the text** of a page, select it and **copy** it, one page at a time or
+  all at once;
+- run recognition again on a page after cropping it.
+
+The exported PDF stays an image: the recognized text is for searching and
+copying inside the app.
+
 ## Export and share
 
 - **Multi-page PDF**, shared directly or saved via the Android file picker
@@ -124,5 +148,6 @@ the PDF.
 
 ## Which devices?
 
-**Android**, at version 1.0.7, translated into **twelve languages** — and the
-screenshots on this page change with the language you're reading.
+**Android**, **iPhone** and **iPad**, at version 1.0.21, translated into **twelve
+languages** — and the screenshots on this page change with the language you're
+reading.

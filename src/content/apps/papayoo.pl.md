@@ -10,7 +10,7 @@ lead: >-
   punktów. Graj solo przeciwko czterem poziomom trudności botów, od Łatwego
   po Eksperta, albo online ze znajomymi.
 translationStatus: authored
-updatedOn: 2026-08-20
+updatedOn: 2026-10-30
 heroAlt: >-
   Papayoo — ilustracja gry karcianej z ukoronowaną siódemką i kostką kolorów
 highlights:
@@ -119,8 +119,8 @@ lub dzięki nagradzanym filmom.
 
 ## Na jakich urządzeniach można grać?
 
-Aplikacja jest dostępna na **Androida**, w wersji 1.0.178, i przetłumaczona
-na **piętnaście języków**.
+Aplikacja jest dostępna na **Androida**, **iPhone'a** i **iPada**, w wersji
+1.0.213, i przetłumaczona na **piętnaście języków**.
 
 ---
 

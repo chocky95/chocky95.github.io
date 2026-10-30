@@ -2,7 +2,7 @@
 title: 'Mölkky Score: conta punti e torneo'
 metaDescription: >-
   Conta i punti a mölkky senza carta e penna: partite a squadre, torneo a
-  eliminazione diretta, classifica ELO e statistiche dettagliate. Gratis su Android.
+  eliminazione diretta, classifica ELO e statistiche dettagliate. Gratis su Android e iPhone.
 h1: 'Mölkky Score: il conta punti e l''app torneo per le tue partite di mölkky'
 lead: >-
   Conta i punti a mölkky senza carta e penna. Mölkky Score gestisce le
@@ -10,7 +10,7 @@ lead: >-
   e il ritorno a 25, organizza i tuoi torneo a eliminazione diretta e registra
   ogni lancio. Gratis, senza registrazione.
 translationStatus: authored
-updatedOn: 2026-08-21
+updatedOn: 2026-10-30
 heroAlt: >-
   Mölkky Score — una partita di mölkky sul prato, i 12 birilli numerati
   allineati davanti al lanciatore
@@ -182,7 +182,7 @@ da cercare in fondo alla scatola.
 
 ## Su quali dispositivi funziona Mölkky Score?
 
-L'app è disponibile su **Android**, in versione 1.0.21. È tradotta in nove
-lingue, tra cui il **finlandese**, lo **svedese** e l'**estone** — il mölkky
-è un gioco finlandese, ed è lì che si gioca più spesso. Tema chiaro, scuro
-o secondo il sistema.
+L'app è disponibile su **Android**, **iPhone** e **iPad**, in versione 1.0.29. È
+tradotta in nove lingue, tra cui il **finlandese**, lo **svedese** e
+l'**estone** — il mölkky è un gioco finlandese, ed è lì che si gioca più spesso.
+Tema chiaro, scuro o secondo il sistema.

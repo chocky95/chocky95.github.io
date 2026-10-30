@@ -2,7 +2,7 @@
 title: 'Mölkky Score: licznik punktów i turniejów'
 metaDescription: >-
   Licz punkty w mölkky bez papieru i długopisu: gry zespołowe, turnieje
-  pucharowe, ranking ELO i szczegółowe statystyki. Bezpłatnie na Androida.
+  pucharowe, ranking ELO i szczegółowe statystyki. Bezpłatnie na Androida i iPhone'a.
 h1: 'Mölkky Score: licznik punktów i aplikacja turniejowa do Twoich gier w mölkky'
 lead: >-
   Licz punkty w mölkky bez papieru i długopisu. Mölkky Score obsługuje gry
@@ -10,7 +10,7 @@ lead: >-
   powrót do 25, organizuje Twoje turnieje pucharowe i zapisuje każdy rzut.
   Bezpłatnie, bez rejestracji.
 translationStatus: authored
-updatedOn: 2026-08-21
+updatedOn: 2026-10-30
 heroAlt: >-
   Mölkky Score — partia mölkky na trawie, 12 numerowanych kręgli ustawionych
   przed rzucającym
@@ -183,7 +183,7 @@ dnie pudełka.
 
 ## Na jakich urządzeniach działa Mölkky Score?
 
-Aplikacja jest dostępna na **Androida**, w wersji 1.0.21. Jest
-przetłumaczona na dziewięć języków, w tym **fiński**, **szwedzki** i
-**estoński** — mölkky jest fińską grą i tam gra się w nią najczęściej.
-Motyw jasny, ciemny lub systemowy.
+Aplikacja jest dostępna na **Androida**, **iPhone'a** i **iPada**, w wersji
+1.0.29. Jest przetłumaczona na dziewięć języków, w tym **fiński**, **szwedzki**
+i **estoński** — mölkky jest fińską grą i tam gra się w nią najczęściej. Motyw
+jasny, ciemny lub systemowy.

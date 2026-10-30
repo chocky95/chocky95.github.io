@@ -7,9 +7,9 @@ h1: 'Chocky Dev: hyödyllisiä sovelluksia ja pelejä'
 lead: >-
   Viisi Android-sovellusta: kaksi korttipeliä, mölkyn
   pisteenlaskurin, dokumenttiskannerin ja kirjanpidon yksinyrittäjälle. Kaikki
-  ovat ilmaisia ladata. Jokainen tekee yhden asian ja tekee sen loppuun asti.
+  ovat ilmaisia ladata.
 translationStatus: authored
-updatedOn: 2026-10-15
+updatedOn: 2026-10-30
 faq:
   - q: Ovatko Chocky Devin sovellukset ilmaisia?
     a: >-
@@ -26,7 +26,7 @@ faq:
       tarvitsevat profiilin vain verkkopeleihin; soolotilat toimivat ilman tiliä.
   - q: Millä laitteilla nämä sovellukset toimivat?
     a: >-
-      Androidilla, Google Playn kautta. Papayoo ja ScanFree löytyvät myös Applen App Storesta; Mölkky Score ja Mojogo odottavat hyväksyntää. EasyComptasta on lisäksi ilmainen verkkoversio, joka toimii selaimessa ilman asennusta.
+      Androidilla, Google Playn kautta. Papayoo, ScanFree ja Mölkky Score löytyvät myös Applen App Storesta; Mojogo odottaa hyväksyntää. EasyComptasta on lisäksi ilmainen verkkoversio, joka toimii selaimessa ilman asennusta.
 ---
 
 ## Kolme sovellusta pelaamiseen
@@ -70,6 +70,4 @@ on ainoa, joka tarjoaa tilauksen, ja vain edistyneisiin analyyseihin ja
 vienteihin — tulokirjan pitäminen pysyy ilmaisena ja rajoittamattomana.
 
 Tiedot pysyvät laitteella aina kun se on mahdollista — mikä koskee neljää
-viidestä sovelluksesta; viides poistuu puhelimesta vain verkkopelien vuoksi. Ja
-jokaisen sovelluksen laajuus pysyy tarkoituksella suppeana: pisteenlaskurista ei
-tule sosiaalista verkostoa eikä skannerista pilvipalvelua.
+viidestä sovelluksesta; viides poistuu puhelimesta vain verkkopelien vuoksi.

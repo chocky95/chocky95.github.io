@@ -11,7 +11,7 @@ lead: >-
   livelli di difficoltà dei bot, da Facile a Esperto, oppure online con i
   tuoi amici.
 translationStatus: authored
-updatedOn: 2026-08-20
+updatedOn: 2026-10-30
 heroAlt: >-
   Papayoo — illustrazione del gioco di carte con il 7 incoronato e il dado
   dei colori
@@ -124,8 +124,8 @@ Un **acquisto unico**, non un abbonamento:
 
 ## Su quali dispositivi giocare?
 
-L'app è disponibile su **Android**, alla versione 1.0.178, e tradotta in
-**quindici lingue**.
+L'app è disponibile su **Android**, **iPhone** e **iPad**, alla versione
+1.0.213, e tradotta in **quindici lingue**.
 
 ---
 

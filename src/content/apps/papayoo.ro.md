@@ -11,7 +11,7 @@ lead: >-
   niveluri de dificultate ale boților, de la Ușor la Expert, sau online cu
   prietenii tăi.
 translationStatus: authored
-updatedOn: 2026-08-20
+updatedOn: 2026-10-30
 heroAlt: >-
   Papayoo — ilustrație a jocului de cărți cu 7-ul încoronat și zarul culorilor
 highlights:
@@ -124,8 +124,8 @@ O **achiziție unică**, nu un abonament:
 
 ## Pe ce dispozitive se poate juca?
 
-Aplicația este disponibilă pe **Android**, în versiunea 1.0.178, și
-tradusă în **cincisprezece limbi**.
+Aplicația este disponibilă pe **Android**, **iPhone** și **iPad**, în versiunea
+1.0.213, și tradusă în **cincisprezece limbi**.
 
 ---
 

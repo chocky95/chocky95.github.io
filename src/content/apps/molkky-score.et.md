@@ -2,7 +2,7 @@
 title: 'Mölkky Score: punktiarvestaja ja turniirirakendus'
 metaDescription: >-
   Loe mölkky punkte ilma pastaka ja paberita: meeskonnamängud, väljalangemisega
-  turniirid, ELO-reiting ja täpne statistika. Tasuta Androidile.
+  turniirid, ELO-reiting ja täpne statistika. Tasuta Androidile ja iPhone'ile.
 h1: 'Mölkky Score: punktiarvestaja ja turniirirakendus sinu mölkky-mängudele'
 lead: >-
   Loe mölkky punkte ilma pastaka ja paberita. Mölkky Score haldab üksi- ja
@@ -10,7 +10,7 @@ lead: >-
   25-le, korraldab väljalangemisturniire ning salvestab iga viske. Tasuta,
   registreerimist ei ole vaja.
 translationStatus: authored
-updatedOn: 2026-08-20
+updatedOn: 2026-10-30
 heroAlt: >-
   Mölkky Score — mölkky mäng murul, 12 numbriga palki visataja ees reas
 diagramAlt:
@@ -176,7 +176,7 @@ reegel, 50 ületamine. Enam pole vaja karbi põhjast juhendit otsida.
 
 ## Millistel seadmetel Mölkky Score töötab?
 
-Rakendus on saadaval **Androidile**, versioonis 1.0.21. See on tõlgitud
-üheksasse keelde, sealhulgas **soome**, **rootsi** ja **eesti** keelde —
-mölkky on Soome mäng ja seal seda kõige rohkem mängitaksegi. Hele, tume või
-süsteemipõhine teema.
+Rakendus on saadaval **Androidile**, **iPhone'ile** ja **iPadile**, versioonis
+1.0.29. See on tõlgitud üheksasse keelde, sealhulgas **soome**, **rootsi** ja
+**eesti** keelde — mölkky on Soome mäng ja seal seda kõige rohkem mängitaksegi.
+Hele, tume või süsteemipõhine teema.

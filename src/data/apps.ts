@@ -124,7 +124,7 @@ export const APPS: readonly AppFacts[] = [
     slug: 'papayoo',
     name: 'Papayoo',
     packageId: 'com.chocky.papayoo',
-    version: '1.0.178',
+    version: '1.0.213',
     accent: '#0D4167',
     // Le bleu de marque ne donne que 1.80:1 sur l'encre : illisible en texte.
     // Éclairci en conservant la teinte (205°) -> 6.14:1.
@@ -205,7 +205,7 @@ export const APPS: readonly AppFacts[] = [
     slug: 'scanfree',
     name: 'ScanFree',
     packageId: 'com.chocky.scanfree',
-    version: '1.0.7',
+    version: '1.0.21',
     accent: '#00696D',
     // Le teal de marque ne donne que 2.97:1 sur l'encre : sous le seuil.
     // Éclairci en conservant la teinte (182°) -> 6.40:1.
@@ -231,21 +231,20 @@ export const APPS: readonly AppFacts[] = [
     slug: 'molkky-score',
     name: 'Mölkky Score',
     packageId: 'com.chocky.molkkyscore',
-    version: '1.0.21',
+    version: '1.0.29',
     accent: '#E69500',
     accentText: '#E69500', // 7.93:1 sur le fond : conforme tel quel
     family: 'game',
     schemaCategory: 'GameApplication',
     nativeLocales: ['fr', 'en', 'de', 'fi', 'ja', 'es', 'sv', 'et', 'cs'],
-    // En attente de validation Apple (2026-10-05). À la validation : repasser à
-    // false, ajouter 'ios' aux stores et appStoreUrl = APP_STORE + '6818510069'.
-    comingToIos: true,
+    // Validée par Apple le 2026-10-30 (iPhone et iPad).
+    comingToIos: false,
     status: 'published',
     playUrl: PLAY + 'com.chocky.molkkyscore',
-    appStoreUrl: null,
+    appStoreUrl: APP_STORE + '6818510069',
     betaUrl: null,
     webAppUrl: null,
-    stores: ['play'],
+    stores: ['play', 'ios'],
     buildTargets: ALL_PLATFORMS,
     // Aucune capture store : on utilise les schémas de placement des quilles,
     // qui sont un atout SEO réel (absents de la fiche Play).

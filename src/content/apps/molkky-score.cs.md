@@ -2,7 +2,7 @@
 title: 'Mölkky Score: počítadlo bodů a turnajová aplikace'
 metaDescription: >-
   Počítejte body v mölkky bez papíru a tužky: hry v týmech, vyřazovací
-  turnaje, žebříček ELO a podrobné statistiky. Zdarma pro Android.
+  turnaje, žebříček ELO a podrobné statistiky. Zdarma pro Android a iPhone.
 h1: 'Mölkky Score: počítadlo bodů a turnajová aplikace pro vaše hry mölkky'
 lead: >-
   Počítejte body v mölkky bez papíru a tužky. Mölkky Score zvládá hry
@@ -10,7 +10,7 @@ lead: >-
   organizuje vaše vyřazovací turnaje a zaznamenává každý hod. Zdarma, bez
   registrace.
 translationStatus: authored
-updatedOn: 2026-08-20
+updatedOn: 2026-10-30
 heroAlt: >-
   Mölkky Score — hra mölkky na trávníku, 12 očíslovaných kuželek srovnaných
   před hráčem
@@ -178,6 +178,7 @@ pravidlo tří chyb, překročení 50. Už žádné hledání návodu na dně kr
 
 ## Na jakých zařízeních Mölkky Score funguje?
 
-Aplikace je dostupná pro **Android**, ve verzi 1.0.21. Je přeložena do devíti
-jazyků, včetně **finštiny**, **švédštiny** a **estonštiny** — mölkky je
-finská hra a právě tam se hraje nejvíc. Světlý, tmavý nebo systémový motiv.
+Aplikace je dostupná pro **Android**, **iPhone** a **iPad**, ve verzi 1.0.29. Je
+přeložena do devíti jazyků, včetně **finštiny**, **švédštiny** a **estonštiny**
+— mölkky je finská hra a právě tam se hraje nejvíc. Světlý, tmavý nebo systémový
+motiv.

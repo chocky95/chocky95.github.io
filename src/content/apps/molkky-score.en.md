@@ -2,7 +2,7 @@
 title: 'Mölkky Score: score counter and tournament app'
 metaDescription: >-
   Keep score at Mölkky without pen and paper: team games, knockout
-  tournaments, ELO ranking and detailed stats. Free on Android.
+  tournaments, ELO ranking and detailed stats. Free on Android and iPhone.
 h1: 'Mölkky Score: the score counter and tournament app for your Mölkky games'
 lead: >-
   Keep score at Mölkky without pen and paper. Mölkky Score handles solo and
@@ -10,7 +10,7 @@ lead: >-
   automatically, runs your knockout tournaments, and logs every throw. Free,
   no sign-up required.
 translationStatus: authored
-updatedOn: 2026-08-20
+updatedOn: 2026-10-30
 heroAlt: >-
   Mölkky Score — a game of Mölkky on the lawn, the 12 numbered pins lined up
   in front of the thrower
@@ -178,7 +178,7 @@ rule, going over 50. No more digging through the box for the rulebook.
 
 ## What devices does Mölkky Score run on?
 
-The app is available on **Android**, at version 1.0.21. It's translated into
-nine languages, including **Finnish**, **Swedish** and **Estonian** — Mölkky
-is a Finnish game, and that's where it's played the most. Light, dark, or
-system theme.
+The app is available on **Android**, **iPhone** and **iPad**, at version 1.0.29.
+It's translated into nine languages, including **Finnish**, **Swedish** and
+**Estonian** — Mölkky is a Finnish game, and that's where it's played the most.
+Light, dark, or system theme.

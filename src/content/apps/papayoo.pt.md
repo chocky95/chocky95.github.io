@@ -10,7 +10,7 @@ lead: >-
   sozinho vale 40 pontos. Jogue sozinho contra quatro níveis de bots, do
   Fácil ao Expert, ou online com os seus amigos.
 translationStatus: authored
-updatedOn: 2026-08-20
+updatedOn: 2026-10-30
 heroAlt: >-
   Papayoo — ilustração do jogo de cartas com o 7 coroado e o dado das cores
 highlights:
@@ -123,8 +123,8 @@ Uma **compra única**, não uma subscrição:
 
 ## Em que dispositivos jogar?
 
-A aplicação está disponível em **Android**, na versão 1.0.178, e traduzida
-em **quinze idiomas**.
+A aplicação está disponível em **Android**, **iPhone** e **iPad**, na versão
+1.0.213, e traduzida em **quinze idiomas**.
 
 ---
 

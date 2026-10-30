@@ -10,7 +10,7 @@ lead: >-
   joka on yksinään 40 pisteen arvoinen. Pelaa yksin neljää bottitasoa
   vastaan, Helposta Expertiin, tai verkossa kavereiden kanssa.
 translationStatus: authored
-updatedOn: 2026-08-21
+updatedOn: 2026-10-30
 heroAlt: >-
   Papayoo — kuvitus korttipelistä kruunatulla seiskalla ja värinoppalla
 highlights:
@@ -119,8 +119,8 @@ tai palkituista videoista.
 
 ## Millä laitteilla peliä voi pelata?
 
-Sovellus on saatavilla **Androidille**, versiona 1.0.178, ja käännetty
-**viidelletoista kielelle**.
+Sovellus on saatavilla **Androidille**, **iPhonelle** ja **iPadille**, versiona
+1.0.213, ja käännetty **viidelletoista kielelle**.
 
 ---
 

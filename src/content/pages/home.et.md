@@ -7,9 +7,9 @@ h1: 'Chocky Dev: kasulikud rakendused ja mängud'
 lead: >-
   Viis Android-rakendust: kaks kaardimängu, mölkky punktilugeja,
   dokumendiskanneri ja raamatupidamise füüsilisest isikust ettevõtjale. Kõiki
-  saab tasuta alla laadida. Igaüks teeb ühte asja ja teeb selle lõpuni.
+  saab tasuta alla laadida.
 translationStatus: authored
-updatedOn: 2026-10-15
+updatedOn: 2026-10-30
 faq:
   - q: Kas Chocky Devi rakendused on tasuta?
     a: >-
@@ -27,7 +27,7 @@ faq:
       kontota.
   - q: Millistel platvormidel need rakendused töötavad?
     a: >-
-      Androidis, Google Play kaudu. Papayoo ja ScanFree on saadaval ka Apple'i App Store'is; Mölkky Score ja Mojogo ootavad kinnitamist. EasyComptal on lisaks tasuta veebiversioon, mis töötab brauseris ilma midagi paigaldamata.
+      Androidis, Google Play kaudu. Papayoo, ScanFree ja Mölkky Score on saadaval ka Apple'i App Store'is; Mojogo ootab kinnitamist. EasyComptal on lisaks tasuta veebiversioon, mis töötab brauseris ilma midagi paigaldamata.
 ---
 
 ## Kolm rakendust mängimiseks
@@ -70,6 +70,4 @@ tellimust pakub, ja seda üksnes täiustatud analüüside ja eksportide jaoks �
 tuluraamatu pidamine jääb tasuta ja piiranguteta.
 
 Andmed jäävad seadmesse alati, kui see on võimalik — see kehtib nelja rakenduse
-kohta viiest; viies lahkub telefonist ainult võrgumängude tarbeks. Ja iga
-rakenduse ulatus jääb meelega kitsaks: punktilugejast ei saa sotsiaalvõrgustikku
-ja skannerist ei saa pilveteenust.
+kohta viiest; viies lahkub telefonist ainult võrgumängude tarbeks.

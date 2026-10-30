@@ -2,7 +2,7 @@
 title: 'Mölkky Score: Punktezähler und Turnier-App'
 metaDescription: >-
   Zählen Sie Mölkky-Punkte ohne Stift und Papier: Team-Spiele,
-  K.-o.-Turniere, ELO-Rangliste und detaillierte Statistiken. Kostenlos für Android.
+  K.-o.-Turniere, ELO-Rangliste und detaillierte Statistiken. Kostenlos für Android und iPhone.
 h1: 'Mölkky Score: der Punktezähler und die Turnier-App für Ihre Mölkky-Spiele'
 lead: >-
   Zählen Sie Mölkky-Punkte ohne Stift und Papier. Mölkky Score verwaltet Solo-
@@ -10,7 +10,7 @@ lead: >-
   automatisch an, organisiert Ihre K.-o.-Turniere und speichert jeden Wurf.
   Kostenlos, keine Anmeldung nötig.
 translationStatus: authored
-updatedOn: 2026-08-20
+updatedOn: 2026-10-30
 heroAlt: >-
   Mölkky Score — eine Partie Mölkky auf dem Rasen, die 12 nummerierten Kegel
   vor dem Werfer aufgestellt
@@ -189,7 +189,7 @@ Anleitung im Karton.
 
 ## Auf welchen Geräten läuft Mölkky Score?
 
-Die App ist für **Android** verfügbar, in Version 1.0.21. Sie ist in neun
-Sprachen übersetzt, darunter **Finnisch**, **Schwedisch** und **Estnisch** —
-Mölkky ist ein finnisches Spiel, und dort wird es am meisten gespielt. Helles,
-dunkles oder systemabhängiges Design.
+Die App ist für **Android**, **iPhone** und **iPad** verfügbar, in Version
+1.0.29. Sie ist in neun Sprachen übersetzt, darunter **Finnisch**,
+**Schwedisch** und **Estnisch** — Mölkky ist ein finnisches Spiel, und dort wird
+es am meisten gespielt. Helles, dunkles oder systemabhängiges Design.

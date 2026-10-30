@@ -10,7 +10,7 @@ lead: >-
   alleen al 40 punten waard is. Speel solo tegen vier moeilijkheidsgraden
   van bots, van Makkelijk tot Expert, of online met je vrienden.
 translationStatus: authored
-updatedOn: 2026-08-20
+updatedOn: 2026-10-30
 heroAlt: >-
   Papayoo — illustratie van het kaartspel met de gekroonde 7 en de
   kleurendobbelsteen
@@ -124,8 +124,8 @@ Een **eenmalige aankoop**, geen abonnement:
 
 ## Op welke apparaten spelen?
 
-De app is beschikbaar op **Android**, in versie 1.0.178, en vertaald in
-**vijftien talen**.
+De app is beschikbaar op **Android**, **iPhone** en **iPad**, in versie 1.0.213,
+en vertaald in **vijftien talen**.
 
 ---
 

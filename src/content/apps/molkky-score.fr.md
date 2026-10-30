@@ -2,7 +2,7 @@
 title: 'Mölkky Score : compteur de points et tournois'
 metaDescription: >-
   Comptez les points au Mölkky sans stylo : parties en équipes, tournois à
-  élimination, classement ELO et statistiques détaillées. Gratuit sur Android.
+  élimination, classement ELO et statistiques détaillées. Gratuit sur Android et iPhone.
 h1: 'Mölkky Score : le compteur de points et de tournois pour vos parties de Mölkky'
 lead: >-
   Comptez les points au Mölkky sans stylo ni papier. Mölkky Score gère les
@@ -10,7 +10,7 @@ lead: >-
   et la redescente à 25, organise vos tournois à élimination directe, et garde
   la trace de chaque lancer. Gratuit, sans inscription.
 translationStatus: authored
-updatedOn: 2026-08-20
+updatedOn: 2026-10-30
 heroAlt: >-
   Mölkky Score — une partie de Mölkky sur pelouse, les 12 quilles numérotées
   alignées devant le lanceur
@@ -185,7 +185,7 @@ notice au fond de la boîte.
 
 ## Sur quels appareils fonctionne Mölkky Score ?
 
-L'application est disponible sur **Android**, en version 1.0.21. Elle est
-traduite en neuf langues, dont le **finnois**, le **suédois** et l'**estonien** —
-le Mölkky est un jeu finlandais, et c'est là qu'il se joue le plus. Thème clair,
-sombre ou selon le système.
+L'application est disponible sur **Android**, **iPhone** et **iPad**, en version
+1.0.29. Elle est traduite en neuf langues, dont le **finnois**, le **suédois**
+et l'**estonien** — le Mölkky est un jeu finlandais, et c'est là qu'il se joue
+le plus. Thème clair, sombre ou selon le système.

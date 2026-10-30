@@ -10,7 +10,7 @@ lead: >-
   Aucun abonnement, aucune inscription, aucune permission Android demandée : le
   traitement se fait entièrement sur le téléphone.
 translationStatus: authored
-updatedOn: 2026-08-20
+updatedOn: 2026-10-30
 heroAlt: >-
   ScanFree — visuel de présentation de l'application gratuite de numérisation de
   documents
@@ -32,6 +32,7 @@ highlights:
   - Export PDF multi-pages ou JPEG page par page
   - Filtres niveaux de gris, noir et blanc, contraste, suppression des ombres
   - Entièrement gratuit, sans abonnement ni service payant
+  - 'Reconnaissance du texte (OCR) sur le téléphone : recherche et copie du texte'
 faq:
   - q: ScanFree est-elle vraiment gratuite ?
     a: >-
@@ -40,10 +41,12 @@ faq:
       au moment de l'export, que vous pouvez regarder ou non.
   - q: Quelles permissions l'application demande-t-elle ?
     a: >-
-      Aucune. Le scanner tourne dans une activité fournie par Google Play
-      Services, et l'enregistrement passe par le sélecteur de fichiers Android.
-      ScanFree n'a donc besoin ni de l'accès à l'appareil photo, ni de l'accès au
-      stockage.
+      Sur Android, aucune. Le scanner tourne dans une activité fournie par
+      Google Play Services, et l'enregistrement passe par le sélecteur de
+      fichiers Android. ScanFree n'a donc besoin ni de l'accès à l'appareil
+      photo, ni de l'accès au stockage. Sur iPhone et iPad, iOS impose de
+      demander l'accès à l'appareil photo pour scanner ; l'application demande
+      aussi l'autorisation de suivi publicitaire, que vous pouvez refuser.
   - q: Mes documents sont-ils envoyés sur un serveur ?
     a: >-
       Non. Tout le traitement se fait sur le téléphone : détection des bords,
@@ -68,14 +71,16 @@ faq:
       d'une page.
   - q: Sur quelles plateformes ScanFree est-elle disponible ?
     a: >-
-      Sur Android uniquement, car l'application s'appuie sur le scanner de
-      documents de Google ML Kit, qui est propre à cette plateforme.
+      Sur Android, iPhone et iPad. Le scanner de documents est celui de Google
+      ML Kit sur Android, et celui d'Apple, VisionKit, sur iPhone et iPad : dans
+      les deux cas, le traitement se fait sur l'appareil.
 ---
 
 ## Numériser, sans rien installer de plus
 
-ScanFree utilise le **scanner de documents de Google ML Kit**, déjà présent sur
-l'appareil via Play Services. Concrètement :
+Sur Android, ScanFree utilise le **scanner de documents de Google ML Kit**, déjà
+présent sur l'appareil via Play Services ; sur iPhone et iPad, celui d'Apple,
+**VisionKit**, intégré au système. Concrètement :
 
 - détection automatique des bords, avec recadrage ajustable ;
 - redressement de la perspective — une photo prise de travers ressort droite ;
@@ -83,15 +88,19 @@ l'appareil via Play Services. Concrètement :
 
 Le traitement est local et fonctionne hors ligne.
 
-## Zéro permission, et ce n'est pas un détail
+## Zéro permission sur Android, et ce n'est pas un détail
 
 La plupart des applications de scan demandent l'accès à l'appareil photo et au
-stockage. ScanFree n'en demande **aucune** : le scanner s'exécute dans une
-activité de Google Play Services, et l'enregistrement passe par le sélecteur de
-fichiers Android.
+stockage. Sur Android, ScanFree n'en demande **aucune** : le scanner s'exécute
+dans une activité de Google Play Services, et l'enregistrement passe par le
+sélecteur de fichiers Android.
 
 C'est la raison technique pour laquelle vos documents ne peuvent pas partir
 ailleurs.
+
+Sur iPhone et iPad, iOS demande l'accès à l'appareil photo avant de scanner :
+c'est la condition pour utiliser le scanner d'Apple. Le traitement y reste tout
+aussi local.
 
 ## Retoucher, signer, annoter
 
@@ -116,6 +125,23 @@ Vos documents sont rangés dans une bibliothèque, avec miniatures — en liste,
 petites ou en grandes vignettes. Vous les renommez, vous les supprimez, et vous
 pouvez rouvrir un document scanné il y a des mois pour le modifier.
 
+## Retrouver un document par son texte
+
+ScanFree reconnaît le texte de chaque page (OCR) directement sur le téléphone :
+sans connexion, sans serveur et sans supplément. La reconnaissance tourne en
+arrière-plan, dès qu'un document entre dans la bibliothèque.
+
+- **recherche** dans toute la bibliothèque, sur le nom des documents comme sur
+  leur texte, sans tenir compte des majuscules ni des accents — plusieurs mots à
+  la fois, dans n'importe quel ordre, avec un extrait qui montre où le mot a été
+  trouvé ;
+- **affichage du texte** d'une page, à sélectionner et à **copier**, page par
+  page ou en une fois ;
+- nouvelle reconnaissance d'une page après un recadrage.
+
+Le PDF exporté reste une image : le texte reconnu sert à chercher et à copier
+dans l'application.
+
 ## Exporter et partager
 
 - **PDF multi-pages**, à partager directement ou à enregistrer via le sélecteur
@@ -134,5 +160,6 @@ débloque le PDF.
 
 ## Sur quels appareils ?
 
-**Android**, en version 1.0.7, traduite en **douze langues** — et les captures
-d'écran de cette page changent avec la langue que vous lisez.
+**Android**, **iPhone** et **iPad**, en version 1.0.21, traduite en **douze
+langues** — et les captures d'écran de cette page changent avec la langue que
+vous lisez.

@@ -10,7 +10,7 @@ lead: >-
   40 points on its own. Play solo against four bot difficulty levels, from
   Easy to Expert, or online with your friends.
 translationStatus: authored
-updatedOn: 2026-08-20
+updatedOn: 2026-10-30
 heroAlt: >-
   Papayoo — card game illustration with the crowned 7 and the colour die
 highlights:
@@ -117,8 +117,8 @@ A **one-time purchase**, not a subscription:
 
 ## Which devices can you play on?
 
-The app is available on **Android**, at version 1.0.178, and translated
-into **fifteen languages**.
+The app is available on **Android**, **iPhone** and **iPad**, at version
+1.0.213, and translated into **fifteen languages**.
 
 ---
 

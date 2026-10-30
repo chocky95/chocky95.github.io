@@ -7,9 +7,9 @@ h1: 'Chocky Dev: užitečné aplikace a hry'
 lead: >-
   Pět aplikací pro Android: dvě karetní hry, počítadlo bodů pro
   Mölkky, skener dokumentů a účetnictví pro samostatně podnikající. Všechny se
-  dají stáhnout zdarma. Každá dělá jednu věc a dovede ji do konce.
+  dají stáhnout zdarma.
 translationStatus: authored
-updatedOn: 2026-10-15
+updatedOn: 2026-10-30
 faq:
   - q: Jsou aplikace Chocky Dev zdarma?
     a: >-
@@ -26,7 +26,7 @@ faq:
       hru po síti; režimy pro jednoho hráče fungují bez účtu.
   - q: Na jakých platformách tyto aplikace fungují?
     a: >-
-      Na Androidu přes Google Play. Papayoo a ScanFree jsou k dispozici i v App Storu firmy Apple; Mölkky Score a Mojogo čekají na schválení. EasyCompta má navíc bezplatnou webovou verzi, která běží v prohlížeči bez instalace.
+      Na Androidu přes Google Play. Papayoo, ScanFree a Mölkky Score jsou k dispozici i v App Storu firmy Apple; Mojogo čeká na schválení. EasyCompta má navíc bezplatnou webovou verzi, která běží v prohlížeči bez instalace.
 ---
 
 ## Tři aplikace na hraní
@@ -69,6 +69,4 @@ předplatné nabízí, a to jen pro pokročilé analýzy a exporty — vedení k
 příjmů zůstává zdarma a bez omezení.
 
 Data zůstávají v zařízení všude, kde to jde — což platí pro čtyři aplikace z
-pěti; pátá opouští telefon jen kvůli hře po síti. A záběr každé z nich zůstává
-záměrně úzký: z počítadla bodů se nestane sociální síť a ze skeneru cloudová
-služba.
+pěti; pátá opouští telefon jen kvůli hře po síti.

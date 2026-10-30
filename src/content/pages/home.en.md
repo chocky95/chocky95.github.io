@@ -7,10 +7,9 @@ h1: 'Chocky Dev: useful apps and games'
 lead: >-
   Six Android apps: two card games, a trading card game about cars, a score
   keeper for Mölkky, a document scanner, and accounting for the self-employed.
-  All of them are free to download. Each does one thing and does it all the way
-  through.
+  All of them are free to download.
 translationStatus: authored
-updatedOn: 2026-10-19
+updatedOn: 2026-10-30
 faq:
   - q: Are the Chocky Dev apps free?
     a: >-
@@ -31,8 +30,8 @@ faq:
       and trades live on the server.
   - q: Which platforms do these apps run on?
     a: >-
-      Android, through Google Play. Papayoo and ScanFree are also on the Apple
-      App Store; Mölkky Score and Mojogo are awaiting approval. Garage Master
+      Android, through Google Play. Papayoo, ScanFree and Mölkky Score are also
+      on the Apple App Store; Mojogo is awaiting approval. Garage Master
       TCG comes to Android first, then to iPhone. EasyCompta also has a free web
       version that runs in the browser with nothing to install.
 ---
@@ -87,6 +86,4 @@ free player can complete any album.
 Data stays on the device wherever that is possible: Mölkky Score, ScanFree and
 EasyCompta send it nowhere, and Papayoo and Mojogo only leave the phone for
 online matches. Garage Master TCG is an online game by nature: its collection
-lives on the server, with a copy on the phone so you can browse it offline. And
-each app's scope stays deliberately narrow: a score keeper does not grow into a
-social network, and a scanner does not grow into a cloud service.
+lives on the server, with a copy on the phone so you can browse it offline.

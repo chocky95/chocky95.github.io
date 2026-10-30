@@ -2,7 +2,7 @@
 title: 'Mölkky Score: poängräknare och turneringsapp'
 metaDescription: >-
   Räkna mölkky-poäng utan penna och papper: lagspel, utslagsturneringar,
-  ELO-rankning och detaljerad statistik. Gratis för Android.
+  ELO-rankning och detaljerad statistik. Gratis för Android och iPhone.
 h1: 'Mölkky Score: poängräknaren och turneringsappen för dina mölkky-matcher'
 lead: >-
   Räkna mölkky-poäng utan penna och papper. Mölkky Score hanterar matcher
@@ -10,7 +10,7 @@ lead: >-
   återgången till 25, arrangerar dina utslagsturneringar och loggar varje
   kast. Gratis, inget konto behövs.
 translationStatus: authored
-updatedOn: 2026-08-20
+updatedOn: 2026-10-30
 heroAlt: >-
   Mölkky Score — ett parti mölkky på gräsmattan, de 12 numrerade käglorna
   uppställda framför kastaren
@@ -184,7 +184,7 @@ i lådan.
 
 ## Vilka enheter fungerar Mölkky Score på?
 
-Appen finns för **Android**, i version 1.0.21. Den är översatt till nio
-språk, bland annat **finska**, **svenska** och **estniska** — mölkky är ett
-finskt spel, och det är där det spelas mest. Ljust, mörkt eller
+Appen finns för **Android**, **iPhone** och **iPad**, i version 1.0.29. Den är
+översatt till nio språk, bland annat **finska**, **svenska** och **estniska** —
+mölkky är ett finskt spel, och det är där det spelas mest. Ljust, mörkt eller
 systemanpassat tema.

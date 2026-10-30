@@ -11,7 +11,7 @@ lead: >-
   Bot-Schwierigkeitsgrade, von Einfach bis Experte, oder online mit Ihren
   Freunden.
 translationStatus: authored
-updatedOn: 2026-08-20
+updatedOn: 2026-10-30
 heroAlt: >-
   Papayoo — Illustration des Kartenspiels mit der gekrönten 7 und dem
   Farbwürfel
@@ -125,8 +125,8 @@ Ein **Einmalkauf**, kein Abonnement:
 
 ## Auf welchen Geräten spielen?
 
-Die App ist für **Android** verfügbar, in Version 1.0.178, und in
-**fünfzehn Sprachen** übersetzt.
+Die App ist für **Android**, **iPhone** und **iPad** verfügbar, in Version
+1.0.213, und in **fünfzehn Sprachen** übersetzt.
 
 ---
 

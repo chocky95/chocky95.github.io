@@ -10,7 +10,7 @@ lead: >-
   que él solo vale 40 puntos. Juega en solitario contra cuatro niveles de
   bots, de Fácil a Experto, o en línea con tus amigos.
 translationStatus: authored
-updatedOn: 2026-08-20
+updatedOn: 2026-10-30
 heroAlt: >-
   Papayoo — ilustración del juego de cartas con el 7 coronado y el dado de
   colores
@@ -122,8 +122,8 @@ Una **compra única**, no una suscripción:
 
 ## ¿En qué dispositivos jugar?
 
-La aplicación está disponible en **Android**, en la versión 1.0.178, y
-traducida a **quince idiomas**.
+La aplicación está disponible en **Android**, **iPhone** y **iPad**, en la
+versión 1.0.213, y traducida a **quince idiomas**.
 
 ---
 

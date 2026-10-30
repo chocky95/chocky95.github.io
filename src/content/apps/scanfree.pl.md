@@ -10,7 +10,7 @@ lead: >-
   żadnej rejestracji, ani jednego żądanego uprawnienia Androida: całe
   przetwarzanie odbywa się w telefonie.
 translationStatus: authored
-updatedOn: 2026-08-24
+updatedOn: 2026-10-30
 heroAlt: >-
   ScanFree — grafika prezentująca darmową aplikację do skanowania dokumentów
 highlights:
@@ -21,6 +21,7 @@ highlights:
   - Eksport do wielostronicowego PDF albo JPEG strona po stronie
   - Filtry odcieni szarości, czarno-biały, kontrast i usuwanie cieni
   - Całkowicie darmowa, bez abonamentu ani płatnej usługi
+  - 'Rozpoznawanie tekstu (OCR) w telefonie: wyszukuj i kopiuj tekst ze skanów'
 faq:
   - q: Czy ScanFree jest naprawdę darmowy?
     a: >-
@@ -29,9 +30,11 @@ faq:
       momencie eksportu, które można obejrzeć albo nie.
   - q: O jakie uprawnienia prosi ScanFree?
     a: >-
-      O żadne. Skaner działa we własnym oknie usług Google Play, a zapisywanie
-      przechodzi przez selektor plików Androida, więc aplikacja nie potrzebuje
-      dostępu do kamery ani do pamięci.
+      Na Androidzie o żadne. Skaner działa we własnym oknie usług Google Play, a
+      zapisywanie przechodzi przez selektor plików Androida, więc aplikacja nie
+      potrzebuje dostępu do kamery ani do pamięci. Na iPhonie i iPadzie iOS
+      wymaga, by aplikacja poprosiła o dostęp do kamery przy skanowaniu;
+      aplikacja prosi też o zgodę na śledzenie reklamowe, której możesz odmówić.
   - q: Czy moje dokumenty opuszczają telefon?
     a: >-
       Nie. Całe przetwarzanie jest lokalne i działa bez internetu. Dokument
@@ -49,8 +52,9 @@ faq:
 
 ## Skanowanie bez instalowania czegokolwiek więcej
 
-ScanFree korzysta ze **skanera dokumentów Google ML Kit**, obecnego już na
-urządzeniu przez usługi Play. Konkretnie:
+Na Androidzie ScanFree korzysta ze **skanera dokumentów Google ML Kit**,
+obecnego już na urządzeniu przez usługi Play; na iPhonie i iPadzie ze skanera
+Apple, **VisionKit**, wbudowanego w system. Konkretnie:
 
 - automatyczne wykrywanie krawędzi, z regulowanym przycięciem;
 - korekta perspektywy — zdjęcie zrobione pod kątem zostaje wyprostowane;
@@ -58,14 +62,17 @@ urządzeniu przez usługi Play. Konkretnie:
 
 Przetwarzanie jest lokalne i działa bez internetu.
 
-## Żadnych uprawnień, i to nie jest szczegół
+## Żadnych uprawnień na Androidzie, i to nie jest szczegół
 
-Większość aplikacji skanujących wymaga dostępu do kamery i pamięci. ScanFree
-nie wymaga **żadnego**: skaner działa w oknie usług Google Play, a zapisywanie
-przechodzi przez selektor plików Androida.
+Większość aplikacji skanujących wymaga dostępu do kamery i pamięci. Na
+Androidzie ScanFree nie wymaga **żadnego**: skaner działa w oknie usług Google
+Play, a zapisywanie przechodzi przez selektor plików Androida.
 
 To techniczny powód, dla którego twoje dokumenty nie mogą znaleźć się nigdzie
 indziej.
+
+Na iPhonie i iPadzie iOS prosi o dostęp do kamery przed skanowaniem: to warunek
+korzystania ze skanera Apple. Przetwarzanie pozostaje tam równie lokalne.
 
 ## Edytuj, podpisz, skomentuj
 
@@ -90,6 +97,22 @@ Twoje dokumenty są w bibliotece z miniaturami — jako lista albo w małych lub
 dużych kafelkach. Możesz je przemianować, usunąć, a dokument zeskanowany
 miesiące temu otworzyć ponownie do edycji.
 
+## Znajdź dokument po jego tekście
+
+ScanFree rozpoznaje tekst każdej strony (OCR) bezpośrednio w telefonie: bez
+połączenia, bez serwera i bez dopłat. Rozpoznawanie działa w tle, gdy tylko
+dokument trafi do biblioteki.
+
+- **wyszukiwanie** w całej bibliotece, po nazwach dokumentów i po ich treści,
+  bez względu na wielkość liter — kilka słów naraz, w dowolnej kolejności, z
+  fragmentem pokazującym, gdzie znaleziono dopasowanie;
+- **podgląd tekstu** strony, jego zaznaczanie i **kopiowanie**, strona po
+  stronie lub całość naraz;
+- ponowne rozpoznanie tekstu strony po przycięciu.
+
+Wyeksportowany PDF pozostaje obrazem: rozpoznany tekst służy do wyszukiwania i
+kopiowania w aplikacji.
+
 ## Eksportuj i udostępniaj
 
 - **Wielostronicowy PDF**, do udostępnienia od razu albo do zapisania przez
@@ -108,5 +131,6 @@ PDF.
 
 ## Na jakich urządzeniach?
 
-**Android**, w wersji 1.0.7, przetłumaczony na **dwanaście języków**. Polskiego
-nie ma jeszcze wśród nich, więc interfejs aplikacji wyświetli się po angielsku.
+**Android**, **iPhone** i **iPad**, w wersji 1.0.21, przetłumaczony na
+**dwanaście języków**. Polskiego nie ma jeszcze wśród nich, więc interfejs
+aplikacji wyświetli się po angielsku.

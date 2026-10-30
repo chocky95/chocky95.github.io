@@ -10,7 +10,7 @@ lead: >-
   rekisteröitymistä, ei yhtäkään pyydettyä Android-lupaa: käsittely tapahtuu
   kokonaan puhelimessa.
 translationStatus: authored
-updatedOn: 2026-08-24
+updatedOn: 2026-10-30
 heroAlt: >-
   ScanFree — esittelykuva ilmaisesta sovelluksesta asiakirjojen skannaamiseen
 highlights:
@@ -21,6 +21,7 @@ highlights:
   - Monisivuinen PDF-vienti tai JPEG sivu kerrallaan
   - Harmaasävy-, mustavalko-, kontrasti- ja varjonpoistosuodattimet
   - Täysin ilmainen, ilman tilausta tai maksullista palvelua
+  - 'Tekstintunnistus (OCR) puhelimessa: hae ja kopioi skannaustesi teksti'
 faq:
   - q: Onko ScanFree todella ilmainen?
     a: >-
@@ -29,9 +30,12 @@ faq:
       jotka voit katsoa tai jättää katsomatta.
   - q: Mitä lupia ScanFree pyytää?
     a: >-
-      Ei yhtäkään. Skanneri toimii Google Play -palvelujen omassa näkymässä ja
-      tallennus kulkee Androidin tiedostovalitsimen kautta, joten sovellus ei
-      tarvitse kameran eikä tallennustilan käyttöoikeutta.
+      Androidilla ei yhtäkään. Skanneri toimii Google Play -palvelujen omassa
+      näkymässä ja tallennus kulkee Androidin tiedostovalitsimen kautta, joten
+      sovellus ei tarvitse kameran eikä tallennustilan käyttöoikeutta. iPhonella
+      ja iPadilla iOS edellyttää, että sovellus pyytää skannausta varten pääsyn
+      kameraan; lisäksi sovellus pyytää lupaa mainosseurantaan, jonka voit
+      kieltää.
   - q: Lähtevätkö asiakirjani puhelimesta?
     a: >-
       Eivät. Kaikki käsittely on paikallista ja toimii verkotta. Asiakirja
@@ -50,8 +54,9 @@ faq:
 
 ## Skannaus ilman mitään lisäasennusta
 
-ScanFree käyttää **Google ML Kitin asiakirjaskanneria**, joka on jo laitteella
-Play-palvelujen mukana. Käytännössä:
+Androidilla ScanFree käyttää **Google ML Kitin asiakirjaskanneria**, joka on jo
+laitteella Play-palvelujen mukana; iPhonella ja iPadilla Applen järjestelmään
+sisäänrakennettua **VisionKit**-skanneria. Käytännössä:
 
 - reunojen automaattinen tunnistus, rajaus säädettävissä;
 - perspektiivin oikaisu — vinosti otettu kuva suoristetaan;
@@ -59,14 +64,17 @@ Play-palvelujen mukana. Käytännössä:
 
 Käsittely on paikallista ja toimii verkotta.
 
-## Ei lupia, eikä se ole pikkuasia
+## Androidilla ei lupia, eikä se ole pikkuasia
 
 Useimmat skannaussovellukset vaativat pääsyn kameraan ja tallennustilaan.
-ScanFree ei vaadi **yhtäkään**: skanneri toimii Google Play -palvelujen
-näkymässä ja tallennus kulkee Androidin tiedostovalitsimen kautta.
+Androidilla ScanFree ei vaadi **yhtäkään**: skanneri toimii Google Play
+-palvelujen näkymässä ja tallennus kulkee Androidin tiedostovalitsimen kautta.
 
 Tämä on tekninen syy sille, miksi asiakirjasi eivät voi päätyä mihinkään
 muualle.
+
+iPhonella ja iPadilla iOS pyytää pääsyn kameraan ennen skannausta: se on Applen
+skannerin käytön edellytys. Käsittely pysyy sielläkin paikallisena.
 
 ## Muokkaa, allekirjoita, kommentoi
 
@@ -92,6 +100,22 @@ Asiakirjasi ovat kirjastossa esikatselukuvien kanssa — listana tai pieninä ta
 suurina ruutuina. Voit nimetä ne uudelleen, poistaa ne, ja avata kuukausia
 sitten skannatun asiakirjan uudelleen muokattavaksi.
 
+## Löydä asiakirja sen tekstin perusteella
+
+ScanFree tunnistaa jokaisen sivun tekstin (OCR) suoraan puhelimessa: ilman
+yhteyttä, ilman palvelinta ja ilman lisämaksua. Tunnistus tapahtuu taustalla
+heti, kun asiakirja tulee kirjastoon.
+
+- **haku** koko kirjastosta sekä asiakirjojen nimistä että niiden tekstistä,
+  isoista ja pienistä kirjaimista välittämättä — useita sanoja kerralla, missä
+  järjestyksessä tahansa, ja ote näyttää, mistä osuma löytyi;
+- sivun **tekstin näyttäminen**, valitseminen ja **kopioiminen** sivu kerrallaan
+  tai kaikki kerralla;
+- sivun tekstin tunnistaminen uudelleen rajauksen jälkeen.
+
+Viety PDF pysyy kuvana: tunnistettua tekstiä käytetään hakuun ja kopiointiin
+sovelluksessa.
+
 ## Vie ja jaa
 
 - **Monisivuinen PDF**, suoraan jaettavissa tai tallennettavissa Androidin
@@ -109,5 +133,6 @@ toimintoa ei ole rajoitettu, eikä ole maksullista versiota, joka avaisi PDF:n.
 
 ## Millä laitteilla?
 
-**Android**, versio 1.0.7, käännetty **kahdelletoista kielelle**. Suomi ei ole
-vielä niiden joukossa, joten sovelluksen käyttöliittymä näkyy englanniksi.
+**Android**, **iPhone** ja **iPad**, versio 1.0.21, käännetty **kahdelletoista
+kielelle**. Suomi ei ole vielä niiden joukossa, joten sovelluksen käyttöliittymä
+näkyy englanniksi.

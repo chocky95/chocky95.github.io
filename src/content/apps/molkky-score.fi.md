@@ -2,7 +2,7 @@
 title: 'Mölkky Score: pistelaskuri ja turnaussovellus'
 metaDescription: >-
   Laske mölkky-pisteet ilman kynää: joukkuepelit, pudotusturnaukset,
-  ELO-tasoitus ja tarkat tilastot. Ilmainen Androidille.
+  ELO-tasoitus ja tarkat tilastot. Ilmainen Androidille ja iPhonelle.
 h1: 'Mölkky Score: pistelaskuri ja turnaussovellus mölkky-peleihisi'
 lead: >-
   Laske mölkky-pisteet ilman kynää ja paperia. Mölkky Score hoitaa yksinpelit
@@ -10,7 +10,7 @@ lead: >-
   automaattisesti, järjestää pudotusturnauksesi ja tallentaa jokaisen heiton.
   Ilmainen, ei rekisteröitymistä.
 translationStatus: authored
-updatedOn: 2026-08-20
+updatedOn: 2026-10-30
 heroAlt: >-
   Mölkky Score — mölkky-peli nurmikolla, 12 numeroitua palikkaa rivissä
   heittäjän edessä
@@ -180,7 +180,7 @@ pohjalta.
 
 ## Millä laitteilla Mölkky Score toimii?
 
-Sovellus on saatavilla **Androidille**, versiossa 1.0.21. Se on käännetty
-yhdeksälle kielelle, mukaan lukien **suomi**, **ruotsi** ja **viro** — mölkky
-on suomalainen peli, ja siellä sitä pelataan eniten. Vaalea, tumma tai
-järjestelmän mukainen teema.
+Sovellus on saatavilla **Androidille**, **iPhonelle** ja **iPadille**, versiossa
+1.0.29. Se on käännetty yhdeksälle kielelle, mukaan lukien **suomi**, **ruotsi**
+ja **viro** — mölkky on suomalainen peli, ja siellä sitä pelataan eniten.
+Vaalea, tumma tai järjestelmän mukainen teema.

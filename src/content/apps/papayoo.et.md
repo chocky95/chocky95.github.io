@@ -10,7 +10,7 @@ lead: >-
   üksinda 40 punkti väärt. Mängige üksi nelja bottiraskuse vastu, Lihtsast
   Eksperdini, või veebis sõpradega.
 translationStatus: authored
-updatedOn: 2026-08-21
+updatedOn: 2026-10-30
 heroAlt: >-
   Papayoo — illustratsioon kaardimängust kroonitud seitsmega ja
   värvitäringuga
@@ -118,8 +118,8 @@ tasustatud videotest.
 
 ## Millistel seadmetel mängida?
 
-Rakendus on saadaval **Androidile**, versioonis 1.0.178, ja tõlgitud
-**viieteistkümnesse keelde**.
+Rakendus on saadaval **Androidile**, **iPhone'ile** ja **iPadile**, versioonis
+1.0.213, ja tõlgitud **viieteistkümnesse keelde**.
 
 ---
 

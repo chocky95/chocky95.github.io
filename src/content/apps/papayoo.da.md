@@ -10,7 +10,7 @@ lead: >-
   værd. Spil alene mod fire bot-sværhedsgrader, fra Let til Ekspert, eller
   online med dine venner.
 translationStatus: authored
-updatedOn: 2026-08-20
+updatedOn: 2026-10-30
 heroAlt: >-
   Papayoo — illustration af kortspillet med den kronede 7'er og farveterningen
 highlights:
@@ -119,8 +119,8 @@ Et **engangskøb**, ikke et abonnement:
 
 ## Hvilke enheder kan man spille på?
 
-Appen er tilgængelig på **Android**, i version 1.0.178, og oversat til
-**femten sprog**.
+Appen er tilgængelig på **Android**, **iPhone** og **iPad**, i version 1.0.213,
+og oversat til **femten sprog**.
 
 ---
 

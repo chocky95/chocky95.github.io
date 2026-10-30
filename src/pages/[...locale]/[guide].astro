@@ -210,6 +210,15 @@ const noindex = d.translationStatus === 'raw-mt';
               </p>
             )
           }
+          {
+            app.appStoreUrl && (
+              <p>
+                <a class="cta" href={app.appStoreUrl} rel="noopener">
+                  App Store
+                </a>
+              </p>
+            )
+          }
         </aside>
       )
     }

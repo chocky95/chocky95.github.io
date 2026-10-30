@@ -10,7 +10,7 @@ lead: >-
   abonnemang, ingen registrering, ingen Android-behörighet krävs:
   bearbetningen sker helt på telefonen.
 translationStatus: authored
-updatedOn: 2026-08-20
+updatedOn: 2026-10-30
 heroAlt: >-
   ScanFree — presentationsbild för den gratis appen för dokumentskanning
 screenshotAlt:
@@ -27,6 +27,7 @@ highlights:
   - PDF-export med flera sidor eller JPEG sida för sida
   - Filter för gråskala, svartvitt, kontrast, skuggborttagning
   - Helt gratis, utan abonnemang eller betald version
+  - 'Textigenkänning (OCR) i telefonen: sök i och kopiera texten i dina skanningar'
 faq:
   - q: Är ScanFree verkligen gratis?
     a: >-
@@ -35,9 +36,11 @@ faq:
       vid export, som du kan titta på eller inte.
   - q: Vilka behörigheter begär appen?
     a: >-
-      Inga. Skannern körs i en aktivitet som tillhandahålls av Google Play
-      Services, och sparandet går via Androids filväljare. ScanFree behöver
-      därför varken kameraåtkomst eller lagringsåtkomst.
+      Inga på Android. Skannern körs i en aktivitet som tillhandahålls av Google
+      Play Services, och sparandet går via Androids filväljare. ScanFree behöver
+      därför varken kameraåtkomst eller lagringsåtkomst. På iPhone och iPad
+      kräver iOS att appen ber om kameraåtkomst för att skanna; appen ber också
+      om tillåtelse för annonsspårning, som du kan neka.
   - q: Skickas mina dokument till en server?
     a: >-
       Nej. All bearbetning sker på telefonen: kantdetektering, beskärning,
@@ -62,14 +65,16 @@ faq:
       redigeringar av en sida.
   - q: På vilka plattformar finns ScanFree tillgänglig?
     a: >-
-      Endast på Android, eftersom appen bygger på Google ML Kits
-      dokumentskanner, som är specifik för den plattformen.
+      På Android, iPhone och iPad. Dokumentskannern är Google ML Kits på Android
+      och Apples, VisionKit, på iPhone och iPad: i båda fallen sker
+      bearbetningen på enheten.
 ---
 
 ## Skanna, utan att installera något mer
 
-ScanFree använder **Google ML Kits dokumentskanner**, som redan finns på
-enheten via Play Services. Konkret:
+På Android använder ScanFree **Google ML Kits dokumentskanner**, som redan finns
+på enheten via Play Services; på iPhone och iPad Apples, **VisionKit**, som är
+inbyggd i systemet. Konkret:
 
 - automatisk kantdetektering, med justerbar beskärning;
 - perspektivkorrigering — ett snett taget foto blir rakt;
@@ -77,14 +82,17 @@ enheten via Play Services. Konkret:
 
 Bearbetningen är lokal och fungerar offline.
 
-## Inga behörigheter, och det är ingen detalj
+## Inga behörigheter på Android, och det är ingen detalj
 
-De flesta skanningsappar begär åtkomst till kameran och lagringen. ScanFree
-begär **ingen alls**: skannern körs i en Google Play Services-aktivitet, och
-sparandet går via Androids filväljare.
+De flesta skanningsappar begär åtkomst till kameran och lagringen. På Android
+begär ScanFree **ingen alls**: skannern körs i en Google Play
+Services-aktivitet, och sparandet går via Androids filväljare.
 
 Det är den tekniska anledningen till att dina dokument inte kan hamna någon
 annanstans.
+
+På iPhone och iPad ber iOS om kameraåtkomst innan du skannar: det är villkoret
+för att använda Apples skanner. Bearbetningen är lika lokal där.
 
 ## Redigera, signera, kommentera
 
@@ -109,6 +117,22 @@ Dina dokument samlas i ett bibliotek, med miniatyrer — som lista, eller i
 små eller stora rutor. Du namnger om dem, tar bort dem, och kan öppna ett
 dokument som skannades för månader sedan för att redigera det.
 
+## Hitta ett dokument via dess text
+
+ScanFree känner igen texten på varje sida (OCR) direkt i telefonen: utan
+uppkoppling, utan server och utan extra kostnad. Igenkänningen körs i bakgrunden
+så snart ett dokument hamnar i biblioteket.
+
+- **sök** i hela biblioteket, på dokumentens namn och på deras text, utan hänsyn
+  till versaler och accenter — flera ord samtidigt, i valfri ordning, med ett
+  utdrag som visar var träffen finns;
+- **visa texten** på en sida, markera den och **kopiera** den, sida för sida
+  eller allt på en gång;
+- kör igenkänningen igen på en sida efter beskärning.
+
+Den exporterade PDF:en förblir en bild: den igenkända texten används för att
+söka och kopiera i appen.
+
 ## Exportera och dela
 
 - **Flersidig PDF**, att dela direkt eller spara via Androids filväljare
@@ -126,5 +150,5 @@ version som låser upp PDF:en.
 
 ## Vilka enheter?
 
-**Android**, i version 1.0.7, översatt till **tolv språk** — och
-skärmdumparna på den här sidan ändras med språket du läser.
+**Android**, **iPhone** och **iPad**, i version 1.0.21, översatt till **tolv
+språk** — och skärmdumparna på den här sidan ändras med språket du läser.

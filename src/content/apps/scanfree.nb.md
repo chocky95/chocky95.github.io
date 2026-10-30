@@ -10,7 +10,7 @@ lead: >-
   ingen registrering, ingen Android-tillatelse kreves: behandlingen skjer helt
   på telefonen.
 translationStatus: authored
-updatedOn: 2026-08-20
+updatedOn: 2026-10-30
 heroAlt: >-
   ScanFree — presentasjonsbilde for den gratis appen for digitalisering av
   dokumenter
@@ -28,6 +28,7 @@ highlights:
   - PDF-eksport med flere sider eller JPEG side for side
   - Filtre for gråtoner, svart-hvitt, kontrast, fjerning av skygger
   - Helt gratis, uten abonnement eller betalt versjon
+  - 'Tekstgjenkjenning (OCR) på telefonen: søk i og kopier teksten i skanningene dine'
 faq:
   - q: Er ScanFree virkelig gratis?
     a: >-
@@ -36,9 +37,11 @@ faq:
       ved eksport, som du kan se eller hoppe over.
   - q: Hvilke tillatelser ber appen om?
     a: >-
-      Ingen. Skanneren kjører i en aktivitet levert av Google Play Services,
-      og lagring skjer via Androids filvelger. ScanFree trenger derfor
-      verken tilgang til kameraet eller lagringen.
+      Ingen på Android. Skanneren kjører i en aktivitet levert av Google Play
+      Services, og lagring skjer via Androids filvelger. ScanFree trenger derfor
+      verken tilgang til kameraet eller lagringen. På iPhone og iPad krever iOS
+      at appen ber om tilgang til kameraet for å skanne; appen ber også om
+      tillatelse til annonsesporing, som du kan avslå.
   - q: Blir dokumentene mine sendt til en server?
     a: >-
       Nei. All behandling skjer på telefonen: kantgjenkjenning, beskjæring,
@@ -63,14 +66,16 @@ faq:
       redigeringer av en side.
   - q: Hvilke plattformer er ScanFree tilgjengelig på?
     a: >-
-      Bare på Android, siden appen bygger på Google ML Kits dokumentskanner,
-      som er spesifikk for den plattformen.
+      På Android, iPhone og iPad. Dokumentskanneren er Google ML Kits på Android
+      og Apples, VisionKit, på iPhone og iPad: i begge tilfeller skjer
+      behandlingen på enheten.
 ---
 
 ## Skann, uten å installere noe mer
 
-ScanFree bruker **Google ML Kits dokumentskanner**, som allerede finnes på
-enheten via Play Services. Konkret:
+På Android bruker ScanFree **Google ML Kits dokumentskanner**, som allerede
+finnes på enheten via Play Services; på iPhone og iPad Apples, **VisionKit**,
+som er innebygd i systemet. Konkret:
 
 - automatisk kantgjenkjenning, med justerbar beskjæring;
 - perspektivretting — et skjevt tatt bilde rettes opp;
@@ -78,14 +83,17 @@ enheten via Play Services. Konkret:
 
 Behandlingen er lokal og fungerer offline.
 
-## Ingen tillatelser, og det er ikke en detalj
+## Ingen tillatelser på Android, og det er ikke en detalj
 
-De fleste skanne-apper ber om tilgang til kameraet og lagringen. ScanFree ber
-om **ingen**: skanneren kjører i en Google Play Services-aktivitet, og
+De fleste skanne-apper ber om tilgang til kameraet og lagringen. På Android ber
+ScanFree om **ingen**: skanneren kjører i en Google Play Services-aktivitet, og
 lagring skjer via Androids filvelger.
 
 Det er den tekniske grunnen til at dokumentene dine ikke kan havne noe
 annet sted.
+
+På iPhone og iPad ber iOS om tilgang til kameraet før du skanner: det er
+betingelsen for å bruke Apples skanner. Behandlingen er like lokal der.
 
 ## Rediger, signer, kommenter
 
@@ -110,6 +118,22 @@ Dokumentene dine ligger i et bibliotek, med miniatyrer — som liste, eller i
 små eller store fliser. Du omdøper dem, sletter dem, og kan åpne et dokument
 som ble skannet for måneder siden for å redigere det.
 
+## Finn et dokument via teksten
+
+ScanFree gjenkjenner teksten på hver side (OCR) direkte på telefonen: uten
+tilkobling, uten server og uten ekstra kostnad. Gjenkjenningen kjører i
+bakgrunnen så snart et dokument kommer inn i biblioteket.
+
+- **søk** i hele biblioteket, på dokumentenes navn og på teksten deres, uten
+  hensyn til store bokstaver og aksenter — flere ord samtidig, i vilkårlig
+  rekkefølge, med et utdrag som viser hvor treffet er;
+- **vis teksten** på en side, merk den og **kopier** den, side for side eller
+  alt på én gang;
+- gjenkjenn teksten på en side på nytt etter beskjæring.
+
+Den eksporterte PDF-en forblir et bilde: den gjenkjente teksten brukes til å
+søke og kopiere i appen.
+
 ## Eksporter og del
 
 - **PDF med flere sider**, for direkte deling eller lagring via Androids
@@ -128,5 +152,5 @@ låser opp PDF-en.
 
 ## Hvilke enheter?
 
-**Android**, i versjon 1.0.7, oversatt til **tolv språk** — og
-skjermbildene på denne siden endrer seg med språket du leser.
+**Android**, **iPhone** og **iPad**, i versjon 1.0.21, oversatt til **tolv
+språk** — og skjermbildene på denne siden endrer seg med språket du leser.

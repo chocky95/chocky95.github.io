@@ -8,9 +8,9 @@ lead: >-
   Cinco aplicações Android: dois jogos de cartas, um
   contador de pontos para o Mölkky, um digitalizador de documentos e uma
   contabilidade para trabalhadores independentes. Descarregam-se todas
-  gratuitamente. Cada uma faz uma coisa e fá-la até ao fim.
+  gratuitamente.
 translationStatus: authored
-updatedOn: 2026-10-15
+updatedOn: 2026-10-30
 faq:
   - q: As aplicações da Chocky Dev são gratuitas?
     a: >-
@@ -27,7 +27,7 @@ faq:
       perfil para as partidas online; os modos a solo funcionam sem conta.
   - q: Em que plataformas funcionam estas aplicações?
     a: >-
-      Em Android, através do Google Play. O Papayoo e o ScanFree estão também na App Store da Apple; o Mölkky Score e o Mojogo aguardam validação. O EasyCompta tem além disso uma versão web gratuita que corre no navegador sem instalar nada.
+      Em Android, através do Google Play. O Papayoo, o ScanFree e o Mölkky Score estão também na App Store da Apple; o Mojogo aguarda validação. O EasyCompta tem além disso uma versão web gratuita que corre no navegador sem instalar nada.
 ---
 
 ## Três aplicações para jogar
@@ -71,7 +71,4 @@ avançadas e exportações — manter o livro de receitas continua gratuito e se
 limite.
 
 Os dados ficam no aparelho sempre que é possível — o que acontece em quatro das
-cinco aplicações; a quinta só sai do telefone para as partidas online. E o
-âmbito de cada uma mantém-se deliberadamente estreito: um contador de pontos não
-se transforma numa rede social, e um digitalizador não se transforma num serviço
-na nuvem.
+cinco aplicações; a quinta só sai do telefone para as partidas online.

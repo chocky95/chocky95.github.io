@@ -7,9 +7,9 @@ h1: 'Chocky Dev: nyttige apper og spill'
 lead: >-
   Fem Android-apper: to kortspill, en poengteller for Mölkky, en
   dokumentskanner og et regnskap for selvstendig næringsdrivende. Alle er gratis
-  å laste ned. Hver app gjør én ting og gjør den helt ferdig.
+  å laste ned.
 translationStatus: authored
-updatedOn: 2026-10-15
+updatedOn: 2026-10-30
 faq:
   - q: Er appene til Chocky Dev gratis?
     a: >-
@@ -26,7 +26,7 @@ faq:
       bare en profil for spill på nett; solomodusene virker uten konto.
   - q: Hvilke plattformer virker disse appene på?
     a: >-
-      På Android, via Google Play. Papayoo og ScanFree finnes også i Apples App Store; Mölkky Score og Mojogo venter på godkjenning. EasyCompta finnes i tillegg som en gratis nettversjon som kjører i nettleseren uten å installere noe.
+      På Android, via Google Play. Papayoo, ScanFree og Mölkky Score finnes også i Apples App Store; Mojogo venter på godkjenning. EasyCompta finnes i tillegg som en gratis nettversjon som kjører i nettleseren uten å installere noe.
 ---
 
 ## Tre apper å spille med
@@ -69,6 +69,4 @@ EasyCompta er den eneste som tilbyr et, og bare for de avanserte analysene og
 eksportene — å føre inntektsboken er fortsatt gratis og uten grenser.
 
 Data blir på enheten der det er mulig — det gjelder fire av de fem appene; den
-femte forlater telefonen bare for spill på nett. Og omfanget til hver app holdes
-bevisst smalt: en poengteller blir ikke et sosialt nettverk, og en skanner blir
-ikke en skytjeneste.
+femte forlater telefonen bare for spill på nett.

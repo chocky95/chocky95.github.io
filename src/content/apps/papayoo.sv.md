@@ -10,7 +10,7 @@ lead: >-
   värd 40 poäng. Spela själv mot fyra bot-svårighetsgrader, från Lätt till
   Expert, eller online med dina vänner.
 translationStatus: authored
-updatedOn: 2026-08-20
+updatedOn: 2026-10-30
 heroAlt: >-
   Papayoo — illustration av kortspelet med den krönta 7:an och färgtärningen
 highlights:
@@ -119,8 +119,8 @@ Ett **engångsköp**, inget abonnemang:
 
 ## Vilka enheter kan man spela på?
 
-Appen finns för **Android**, i version 1.0.178, och översatt till
-**femton språk**.
+Appen finns för **Android**, **iPhone** och **iPad**, i version 1.0.213, och
+översatt till **femton språk**.
 
 ---
 

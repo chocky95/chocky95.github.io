@@ -10,7 +10,7 @@ lead: >-
   abonament, nicio înregistrare, nicio permisiune Android cerută: prelucrarea se
   face în întregime pe telefon.
 translationStatus: authored
-updatedOn: 2026-08-24
+updatedOn: 2026-10-30
 heroAlt: >-
   ScanFree — imagine de prezentare a aplicației gratuite de scanare a documentelor
 highlights:
@@ -21,6 +21,7 @@ highlights:
   - Export în PDF cu mai multe pagini sau JPEG pagină cu pagină
   - Filtre tonuri de gri, alb-negru, contrast și eliminarea umbrelor
   - Complet gratuită, fără abonament sau serviciu cu plată
+  - 'Recunoașterea textului (OCR) pe telefon: caută și copiază textul scanărilor tale'
 faq:
   - q: ScanFree este chiar gratuită?
     a: >-
@@ -29,9 +30,12 @@ faq:
       cu recompensă la export, pe care le poți urmări sau nu.
   - q: Ce permisiuni cere ScanFree?
     a: >-
-      Niciuna. Scanerul rulează în propria fereastră a serviciilor Google Play,
-      iar salvarea trece prin selectorul de fișiere Android, deci aplicația nu
-      are nevoie de acces la cameră sau la stocare.
+      Pe Android, niciuna. Scanerul rulează în propria fereastră a serviciilor
+      Google Play, iar salvarea trece prin selectorul de fișiere Android, deci
+      aplicația nu are nevoie de acces la cameră sau la stocare. Pe iPhone și
+      iPad, iOS impune ca aplicația să ceară acces la cameră pentru scanare;
+      aplicația cere și permisiunea de urmărire publicitară, pe care o poți
+      refuza.
   - q: Documentele mele părăsesc telefonul?
     a: >-
       Nu. Toată prelucrarea este locală și funcționează offline. Documentul
@@ -49,8 +53,9 @@ faq:
 
 ## Scanare fără a mai instala nimic
 
-ScanFree folosește **scanerul de documente Google ML Kit**, deja prezent pe
-dispozitiv prin serviciile Play. Concret:
+Pe Android, ScanFree folosește **scanerul de documente Google ML Kit**, deja
+prezent pe dispozitiv prin serviciile Play; pe iPhone și iPad, pe cel al Apple,
+**VisionKit**, integrat în sistem. Concret:
 
 - detectare automată a marginilor, cu decupaj reglabil;
 - corectarea perspectivei — o fotografie făcută oblic este îndreptată;
@@ -58,14 +63,17 @@ dispozitiv prin serviciile Play. Concret:
 
 Prelucrarea este locală și funcționează offline.
 
-## Nicio permisiune, și nu e un detaliu
+## Nicio permisiune pe Android, și nu e un detaliu
 
-Majoritatea aplicațiilor de scanare cer acces la cameră și la stocare.
-ScanFree nu cere **niciuna**: scanerul rulează într-o fereastră a serviciilor
-Google Play, iar salvarea trece prin selectorul de fișiere Android.
+Majoritatea aplicațiilor de scanare cer acces la cameră și la stocare. Pe
+Android, ScanFree nu cere **niciuna**: scanerul rulează într-o fereastră a
+serviciilor Google Play, iar salvarea trece prin selectorul de fișiere Android.
 
 Acesta este motivul tehnic pentru care documentele tale nu pot ajunge în altă
 parte.
+
+Pe iPhone și iPad, iOS cere acces la cameră înainte de scanare: este condiția
+pentru a folosi scanerul Apple. Prelucrarea rămâne și acolo la fel de locală.
 
 ## Editează, semnează, comentează
 
@@ -90,6 +98,22 @@ Documentele tale stau într-o bibliotecă cu miniaturi — ca listă sau în pl�
 mici ori mari. Le poți redenumi, șterge, și poți redeschide pentru editare un
 document scanat acum câteva luni.
 
+## Găsește un document după textul lui
+
+ScanFree recunoaște textul fiecărei pagini (OCR) direct pe telefon: fără
+conexiune, fără server și fără costuri suplimentare. Recunoașterea rulează în
+fundal imediat ce un document ajunge în bibliotecă.
+
+- **căutare** în toată biblioteca, după numele documentelor și după textul lor,
+  fără a ține cont de majuscule — mai multe cuvinte deodată, în orice ordine, cu
+  un fragment care arată unde a fost găsită potrivirea;
+- **afișarea textului** unei pagini, selectarea și **copierea** lui, pagină cu
+  pagină sau tot odată;
+- recunoașterea din nou a textului unei pagini după decupare.
+
+PDF-ul exportat rămâne o imagine: textul recunoscut servește la căutare și
+copiere în aplicație.
+
 ## Exportă și partajează
 
 - **PDF cu mai multe pagini**, partajabil direct sau salvabil prin selectorul
@@ -108,5 +132,6 @@ PDF-ul.
 
 ## Pe ce dispozitive?
 
-**Android**, în versiunea 1.0.7, tradusă în **douăsprezece limbi**. Româna nu se
-află încă printre ele, deci interfața aplicației se va afișa în engleză.
+**Android**, **iPhone** și **iPad**, în versiunea 1.0.21, tradusă în
+**douăsprezece limbi**. Româna nu se află încă printre ele, deci interfața
+aplicației se va afișa în engleză.
