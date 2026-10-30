@@ -21,6 +21,7 @@ import { useTranslations } from '~/i18n/t';
 export type AppEntry = CollectionEntry<'apps'>;
 export type GuideEntry = CollectionEntry<'guides'>;
 export type PageEntry = CollectionEntry<'pages'>;
+export type PressEntry = CollectionEntry<'press'>;
 
 type ByLocale<T> = ReadonlyMap<Locale, T>;
 
@@ -56,6 +57,31 @@ export async function guideContent(): Promise<ReadonlyMap<string, ByLocale<Guide
 
 export async function pageContent(): Promise<ReadonlyMap<string, ByLocale<PageEntry>>> {
   return indexByKeyAndLocale(await getCollection('pages'), 'pages');
+}
+
+/** Espaces presse, indexés par slug d'application puis par locale. */
+export async function pressContent(): Promise<ReadonlyMap<string, ByLocale<PressEntry>>> {
+  return indexByKeyAndLocale(await getCollection('press'), 'press');
+}
+
+/** Chemin d'un espace presse, sans préfixe de locale : `apps/<app>/<slug>`. */
+export function pressPath(appSlug: string, entry: PressEntry): string {
+  return `apps/${appSlug}/${entry.data.slug}`;
+}
+
+/**
+ * Le lien vers l'espace presse d'une application dans cette langue, ou rien.
+ *
+ * Même logique que `guidesForLocale` : poser `press/<app>.<locale>.md` publie
+ * le bouton de la fiche et le badge de l'accueil dans cette langue, et dans
+ * aucune autre. Le maillage suit le contenu, il n'est pas un geste à oublier.
+ */
+export async function pressLink(
+  appSlug: string,
+  locale: Locale,
+): Promise<{ readonly path: string; readonly label: string } | undefined> {
+  const entry = (await pressContent()).get(appSlug)?.get(locale);
+  return entry ? { path: pressPath(appSlug, entry), label: entry.data.navLabel } : undefined;
 }
 
 /** Un guide tel qu'on le LIE, indépendamment de la page qui le lie. */

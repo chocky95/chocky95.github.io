@@ -1,0 +1,428 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { getImage, Image } from 'astro:assets';
+
+import JsonLd from '~/components/seo/JsonLd.astro';
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { getApp, type AppFacts } from '~/data/apps';
+import { pressImage } from '~/data/appAssets';
+import { pressContent, pressPath, type PressEntry } from '~/data/content';
+import { DEFAULT_LOCALE, type Locale } from '~/i18n/locales';
+import { absolute, href, requireSite } from '~/i18n/routes';
+import { useTranslations } from '~/i18n/t';
+
+/**
+ * Espace presse d'une application : `/apps/<app>/presse/`, `/en/apps/<app>/press/`.
+ *
+ * La page existe exactement dans les langues où `press/<app>.<locale>.md` est
+ * écrit — aucune page de repli ailleurs : un dossier de presse s'adresse à des
+ * journalistes qui lisent la langue du jeu, et une version mince en finnois ne
+ * servirait personne. Le dernier segment est traduit, comme le slug d'un guide.
+ */
+export const getStaticPaths = (async () => {
+  const paths = [];
+
+  for (const [appSlug, byLocale] of await pressContent()) {
+    // Lève si la clé du fichier n'est pas une application connue.
+    const app = getApp(appSlug);
+    for (const [locale, entry] of byLocale) {
+      paths.push({
+        params: {
+          locale: locale === DEFAULT_LOCALE ? undefined : locale,
+          app: app.slug,
+          press: entry.data.slug,
+        },
+        props: { locale, app, entry, cluster: byLocale },
+      });
+    }
+  }
+
+  return paths;
+}) satisfies GetStaticPaths;
+
+interface Props {
+  locale: Locale;
+  app: AppFacts;
+  entry: PressEntry;
+  cluster: ReadonlyMap<Locale, PressEntry>;
+}
+
+const { locale, app, entry, cluster } = Astro.props;
+const t = useTranslations(locale);
+const site = requireSite(Astro.site);
+
+const d = entry.data;
+const path = pressPath(app.slug, entry);
+const canonical = absolute(locale, path);
+const appPath = `apps/${app.slug}`;
+
+/** Les chemins du cluster : chaque locale avec SON dernier segment traduit. */
+const paths: ReadonlyMap<Locale, string> = new Map(
+  [...cluster].map(([loc, e]) => [loc, pressPath(app.slug, e)]),
+);
+
+const breadcrumbs = [
+  { name: t('nav.home'), url: absolute(locale, '') },
+  { name: app.name, url: absolute(locale, appPath) },
+  { name: d.navLabel, url: canonical },
+];
+
+/**
+ * Le bouton de chaque boutique vient des faits, pas du contenu : tant que
+ * `apps.ts` n'a pas d'URL, la page dit « Bientôt disponible » ; le jour où la
+ * fiche ouvre, le lien apparaît ici sans toucher au fichier de presse.
+ */
+const stores = [
+  { name: 'Google Play', note: d.platforms.android, url: app.playUrl },
+  { name: 'App Store', note: d.platforms.ios, url: app.appStoreUrl },
+];
+
+const gallery = d.gallery.map((item) => {
+  const { image, original } = pressImage(app.slug, item.file);
+  return {
+    ...item,
+    image,
+    original,
+    // Nom lisible à l'enregistrement : l'URL de l'original porte un hash.
+    filename: `${app.slug}-${item.file.replace(/_/g, '-')}.png`,
+    // Une planche en paysage prend toute la largeur de la grille.
+    wide: image.width > image.height,
+  };
+});
+
+/**
+ * Image de partage : un visuel du dossier recadré au format Open Graph, en
+ * JPEG (le WebP n'est pas lu par tous les aperçus de messagerie). À défaut,
+ * l'image générique de l'application.
+ */
+const ogImage = d.ogImage
+  ? new URL(
+      (
+        await getImage({
+          src: pressImage(app.slug, d.ogImage).image,
+          width: 1200,
+          height: 630,
+          fit: 'cover',
+          format: 'jpg',
+          // Une seule taille : le `layout` par défaut du site (astro.config)
+          // déclinerait sept JPEG que rien ne référence.
+          layout: 'none',
+        })
+      ).src,
+      site,
+    ).href
+  : new URL(`og/${app.slug}.png`, site).href;
+---
+
+<BaseLayout
+  locale={locale}
+  paths={paths}
+  path={path}
+  title={d.title}
+  description={d.metaDescription}
+  ogType="article"
+  ogImage={ogImage}
+  noindex={d.translationStatus === 'raw-mt'}
+  updatedOn={d.updatedOn}
+  accent={app.accent}
+  accentText={app.accentText}
+>
+  <JsonLd
+    locale={locale}
+    url={canonical}
+    siteUrl={site.href}
+    siteName={t('site.name')}
+    breadcrumbs={breadcrumbs}
+  />
+
+  <article class="wrap">
+    <nav aria-label={t('breadcrumb.label')} class="crumbs">
+      <a href={href(locale, '')}>{t('nav.home')}</a>
+      <span aria-hidden="true">›</span>
+      <a href={href(locale, appPath)}>{app.name}</a>
+      <span aria-hidden="true">›</span>
+      <span aria-current="page">{d.navLabel}</span>
+    </nav>
+
+    <header>
+      <h1>{d.h1}</h1>
+      {/* Le statut avant tout le reste : c'est la première question d'un
+          journaliste, et la réponse change à la sortie. */}
+      <p class="status">{d.status}</p>
+      <p class="lead prose">{d.lead}</p>
+    </header>
+
+    <section class="block">
+      <h2>{d.sections.highlights}</h2>
+      <ul role="list" class="highlights">
+        {d.highlights.map((item) => <li>{item}</li>)}
+      </ul>
+    </section>
+
+    <section class="block">
+      <h2>{d.sections.platforms}</h2>
+      <ul role="list" class="stores">
+        {
+          stores.map((store) => (
+            <li>
+              <p class="store-name">{store.name}</p>
+              <p class="store-note">{store.note}</p>
+              {store.url ? (
+                <a class="cta" href={store.url} rel="noopener">
+                  {store.name}
+                </a>
+              ) : (
+                <span class="badge">{t('apps.comingSoon')}</span>
+              )}
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section class="block">
+      <h2>{d.sections.gallery}</h2>
+      <p class="note">{d.galleryNote}</p>
+      <ul role="list" class="gallery">
+        {
+          gallery.map((item, i) => (
+            <li class:list={{ wide: item.wide }}>
+              <figure>
+                {/* La vignette mène au même fichier que le lien texte ; seul
+                    ce dernier est annoncé, pour ne pas doubler chaque lien. */}
+                <a href={item.original} download={item.filename} tabindex="-1" aria-hidden="true">
+                  <Image
+                    src={item.image}
+                    alt={item.alt}
+                    widths={item.wide ? [560, 1120] : [280, 560]}
+                    sizes={
+                      item.wide
+                        ? '(min-width: 1200px) 1140px, 92vw'
+                        : '(min-width: 48rem) 360px, 45vw'
+                    }
+                    loading={i < 2 ? 'eager' : 'lazy'}
+                  />
+                </a>
+                <figcaption>
+                  <span class="caption">{item.caption}</span>
+                  <a href={item.original} download={item.filename}>
+                    {d.downloadLabel} (PNG, {item.image.width} × {item.image.height})
+                  </a>
+                </figcaption>
+              </figure>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section class="block">
+      <h2>{d.sections.facts}</h2>
+      <table class="facts">
+        <tbody>
+          {
+            d.facts.map((fact) => (
+              <tr>
+                <th scope="row">{fact.label}</th>
+                <td>{fact.value}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </section>
+
+    <section class="block contact">
+      <h2>{d.sections.contact}</h2>
+      <p>
+        {d.contact.text}{' '}
+        <a href={`mailto:${d.contact.email}`}>{d.contact.email}</a>
+      </p>
+    </section>
+
+    {app.trademarkNotice && <p class="trademark">{app.trademarkNotice}</p>}
+
+    {
+      d.updatedOn && (
+        <p class="updated">
+          {t('meta.updatedOn')}{' '}
+          <time datetime={d.updatedOn.toISOString()}>{d.updatedOn.toISOString().slice(0, 10)}</time>
+        </p>
+      )
+    }
+  </article>
+</BaseLayout>
+
+<style>
+  article {
+    padding-block: var(--space-4) var(--space-6);
+  }
+  .crumbs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1);
+    align-items: center;
+    font-size: var(--step--1);
+    color: var(--text-500);
+    margin-block-end: var(--space-4);
+  }
+
+  .status {
+    margin-block-start: var(--space-3);
+    padding: var(--space-2) var(--space-3);
+    border: 1px solid var(--glass-border);
+    border-inline-start: 3px solid var(--accent-text);
+    border-radius: var(--radius);
+    background: var(--glass-bg);
+    color: var(--text-100);
+    font-weight: 700;
+    max-inline-size: var(--measure);
+  }
+  .lead {
+    margin-block-start: var(--space-3);
+    font-size: var(--step-1);
+  }
+
+  .block {
+    margin-block-start: var(--space-5);
+  }
+  .block > h2 + * {
+    margin-block-start: var(--space-3);
+  }
+  .note {
+    color: var(--text-500);
+    font-size: var(--step--1);
+  }
+
+  .highlights,
+  .stores {
+    display: grid;
+    gap: var(--space-2);
+    padding: 0;
+  }
+  .highlights {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  }
+  .highlights li,
+  .stores li {
+    padding: var(--space-3);
+    border: 1px solid var(--glass-border);
+    border-inline-start: 3px solid var(--accent-text);
+    border-radius: var(--radius);
+    background: var(--glass-bg);
+  }
+
+  .stores {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  }
+  .stores li {
+    display: grid;
+    gap: var(--space-1);
+    justify-items: start;
+  }
+  .store-name {
+    color: var(--text-100);
+    font-weight: 700;
+  }
+  .store-note {
+    color: var(--text-300);
+  }
+  .cta {
+    margin-block-start: var(--space-1);
+    padding: 0.6em 1.3em;
+    border-radius: 999px;
+    background: var(--accent-text);
+    color: var(--ink-900);
+    font-weight: 700;
+    text-decoration: none;
+  }
+  /* Même contour neutre que « Bientôt disponible » sur l'accueil : une
+     annonce, pas un bouton. */
+  .badge {
+    margin-block-start: var(--space-1);
+    padding: 0.4em 1em;
+    border: 1px solid var(--glass-border-hover);
+    border-radius: 999px;
+    color: var(--text-500);
+    font-size: var(--step--1);
+  }
+
+  /* Deux vignettes par ligne sur téléphone, trois au-delà : des captures
+     verticales restent lisibles, et une planche en paysage prend la ligne. */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-3) var(--space-2);
+    padding: 0;
+  }
+  @media (min-width: 48rem) {
+    .gallery {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+  .gallery .wide {
+    grid-column: 1 / -1;
+  }
+  .gallery figure {
+    display: grid;
+    gap: var(--space-1);
+    margin: 0;
+  }
+  .gallery :global(img) {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+    border: 1px solid var(--glass-border);
+  }
+  .gallery figcaption {
+    display: grid;
+    gap: 0.2rem;
+    font-size: var(--step--1);
+  }
+  .caption {
+    color: var(--text-100);
+    font-weight: 700;
+  }
+  .gallery figcaption a {
+    color: var(--accent-text);
+  }
+
+  .facts {
+    width: 100%;
+    max-inline-size: 40rem;
+    border-collapse: collapse;
+  }
+  .facts th,
+  .facts td {
+    padding: 0.55em 0.8em;
+    border-bottom: 1px solid var(--glass-border);
+    text-align: start;
+    vertical-align: top;
+  }
+  .facts th {
+    width: 38%;
+    color: var(--text-500);
+    font-weight: 400;
+  }
+  .facts td {
+    color: var(--text-100);
+  }
+
+  .contact p {
+    max-inline-size: var(--measure);
+  }
+  .contact a {
+    color: var(--accent-text);
+    font-weight: 700;
+    overflow-wrap: anywhere;
+  }
+
+  .trademark,
+  .updated {
+    margin-block-start: var(--space-4);
+    font-size: var(--step--1);
+    color: var(--text-700);
+    max-inline-size: var(--measure);
+  }
+</style>

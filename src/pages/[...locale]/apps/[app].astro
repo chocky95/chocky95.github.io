@@ -7,7 +7,7 @@ import JsonLd from '~/components/seo/JsonLd.astro';
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import { APPS, appHasLocale, type AppFacts } from '~/data/apps';
 import { appDiagrams, appHeroImage, appIcon, appScreenshots } from '~/data/appAssets';
-import { appContent, guideContent, toAppView } from '~/data/content';
+import { appContent, guideContent, pressLink, toAppView } from '~/data/content';
 import { DEFAULT_LOCALE, LOCALE_NAMES, LOCALES, type Locale } from '~/i18n/locales';
 import { absolute, appPaths, href, requireSite } from '~/i18n/routes';
 import { FAMILY_KEY, useTranslations } from '~/i18n/t';
@@ -90,6 +90,9 @@ const siblings = APPS.filter(
  * Les ancres portent le titre réel du guide, jamais « En savoir plus » : une
  * ancre descriptive dit à Google de quoi parle la page visée.
  */
+/** L'espace presse de l'application dans cette langue, s'il est écrit. */
+const press = await pressLink(app.slug, locale);
+
 const relatedGuides = [...(await guideContent()).values()]
   .map((byLocale) => byLocale.get(locale))
   .filter((entry) => entry !== undefined && entry.data.relatedApp === app.slug);
@@ -215,6 +218,13 @@ const languageFallback = appHasLocale(app.slug, locale)
             )
           }
           {app.status === 'coming-soon' && <span class="badge">{t('apps.comingSoon')}</span>}
+          {
+            press && (
+              <a class="cta cta--ghost" href={href(locale, press.path)}>
+                {press.label}
+              </a>
+            )
+          }
         </p>
 
         {/*

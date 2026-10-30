@@ -92,6 +92,25 @@ C'est ce qui permet de publier progressivement sans jamais exposer de page mince
 à Google, ce dont ses systèmes anti-« contenu à grande échelle » se méfient
 précisément.
 
+### Espaces presse
+
+Un dossier de presse est un fichier `src/content/press/<app>.<locale>.md`, servi
+sous la fiche de l'app avec un dernier segment traduit
+(`/apps/garage-master-tcg/presse/`, `/en/apps/garage-master-tcg/press/`). La
+page n'existe que dans les langues où ce fichier est écrit, sans repli ailleurs.
+
+- **Visuels** : PNG dans `src/assets/press/<app>/`, déclarés par nom dans
+  `gallery`. La page affiche des vignettes optimisées et propose l'original en
+  téléchargement ; un visuel déclaré mais absent fait échouer le build.
+  `ogImage` désigne celui qui sert d'aperçu de partage, recadré en 1200 × 630.
+- **Boutiques** : les boutons viennent de `apps.ts`. « Bientôt disponible » tant
+  que `playUrl` / `appStoreUrl` sont vides, le lien de la fiche ensuite, sans
+  retoucher le dossier.
+- **Maillage** : le fichier suffit à publier le bouton de la fiche et le badge
+  de la carte d'accueil dans sa langue.
+- **Audit** : déclarer les URL dans la table `PRESS` de
+  `scripts/audit-dist.mjs`, comme pour les guides.
+
 ### Deux rôles de couleur, à ne pas confondre
 
 | Variable | Usage | Contrainte |

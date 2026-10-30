@@ -84,6 +84,44 @@ export function appDiagrams(slug: string): readonly NamedImage[] {
     .sort((a, b) => a.name.localeCompare(b.name));
 }
 
+const pressImages = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/press/*/*.png',
+  { eager: true },
+) as Glob;
+
+/**
+ * Les mêmes fichiers, en URL de l'original : `?url` fait émettre le PNG tel
+ * quel dans `/_astro/`, là où `<Image>` n'émet que des déclinaisons réduites.
+ * C'est ce que télécharge un journaliste.
+ */
+const pressOriginals = import.meta.glob<string>('/src/assets/press/*/*.png', {
+  eager: true,
+  query: '?url',
+  import: 'default',
+});
+
+export interface PressImage {
+  readonly image: ImageMetadata;
+  /** URL du PNG original, pleine résolution. */
+  readonly original: string;
+}
+
+/**
+ * Un visuel d'espace presse, par nom de fichier sans extension.
+ *
+ * Lève une erreur si le fichier manque : un dossier de presse annoncé avec un
+ * visuel absent ne doit pas pouvoir atteindre `dist/`.
+ */
+export function pressImage(slug: string, file: string): PressImage {
+  const key = `/src/assets/press/${slug}/${file}.png`;
+  const image = pressImages[key]?.default;
+  const original = pressOriginals[key];
+  if (!image || !original) {
+    throw new Error(`Visuel presse absent : ${key.slice(1)} (déclaré dans press/${slug}.*.md).`);
+  }
+  return { image, original };
+}
+
 /**
  * Captures d'écran dans la langue demandée.
  *

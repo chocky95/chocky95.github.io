@@ -107,6 +107,17 @@ const GUIDES = {
 };
 
 /**
+ * Espaces presse : app -> { locale: dernier segment localisé }.
+ *
+ * Ils n'existent que dans les langues où le dossier est rédigé, sans page de
+ * repli ailleurs — d'où une table distincte de APP_LOCALES. Garage Master TCG
+ * n'a que le français et l'anglais (2026-10-30), comme sa propre interface.
+ */
+const PRESS = {
+  'garage-master-tcg': { fr: 'presse', en: 'press' },
+};
+
+/**
  * Cas nommés : chacun a déjà été, ou pourrait être, un vrai bug.
  *
  * Depuis que chaque application a une page dans les 18 langues, le cluster
@@ -140,6 +151,11 @@ const NAMED_CASES = [
   { url: '/fi/molkky-saannot/', expectAlternates: 19 },
   // Slug PARTAGÉ par da, nb et sv : le plugin en tirait un faux cluster de 3.
   { url: '/sv/molkky-regler/', expectAlternates: 19 },
+  // Espace presse : cluster de DEUX langues (fr, en + x-default). Le seul du
+  // site qui ne couvre pas les 18 : le plugin de sitemap, qui regroupe par
+  // préfixe de locale, n'a ici aucun moyen de relier presse/ et press/.
+  { url: '/apps/garage-master-tcg/presse/', expectAlternates: 3 },
+  { url: '/en/apps/garage-master-tcg/press/', expectAlternates: 3 },
 ];
 
 /**
@@ -215,6 +231,12 @@ function buildExpectedUrls() {
   // Les guides sont à la racine, avec un slug localisé.
   for (const byLocale of Object.values(GUIDES)) {
     for (const [locale, slug] of Object.entries(byLocale)) urls.add(urlFor(locale, slug));
+  }
+  // Les espaces presse vivent sous la fiche de leur application.
+  for (const [app, byLocale] of Object.entries(PRESS)) {
+    for (const [locale, segment] of Object.entries(byLocale)) {
+      urls.add(urlFor(locale, `apps/${app}/${segment}`));
+    }
   }
   return urls;
 }

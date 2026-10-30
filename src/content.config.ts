@@ -192,7 +192,79 @@ const pages = defineCollection({
   }),
 });
 
-export const collections = { apps, guides, pages };
+/**
+ * Espaces presse : un dossier de presse par application, la clé du fichier
+ * étant le slug de l'application (`press/garage-master-tcg.fr.md`).
+ *
+ * Tout est structuré plutôt qu'écrit en Markdown libre : la page assemble des
+ * blocs que la prose ne sait pas rendre — galerie d'images optimisées avec
+ * téléchargement de l'original, emplacements de boutique tirés de `apps.ts` —
+ * et l'ordre des blocs doit rester celui d'un dossier de presse. Les titres de
+ * section vivent ici, pas dans `i18n/ui` : la page n'existe que dans les
+ * langues où ce fichier est écrit, et les 16 autres dictionnaires n'en
+ * auraient jamais l'usage.
+ */
+const press = defineCollection({
+  loader: glob({ base: './src/content/press', pattern: '**/*.md', generateId: rawId }),
+  schema: z.object({
+    ...seoFields,
+    /** Dernier segment d'URL, localisé : `presse`, `press`. */
+    slug: z
+      .string()
+      .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, 'slug en minuscules ASCII, séparé par des tirets'),
+    /** Ancre des liens vers la page : bouton de la fiche, badge de l'accueil. */
+    navLabel: z.string().superRefine(widthBetween(6, 42, 'navLabel')),
+    /** Statut de sortie, affiché en tête de page. Jamais de date. */
+    status: z.string().superRefine(widthBetween(30, 400, 'status')),
+    sections: z.object({
+      highlights: z.string(),
+      platforms: z.string(),
+      gallery: z.string(),
+      facts: z.string(),
+      contact: z.string(),
+    }),
+    highlights: z
+      .array(z.string().superRefine(widthBetween(12, 220, 'highlight')))
+      .min(3)
+      .max(8),
+    /**
+     * Ce qui se dit de chaque plateforme. Le bouton, lui, vient de `apps.ts` :
+     * « Bientôt disponible » tant que `playUrl` / `appStoreUrl` sont vides, le
+     * lien de la fiche dès qu'ils sont renseignés — sans retoucher ce fichier.
+     */
+    platforms: z.object({ android: z.string(), ios: z.string() }),
+    galleryNote: z.string(),
+    /** Libellé du lien de téléchargement ; la page y ajoute format et taille. */
+    downloadLabel: z.string(),
+    /**
+     * Visuels, dans l'ordre d'affichage. `file` est le nom, sans extension,
+     * d'un PNG de `src/assets/press/<app>/` : un fichier déclaré mais absent
+     * fait échouer le build.
+     */
+    gallery: z
+      .array(
+        z.object({
+          file: z.string().regex(/^[a-z0-9_-]+$/),
+          caption: z.string(),
+          alt: z.string().superRefine(widthBetween(15, 300, 'alt')),
+        }),
+      )
+      .min(1),
+    /**
+     * Visuel de la galerie servant d'image de partage (Open Graph), recadré
+     * en 1200 × 630. À défaut, l'image générique `og/<app>.png`.
+     */
+    ogImage: z.string().regex(/^[a-z0-9_-]+$/).optional(),
+    /** Fiche rapide, rendue en tableau à deux colonnes. */
+    facts: z.array(z.object({ label: z.string(), value: z.string() })).min(3),
+    contact: z.object({
+      text: z.string(),
+      email: z.string().regex(/^[^@\s]+@[^@\s]+\.[a-z]{2,}$/, 'adresse e-mail invalide'),
+    }),
+  }),
+});
+
+export const collections = { apps, guides, pages, press };
 
 /* ------------------------------------------------------------------------- *
  * Utilitaires de nommage

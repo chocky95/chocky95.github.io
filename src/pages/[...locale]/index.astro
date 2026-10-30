@@ -5,7 +5,7 @@ import { render } from 'astro:content';
 import JsonLd from '~/components/seo/JsonLd.astro';
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import { appsForLocale } from '~/data/apps';
-import { pageContent, toHomeView, toHubView } from '~/data/content';
+import { pageContent, pressLink, toHomeView, toHubView } from '~/data/content';
 import { DEFAULT_LOCALE, LOCALES, type Locale } from '~/i18n/locales';
 import { absolute, href, homePaths, requireSite } from '~/i18n/routes';
 import { FAMILY_KEY, useTranslations } from '~/i18n/t';
@@ -59,6 +59,17 @@ const Body = view.entry ? (await render(view.entry)).Content : null;
  * qui est la meilleure protection contre la cannibalisation des deux pages.
  */
 const hub = toHubView(locale, pages.get('apps')?.get(locale));
+
+/**
+ * Espaces presse de cette langue, par application. Le badge de la carte est
+ * le lien qui met la page presse à un clic de l'accueil, comme l'exige
+ * l'audit de maillage ; il n'apparaît que là où la page existe.
+ */
+const press = new Map<string, { path: string; label: string }>();
+for (const app of apps) {
+  const link = await pressLink(app.slug, locale);
+  if (link) press.set(app.slug, link);
+}
 
 /*
  * PAS de bloc « guides » sur l'accueil, et plus aucun lien vers les regles en
@@ -158,6 +169,11 @@ const canonical = absolute(locale, '');
                   )}
                 </>
               )}
+              {press.has(app.slug) && (
+                <a class="badge press" href={href(locale, press.get(app.slug)?.path ?? '')}>
+                  {press.get(app.slug)?.label}
+                </a>
+              )}
             </span>
           </li>
         ))
@@ -256,8 +272,9 @@ const canonical = absolute(locale, '');
     inset: 0;
     border-radius: inherit;
   }
-  /* …sauf le bouton bêta, posé au-dessus. */
-  .beta {
+  /* …sauf le bouton bêta et le lien presse, posés au-dessus. */
+  .beta,
+  .press {
     position: relative;
     z-index: 1;
     text-decoration: none;
@@ -265,6 +282,11 @@ const canonical = absolute(locale, '');
   .beta:hover {
     color: var(--ink-900);
     filter: brightness(1.1);
+  }
+  /* Contour, pas aplat : il ne mène pas à une installation. */
+  .press:hover {
+    border-color: var(--accent-text);
+    color: var(--text-100);
   }
   .family {
     color: var(--accent-text, var(--accent));
