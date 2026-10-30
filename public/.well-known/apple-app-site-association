@@ -14,6 +14,13 @@
           { "/": "/mojogo/invite", "comment": "Lien de parrainage Mojogo (ouvre l'app si installée, sinon la page)" },
           { "/": "/mojogo/invite/*", "comment": "Variante avec slash final" }
         ]
+      },
+      {
+        "appIDs": ["BDXVTVU45V.com.chocky.tcg"],
+        "components": [
+          { "/": "/tcg/invite", "comment": "Lien d'ami Garage Master TCG (ouvre l'app si installée, sinon la page)" },
+          { "/": "/tcg/invite/*", "comment": "Variante avec slash final" }
+        ]
       }
     ]
   }
