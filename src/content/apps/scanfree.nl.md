@@ -121,6 +121,10 @@ Je documenten worden bewaard in een bibliotheek, met miniaturen — als lijst,
 of in kleine of grote tegels. Je hernoemt ze, verwijdert ze, en kunt een
 maanden geleden gescand document opnieuw openen om het te bewerken.
 
+**Labels** ordenen ze: een naam, een kleur naar keuze en zoveel labels als je
+wilt op één document. "Te doen", "Klaar" en "Te versturen" staan meteen klaar,
+en de bibliotheek kan per label worden gegroepeerd, in inklapbare secties.
+
 ## Een document terugvinden aan de hand van de tekst
 
 ScanFree herkent de tekst van elke pagina (OCR) rechtstreeks op de telefoon:
@@ -136,6 +140,17 @@ achtergrond zodra een document in de bibliotheek komt.
 
 De geëxporteerde PDF blijft een afbeelding: de herkende tekst dient om in de app
 te zoeken en te kopiëren.
+
+## Een bestaande PDF importeren
+
+Een PDF die je per e-mail kreeg of downloadde, kan in de bibliotheek
+terechtkomen, gekozen via de bestandskiezer. De pagina's worden een document
+zoals alle andere: je kunt ze annoteren, ondertekenen, labelen, opnieuw
+exporteren en terugvinden via de tekstzoekfunctie.
+
+Het oorspronkelijke bestand blijft ongewijzigd bewaard in "Mijn pdf's".
+Importeren kan tot 100 pagina's; een met een wachtwoord beveiligde PDF kan niet
+worden geïmporteerd.
 
 ## Exporteren en delen
 

@@ -96,6 +96,10 @@ Vaše dokumenty jsou v knihovně s náhledy — jako seznam nebo v malých či v
 dlaždicích. Můžete je přejmenovat, smazat a dokument naskenovaný před měsíci
 znovu otevřít a upravit.
 
+Třídí je **štítky**: název, libovolná barva a na jednom dokumentu tolik štítků,
+kolik chcete. Tři štítky — k vyřízení, hotovo, k odeslání — jsou připravené hned
+od instalace a knihovnu lze seskupit podle štítků do sbalitelných sekcí.
+
 ## Najděte dokument podle jeho textu
 
 ScanFree rozpozná text každé stránky (OCR) přímo v telefonu: bez připojení, bez
@@ -111,6 +115,16 @@ do knihovny.
 
 Exportované PDF zůstává obrázkem: rozpoznaný text slouží k hledání a kopírování
 v aplikaci.
+
+## Import existujícího PDF
+
+PDF, které vám přišlo e-mailem nebo jste si ho stáhli, můžete přidat do knihovny
+výběrem v systémovém výběru souborů. Jeho stránky se stanou dokumentem jako
+každý jiný: můžete do nich psát poznámky, podepsat je, označit štítky, znovu
+exportovat a najít je vyhledáváním v textu.
+
+Původní soubor zůstává beze změny v samostatném seznamu PDF. Import zvládne až
+100 stránek; PDF chráněné heslem importovat nelze.
 
 ## Exportovat a sdílet
 

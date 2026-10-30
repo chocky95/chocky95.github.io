@@ -97,6 +97,11 @@ Sinu dokumendid on raamatukogus koos eelvaatepiltidega — loendina või
 väikeste või suurte plaatidena. Sa saad neid ümber nimetada, kustutada ja
 kuude eest skannitud dokumendi uuesti muutmiseks avada.
 
+Neid järjestavad **sildid**: nimi, vabalt valitud värv ja ühel dokumendil nii
+palju silte, kui soovid. Kolm silti — teha, tehtud, saata — on olemas kohe
+pärast paigaldamist ning raamatukogu saab rühmitada siltide järgi
+kokkupandavatesse jaotistesse.
+
 ## Leia dokument selle teksti järgi
 
 ScanFree tuvastab iga lehe teksti (OCR) otse telefonis: ilma ühenduse, serveri
@@ -111,6 +116,16 @@ ja lisatasuta. Tuvastus käib taustal kohe, kui dokument raamatukokku jõuab.
 
 Eksporditud PDF jääb pildiks: tuvastatud tekst on mõeldud otsimiseks ja
 kopeerimiseks rakenduses.
+
+## Olemasoleva PDF-i importimine
+
+E-kirjaga saadud või alla laaditud PDF-i saab failivalija kaudu raamatukokku
+lisada. Selle lehtedest saab dokument nagu iga teine: saad neile märkusi lisada,
+neid allkirjastada, neile silte panna, neid uuesti eksportida ja neid
+tekstiotsinguga leida.
+
+Algne fail säilib muutmata eraldi PDF-ide loendis. Importida saab kuni 100
+lehekülge; parooliga kaitstud PDF-i importida ei saa.
 
 ## Ekspordi ja jaga
 

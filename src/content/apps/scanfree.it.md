@@ -124,6 +124,11 @@ I tuoi documenti sono organizzati in una libreria, con miniature — in
 elenco, o in miniature piccole o grandi. Li rinomini, li elimini, e puoi
 riaprire un documento scansionato mesi fa per modificarlo.
 
+Le **etichette** li classificano: un nome, il colore che preferisci e tutte le
+etichette che vuoi su uno stesso documento. «Da fare», «Fatto» e «Da inviare»
+sono pronte fin dall'inizio, e la libreria può essere raggruppata per etichetta,
+in sezioni comprimibili.
+
 ## Ritrovare un documento dal suo testo
 
 ScanFree riconosce il testo di ogni pagina (OCR) direttamente sul telefono:
@@ -139,6 +144,16 @@ avviene in background non appena un documento entra nella libreria.
 
 Il PDF esportato resta un'immagine: il testo riconosciuto serve a cercare e
 copiare dentro l'app.
+
+## Importare un PDF esistente
+
+Un PDF ricevuto via e-mail o scaricato può entrare nella libreria, scelto dal
+selettore di file. Le sue pagine diventano un documento come gli altri: puoi
+annotarle, firmarle, assegnare loro delle etichette, esportarle di nuovo e
+ritrovarle con la ricerca nel testo.
+
+Il file originale resta intatto in «I miei PDF». L'importazione accetta fino a
+100 pagine; un PDF protetto da password non può essere importato.
 
 ## Esportare e condividere
 

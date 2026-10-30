@@ -97,6 +97,11 @@ Twoje dokumenty są w bibliotece z miniaturami — jako lista albo w małych lub
 dużych kafelkach. Możesz je przemianować, usunąć, a dokument zeskanowany
 miesiące temu otworzyć ponownie do edycji.
 
+Porządkują je **etykiety**: nazwa, dowolny kolor i tyle etykiet na jednym
+dokumencie, ile chcesz. Trzy etykiety — do zrobienia, zrobione, do wysłania — są
+gotowe od razu po instalacji, a bibliotekę można pogrupować według etykiet w
+zwijane sekcje.
+
 ## Znajdź dokument po jego tekście
 
 ScanFree rozpoznaje tekst każdej strony (OCR) bezpośrednio w telefonie: bez
@@ -112,6 +117,16 @@ dokument trafi do biblioteki.
 
 Wyeksportowany PDF pozostaje obrazem: rozpoznany tekst służy do wyszukiwania i
 kopiowania w aplikacji.
+
+## Import istniejącego PDF
+
+PDF otrzymany e-mailem lub pobrany z sieci można dodać do biblioteki, wybierając
+go w systemowym selektorze plików. Jego strony stają się dokumentem jak każdy
+inny: możesz dodawać do nich adnotacje, podpisywać je, nadawać im etykiety,
+ponownie eksportować i odnajdywać przez wyszukiwanie w tekście.
+
+Oryginalny plik zostaje zachowany bez zmian na osobnej liście PDF. Import
+obsługuje do 100 stron; PDF chroniony hasłem nie może zostać zaimportowany.
 
 ## Eksportuj i udostępniaj
 

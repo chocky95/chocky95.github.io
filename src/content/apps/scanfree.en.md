@@ -116,6 +116,10 @@ Your documents live in a library, with thumbnails — as a list, or in small or
 large tiles. You rename them, delete them, and can reopen a document scanned
 months ago to edit it.
 
+**Labels** sort them: a name, any colour you like, and as many labels as you
+want on a single document. "To do", "Done" and "To send" are ready from the
+start, and the library can be grouped by label, in collapsible sections.
+
 ## Find a document by its text
 
 ScanFree recognizes the text on every page (OCR) right on the phone: no
@@ -131,6 +135,15 @@ soon as a document enters the library.
 
 The exported PDF stays an image: the recognized text is for searching and
 copying inside the app.
+
+## Import an existing PDF
+
+A PDF received by email or downloaded can join the library, picked from the file
+picker. Its pages become a document like any other: you can annotate them, sign
+them, label them, export them again and find them through text search.
+
+The original file is kept untouched in "My PDFs". Imports go up to 100 pages; a
+password-protected PDF can't be imported.
 
 ## Export and share
 

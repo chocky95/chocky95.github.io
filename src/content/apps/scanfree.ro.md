@@ -98,6 +98,11 @@ Documentele tale stau într-o bibliotecă cu miniaturi — ca listă sau în pl�
 mici ori mari. Le poți redenumi, șterge, și poți redeschide pentru editare un
 document scanat acum câteva luni.
 
+**Etichetele** le ordonează: un nume, o culoare la alegere și oricâte etichete
+vrei pe același document. Trei etichete — de făcut, gata, de trimis — sunt
+pregătite de la instalare, iar biblioteca poate fi grupată după etichete, în
+secțiuni pliabile.
+
 ## Găsește un document după textul lui
 
 ScanFree recunoaște textul fiecărei pagini (OCR) direct pe telefon: fără
@@ -113,6 +118,16 @@ fundal imediat ce un document ajunge în bibliotecă.
 
 PDF-ul exportat rămâne o imagine: textul recunoscut servește la căutare și
 copiere în aplicație.
+
+## Importul unui PDF existent
+
+Un PDF primit pe e-mail sau descărcat poate intra în bibliotecă, ales din
+selectorul de fișiere. Paginile lui devin un document ca oricare altul: le poți
+adnota, semna, eticheta, exporta din nou și găsi prin căutarea în text.
+
+Fișierul original este păstrat neschimbat într-o listă separată de PDF-uri.
+Importul acceptă până la 100 de pagini; un PDF protejat cu parolă nu poate fi
+importat.
 
 ## Exportă și partajează
 

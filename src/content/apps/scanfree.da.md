@@ -119,6 +119,11 @@ Dine dokumenter ligger i et bibliotek med miniaturer — som liste, eller i
 små eller store fliser. Du omdøber dem, sletter dem, og kan genåbne et
 dokument, der blev scannet for måneder siden, for at redigere det.
 
+**Etiketter** sorterer dem: et navn, en valgfri farve og så mange etiketter, du
+vil, på det samme dokument. "At gøre", "Færdig" og "At sende" er klar fra
+starten, og biblioteket kan grupperes efter etiket, i sektioner, der kan foldes
+sammen.
+
 ## Find et dokument via dets tekst
 
 ScanFree genkender teksten på hver side (OCR) direkte på telefonen: uden
@@ -134,6 +139,16 @@ baggrunden, så snart et dokument kommer ind i biblioteket.
 
 Den eksporterede PDF forbliver et billede: den genkendte tekst bruges til at
 søge og kopiere i appen.
+
+## Importér en eksisterende PDF
+
+En PDF, du har fået på e-mail eller downloadet, kan komme ind i biblioteket,
+valgt i filvælgeren. Dens sider bliver et dokument som alle andre: du kan
+annotere dem, underskrive dem, give dem etiketter, eksportere dem igen og finde
+dem via tekstsøgningen.
+
+Den oprindelige fil gemmes uændret i "Mine PDF'er". Importen tager op til 100
+sider; en adgangskodebeskyttet PDF kan ikke importeres.
 
 ## Eksportér og del
 

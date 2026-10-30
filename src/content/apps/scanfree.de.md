@@ -122,6 +122,11 @@ Liste oder in kleinen oder großen Kacheln. Sie benennen sie um, löschen sie,
 und können ein vor Monaten gescanntes Dokument wieder öffnen, um es zu
 bearbeiten.
 
+**Labels** ordnen sie: ein Name, eine frei wählbare Farbe und beliebig viele
+Labels pro Dokument. „Zu erledigen“, „Erledigt“ und „Zu senden“ sind von Anfang
+an vorhanden, und die Bibliothek lässt sich nach Label gruppieren, in
+einklappbaren Abschnitten.
+
 ## Dokumente über ihren Text wiederfinden
 
 ScanFree erkennt den Text jeder Seite (OCR) direkt auf dem Telefon: ohne
@@ -137,6 +142,16 @@ sobald ein Dokument in die Bibliothek kommt.
 
 Das exportierte PDF bleibt ein Bild: Der erkannte Text dient zum Suchen und
 Kopieren in der App.
+
+## Ein vorhandenes PDF importieren
+
+Ein per E-Mail erhaltenes oder heruntergeladenes PDF kann in die Bibliothek
+aufgenommen werden, ausgewählt über die Dateiauswahl. Seine Seiten werden zu
+einem Dokument wie jedes andere: Sie können sie kommentieren, unterschreiben,
+mit Labels versehen, erneut exportieren und über die Textsuche wiederfinden.
+
+Die Originaldatei bleibt unverändert in „Meine PDFs“. Importiert werden bis zu
+100 Seiten; ein passwortgeschütztes PDF lässt sich nicht importieren.
 
 ## Exportieren und teilen
 

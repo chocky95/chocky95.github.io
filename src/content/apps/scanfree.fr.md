@@ -125,6 +125,11 @@ Vos documents sont rangés dans une bibliothèque, avec miniatures — en liste,
 petites ou en grandes vignettes. Vous les renommez, vous les supprimez, et vous
 pouvez rouvrir un document scanné il y a des mois pour le modifier.
 
+Des **libellés** les classent : un nom, la couleur de votre choix, et autant de
+libellés que vous voulez sur un même document. « À traiter », « Traité » et
+« À envoyer » sont prêts dès l'installation, et la bibliothèque peut se grouper
+par libellé, en sections repliables.
+
 ## Retrouver un document par son texte
 
 ScanFree reconnaît le texte de chaque page (OCR) directement sur le téléphone :
@@ -141,6 +146,16 @@ arrière-plan, dès qu'un document entre dans la bibliothèque.
 
 Le PDF exporté reste une image : le texte reconnu sert à chercher et à copier
 dans l'application.
+
+## Importer un PDF existant
+
+Un PDF reçu par e-mail ou téléchargé peut entrer dans la bibliothèque, choisi
+dans le sélecteur de fichiers. Ses pages deviennent un document comme les
+autres : vous pouvez les annoter, les signer, leur poser des libellés, les
+réexporter et les retrouver par la recherche dans le texte.
+
+Le fichier d'origine est conservé tel quel dans « Mes PDF ». L'import accepte
+jusqu'à 100 pages ; un PDF protégé par mot de passe ne peut pas être importé.
 
 ## Exporter et partager
 

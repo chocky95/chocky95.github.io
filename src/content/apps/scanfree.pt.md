@@ -121,6 +121,11 @@ Os seus documentos ficam organizados numa biblioteca, com miniaturas — em
 lista, ou em miniaturas pequenas ou grandes. Pode renomeá-los, eliminá-los, e
 reabrir um documento digitalizado há meses para o editar.
 
+As **etiquetas** organizam-nos: um nome, a cor que quiser e tantas etiquetas
+quantas quiser num mesmo documento. «A fazer», «Feito» e «A enviar» estão
+prontas desde o início, e a biblioteca pode ser agrupada por etiqueta, em
+secções recolhíveis.
+
 ## Encontrar um documento pelo texto
 
 A ScanFree reconhece o texto de cada página (OCR) diretamente no telefone: sem
@@ -136,6 +141,16 @@ plano assim que um documento entra na biblioteca.
 
 O PDF exportado continua a ser uma imagem: o texto reconhecido serve para
 pesquisar e copiar dentro da aplicação.
+
+## Importar um PDF existente
+
+Um PDF recebido por e-mail ou descarregado pode entrar na biblioteca, escolhido
+no seletor de ficheiros. As suas páginas tornam-se um documento como os outros:
+pode anotá-las, assiná-las, atribuir-lhes etiquetas, voltar a exportá-las e
+encontrá-las pela pesquisa no texto.
+
+O ficheiro original é guardado intacto em «Os meus PDF». A importação aceita até
+100 páginas; um PDF protegido por palavra-passe não pode ser importado.
 
 ## Exportar e partilhar
 

@@ -100,6 +100,11 @@ Asiakirjasi ovat kirjastossa esikatselukuvien kanssa — listana tai pieninä ta
 suurina ruutuina. Voit nimetä ne uudelleen, poistaa ne, ja avata kuukausia
 sitten skannatun asiakirjan uudelleen muokattavaksi.
 
+**Tunnisteet** järjestävät ne: nimi, vapaasti valittava väri ja samaan
+asiakirjaan niin monta tunnistetta kuin haluat. Kolme tunnistetta — tehtävä,
+valmis, lähetettävä — on valmiina heti asennuksesta, ja kirjaston voi ryhmitellä
+tunnisteittain kokoontaitettaviin osioihin.
+
 ## Löydä asiakirja sen tekstin perusteella
 
 ScanFree tunnistaa jokaisen sivun tekstin (OCR) suoraan puhelimessa: ilman
@@ -115,6 +120,16 @@ heti, kun asiakirja tulee kirjastoon.
 
 Viety PDF pysyy kuvana: tunnistettua tekstiä käytetään hakuun ja kopiointiin
 sovelluksessa.
+
+## Olemassa olevan PDF:n tuonti
+
+Sähköpostilla saadun tai ladatun PDF:n voi lisätä kirjastoon tiedostovalitsimen
+kautta. Sen sivuista tulee asiakirja muiden joukkoon: voit lisätä niihin
+merkintöjä, allekirjoittaa ne, antaa niille tunnisteita, viedä ne uudelleen ja
+löytää ne tekstihaulla.
+
+Alkuperäinen tiedosto säilyy muuttumattomana omassa PDF-luettelossaan. Tuonti
+onnistuu 100 sivuun asti; salasanalla suojattua PDF:ää ei voi tuoda.
 
 ## Vie ja jaa
 
