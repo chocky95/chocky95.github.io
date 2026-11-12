@@ -9,14 +9,14 @@ lead: >-
   keeper for Mölkky, a document scanner, and accounting for the self-employed.
   All of them are free to download.
 translationStatus: authored
-updatedOn: 2026-10-30
+updatedOn: 2026-11-12
 faq:
   - q: Are the Chocky Dev apps free?
     a: >-
       All of them are free to download. Mölkky Score is simply free. So is
       ScanFree, funded by a rewarded video at export time, with no paid version
       at all. Papayoo and Mojogo are ad-funded, with a one-time Premium
-      purchase that removes the ads. Garage Master TCG, coming soon, is funded
+      purchase that removes the ads. Garage Master TCG is funded
       by rewarded videos, gem packs and a Premium Pass subscription, all
       optional. EasyCompta also offers a subscription, and it covers only the
       advanced analytics and exports: keeping the income ledger itself stays
@@ -26,13 +26,14 @@ faq:
       Not for Mölkky Score, ScanFree or EasyCompta: they work without signing up
       and their data stays on the device. Papayoo and Mojogo only need a profile
       for online play; their solo modes work without an account. Garage Master
-      TCG asks for a Google account on first launch: the collection, the market
+      TCG asks for a Google account, or an Apple one on iPhone, on first
+      launch: the collection, the market
       and trades live on the server.
   - q: Which platforms do these apps run on?
     a: >-
       Android, through Google Play. Papayoo, ScanFree and Mölkky Score are also
-      on the Apple App Store; Mojogo is awaiting approval. Garage Master
-      TCG comes to Android first, then to iPhone. EasyCompta also has a free web
+      on the Apple App Store; Mojogo is awaiting approval. Garage Master TCG, the other way round, is already on the App Store and
+      still in closed beta on Android. EasyCompta also has a free web
       version that runs in the browser with nothing to install.
 ---
 
@@ -55,10 +56,10 @@ round ends as soon as a player reaches 50 and the lowest score wins, and Jungo,
 a game of combinations. Play solo against bots or online with friends.
 
 [Garage Master TCG](/en/apps/garage-master-tcg/) is a trading card game about
-cars, currently being finalised. Free boosters every two hours, real cars in
+cars. Free boosters every two hours, real cars in
 six editions from Standard to numbered Prestige, albums to complete, and a
 market to sell or trade your duplicates with other players, in virtual coins
-only. Coming soon to Google Play, then to iPhone.
+only. Available on iPhone and iPad, in closed beta on Android.
 
 ## Two tools for everyday use
 
@@ -79,7 +80,7 @@ version lets you try it without installing anything.
 Four of the six apps have no subscription at all: Mölkky Score and ScanFree are
 free, and Papayoo and Mojogo unlock through a one-time purchase. EasyCompta
 offers one, and only for its advanced analytics and exports — keeping the
-income ledger stays free and unlimited. Garage Master TCG will offer one, the
+income ledger stays free and unlimited. Garage Master TCG offers one, the
 Premium Pass, which speeds up progress without making anything exclusive: a
 free player can complete any album.
 

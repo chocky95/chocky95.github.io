@@ -49,6 +49,7 @@ const fr = {
   'cta.discover': 'Découvrir',
   'cta.readRules': 'Lire les règles',
   'cta.joinBeta': 'Rejoindre la bêta',
+  'cta.joinAndroidBeta': 'Bêta Android',
 
   // Fil d'Ariane
   'breadcrumb.label': "Fil d'Ariane",

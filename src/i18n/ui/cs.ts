@@ -36,6 +36,7 @@ const cs: UiDict = {
   'cta.discover': 'Objevit',
   'cta.readRules': 'Přečíst pravidla',
   'cta.joinBeta': 'Zapojit se do beta verze',
+  'cta.joinAndroidBeta': 'Beta pro Android',
 
   'breadcrumb.label': 'Navigační cesta',
 

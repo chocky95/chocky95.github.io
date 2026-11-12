@@ -36,6 +36,7 @@ const sv: UiDict = {
   'cta.discover': 'Upptäck',
   'cta.readRules': 'Läs reglerna',
   'cta.joinBeta': 'Gå med i betan',
+  'cta.joinAndroidBeta': 'Android-beta',
 
   'breadcrumb.label': 'Sökväg',
 

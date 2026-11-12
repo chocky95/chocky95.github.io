@@ -12,7 +12,7 @@ lead: >-
   chacune, comment elle se finance, dans combien de langues son interface existe
   réellement, et ce qu'elle demande à votre téléphone.
 translationStatus: authored
-updatedOn: 2026-10-19
+updatedOn: 2026-11-12
 faq:
   - q: Quelle application choisir pour compter les points au Mölkky ?
     a: >-
@@ -33,8 +33,8 @@ faq:
       Pas pour Mölkky Score, ScanFree et EasyCompta : elles fonctionnent sans
       inscription et gardent leurs données sur l'appareil. Papayoo et Mojogo
       n'ont besoin d'un profil que pour les parties en ligne ; leurs modes solo
-      s'utilisent sans compte. Garage Master TCG demande un compte Google dès le
-      premier lancement.
+      s'utilisent sans compte. Garage Master TCG demande un compte Google, ou Apple sur iPhone, dès
+      le premier lancement.
 ---
 
 ## Comparatif
@@ -59,8 +59,7 @@ ont aucun.
   Mölkky Score.
 - **Vous voulez un jeu de cartes** à jouer seul contre l'IA ou en ligne entre
   amis → Papayoo, ou Mojogo pour deux jeux en une application.
-- **Vous aimez les voitures** et les cartes à collectionner → Garage Master
-  TCG, bientôt disponible.
+- **Vous aimez les voitures** et les cartes à collectionner → Garage Master TCG, sur iPhone et iPad (bêta sur Android).
 - **Vous devez envoyer un document scanné** sans installer un service payant →
   ScanFree.
 - **Vous êtes micro-entrepreneur en France** et vous tenez un livre des
@@ -79,7 +78,7 @@ autoriser. Papayoo et Mojogo ne sortent du téléphone que pour les parties en
 ligne.
 
 Garage Master TCG est à l'autre bout du spectre : c'est un jeu en ligne, avec un
-compte Google obligatoire, parce que le tirage des boosters, le marché et les
+compte obligatoire (Google, ou Apple sur iPhone), parce que le tirage des boosters, le marché et les
 échanges sont exécutés sur le serveur. Il ne demande en revanche ni position ni
 contacts ; la caméra ne sert qu'à scanner le QR code d'un ami.
 

@@ -36,6 +36,7 @@ const ro: UiDict = {
   'cta.discover': 'Descoperă',
   'cta.readRules': 'Citește regulile',
   'cta.joinBeta': 'Alătură-te versiunii beta',
+  'cta.joinAndroidBeta': 'Beta Android',
 
   'breadcrumb.label': 'Fir de navigare',
 

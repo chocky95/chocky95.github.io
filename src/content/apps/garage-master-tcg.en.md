@@ -2,16 +2,16 @@
 title: 'Garage Master TCG: the car trading card game'
 metaDescription: >-
   Free boosters, real cars in six editions, albums to complete and a market
-  between players, all in virtual currency. Coming soon to Google Play, then iOS.
+  between players, in virtual currency. On iPhone and iPad, in beta on Android.
 h1: 'Garage Master TCG: the trading card game for people who love cars'
 lead: >-
   Garage Master TCG is a trading card game about cars. You open free boosters,
   build a collection of real cars in six editions, from Standard to numbered
   Prestige, complete albums, and sell or trade your duplicates with other
-  players, in virtual currency only. The game is being finalised: coming soon
-  to Google Play, then to iPhone.
+  players, in virtual currency only. The game is available on the App Store for iPhone and iPad; on Android,
+  it is in closed beta on Google Play.
 translationStatus: authored
-updatedOn: 2026-10-19
+updatedOn: 2026-11-12
 highlights:
   - Free boosters that refill every two hours, plus a welcome booster on the house
   - Real cars, from city cars to hypercars, ranked from class D to class S by rarity
@@ -22,11 +22,12 @@ highlights:
   - Fuse, recycle and craft to make something of your duplicates
   - Interface in English and French
 faq:
-  - q: When will Garage Master TCG be available?
+  - q: Which devices can I play Garage Master TCG on?
     a: >-
-      The game is in internal testing on Google Play. It will launch on Android
-      first; the iPhone version is planned next. The download link will appear
-      on this page as soon as it is published.
+      iPhone and iPad, where the game is on the App Store. On Android, it is
+      in closed beta on Google Play: the sign-up page is linked at the top of
+      this page, and the Play Store link will appear here as soon as the game
+      is publicly released.
   - q: Is Garage Master TCG free?
     a: >-
       Yes. Daily boosters, albums, the market and trades are free. The game is
@@ -36,7 +37,8 @@ faq:
       Nothing can be converted into real money.
   - q: Do I need an account to play?
     a: >-
-      Yes: signing in with a Google account is required on first launch. It
+      Yes: signing in with a Google account, or an Apple account on iPhone and
+      iPad, is required on first launch. It
       lets you recover your collection on a new phone and keeps sales and
       trades secure, since all of the game's logic runs on the server, never
       on the phone.
@@ -175,6 +177,7 @@ player can complete any album.
 
 ## Availability
 
-Garage Master TCG is in internal testing on **Google Play** and will launch on
-Android first. The **iPhone and iPad** version is planned next. The download
-link will appear on this page as soon as it is published.
+Garage Master TCG is available on the **App Store**, for **iPhone and iPad**.
+On Android, the game is in closed beta on **Google Play**: the sign-up page is
+linked at the top of this page, and the Play Store link will appear here as
+soon as the game is publicly released.

@@ -36,6 +36,7 @@ const ja: UiDict = {
   'cta.discover': '詳しく見る',
   'cta.readRules': 'ルールを読む',
   'cta.joinBeta': 'ベータ版に参加',
+  'cta.joinAndroidBeta': 'Android ベータ版',
 
   'breadcrumb.label': 'パンくずリスト',
 

@@ -36,6 +36,7 @@ const nl: UiDict = {
   'cta.discover': 'Ontdekken',
   'cta.readRules': 'Regels lezen',
   'cta.joinBeta': 'Doe mee aan de bèta',
+  'cta.joinAndroidBeta': 'Android-bèta',
 
   'breadcrumb.label': 'Kruimelpad',
 

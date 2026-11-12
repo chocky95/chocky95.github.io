@@ -140,6 +140,8 @@ const canonical = absolute(locale, '');
               n'est installable, donc un badge Play à côté se contredirait. Une
               bêta ouverte (`betaUrl`) le remplace par « Version bêta » et un
               bouton vers la page d'inscription (FR, ou son volet #en ailleurs).
+              Une app publiée sur l'App Store mais en test fermé sur Android
+              garde ce bouton, libellé « Bêta Android », après son badge.
               Les badges viennent des faits (`stores`, `comingToIos`, `betaUrl`),
               jamais d'une liste tenue à la main.
             */}
@@ -161,8 +163,16 @@ const canonical = absolute(locale, '');
                   {app.stores.includes('play') && (
                     <span class="badge badge--play">{t('apps.onPlay')}</span>
                   )}
-                  {app.stores.includes('ios') && (
+                                    {app.stores.includes('ios') && (
                     <span class="badge badge--play">App Store</span>
+                  )}
+                  {app.betaUrl && (
+                    <a
+                      class="badge badge--play beta"
+                      href={locale === DEFAULT_LOCALE ? app.betaUrl : `${app.betaUrl}#en`}
+                    >
+                      {t('cta.joinAndroidBeta')}
+                    </a>
                   )}
                   {app.comingToIos && (
                     <span class="badge badge--ios">{t('apps.comingToIos')}</span>

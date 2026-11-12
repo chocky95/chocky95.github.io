@@ -36,6 +36,7 @@ const fi: UiDict = {
   'cta.discover': 'Tutustu',
   'cta.readRules': 'Lue säännöt',
   'cta.joinBeta': 'Liity betatestiin',
+  'cta.joinAndroidBeta': 'Android-beeta',
 
   'breadcrumb.label': 'Murupolku',
 

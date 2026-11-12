@@ -36,6 +36,7 @@ const ko: UiDict = {
   'cta.discover': '자세히 보기',
   'cta.readRules': '규칙 보기',
   'cta.joinBeta': '베타 참여하기',
+  'cta.joinAndroidBeta': 'Android 베타',
 
   'breadcrumb.label': '탐색 경로',
 

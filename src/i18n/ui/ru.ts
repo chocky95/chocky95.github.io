@@ -36,6 +36,7 @@ const ru: UiDict = {
   'cta.discover': 'Узнать больше',
   'cta.readRules': 'Читать правила',
   'cta.joinBeta': 'Присоединиться к бета-версии',
+  'cta.joinAndroidBeta': 'Бета для Android',
 
   'breadcrumb.label': 'Навигационная цепочка',
 

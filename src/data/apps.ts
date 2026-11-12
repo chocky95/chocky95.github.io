@@ -81,10 +81,12 @@ export interface AppFacts {
   /** Fiche App Store, renseignée uniquement quand `stores` contient `ios`. */
   readonly appStoreUrl: string | null;
   /**
-   * Chemin SITE (jamais Play) d'une page d'inscription au test fermé, servie
+      * Chemin SITE (jamais Play) d'une page d'inscription au test fermé, servie
    * en fichier plat depuis `public/` (ex. `/mojogo/beta.html`). Réservé aux
-   * applications `coming-soon` : une application publiée a un lien Play, pas
-   * un lien bêta. La page produit y pose un bouton « Rejoindre la bêta », et
+   * applications absentes de Google Play : une fois sur Play, le lien Play
+   * remplace le lien bêta. Une app déjà publiée sur l'App Store mais encore en
+   * test fermé sur Android (Garage Master TCG) le garde, libellé « bêta
+   * Android ». La page produit y pose un bouton « Rejoindre la bêta », et
    * la carte de l'accueil un badge « Version bêta » suivi du même bouton.
    * L'audit exige la présence du fichier dans `dist/` (FLAT_PAGES).
    */
@@ -173,7 +175,7 @@ export const APPS: readonly AppFacts[] = [
     slug: 'garage-master-tcg',
     name: 'Garage Master TCG',
     packageId: 'com.chocky.tcg',
-    version: '0.1.0',
+        version: '0.1.30',
     // Rouge oxyde du thème « garage de nuit » (TcgColors.red, tcg_core). Il ne
     // donne que 4.47:1 sur l'encre, juste sous AA. La variante allumée du même
     // thème (TcgColors.redLit) porte le texte : 5.30:1.
@@ -183,19 +185,20 @@ export const APPS: readonly AppFacts[] = [
     schemaCategory: 'GameApplication',
     // FR + EN seulement : packages/tcg_core/lib/l10n/app_{fr,en}.arb.
     nativeLocales: ['fr', 'en'],
-    // Android d'abord. iOS est prévu dans le code (interfaces auth et achats)
-    // mais rien n'est branché tant que le compte Apple Developer n'existe pas.
-    comingToIos: true,
-    // Test fermé Google Play, inscription par /tcg/beta.html (groupe
-    // testinggm). À la publication : status 'published', betaUrl null,
-    // playUrl = PLAY + 'com.chocky.tcg' et 'play' dans stores — et la page
-    // bêta devient un renvoi vers la fiche Play, comme /mojogo/beta.html.
-    status: 'coming-soon',
+        // Sortie à l'envers des autres : l'App Store d'abord (validée le
+    // 2026-11-12, id6828020937 = tcgAppStoreId de store_platform.dart), alors
+    // qu'Android est encore en test fermé Google Play (inscription par
+    // /tcg/beta.html, groupe testinggm). D'où une app « published » qui garde
+    // son betaUrl. À la sortie Play : betaUrl null, playUrl = PLAY +
+    // 'com.chocky.tcg' et 'play' dans stores — et la page bêta devient un
+    // renvoi vers la fiche Play, comme /mojogo/beta.html.
+    comingToIos: false,
+    status: 'published',
     playUrl: null,
-    appStoreUrl: null,
+    appStoreUrl: APP_STORE + '6828020937',
     betaUrl: '/tcg/beta.html',
     webAppUrl: null,
-    stores: [],
+    stores: ['ios'],
     buildTargets: ['android', 'ios'],
     screenshotLocales: [],
     trademarkNotice:
@@ -408,10 +411,10 @@ for (const app of APPS) {
       where + ' : comingToIos sans cible de build "ios" — ajouter la cible, ou retirer l\'annonce.',
     );
   }
-  // Un lien bêta n'a de sens qu'avant la publication : une fois l'app publiée,
-  // le bouton Play le remplace. Rappel au moment de basculer `status`.
-  if (app.betaUrl !== null && app.status !== 'coming-soon') {
-    throw new Error(where + ' : betaUrl renseigné alors que l\'application est publiée — repasser betaUrl à null.');
+    // Un lien bêta (test fermé Google Play) n'a de sens qu'avant la sortie sur
+  // Play : le bouton Play le remplace. Rappel au moment d'ajouter 'play'.
+  if (app.betaUrl !== null && app.stores.includes('play')) {
+    throw new Error(where + ' : betaUrl renseigné alors que l\'application est sur Google Play — repasser betaUrl à null.');
   }
   if (app.betaUrl !== null && !/^\/[a-z0-9/-]+\.html$/.test(app.betaUrl)) {
     throw new Error(where + ' : betaUrl doit être un chemin site absolu vers un fichier .html plat (ex. /mojogo/beta.html).');

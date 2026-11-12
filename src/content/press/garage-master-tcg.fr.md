@@ -10,12 +10,12 @@ lead: >-
   réelles dans six éditions de rareté (Standard, Argent, Or, Platine, Diamant,
   Prestige), on complète des albums et on échange avec ses amis.
 translationStatus: authored
-updatedOn: 2026-10-30
+updatedOn: 2026-11-12
 slug: presse
 navLabel: Espace presse
 status: >-
-  Le jeu est en bêta fermée sur Android. Il sortira bientôt sur le Google Play
-  Store et sur l'App Store (iPhone et iPad).
+  Le jeu est disponible sur l'App Store (iPhone et iPad). Sur Android, il est
+  en bêta fermée et sortira bientôt sur le Google Play Store.
 sections:
   highlights: Points clés
   platforms: Plateformes
@@ -31,7 +31,7 @@ highlights:
   - Développé par un studio indépendant de deux personnes, Chocky Dev.
 platforms:
   android: Bêta fermée en cours ; bientôt sur le Google Play Store.
-  ios: Bientôt sur l'App Store, pour iPhone et iPad.
+  ios: Disponible sur l'App Store, pour iPhone et iPad.
 galleryNote: Chaque visuel se télécharge en pleine résolution.
 downloadLabel: Télécharger
 gallery:
@@ -69,7 +69,7 @@ facts:
   - label: Modèle
     value: Gratuit, achats intégrés
   - label: Statut
-    value: Bêta fermée
+    value: Disponible sur iOS, bêta fermée sur Android
   - label: Studio
     value: Chocky Dev
   - label: Langues

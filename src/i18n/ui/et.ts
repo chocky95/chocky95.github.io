@@ -36,6 +36,7 @@ const et: UiDict = {
   'cta.discover': 'Avasta',
   'cta.readRules': 'Loe reegleid',
   'cta.joinBeta': 'Liitu beetaga',
+  'cta.joinAndroidBeta': 'Androidi beeta',
 
   'breadcrumb.label': 'Navigatsiooniahel',
 

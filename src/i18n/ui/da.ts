@@ -36,6 +36,7 @@ const da: UiDict = {
   'cta.discover': 'Udforsk',
   'cta.readRules': 'Læs reglerne',
   'cta.joinBeta': 'Deltag i betaen',
+  'cta.joinAndroidBeta': 'Android-beta',
 
   'breadcrumb.label': 'Brødkrumme-navigation',
 
