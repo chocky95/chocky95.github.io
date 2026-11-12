@@ -136,7 +136,12 @@ Every card has an **estimated value** in coins, recomputed nightly from its
 class, its edition and the number of copies in circulation. On the
 **market**, you list a card at the price of your choice, between half and
 three times that value, for one, three or seven days; a tax is taken on each
-sale. The "Recent", "Bargains" and "Priciest" views refresh every minute.
+sale. The "Recent", "Bargains" and "Most expensive" views refresh every minute.
+
+Numbered copies of **Platinum and above** can also go to **auction**, with a
+reserve price and, if you like, a buy-now price. The coins of a bid are held
+at once and returned as soon as someone bids higher, and a last-minute bid
+extends the auction.
 
 **Direct trades** happen between friends, cards for cards, with trade tokens
 renewed every week. The game works out the value on each side and refuses a
@@ -147,8 +152,11 @@ value around.
 
 Three **missions** a day and three a week, a seven-day **login streak** with
 coins, gems and bonus boosters, permanent **achievements**, and **levels**
-that gradually unlock recycling, fusion, the market and then trades. A daily
-**leaderboard** lists the hundred most valuable collections.
+that gradually unlock recycling, fusion, the market and then trades. A monthly
+**leaderboard** counts the points earned during the month: every card that
+enters your collection scores according to its class and edition, and market
+prices make no difference. Two more tabs follow the month's progress and the
+value of collections.
 
 ## Friends by QR code
 

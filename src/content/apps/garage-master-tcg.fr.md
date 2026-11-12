@@ -149,6 +149,11 @@ moitié et le triple de cette valeur, pour un, trois ou sept jours ; une taxe
 est prélevée sur chaque vente. Les vues « Récentes », « Bonnes affaires » et
 « Plus chères » renouvellent l'offre toutes les minutes.
 
+Les exemplaires numérotés **Platine et mieux** peuvent aussi partir aux
+**enchères**, avec un prix de réserve et, si vous le souhaitez, un prix d'achat
+immédiat. Les pièces d'une offre sont bloquées aussitôt et rendues dès que
+quelqu'un offre plus, et une offre de dernière minute prolonge l'enchère.
+
 Les **échanges directs** se font entre amis, cartes contre cartes, avec des
 jetons d'échange renouvelés chaque semaine. Le jeu calcule la valeur de chaque
 côté et refuse un échange trop déséquilibré : les échanges servent à compléter
@@ -159,8 +164,11 @@ des albums, pas à transférer de la valeur.
 Trois **missions** par jour et trois par semaine, une **série de connexion**
 sur sept jours avec des pièces, des gemmes et des boosters bonus, des
 **succès** permanents, et des **niveaux** qui débloquent peu à peu le
-recyclage, la fusion, le marché puis les échanges. Un **classement** quotidien
-affiche les cent plus grosses collections par valeur estimée.
+recyclage, la fusion, le marché puis les échanges. Un **classement**
+mensuel compte les points gagnés dans le mois : chaque carte qui entre dans la
+collection en rapporte selon sa classe et son édition, le prix du marché n'y
+change rien. Deux autres onglets suivent la progression du mois et la valeur
+des collections.
 
 ## Des amis par QR code
 

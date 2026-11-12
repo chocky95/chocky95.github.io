@@ -47,9 +47,8 @@ const APP_LOCALES = {
   mojogo: LOCALES,
   scanfree: LOCALES,
   easycompta: LOCALES,
-  // Prose rédigée en fr et en seulement (2026-10-19) : les 16 autres pages
-  // sont le repli factuel en `noindex`, comme prévu par le déploiement par
-  // vagues. Elles existent, sont liées et portent leur cluster hreflang.
+  // Prose rédigée en fr et en le 2026-10-19, puis dans les 16 autres langues
+  // le 2026-11-12 : plus aucun repli en `noindex` pour cette application.
   'garage-master-tcg': LOCALES,
 };
 
@@ -130,9 +129,8 @@ const NAMED_CASES = [
   { url: '/apps/papayoo/', expectAlternates: 19 },
   { url: '/apps/scanfree/', expectAlternates: 19 },
   { url: '/ja/apps/mojogo/', expectAlternates: 19 },
-  // Garage Master TCG : prose en fr et en (indexables, au sitemap) ; le `de`
-  // est une page de repli en noindex, absente du sitemap, dont le cluster
-  // hreflang doit pourtant rester complet.
+  // Garage Master TCG : rédigée dans les 18 langues depuis le 2026-11-12. Le
+  // `de` reste ici comme témoin d'une langue absente de l'interface du jeu.
   { url: '/apps/garage-master-tcg/', expectAlternates: 19 },
   { url: '/en/apps/garage-master-tcg/', expectAlternates: 19 },
   { url: '/de/apps/garage-master-tcg/', expectAlternates: 19 },
