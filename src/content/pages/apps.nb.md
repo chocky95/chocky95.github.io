@@ -2,16 +2,17 @@
 slug: apps
 title: 'Chocky Devs apper: sammenligning og valg'
 metaDescription: >-
-  De fem appene side om side: type, finansieringsmodell, hvor mange språk
+  De seks appene side om side: type, finansieringsmodell, hvor mange språk
   grensesnittet faktisk dekker, og hva hver av dem ber telefonen om.
-h1: 'Chocky Devs fem apper, sammenlignet'
+h1: 'Chocky Devs seks apper, sammenlignet'
 lead: >-
-  To kortspill, en poengteller for Mölkky, en dokumentskanner og et regnskap for
-  den franske selvstendig næringsdrivende. Her ligger den samme informasjonen
-  flatt: hva hver app gjør, hvordan den finansieres, i hvor mange språk
-  grensesnittet faktisk finnes, og hva den ber telefonen din om.
+  To kortspill, et samlekortspill om biler, en poengteller for Mölkky, en
+  dokumentskanner og et regnskap for den franske selvstendig næringsdrivende.
+  Her ligger den samme informasjonen flatt: hva hver app gjør, hvordan den
+  finansieres, i hvor mange språk grensesnittet faktisk finnes, og hva den ber
+  telefonen din om.
 translationStatus: authored
-updatedOn: 2026-10-15
+updatedOn: 2026-11-12
 faq:
   - q: Hvilken app velger man for å telle poeng i Mölkky?
     a: >-
@@ -22,13 +23,16 @@ faq:
     a: >-
       Nei, og forskjellen betyr noe. Dette nettstedet finnes på 18 språk, men
       grensesnittene til appene er oversatt til færre: 9 for Mölkky Score, 15 for
-      Papayoo og Mojogo, 12 for ScanFree, og bare fransk for EasyCompta. Hver
-      appside sier det når språket ditt ikke er dekket.
+      Papayoo og Mojogo, 12 for ScanFree, 2 for Garage Master TCG (engelsk og
+      fransk) og bare fransk for EasyCompta. Hver appside sier det når språket
+      ditt ikke er dekket.
   - q: Må man opprette en konto?
     a: >-
       Ikke for Mölkky Score, ScanFree eller EasyCompta: de virker uten
       registrering og beholder dataene sine på enheten. Papayoo og Mojogo trenger
-      bare en profil for spill på nett; solomodusene virker uten konto.
+      bare en profil for spill på nett; solomodusene virker uten konto. Garage
+      Master TCG ber om en Google-konto, eller en Apple-konto på iPhone, første
+      gang appen startes.
 ---
 
 ## Sammenligningen
@@ -38,17 +42,21 @@ faq:
 | Mölkky Score | Poengteller | Gratis | 9 språk |
 | Papayoo | Kortspill | Annonser, Premium som engangskjøp | 15 språk |
 | Mojogo | Kortspill | Annonser, Premium som engangskjøp | 15 språk |
+| Garage Master TCG | Samlekortspill | Belønningsvideoer, edelsteiner, Premium Pass på abonnement | 2 språk |
 | ScanFree | Dokumentskanner | Gratis, belønningsvideo ved eksport | 12 språk |
 | EasyCompta | Regnskap | Gratis, Premium på abonnement | Bare fransk |
 
-Bare én av de fem tilbyr et abonnement — EasyCompta — og det gjelder alene dens
-avanserte analyser og eksporter. De andre fire har ingen.
+To av de seks tilbyr et abonnement: EasyCompta, bare for de avanserte analysene
+og eksportene, og Garage Master TCG, med et frivillig Premium Pass som gir
+raskere fremgang uten å gjøre noe eksklusivt. De andre fire har ingen.
 
 ## Slik velger du
 
 - **Du spiller Mölkky** og er lei av blyant og papir → Mölkky Score.
 - **Du vil ha et kortspill** å spille alene mot KI-en eller på nett med venner →
   Papayoo, eller Mojogo for to spill i én app.
+- **Du er glad i biler** og samlekort → Garage Master TCG, for iPhone og iPad
+  (beta på Android).
 - **Du må sende et skannet dokument** uten å installere en betalt tjeneste →
   ScanFree.
 - **Du er fransk mikrobedrift** og fører en inntektsbok → EasyCompta.
@@ -62,8 +70,13 @@ grunnen til at dokumentene dine ikke kan havne noe annet sted.
 
 Mölkky Score og EasyCompta beholder også dataene sine på enheten, uten
 registrering og uten server — EasyCompta har ikke engang en bankkobling å
-godkjenne. Papayoo og Mojogo er de to eneste som forlater telefonen, og bare for
-spill på nett.
+godkjenne. Papayoo og Mojogo forlater telefonen bare for spill på nett.
+
+Garage Master TCG ligger i motsatt ende av skalaen: det er et nettspill med
+obligatorisk konto (Google, eller Apple på iPhone), fordi trekningen av
+boosterpakker, markedet og byttehandelen kjøres på serveren. Det ber derimot
+verken om posisjonen din eller kontaktene dine; kameraet brukes bare til å
+skanne QR-koden til en venn.
 
 ## Hvorfor 18 språk av sider, men færre grensesnitt
 
@@ -75,3 +88,5 @@ en besøkende skal kjenne grensen **før** installasjonen, ikke etter.
 Tabellen ovenfor gir den reelle dekningen. EasyCompta er ytterpunktet:
 grensesnittet finnes bare på fransk, noe som henger sammen — den tjener en fransk
 rettslig ordning, med et vokabular som ikke har noen motsvarighet andre steder.
+Garage Master TCG starter for sin del på engelsk og fransk, de to språkene det
+ble lansert på.

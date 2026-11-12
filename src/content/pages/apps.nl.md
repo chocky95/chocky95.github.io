@@ -2,16 +2,17 @@
 slug: apps
 title: 'De apps van Chocky Dev: vergelijking en keuze'
 metaDescription: >-
-  De vijf apps naast elkaar: type, verdienmodel, hoeveel talen de interface echt
+  De zes apps naast elkaar: type, verdienmodel, hoeveel talen de interface echt
   dekt, en wat elke app van je telefoon vraagt.
-h1: 'De vijf apps van Chocky Dev, vergeleken'
+h1: 'De zes apps van Chocky Dev, vergeleken'
 lead: >-
-  Twee kaartspellen, een puntenteller voor Mölkky, een documentscanner en een
-  boekhouding voor de Franse zelfstandige. Hier staat dezelfde informatie plat:
-  wat elke app doet, hoe hij wordt gefinancierd, in hoeveel talen zijn interface
-  werkelijk bestaat, en wat hij van je telefoon vraagt.
+  Twee kaartspellen, een verzamelkaartspel over auto's, een puntenteller voor
+  Mölkky, een documentscanner en een boekhouding voor de Franse zelfstandige.
+  Hier staat dezelfde informatie plat: wat elke app doet, hoe hij wordt
+  gefinancierd, in hoeveel talen zijn interface werkelijk bestaat, en wat hij van
+  je telefoon vraagt.
 translationStatus: authored
-updatedOn: 2026-10-15
+updatedOn: 2026-11-12
 faq:
   - q: Welke app kies je om punten te tellen bij Mölkky?
     a: >-
@@ -22,14 +23,16 @@ faq:
     a: >-
       Nee, en dat onderscheid doet ertoe. Deze site bestaat in 18 talen, maar de
       interfaces van de apps zijn in minder talen vertaald: 9 voor Mölkky Score,
-      15 voor Papayoo en Mojogo, 12 voor ScanFree, en alleen Frans voor
-      EasyCompta. Elke apppagina meldt het wanneer jouw taal niet gedekt is.
+      15 voor Papayoo en Mojogo, 12 voor ScanFree, 2 voor Garage Master TCG
+      (Engels en Frans), en alleen Frans voor EasyCompta. Elke apppagina meldt
+      het wanneer jouw taal niet gedekt is.
   - q: Moet ik een account aanmaken?
     a: >-
       Niet voor Mölkky Score, ScanFree en EasyCompta: die werken zonder
       registratie en houden hun gegevens op het toestel. Papayoo en Mojogo hebben
       alleen een profiel nodig voor online partijen; de solomodi werken zonder
-      account.
+      account. Garage Master TCG vraagt bij de eerste start om een
+      Google-account, of op de iPhone een Apple-account.
 ---
 
 ## De vergelijking
@@ -39,17 +42,22 @@ faq:
 | Mölkky Score | Puntenteller | Gratis | 9 talen |
 | Papayoo | Kaartspel | Advertenties, Premium eenmalige aankoop | 15 talen |
 | Mojogo | Kaartspellen | Advertenties, Premium eenmalige aankoop | 15 talen |
+| Garage Master TCG | Verzamelkaartspel | Beloningsvideo's, edelstenen, Premium Pass-abonnement | 2 talen |
 | ScanFree | Documentscanner | Gratis, beloningsvideo bij export | 12 talen |
 | EasyCompta | Boekhouding | Gratis, Premium met abonnement | Alleen Frans |
 
-Slechts één van de vijf biedt een abonnement — EasyCompta — en dat betreft alleen
-de geavanceerde analyses en de exports. De andere vier hebben er geen.
+Twee van de zes bieden een abonnement: EasyCompta, alleen voor de geavanceerde
+analyses en de exports, en Garage Master TCG, met een optionele Premium Pass die
+de voortgang versnelt zonder iets exclusief te maken. De andere vier hebben er
+geen.
 
 ## Hoe je kiest
 
 - **Je speelt Mölkky** en bent pen en papier zat → Mölkky Score.
 - **Je wilt een kaartspel** om solo tegen de AI of online met vrienden te spelen →
   Papayoo, of Mojogo voor twee spellen in één app.
+- **Je houdt van auto's** en verzamelkaarten → Garage Master TCG, op iPhone en
+  iPad (bèta op Android).
 - **Je moet een gescand document versturen** zonder een betaalde dienst te
   installeren → ScanFree.
 - **Je bent Frans micro-ondernemer** en houdt een inkomstenboek bij → EasyCompta.
@@ -63,8 +71,13 @@ technische reden waarom je documenten nergens anders kunnen belanden.
 
 Mölkky Score en EasyCompta houden hun gegevens ook op het toestel, zonder
 registratie en zonder server — EasyCompta heeft zelfs geen bankkoppeling om toe
-te staan. Papayoo en Mojogo zijn de enige twee die de telefoon verlaten, en
-alleen voor online partijen.
+te staan. Papayoo en Mojogo verlaten de telefoon alleen voor online partijen.
+
+Garage Master TCG zit aan het andere uiteinde van het spectrum: het is een
+onlinespel, met een verplicht account (Google, of Apple op de iPhone), omdat het
+trekken van boosters, de markt en het ruilen allemaal op de server draaien. Het
+vraagt niet om je locatie of je contacten; de camera dient alleen om de QR-code
+van een vriend te scannen.
 
 ## Waarom 18 talen aan pagina's, maar minder interfaces
 
@@ -76,4 +89,6 @@ kennen, niet erna.
 
 De tabel hierboven geeft de echte dekking. EasyCompta is het uiterste geval: zijn
 interface bestaat alleen in het Frans, wat samenhangend is — hij dient een Frans
-juridisch stelsel, met een vocabulaire dat elders geen tegenhanger heeft.
+juridisch stelsel, met een vocabulaire dat elders geen tegenhanger heeft. Garage
+Master TCG begint op zijn beurt in het Engels en het Frans, de twee talen van
+zijn lancering.

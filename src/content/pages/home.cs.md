@@ -1,35 +1,44 @@
 ---
-title: 'Chocky Dev: pět bezplatných aplikací pro Android'
+title: 'Chocky Dev: šest bezplatných aplikací pro Android a iPhone'
 metaDescription: >-
-  Dvě karetní hry, počítadlo bodů pro Mölkky, skener dokumentů a účetnictví pro
-  samostatně podnikající. Všechny zdarma ke stažení, pro Android.
+  Dvě karetní hry, sběratelská karetní hra o autech, počítadlo bodů pro Mölkky,
+  skener dokumentů a účetnictví pro podnikatele. Vše zdarma, Android i iPhone.
 h1: 'Chocky Dev: užitečné aplikace a hry'
 lead: >-
-  Pět aplikací pro Android: dvě karetní hry, počítadlo bodů pro
-  Mölkky, skener dokumentů a účetnictví pro samostatně podnikající. Všechny se
-  dají stáhnout zdarma.
+  Šest aplikací pro Android a iPhone: dvě karetní hry, sběratelská karetní hra
+  o autech, počítadlo bodů pro Mölkky, skener dokumentů a účetnictví pro
+  samostatně podnikající. Všechny se dají stáhnout zdarma.
 translationStatus: authored
-updatedOn: 2026-10-30
+updatedOn: 2026-11-12
 faq:
   - q: Jsou aplikace Chocky Dev zdarma?
     a: >-
       Všechny se dají stáhnout bezplatně. Mölkky Score je prostě zdarma. Stejně
       tak ScanFree, financovaný odměnovým videem ve chvíli exportu a bez jakékoli
       placené verze. Papayoo a Mojogo se financují reklamou a Premium
-      v jednorázovém nákupu ji odstraní. EasyCompta je jediná s předplatným, a to se týká jen
+      v jednorázovém nákupu ji odstraní. Garage Master TCG se financuje
+      odměnovými videi, balíčky drahokamů a předplatným Premium Pass, vše
+      nepovinné. EasyCompta rovněž nabízí předplatné, a to se týká jen
       pokročilých analýz a exportů: vedení knihy příjmů zůstává zdarma a bez
       omezení.
   - q: Potřebuji k jejich používání účet?
     a: >-
       U Mölkky Score, ScanFree a EasyCompta nikoli: fungují bez registrace a
       jejich data zůstávají v zařízení. Papayoo a Mojogo potřebují profil jen pro
-      hru po síti; režimy pro jednoho hráče fungují bez účtu.
+      hru po síti; režimy pro jednoho hráče fungují bez účtu. Garage Master TCG
+      při prvním spuštění vyžaduje účet Google, na iPhonu případně Apple:
+      sbírka, tržiště i výměny běží na serveru.
   - q: Na jakých platformách tyto aplikace fungují?
     a: >-
-      Na Androidu přes Google Play. Papayoo, ScanFree a Mölkky Score jsou k dispozici i v App Storu firmy Apple; Mojogo čeká na schválení. EasyCompta má navíc bezplatnou webovou verzi, která běží v prohlížeči bez instalace.
+      Papayoo, Mojogo, ScanFree a Mölkky Score jsou na Androidu přes Google
+      Play; Papayoo, ScanFree a Mölkky Score jsou také v App Storu firmy Apple,
+      kde Mojogo čeká na schválení. Garage Master TCG a EasyCompta jsou v App
+      Storu pro iPhone a iPad: Garage Master TCG je na Androidu v uzavřené betě
+      a EasyCompta má navíc bezplatnou webovou verzi, která běží v prohlížeči
+      bez instalace.
 ---
 
-## Tři aplikace na hraní
+## Čtyři aplikace na hraní
 
 [Mölkky Score](/cs/apps/molkky-score/) počítá body vašich partií Mölkky za vás.
 Pravidlo tří minutí a návrat na 25 bodů při překročení se uplatní samo, turnaje
@@ -47,6 +56,12 @@ aplikace.
 skončí, jakmile hráč dosáhne 50, a vyhrává nejnižší skóre, a Jungo, hru na
 kombinace. Sami proti botům, nebo po síti s přáteli.
 
+[Garage Master TCG](/cs/apps/garage-master-tcg/) je sběratelská karetní hra o
+autech. Boostery zdarma každé dvě hodiny, skutečná auta v šesti edicích od
+Standard po číslovanou Prestige, alba k zaplnění a tržiště, kde své duplikáty
+prodáte nebo vyměníte s ostatními hráči, a to výhradně za virtuální mince. K
+dispozici pro iPhone a iPad, na Androidu v uzavřené betě.
+
 ## Dva nástroje na každý den
 
 [ScanFree](/cs/apps/scanfree/) naskenuje dokument kamerou, najde jeho okraje,
@@ -58,15 +73,20 @@ zpracování probíhá v telefonu.
 [EasyCompta](/cs/apps/easycompta/) vede knihu příjmů a registr nákupů, které je
 francouzský mikropodnikatel povinen držet, odhaduje odvody URSSAF podle druhu
 činnosti a ukazuje skutečný zisk po odvodech, ne jen obrat. Žádné bankovní
-propojení, žádná data posílaná na server. Bezplatná webová verze umožňuje
-vyzkoušet ji bez instalace.
+propojení, žádná data posílaná na server. Pro iPhone a iPad; bezplatná webová
+verze umožňuje vyzkoušet ji bez instalace.
 
-## Co se u všech pěti nemění
+## Co se u všech šesti nemění
 
-Čtyři aplikace z pěti nemají žádné předplatné: Mölkky Score a ScanFree jsou
-zdarma, Papayoo a Mojogo odemkne jednorázový nákup. EasyCompta je jediná, která
-předplatné nabízí, a to jen pro pokročilé analýzy a exporty — vedení knihy
-příjmů zůstává zdarma a bez omezení.
+Čtyři aplikace ze šesti nemají žádné předplatné: Mölkky Score a ScanFree jsou
+zdarma, Papayoo a Mojogo odemkne jednorázový nákup. EasyCompta předplatné
+nabízí, a to jen pro pokročilé analýzy a exporty — vedení knihy příjmů zůstává
+zdarma a bez omezení. Garage Master TCG nabízí předplatné Premium Pass, které
+urychluje postup, aniž by cokoli činilo exkluzivním: i hráč, který neplatí,
+může dokončit jakékoli album.
 
-Data zůstávají v zařízení všude, kde to jde — což platí pro čtyři aplikace z
-pěti; pátá opouští telefon jen kvůli hře po síti.
+Data zůstávají v zařízení všude, kde to jde: Mölkky Score, ScanFree a
+EasyCompta je nikam neposílají a Papayoo a Mojogo opouštějí telefon jen kvůli
+hře po síti. Garage Master TCG je ze své podstaty online hra: sbírka je uložena
+na serveru a v telefonu je její kopie, kterou si můžete prohlížet i bez
+připojení.

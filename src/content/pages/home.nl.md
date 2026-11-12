@@ -1,36 +1,45 @@
 ---
-title: 'Chocky Dev: vijf gratis Android-apps'
+title: 'Chocky Dev: zes gratis apps voor Android en iPhone'
 metaDescription: >-
-  Twee kaartspellen, een puntenteller voor Mölkky, een documentscanner en een
-  boekhouding voor zzp'ers. Allemaal gratis te downloaden, voor Android.
+  Twee kaartspellen, een verzamelkaartspel over auto's, een puntenteller voor
+  Mölkky, een documentscanner en een boekhouding voor zzp'ers. Allemaal gratis.
 h1: 'Chocky Dev: nuttige apps en spellen'
 lead: >-
-  Vijf Android-apps: twee kaartspellen, een puntenteller voor
-  Mölkky, een documentscanner en een boekhouding voor zelfstandigen. Ze zijn
-  allemaal gratis te downloaden.
+  Zes apps voor Android en iPhone: twee kaartspellen, een verzamelkaartspel over
+  auto's, een puntenteller voor Mölkky, een documentscanner en een boekhouding
+  voor zelfstandigen. Ze zijn allemaal gratis te downloaden.
 translationStatus: authored
-updatedOn: 2026-10-30
+updatedOn: 2026-11-12
 faq:
   - q: Zijn de apps van Chocky Dev gratis?
     a: >-
       Ze zijn allemaal gratis te downloaden. Mölkky Score is simpelweg gratis.
       ScanFree ook, gefinancierd met een beloningsvideo bij het exporteren en
       zonder enige betaalde versie. Papayoo en Mojogo worden gefinancierd met
-      advertenties, en een Premium met eenmalige aankoop haalt ze weg. EasyCompta is de enige
-      met een abonnement, en dat betreft alleen de geavanceerde analyses en de
+      advertenties, en een Premium met eenmalige aankoop haalt ze weg. Garage
+      Master TCG wordt gefinancierd met beloningsvideo's, pakketten edelstenen
+      en een Premium Pass-abonnement, allemaal optioneel. Ook EasyCompta biedt
+      een abonnement, en dat betreft alleen de geavanceerde analyses en de
       exports: het inkomstenboek bijhouden blijft gratis en zonder limiet.
   - q: Heb ik een account nodig om ze te gebruiken?
     a: >-
       Niet voor Mölkky Score, ScanFree en EasyCompta: die werken zonder
       registratie en hun gegevens blijven op het toestel. Papayoo en Mojogo
       hebben alleen een profiel nodig voor online partijen; de solomodi werken
-      zonder account.
+      zonder account. Garage Master TCG vraagt bij de eerste start om een
+      Google-account, of op de iPhone een Apple-account: de collectie, de markt
+      en het ruilen draaien op de server.
   - q: Op welke platforms werken deze apps?
     a: >-
-      Op Android, via Google Play. Papayoo, ScanFree en Mölkky Score staan ook in de App Store van Apple; Mojogo wacht op goedkeuring. Van EasyCompta bestaat daarnaast een gratis webversie die in de browser werkt zonder iets te installeren.
+      Papayoo, Mojogo, ScanFree en Mölkky Score staan op Android, via Google
+      Play; Papayoo, ScanFree en Mölkky Score staan ook in de App Store van
+      Apple, waar Mojogo nog op goedkeuring wacht. Garage Master TCG en
+      EasyCompta staan in de App Store, voor iPhone en iPad: Garage Master TCG
+      is op Android in gesloten bèta, en van EasyCompta bestaat ook een gratis
+      webversie die in de browser werkt zonder iets te installeren.
 ---
 
-## Drie apps om te spelen
+## Vier apps om te spelen
 
 [Mölkky Score](/nl/apps/molkky-score/) telt de punten van je Mölkky-partijen
 voor je. De drie-missers-regel en het terugvallen naar 25 bij overschrijding
@@ -48,6 +57,12 @@ regels zitten in de app.
 de partij stopt zodra een speler 50 haalt en de laagste score wint, en Jungo,
 een spel van combinaties. Solo tegen bots of online met vrienden.
 
+[Garage Master TCG](/nl/apps/garage-master-tcg/) is een verzamelkaartspel over
+auto's. Elke twee uur gratis boosters, echte auto's in zes edities van Standard
+tot de genummerde Prestige, albums om compleet te maken, en een markt waar je je
+dubbele kaarten verkoopt of ruilt met andere spelers, uitsluitend met virtuele
+munten. Beschikbaar op iPhone en iPad, in gesloten bèta op Android.
+
 ## Twee hulpmiddelen voor elke dag
 
 [ScanFree](/nl/apps/scanfree/) scant een document met de camera, vindt de randen,
@@ -60,15 +75,20 @@ maakt geen account aan, want alle bewerking gebeurt op de telefoon.
 bij die een Franse micro-ondernemer verplicht moet bijhouden, schat de
 URSSAF-bijdragen op basis van de activiteit en toont de echte winst na
 bijdragen, niet alleen de omzet. Geen bankkoppeling, geen gegevens naar een
-server. Met een gratis webversie probeer je het zonder iets te installeren.
+server. Op iPhone en iPad, met een gratis webversie om het te proberen zonder
+iets te installeren.
 
-## Wat bij alle vijf hetzelfde blijft
+## Wat bij alle zes hetzelfde blijft
 
-Vier van de vijf apps hebben helemaal geen abonnement: Mölkky Score en ScanFree
+Vier van de zes apps hebben helemaal geen abonnement: Mölkky Score en ScanFree
 zijn gratis, en Papayoo en Mojogo worden ontgrendeld met een eenmalige aankoop.
-EasyCompta is de enige die er een aanbiedt, en alleen voor de geavanceerde
-analyses en de exports — het inkomstenboek bijhouden blijft gratis en zonder
-limiet.
+EasyCompta biedt er een aan, en alleen voor de geavanceerde analyses en de
+exports — het inkomstenboek bijhouden blijft gratis en zonder limiet. Garage
+Master TCG biedt er ook een aan, de Premium Pass, die je voortgang versnelt
+zonder iets exclusief te maken: wie gratis speelt, kan elk album compleet maken.
 
-Gegevens blijven op het toestel waar dat kan — dat geldt voor vier van de vijf
-apps; de vijfde verlaat de telefoon alleen voor online partijen.
+Gegevens blijven op het toestel waar dat kan: Mölkky Score, ScanFree en
+EasyCompta sturen ze nergens heen, en Papayoo en Mojogo verlaten de telefoon
+alleen voor online partijen. Garage Master TCG is van nature een onlinespel: de
+collectie staat op de server, met een kopie op de telefoon zodat je hem ook
+offline kunt bekijken.

@@ -1,11 +1,11 @@
 ---
-title: 'Chocky Dev: six free Android apps'
+title: 'Chocky Dev: six free apps for Android and iPhone'
 metaDescription: >-
   Two card games, a car trading card game, a Mölkky score keeper, a document
-  scanner and accounting for the self-employed. All free to download, on Android.
+  scanner and accounting for the self-employed. All free, on Android and iPhone.
 h1: 'Chocky Dev: useful apps and games'
 lead: >-
-  Six Android apps: two card games, a trading card game about cars, a score
+  Six apps for Android and iPhone: two card games, a trading card game about cars, a score
   keeper for Mölkky, a document scanner, and accounting for the self-employed.
   All of them are free to download.
 translationStatus: authored
@@ -31,10 +31,12 @@ faq:
       and trades live on the server.
   - q: Which platforms do these apps run on?
     a: >-
-      Android, through Google Play. Papayoo, ScanFree and Mölkky Score are also
-      on the Apple App Store; Mojogo is awaiting approval. Garage Master TCG, the other way round, is already on the App Store and
-      still in closed beta on Android. EasyCompta also has a free web
-      version that runs in the browser with nothing to install.
+      Papayoo, Mojogo, ScanFree and Mölkky Score are on Android, through Google
+      Play; Papayoo, ScanFree and Mölkky Score are also on the Apple App Store,
+      where Mojogo is awaiting approval. Garage Master TCG and EasyCompta are on
+      the App Store, for iPhone and iPad: Garage Master TCG is in closed beta
+      on Android, and EasyCompta also has a free web version that runs in the
+      browser with nothing to install.
 ---
 
 ## Four apps for game night
@@ -72,8 +74,8 @@ creates no account, because every step happens on the phone.
 [EasyCompta](/en/apps/easycompta/) keeps the income ledger and purchase register
 that a French micro-entrepreneur is required to hold, estimates URSSAF
 contributions for the activity type, and shows real profit after contributions —
-not just revenue. No bank connection, no data sent to a server. A free web
-version lets you try it without installing anything.
+not just revenue. No bank connection, no data sent to a server. On iPhone and
+iPad, with a free web version to try it without installing anything.
 
 ## What stays the same across all six
 

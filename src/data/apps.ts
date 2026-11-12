@@ -259,7 +259,7 @@ export const APPS: readonly AppFacts[] = [
     slug: 'easycompta',
     name: 'EasyCompta',
     packageId: 'com.chocky.easycompta',
-    version: '1.7.9',
+    version: '1.7.21',
     accent: '#159B8C',
     accentText: '#159B8C', // 5.58:1 sur le fond : conforme tel quel
     family: 'business',
@@ -267,17 +267,17 @@ export const APPS: readonly AppFacts[] = [
     // Français uniquement : aucun fichier .arb, et l'URSSAF est une
     // institution française. Une page localisée n'aurait aucun sens.
     nativeLocales: ['fr'],
-    comingToIos: true,
-    // En attente de validation Google Play et Apple (2026-10-05) : seule la
-    // version web est ouverte. À la sortie : status 'published', playUrl =
+    comingToIos: false,
+    // Sur l'App Store (id6820504744, = easyComptaAppStoreId de
+    // lib/*/store_links.dart, constatée en ligne le 2026-11-12) et en version
+    // web ; Google Play toujours en attente. À la sortie Play : playUrl =
     // PLAY + 'com.chocky.easycompta' et 'play' dans stores.
-    status: 'coming-soon',
+    status: 'published',
     playUrl: null,
-    appStoreUrl: null,
+    appStoreUrl: APP_STORE + '6820504744',
     betaUrl: null,
     webAppUrl: 'https://easycompta.web.app',
-    stores: ['web'],
-    // 'ios' ajoute avec `comingToIos` : le portage est en cours.
+    stores: ['ios', 'web'],
     buildTargets: ['android', 'ios', 'web'],
     screenshotLocales: ['fr'],
     trademarkNotice: null,

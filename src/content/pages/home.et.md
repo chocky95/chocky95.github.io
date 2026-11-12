@@ -1,36 +1,46 @@
 ---
-title: 'Chocky Dev: viis tasuta Android-rakendust'
+title: 'Chocky Dev: kuus tasuta rakendust Androidile ja iPhone''ile'
 metaDescription: >-
-  Kaks kaardimängu, mölkky punktilugeja, dokumendiskanner ja raamatupidamine
-  füüsilisest isikust ettevõtjale. Kõik tasuta alla laadida, Androidile.
+  Kaks kaardimängu, autode kogumiskaardimäng, mölkky punktilugeja,
+  dokumendiskanner ja raamatupidamine FIE-le. Kõik tasuta, Androidile ja
+  iPhone'ile.
 h1: 'Chocky Dev: kasulikud rakendused ja mängud'
 lead: >-
-  Viis Android-rakendust: kaks kaardimängu, mölkky punktilugeja,
-  dokumendiskanneri ja raamatupidamise füüsilisest isikust ettevõtjale. Kõiki
-  saab tasuta alla laadida.
+  Kuus rakendust Androidile ja iPhone'ile: kaks kaardimängu, autoteemaline
+  kogumiskaardimäng, mölkky punktilugeja, dokumendiskanner ja raamatupidamine
+  füüsilisest isikust ettevõtjale. Kõiki saab tasuta alla laadida.
 translationStatus: authored
-updatedOn: 2026-10-30
+updatedOn: 2026-11-12
 faq:
   - q: Kas Chocky Devi rakendused on tasuta?
     a: >-
       Kõiki saab tasuta alla laadida. Mölkky Score on lihtsalt tasuta. Samuti
       ScanFree, mida rahastatakse eksportimise hetkel näidatava tasuvideoga ja
       millel pole üldse tasulist versiooni. Papayoo ja Mojogo rahastatakse
-      reklaamidest, ja ühekordse ostuna saadav Premium eemaldab need. EasyCompta on ainus, millel
-      on tellimus, ja see puudutab üksnes täiustatud analüüse ja eksporte:
-      tuluraamatu pidamine ise jääb tasuta ja piiranguteta.
+      reklaamidest, ja ühekordse ostuna saadav Premium eemaldab need. Garage
+      Master TCG-d rahastavad tasuvideod, kalliskivipakid ja Premium Passi
+      tellimus, mis kõik on vabatahtlikud. Ka EasyCompta pakub tellimust, ja
+      see puudutab üksnes täiustatud analüüse ja eksporte: tuluraamatu pidamine
+      ise jääb tasuta ja piiranguteta.
   - q: Kas nende kasutamiseks on vaja kontot?
     a: >-
       Mölkky Score'i, ScanFree ja EasyCompta puhul mitte: need töötavad ilma
       registreerumist ja nende andmed jäävad seadmesse. Papayoo ja Mojogo
       vajavad profiili ainult võrgumängude jaoks; üksikmängu režiimid töötavad
-      kontota.
+      kontota. Garage Master TCG küsib esimesel käivitamisel Google'i kontot
+      või iPhone'is Apple'i kontot: kollektsioon, turg ja vahetused asuvad
+      serveris.
   - q: Millistel platvormidel need rakendused töötavad?
     a: >-
-      Androidis, Google Play kaudu. Papayoo, ScanFree ja Mölkky Score on saadaval ka Apple'i App Store'is; Mojogo ootab kinnitamist. EasyComptal on lisaks tasuta veebiversioon, mis töötab brauseris ilma midagi paigaldamata.
+      Papayoo, Mojogo, ScanFree ja Mölkky Score on Androidis saadaval Google
+      Play kaudu; Papayoo, ScanFree ja Mölkky Score on ka Apple'i App Store'is,
+      kus Mojogo ootab kinnitamist. Garage Master TCG ja EasyCompta on App
+      Store'is iPhone'ile ja iPadile: Garage Master TCG on Androidis suletud
+      beetatestis, ja EasyComptal on lisaks tasuta veebiversioon, mis töötab
+      brauseris ilma midagi paigaldamata.
 ---
 
-## Kolm rakendust mängimiseks
+## Neli rakendust mängimiseks
 
 [Mölkky Score](/et/apps/molkky-score/) loeb sinu mölkkymängude punktid sinu eest.
 Kolme möödalasu reegel ja langus 25 peale ületamisel rakenduvad iseenesest,
@@ -48,6 +58,13 @@ Täielikud reeglid tulevad rakendusega kaasa.
 lõpeb kohe, kui mängija jõuab 50-ni ja võidab madalaim tulemus, ning Jungo,
 kombinatsioonimäng. Üksi bottide vastu või võrgus koos sõpradega.
 
+[Garage Master TCG](/et/apps/garage-master-tcg/) on autoteemaline
+kogumiskaardimäng. Tasuta boosterpakid iga kahe tunni järel, päris autod kuues
+väljaandes Standardist kuni nummerdatud Prestige'ini, täidetavad albumid ja
+turg, kus saad oma topeltkaarte teiste mängijatega müüa või vahetada, ainult
+virtuaalmüntides. Saadaval iPhone'ile ja iPadile, Androidis suletud
+beetatestis.
+
 ## Kaks igapäevast tööriista
 
 [ScanFree](/et/apps/scanfree/) skannib dokumendi kaameraga, leiab selle servad,
@@ -59,15 +76,20 @@ sest kogu töötlus toimub telefonis.
 [EasyCompta](/et/apps/easycompta/) peab Prantsuse mikroettevõtjale kohustuslikku
 tuluraamatut ja osturegistrit, hindab tegevusalast lähtuvaid URSSAF-i makseid ja
 näitab tegelikku kasumit pärast makseid, mitte üksnes käivet. Ei mingit
-pangaühendust ega serverisse saadetud andmeid. Tasuta veebiversioon lubab
-proovida ilma midagi paigaldamata.
+pangaühendust ega serverisse saadetud andmeid. Saadaval iPhone'ile ja iPadile,
+ja tasuta veebiversioon lubab proovida ilma midagi paigaldamata.
 
-## Mis jääb kõigis viies samaks
+## Mis jääb kõigis kuues samaks
 
-Neljal rakendusel viiest pole üldse tellimust: Mölkky Score ja ScanFree on
-tasuta, Papayoo ja Mojogo avanevad ühekordse ostuga. EasyCompta on ainus, mis
-tellimust pakub, ja seda üksnes täiustatud analüüside ja eksportide jaoks —
-tuluraamatu pidamine jääb tasuta ja piiranguteta.
+Neljal rakendusel kuuest pole üldse tellimust: Mölkky Score ja ScanFree on
+tasuta, Papayoo ja Mojogo avanevad ühekordse ostuga. EasyCompta pakub tellimust
+üksnes täiustatud analüüside ja eksportide jaoks — tuluraamatu pidamine jääb
+tasuta ja piiranguteta. Garage Master TCG pakub Premium Passi, tellimust, mis
+kiirendab edenemist, ilma et miski muutuks eksklusiivseks: tasuta mängija saab
+täita ükskõik millise albumi.
 
-Andmed jäävad seadmesse alati, kui see on võimalik — see kehtib nelja rakenduse
-kohta viiest; viies lahkub telefonist ainult võrgumängude tarbeks.
+Andmed jäävad seadmesse kõikjal, kus see on võimalik: Mölkky Score, ScanFree ja
+EasyCompta ei saada neid kuhugi, ning Papayoo ja Mojogo lahkuvad telefonist
+ainult võrgumängude tarbeks. Garage Master TCG on oma olemuselt võrgumäng: selle
+kollektsioon asub serveris ja telefonis on sellest koopia, mida saab sirvida ka
+võrguta.

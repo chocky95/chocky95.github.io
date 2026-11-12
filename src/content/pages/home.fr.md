@@ -1,11 +1,11 @@
 ---
-title: 'Chocky Dev : six applications Android gratuites'
+title: 'Chocky Dev : six applications gratuites, Android et iPhone'
 metaDescription: >-
   Deux jeux de cartes, un TCG automobile, un compteur de points de Mölkky, un
   scanner de documents et une comptabilité de micro-entrepreneur. Tous gratuits.
 h1: 'Chocky Dev : des applications utiles et des jeux'
 lead: >-
-  Six applications Android : deux jeux de cartes, un jeu de cartes à
+  Six applications pour Android et iPhone : deux jeux de cartes, un jeu de cartes à
   collectionner sur le thème automobile, un compteur de points pour le Mölkky,
   un scanner de documents et une comptabilité de micro-entrepreneur. Toutes se
   téléchargent gratuitement.
@@ -32,11 +32,12 @@ faq:
       sur le serveur.
   - q: Sur quelles plateformes ces applications fonctionnent-elles ?
     a: >-
-      Sur Android, par Google Play. Papayoo, ScanFree et Mölkky Score sont
-      aussi disponibles sur l'App Store d'Apple ; Mojogo est en attente de
-      validation. Garage Master TCG, à l'inverse, est déjà sur l'App Store et encore en
-      bêta fermée sur Android. EasyCompta existe en plus en version web gratuite, utilisable
-      dans le navigateur sans rien installer.
+      Papayoo, Mojogo, ScanFree et Mölkky Score sont sur Android, par Google
+      Play ; Papayoo, ScanFree et Mölkky Score sont aussi sur l'App Store
+      d'Apple, où Mojogo est en attente de validation. Garage Master TCG et
+      EasyCompta sont sur l'App Store, pour iPhone et iPad : Garage Master TCG
+      est en bêta fermée sur Android, et EasyCompta existe aussi en version web
+      gratuite, utilisable dans le navigateur sans rien installer.
 ---
 
 ## Quatre applications pour jouer
@@ -78,8 +79,8 @@ téléphone.
 [EasyCompta](/apps/easycompta/) tient le livre des recettes et le registre des
 achats du micro-entrepreneur, estime les cotisations URSSAF selon l'activité, et
 affiche le bénéfice réel après cotisations — pas seulement le chiffre
-d'affaires. Aucune connexion bancaire, aucune donnée envoyée sur un serveur. Une
-version web gratuite permet de l'essayer sans rien installer.
+d'affaires. Aucune connexion bancaire, aucune donnée envoyée sur un serveur. Sur
+iPhone et iPad, et en version web gratuite pour l'essayer sans rien installer.
 
 ## Ce qui ne change pas d'une application à l'autre
 
