@@ -15,9 +15,9 @@ import { useTranslations } from '~/i18n/t';
  * Espace presse d'une application : `/apps/<app>/presse/`, `/en/apps/<app>/press/`.
  *
  * La page existe exactement dans les langues où `press/<app>.<locale>.md` est
- * écrit — aucune page de repli ailleurs : un dossier de presse s'adresse à des
- * journalistes qui lisent la langue du jeu, et une version mince en finnois ne
- * servirait personne. Le dernier segment est traduit, comme le slug d'un guide.
+ * écrit — aucune page de repli ailleurs : une version mince, recopiée d'une
+ * autre langue, ne servirait aucun journaliste. Le dernier segment est
+ * traduit, comme le slug d'un guide.
  */
 export const getStaticPaths = (async () => {
   const paths = [];

@@ -201,14 +201,14 @@ const pages = defineCollection({
  * téléchargement de l'original, emplacements de boutique tirés de `apps.ts` —
  * et l'ordre des blocs doit rester celui d'un dossier de presse. Les titres de
  * section vivent ici, pas dans `i18n/ui` : la page n'existe que dans les
- * langues où ce fichier est écrit, et les 16 autres dictionnaires n'en
- * auraient jamais l'usage.
+ * langues où ce fichier est écrit, et un dossier ajouté pour une autre
+ * application n'a pas à attendre ses 18 traductions.
  */
 const press = defineCollection({
   loader: glob({ base: './src/content/press', pattern: '**/*.md', generateId: rawId }),
   schema: z.object({
     ...seoFields,
-    /** Dernier segment d'URL, localisé : `presse`, `press`. */
+    /** Dernier segment d'URL, localisé et translittéré : `presse`, `stampa`, `pressa`. */
     slug: z
       .string()
       .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, 'slug en minuscules ASCII, séparé par des tirets'),

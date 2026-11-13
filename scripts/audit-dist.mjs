@@ -110,10 +110,29 @@ const GUIDES = {
  *
  * Ils n'existent que dans les langues où le dossier est rédigé, sans page de
  * repli ailleurs — d'où une table distincte de APP_LOCALES. Garage Master TCG
- * n'a que le français et l'anglais (2026-10-30), comme sa propre interface.
+ * est rédigé dans les 18 langues depuis le 2026-11-13.
  */
 const PRESS = {
-  'garage-master-tcg': { fr: 'presse', en: 'press' },
+  'garage-master-tcg': {
+    fr: 'presse',
+    en: 'press',
+    de: 'presse',
+    es: 'prensa',
+    it: 'stampa',
+    pt: 'imprensa',
+    nl: 'pers',
+    pl: 'prasa',
+    cs: 'tisk',
+    ro: 'presa',
+    da: 'presse',
+    nb: 'presse',
+    sv: 'press',
+    fi: 'lehdisto',
+    et: 'press',
+    ru: 'pressa',
+    ja: 'press',
+    ko: 'press',
+  },
 };
 
 /**
@@ -149,11 +168,13 @@ const NAMED_CASES = [
   { url: '/fi/molkky-saannot/', expectAlternates: 19 },
   // Slug PARTAGÉ par da, nb et sv : le plugin en tirait un faux cluster de 3.
   { url: '/sv/molkky-regler/', expectAlternates: 19 },
-  // Espace presse : cluster de DEUX langues (fr, en + x-default). Le seul du
-  // site qui ne couvre pas les 18 : le plugin de sitemap, qui regroupe par
-  // préfixe de locale, n'a ici aucun moyen de relier presse/ et press/.
-  { url: '/apps/garage-master-tcg/presse/', expectAlternates: 3 },
-  { url: '/en/apps/garage-master-tcg/press/', expectAlternates: 3 },
+  // Espace presse : dernier segment traduit (presse/, stampa/, lehdisto/…),
+  // que le plugin de sitemap, qui regroupe par préfixe de locale, n'a aucun
+  // moyen de relier.
+  { url: '/apps/garage-master-tcg/presse/', expectAlternates: 19 },
+  { url: '/en/apps/garage-master-tcg/press/', expectAlternates: 19 },
+  // Segment PARTAGÉ par en, sv, et, ja et ko : le cas du faux cluster.
+  { url: '/sv/apps/garage-master-tcg/press/', expectAlternates: 19 },
 ];
 
 /**
