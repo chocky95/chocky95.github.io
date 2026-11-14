@@ -10,12 +10,12 @@ lead: >-
   vzácnosti (Standard, Silver, Gold, Platinum, Diamond, Prestige), zaplňují
   alba a vyměňují si karty s přáteli.
 translationStatus: authored
-updatedOn: 2026-11-13
+updatedOn: 2026-11-14
 slug: tisk
 navLabel: Tiskové materiály
 status: >-
-  Hra je k dispozici v App Storu (iPhone a iPad). Na Androidu je v uzavřené
-  betě a brzy vyjde v obchodě Google Play.
+  Hra je k dispozici v obchodě Google Play (Android) a v App Storu (iPhone
+  a iPad).
 sections:
   highlights: Hlavní body
   platforms: Platformy
@@ -30,7 +30,7 @@ highlights:
   - 'Tržiště mezi hráči (prodej i aukce) a přímé výměny mezi přáteli, výhradně za virtuální měnu: žádné výběry skutečných peněz.'
   - Hru vyvíjí Chocky Dev, nezávislé dvoučlenné studio.
 platforms:
-  android: Probíhá uzavřená beta; brzy v obchodě Google Play.
+  android: K dispozici v obchodě Google Play pro telefony a tablety.
   ios: K dispozici v App Storu pro iPhone a iPad.
 galleryNote: Každý obrázek se stáhne v plném rozlišení.
 downloadLabel: Stáhnout
@@ -67,7 +67,7 @@ facts:
   - label: Obchodní model
     value: Zdarma, nákupy v aplikaci
   - label: Stav
-    value: K dispozici na iOS, uzavřená beta na Androidu
+    value: K dispozici na Androidu a iOS
   - label: Studio
     value: Chocky Dev
   - label: Jazyky

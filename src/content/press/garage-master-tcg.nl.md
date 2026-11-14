@@ -10,12 +10,12 @@ lead: >-
   zeldzaamheid (Standard, Silver, Gold, Platinum, Diamond, Prestige), maken
   albums compleet en ruilen met hun vrienden.
 translationStatus: authored
-updatedOn: 2026-11-13
+updatedOn: 2026-11-14
 slug: pers
 navLabel: Perskit
 status: >-
-  Het spel staat in de App Store (iPhone en iPad). Op Android is het in
-  gesloten bèta en verschijnt het binnenkort in de Google Play Store.
+  Het spel staat in de Google Play Store (Android) en in de App Store (iPhone
+  en iPad).
 sections:
   highlights: Kernpunten
   platforms: Platforms
@@ -30,7 +30,7 @@ highlights:
   - 'Een markt tussen spelers (verkopen en veilingen) en rechtstreeks ruilen met vrienden, uitsluitend met virtueel geld: niets kan als echt geld worden opgenomen.'
   - Ontwikkeld door Chocky Dev, een onafhankelijke studio van twee mensen.
 platforms:
-  android: In gesloten bèta; binnenkort in de Google Play Store.
+  android: Verkrijgbaar in de Google Play Store, voor telefoons en tablets.
   ios: Verkrijgbaar in de App Store, voor iPhone en iPad.
 galleryNote: Elk beeld wordt in volledige resolutie gedownload.
 downloadLabel: Downloaden
@@ -69,7 +69,7 @@ facts:
   - label: Verdienmodel
     value: Gratis te spelen, in-app-aankopen
   - label: Status
-    value: Verkrijgbaar op iOS, gesloten bèta op Android
+    value: Verkrijgbaar op Android en iOS
   - label: Studio
     value: Chocky Dev
   - label: Talen

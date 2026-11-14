@@ -6,11 +6,11 @@ h1: 'Garage Master TCG — プレスキット'
 lead: >-
   Garage Master TCGは、車をテーマにしたモバイル向けトレーディングカードゲームです。プレイヤーは無料のブースターを開封し、6つのレア度エディション（Standard、Silver、Gold、Platinum、Diamond、Prestige）で実在の車をコレクションし、アルバムを完成させ、フレンドとカードをトレードします。
 translationStatus: authored
-updatedOn: 2026-11-13
+updatedOn: 2026-11-14
 slug: press
 navLabel: プレスキット
 status: >-
-  App Store（iPhone・iPad）で配信中です。Androidではクローズドベータを実施しており、まもなくGoogle Playストアで公開予定です。
+  Google Playストア（Android）とApp Store（iPhone・iPad）で配信中です。
 sections:
   highlights: 主な特徴
   platforms: 対応プラットフォーム
@@ -25,7 +25,7 @@ highlights:
   - プレイヤー間マーケット（販売とオークション）と、フレンド同士のダイレクトトレード。取引は仮想コインのみで、現実のお金を引き出すことはできません。
   - 開発は2人体制のインディースタジオ、Chocky Devです。
 platforms:
-  android: クローズドベータ実施中。まもなくGoogle Playストアで公開予定です。
+  android: Google Playストアで配信中です（スマートフォン・タブレット対応）。
   ios: App Storeで配信中です（iPhone・iPad対応）。
 galleryNote: 各ビジュアルはフル解像度でダウンロードできます。
 downloadLabel: ダウンロード
@@ -57,7 +57,7 @@ facts:
   - label: ビジネスモデル
     value: 基本プレイ無料、アプリ内課金
   - label: ステータス
-    value: iOSで配信中、Androidはクローズドベータ
+    value: AndroidとiOSで配信中
   - label: スタジオ
     value: Chocky Dev
   - label: 対応言語

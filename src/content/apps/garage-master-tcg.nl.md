@@ -2,17 +2,16 @@
 title: 'Garage Master TCG: het verzamelkaartspel over auto''s'
 metaDescription: >-
   Gratis boosters, echte auto's in zes edities, albums om compleet te maken en
-  een markt tussen spelers met virtuele munten. Op iPhone en iPad, bèta op Android.
+  een markt tussen spelers met virtuele munten. Gratis op Android, iPhone en iPad.
 h1: 'Garage Master TCG: het verzamelkaartspel voor wie gek is op auto''s'
 lead: >-
   Garage Master TCG is een verzamelkaartspel over auto's. Je opent gratis
   boosters, bouwt een collectie echte auto's op in zes edities, van Standard
   tot de genummerde Prestige, maakt albums compleet en verkoopt of ruilt je
   dubbele kaarten met andere spelers, uitsluitend met virtueel geld. Het spel
-  staat in de App Store voor iPhone en iPad; op Android is het in gesloten
-  bèta op Google Play.
+  staat op Google Play voor Android, en in de App Store voor iPhone en iPad.
 translationStatus: authored
-updatedOn: 2026-11-12
+updatedOn: 2026-11-14
 highlights:
   - Gratis boosters die elke twee uur bijladen, plus een welkomstbooster cadeau
   - Echte auto's, van stadsauto tot hypercar, op zeldzaamheid ingedeeld van klasse D tot S
@@ -25,10 +24,8 @@ highlights:
 faq:
   - q: Op welke apparaten kan ik Garage Master TCG spelen?
     a: >-
-      Op iPhone en iPad, waar het spel in de App Store staat. Op Android is het
-      in gesloten bèta op Google Play: de aanmeldpagina staat bovenaan deze
-      pagina gelinkt, en de link naar de Play Store verschijnt hier zodra het
-      spel openbaar uitkomt.
+      Op Android-telefoons en -tablets, via Google Play, en op iPhone en iPad,
+      via de App Store. Beide links staan bovenaan deze pagina.
   - q: Is Garage Master TCG gratis?
     a: >-
       Ja. De dagelijkse boosters, de albums, de markt en het ruilen zijn
@@ -196,7 +193,6 @@ wie gratis speelt, kan elk album compleet maken.
 
 ## Beschikbaarheid
 
-Garage Master TCG staat in de **App Store**, voor **iPhone en iPad**. Op
-Android is het spel in gesloten bèta op **Google Play**: de aanmeldpagina staat
-bovenaan deze pagina gelinkt, en de link naar de Play Store verschijnt hier
-zodra het spel openbaar uitkomt.
+Garage Master TCG staat op **Google Play**, voor telefoons en tablets met
+**Android**, en in de **App Store**, voor **iPhone en iPad**. Je downloadt het
+gratis in beide winkels.

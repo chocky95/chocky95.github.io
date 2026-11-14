@@ -9,7 +9,7 @@ lead: >-
   o autech, počítadlo bodů pro Mölkky, skener dokumentů a účetnictví pro
   samostatně podnikající. Všechny se dají stáhnout zdarma.
 translationStatus: authored
-updatedOn: 2026-11-12
+updatedOn: 2026-11-14
 faq:
   - q: Jsou aplikace Chocky Dev zdarma?
     a: >-
@@ -30,12 +30,11 @@ faq:
       sbírka, tržiště i výměny běží na serveru.
   - q: Na jakých platformách tyto aplikace fungují?
     a: >-
-      Papayoo, Mojogo, ScanFree a Mölkky Score jsou na Androidu přes Google
-      Play; Papayoo, ScanFree a Mölkky Score jsou také v App Storu firmy Apple,
-      kde Mojogo čeká na schválení. Garage Master TCG a EasyCompta jsou v App
-      Storu pro iPhone a iPad: Garage Master TCG je na Androidu v uzavřené betě
-      a EasyCompta má navíc bezplatnou webovou verzi, která běží v prohlížeči
-      bez instalace.
+      Papayoo, Mojogo, ScanFree, Mölkky Score a Garage Master TCG jsou na
+      Androidu přes Google Play; Papayoo, ScanFree, Mölkky Score a Garage
+      Master TCG jsou také v App Storu firmy Apple, kde Mojogo čeká na
+      schválení. EasyCompta je v App Storu pro iPhone a iPad a má navíc
+      bezplatnou webovou verzi, která běží v prohlížeči bez instalace.
 ---
 
 ## Čtyři aplikace na hraní
@@ -60,7 +59,7 @@ kombinace. Sami proti botům, nebo po síti s přáteli.
 autech. Boostery zdarma každé dvě hodiny, skutečná auta v šesti edicích od
 Standard po číslovanou Prestige, alba k zaplnění a tržiště, kde své duplikáty
 prodáte nebo vyměníte s ostatními hráči, a to výhradně za virtuální mince. K
-dispozici pro iPhone a iPad, na Androidu v uzavřené betě.
+dispozici pro Android, iPhone a iPad.
 
 ## Dva nástroje na každý den
 

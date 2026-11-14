@@ -10,7 +10,7 @@ lead: >-
   keräilykorttipeli, mölkyn pisteenlaskuri, dokumenttiskanneri ja kirjanpito
   yksinyrittäjälle. Kaikki ovat ilmaisia ladata.
 translationStatus: authored
-updatedOn: 2026-11-12
+updatedOn: 2026-11-14
 faq:
   - q: Ovatko Chocky Devin sovellukset ilmaisia?
     a: >-
@@ -32,12 +32,11 @@ faq:
       palvelimella.
   - q: Millä laitteilla nämä sovellukset toimivat?
     a: >-
-      Papayoo, Mojogo, ScanFree ja Mölkky Score ovat Androidilla Google Playn
-      kautta; Papayoo, ScanFree ja Mölkky Score löytyvät myös Applen App
-      Storesta, jossa Mojogo odottaa hyväksyntää. Garage Master TCG ja
-      EasyCompta ovat App Storessa iPhonelle ja iPadille: Garage Master TCG on
-      Androidilla suljetussa beetatestissä, ja EasyComptasta on lisäksi
-      ilmainen verkkoversio, joka toimii selaimessa ilman asennusta.
+      Papayoo, Mojogo, ScanFree, Mölkky Score ja Garage Master TCG ovat
+      Androidilla Google Playn kautta; Papayoo, ScanFree, Mölkky Score ja
+      Garage Master TCG löytyvät myös Applen App Storesta, jossa Mojogo odottaa
+      hyväksyntää. EasyCompta on App Storessa iPhonelle ja iPadille, ja siitä
+      on lisäksi ilmainen verkkoversio, joka toimii selaimessa ilman asennusta.
 ---
 
 ## Neljä sovellusta pelaamiseen
@@ -63,8 +62,8 @@ kanssa.
 keräilykorttipeli. Ilmaisia booster-paketteja kahden tunnin välein, oikeita
 autoja kuudessa painoksessa Standardista numeroituun Prestigeen, täytettäviä
 albumeita ja markkinapaikka, jossa tuplakortteja voi myydä tai vaihtaa muiden
-pelaajien kanssa, pelkillä virtuaalikolikoilla. Saatavilla iPhonelle ja
-iPadille, Androidilla suljetussa beetatestissä.
+pelaajien kanssa, pelkillä virtuaalikolikoilla. Saatavilla Androidille,
+iPhonelle ja iPadille.
 
 ## Kaksi arjen työkalua
 

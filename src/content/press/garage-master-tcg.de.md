@@ -10,12 +10,12 @@ lead: >-
   unterschiedlicher Seltenheit (Standard, Silver, Gold, Platinum, Diamond,
   Prestige), vervollständigen Alben und tauschen mit ihren Freunden.
 translationStatus: authored
-updatedOn: 2026-11-13
+updatedOn: 2026-11-14
 slug: presse
 navLabel: Pressebereich
 status: >-
-  Das Spiel ist im App Store erhältlich (iPhone und iPad). Unter Android läuft
-  derzeit eine geschlossene Beta; der Start im Google Play Store folgt in Kürze.
+  Das Spiel ist im Google Play Store (Android) und im App Store (iPhone und
+  iPad) erhältlich.
 sections:
   highlights: Das Wichtigste
   platforms: Plattformen
@@ -30,7 +30,7 @@ highlights:
   - 'Ein Marktplatz unter Spielern (Verkäufe und Auktionen) und direkter Tausch unter Freunden, ausschließlich mit virtueller Währung: Auszahlungen in echtem Geld gibt es nicht.'
   - Entwickelt von Chocky Dev, einem unabhängigen Studio aus zwei Personen.
 platforms:
-  android: Geschlossene Beta läuft; bald im Google Play Store.
+  android: Im Google Play Store erhältlich, für Smartphones und Tablets.
   ios: Im App Store erhältlich, für iPhone und iPad.
 galleryNote: Jedes Bild lässt sich in voller Auflösung herunterladen.
 downloadLabel: Herunterladen
@@ -69,7 +69,7 @@ facts:
   - label: Geschäftsmodell
     value: Kostenlos spielbar, In-App-Käufe
   - label: Status
-    value: Für iOS erhältlich, geschlossene Beta unter Android
+    value: Für Android und iOS erhältlich
   - label: Studio
     value: Chocky Dev
   - label: Sprachen

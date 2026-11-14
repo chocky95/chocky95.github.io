@@ -6,11 +6,11 @@ h1: 'Garage Master TCG — 프레스 키트'
 lead: >-
   Garage Master TCG는 자동차를 주제로 한 모바일 트레이딩 카드 게임입니다. 플레이어는 무료 부스터를 열고, 여섯 가지 희귀도 에디션(Standard, Silver, Gold, Platinum, Diamond, Prestige)으로 실제 자동차를 모으고, 앨범을 완성하고, 친구와 카드를 교환합니다.
 translationStatus: authored
-updatedOn: 2026-11-13
+updatedOn: 2026-11-14
 slug: press
 navLabel: 프레스 키트
 status: >-
-  App Store에서 아이폰과 아이패드용으로 받을 수 있습니다. 안드로이드에서는 비공개 베타 중이며, 곧 Google Play 스토어에 출시될 예정입니다.
+  Google Play 스토어(안드로이드)와 App Store(아이폰, 아이패드)에서 받을 수 있습니다.
 sections:
   highlights: 주요 특징
   platforms: 플랫폼
@@ -25,7 +25,7 @@ highlights:
   - 플레이어 간 마켓(판매와 경매)과 친구 간 직접 교환. 거래는 가상 코인으로만 이루어지며 현금으로 출금할 수 없습니다.
   - 두 사람으로 이루어진 인디 스튜디오 Chocky Dev가 개발
 platforms:
-  android: 비공개 베타 진행 중이며, 곧 Google Play 스토어에 출시됩니다.
+  android: Google Play 스토어에서 휴대폰과 태블릿용으로 받을 수 있습니다.
   ios: App Store에서 아이폰과 아이패드용으로 받을 수 있습니다.
 galleryNote: 모든 이미지는 원본 해상도로 다운로드할 수 있습니다.
 downloadLabel: 다운로드
@@ -57,7 +57,7 @@ facts:
   - label: 비즈니스 모델
     value: 무료 플레이, 인앱 구매
   - label: 상태
-    value: iOS 출시, 안드로이드 비공개 베타
+    value: 안드로이드, iOS 출시
   - label: 스튜디오
     value: Chocky Dev
   - label: 언어

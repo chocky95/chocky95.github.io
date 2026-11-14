@@ -10,7 +10,7 @@ lead: >-
   poengteller for Mölkky, en dokumentskanner og et regnskap for selvstendig
   næringsdrivende. Alle er gratis å laste ned.
 translationStatus: authored
-updatedOn: 2026-11-12
+updatedOn: 2026-11-14
 faq:
   - q: Er appene til Chocky Dev gratis?
     a: >-
@@ -32,12 +32,12 @@ faq:
       serveren.
   - q: Hvilke plattformer virker disse appene på?
     a: >-
-      Papayoo, Mojogo, ScanFree og Mölkky Score finnes på Android, via Google
-      Play; Papayoo, ScanFree og Mölkky Score finnes også i Apples App Store,
-      der Mojogo venter på godkjenning. Garage Master TCG og EasyCompta finnes i
-      App Store for iPhone og iPad: Garage Master TCG er i lukket beta på
-      Android, og EasyCompta finnes i tillegg som en gratis nettversjon som
-      kjører i nettleseren uten å installere noe.
+      Papayoo, Mojogo, ScanFree, Mölkky Score og Garage Master TCG finnes på
+      Android, via Google Play; Papayoo, ScanFree, Mölkky Score og Garage
+      Master TCG finnes også i Apples App Store, der Mojogo venter på
+      godkjenning. EasyCompta finnes i App Store for iPhone og iPad, og i
+      tillegg som en gratis nettversjon som kjører i nettleseren uten å
+      installere noe.
 ---
 
 ## Fire apper å spille med
@@ -62,7 +62,7 @@ kombinasjonsspill. Alene mot bots eller på nett med venner.
 Gratis boosterpakker annenhver time, ekte biler i seks utgaver fra Standard til
 den nummererte Prestige, album som skal fylles, og et marked der du kan selge
 eller bytte duplikatene dine med andre spillere, bare for virtuelle mynter.
-Tilgjengelig for iPhone og iPad, i lukket beta på Android.
+Tilgjengelig for Android, iPhone og iPad.
 
 ## To verktøy for hverdagen
 

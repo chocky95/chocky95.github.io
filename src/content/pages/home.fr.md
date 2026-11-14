@@ -10,7 +10,7 @@ lead: >-
   un scanner de documents et une comptabilité de micro-entrepreneur. Toutes se
   téléchargent gratuitement.
 translationStatus: authored
-updatedOn: 2026-11-12
+updatedOn: 2026-11-14
 faq:
   - q: Les applications de Chocky Dev sont-elles gratuites ?
     a: >-
@@ -32,12 +32,12 @@ faq:
       sur le serveur.
   - q: Sur quelles plateformes ces applications fonctionnent-elles ?
     a: >-
-      Papayoo, Mojogo, ScanFree et Mölkky Score sont sur Android, par Google
-      Play ; Papayoo, ScanFree et Mölkky Score sont aussi sur l'App Store
-      d'Apple, où Mojogo est en attente de validation. Garage Master TCG et
-      EasyCompta sont sur l'App Store, pour iPhone et iPad : Garage Master TCG
-      est en bêta fermée sur Android, et EasyCompta existe aussi en version web
-      gratuite, utilisable dans le navigateur sans rien installer.
+      Papayoo, Mojogo, ScanFree, Mölkky Score et Garage Master TCG sont sur
+      Android, par Google Play ; Papayoo, ScanFree, Mölkky Score et Garage
+      Master TCG sont aussi sur l'App Store d'Apple, où Mojogo est en attente
+      de validation. EasyCompta est sur l'App Store, pour iPhone et iPad, et
+      existe aussi en version web gratuite, utilisable dans le navigateur sans
+      rien installer.
 ---
 
 ## Quatre applications pour jouer
@@ -65,7 +65,7 @@ collectionner sur le thème automobile. Des boosters
 gratuits toutes les deux heures, des voitures réelles en six éditions, de la
 Standard à la Prestige numérotée, des albums à compléter, et un marché pour
 vendre ou échanger ses doubles avec les autres joueurs, en pièces virtuelles
-seulement. Disponible sur iPhone et iPad, en bêta fermée sur Android.
+seulement. Disponible sur Android, iPhone et iPad.
 
 ## Deux outils pour le quotidien
 

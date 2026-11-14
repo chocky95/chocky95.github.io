@@ -2,18 +2,18 @@
 title: 'Garage Master TCG: autoaiheinen keräilykorttipeli'
 metaDescription: >-
   Ilmaisia boostereita, oikeita autoja kuudessa painoksessa, albumeita ja
-  markkinapaikka virtuaalikolikoilla. iPhonelle ja iPadille,
-  Androidilla beetatestissä.
+  markkinapaikka virtuaalikolikoilla. Ilmainen Androidille, iPhonelle ja
+  iPadille.
 h1: 'Garage Master TCG: keräilykorttipeli autoista innostuneille'
 lead: >-
   Garage Master TCG on autoaiheinen keräilykorttipeli. Avaat ilmaisia
   booster-paketteja, kokoat oikeista autoista kokoelman kuudessa painoksessa
   Standardista numeroituun Prestigeen, täytät albumeita ja myyt tai vaihdat
   tuplakorttejasi muiden pelaajien kanssa – pelkällä virtuaalivaluutalla. Peli
-  on saatavilla App Storesta iPhonelle ja iPadille; Androidilla se on
-  suljetussa beetatestissä Google Playssa.
+  on saatavilla Google Playsta Androidille ja App Storesta iPhonelle ja
+  iPadille.
 translationStatus: authored
-updatedOn: 2026-11-12
+updatedOn: 2026-11-14
 highlights:
   - Ilmainen booster täyttyy kahden tunnin välein, ja alkuun saat tervetulopaketin kaupan päälle
   - Oikeita autoja kaupunkiautoista hyperautoihin, harvinaisuuden mukaan luokissa D–S
@@ -26,10 +26,9 @@ highlights:
 faq:
   - q: Millä laitteilla Garage Master TCG:tä voi pelata?
     a: >-
-      iPhonella ja iPadilla, joille peli on ladattavissa App Storesta.
-      Androidilla se on suljetussa beetatestissä Google Playssa:
-      rekisteröitymissivun linkki on tämän sivun yläosassa, ja linkki Play
-      Kauppaan ilmestyy tänne heti, kun peli julkaistaan kaikille.
+      Android-puhelimilla ja -tableteilla, joille peli on ladattavissa Google
+      Playsta, sekä iPhonella ja iPadilla, joille sen saa App Storesta.
+      Molemmat linkit ovat tämän sivun yläosassa.
   - q: Onko Garage Master TCG ilmainen?
     a: >-
       On. Päivittäiset boosterit, albumit, markkinapaikka ja vaihtokaupat ovat
@@ -199,7 +198,6 @@ ja nopeuteen: ilmaiseksi pelaava voi täyttää minkä tahansa albumin.
 
 ## Saatavuus
 
-Garage Master TCG on saatavilla **App Storesta** **iPhonelle ja iPadille**.
-Androidilla peli on suljetussa beetatestissä **Google Playssa**:
-rekisteröitymissivun linkki on tämän sivun yläosassa, ja linkki Play Kauppaan
-ilmestyy tänne heti, kun peli julkaistaan kaikille.
+Garage Master TCG on saatavilla **Google Playsta** **Android**-puhelimille
+ja -tableteille sekä **App Storesta** **iPhonelle ja iPadille**. Pelin voi
+ladata ilmaiseksi kummastakin kaupasta.

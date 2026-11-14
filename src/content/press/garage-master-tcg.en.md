@@ -9,12 +9,12 @@ lead: >-
   boosters, collect real cars in six rarity editions (Standard, Silver, Gold,
   Platinum, Diamond, Prestige), complete albums and trade with their friends.
 translationStatus: authored
-updatedOn: 2026-11-12
+updatedOn: 2026-11-14
 slug: press
 navLabel: Press kit
 status: >-
-  The game is available on the App Store (iPhone and iPad). On Android, it is
-  in closed beta and coming soon to the Google Play Store.
+  The game is available on the Google Play Store (Android) and on the App
+  Store (iPhone and iPad).
 sections:
   highlights: Key points
   platforms: Platforms
@@ -29,7 +29,7 @@ highlights:
   - 'A player market (sales and auctions) and direct trades between friends, in virtual currency only: no real-money withdrawals.'
   - Developed by Chocky Dev, an independent two-person studio.
 platforms:
-  android: Closed beta in progress; coming soon to the Google Play Store.
+  android: Available on the Google Play Store, for phones and tablets.
   ios: Available on the App Store, for iPhone and iPad.
 galleryNote: Each visual downloads at full resolution.
 downloadLabel: Download
@@ -67,7 +67,7 @@ facts:
   - label: Business model
     value: Free to play, in-app purchases
   - label: Status
-    value: Available on iOS, closed beta on Android
+    value: Available on Android and iOS
   - label: Studio
     value: Chocky Dev
   - label: Languages

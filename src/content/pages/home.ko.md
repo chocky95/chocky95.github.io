@@ -8,7 +8,7 @@ lead: >-
   안드로이드와 아이폰용 앱이 여섯 개 있습니다. 카드 게임 두 개, 자동차를 주제로 한 트레이딩 카드 게임, 뫼르키 점수 계산기, 문서
   스캐너, 그리고 1인 사업자를 위한 회계 앱입니다. 모두 무료로 내려받을 수 있습니다.
 translationStatus: authored
-updatedOn: 2026-11-12
+updatedOn: 2026-11-14
 faq:
   - q: Chocky Dev의 앱은 무료인가요?
     a: >-
@@ -25,11 +25,10 @@ faq:
       때문입니다.
   - q: 이 앱들은 어떤 환경에서 동작하나요?
     a: >-
-      Papayoo, Mojogo, ScanFree, Mölkky Score는 안드로이드에서 Google Play를 통해 받을 수 있습니다. Papayoo,
-      ScanFree, Mölkky Score는 애플 App Store에서도 받을 수 있고, Mojogo는 App Store 심사를 기다리고 있습니다.
-      Garage Master TCG와 EasyCompta는 App Store에서 아이폰과 아이패드용으로 받을 수 있습니다. Garage Master
-      TCG는 안드로이드에서 비공개 베타 중이고, EasyCompta는 무료 웹 버전도 있어 아무것도 설치하지 않고 브라우저에서 쓸 수
-      있습니다.
+      Papayoo, Mojogo, ScanFree, Mölkky Score, Garage Master TCG는 안드로이드에서 Google Play를 통해 받을 수
+      있습니다. Papayoo, ScanFree, Mölkky Score, Garage Master TCG는 애플 App Store에서도 받을 수 있고,
+      Mojogo는 App Store 심사를 기다리고 있습니다. EasyCompta는 App Store에서 아이폰과 아이패드용으로 받을 수 있으며,
+      무료 웹 버전도 있어 아무것도 설치하지 않고 브라우저에서 쓸 수 있습니다.
 ---
 
 ## 놀이를 위한 앱 네 개
@@ -47,8 +46,8 @@ faq:
 
 [Garage Master TCG](/ko/apps/garage-master-tcg/)는 자동차를 주제로 한 트레이딩 카드 게임입니다. 두 시간마다 받는
 무료 부스터, Standard부터 번호가 매겨진 Prestige까지 여섯 가지 에디션으로 나오는 실제 자동차, 채워 나가는 앨범, 그리고
-중복 카드를 다른 플레이어에게 팔거나 교환할 수 있는 마켓이 있습니다. 거래는 가상 코인으로만 이루어집니다. 아이폰과 아이패드에서
-받을 수 있고, 안드로이드에서는 비공개 베타 중입니다.
+중복 카드를 다른 플레이어에게 팔거나 교환할 수 있는 마켓이 있습니다. 거래는 가상 코인으로만 이루어집니다. 안드로이드, 아이폰,
+아이패드에서 받을 수 있습니다.
 
 ## 매일 쓰는 도구 두 개
 

@@ -10,12 +10,12 @@ lead: >-
   raritate (Standard, Silver, Gold, Platinum, Diamond, Prestige), completează
   albume și fac schimburi cu prietenii.
 translationStatus: authored
-updatedOn: 2026-11-13
+updatedOn: 2026-11-14
 slug: presa
 navLabel: Kit de presă
 status: >-
-  Jocul este disponibil în App Store (iPhone și iPad). Pe Android, este în beta
-  închisă și va sosi în curând în Google Play Store.
+  Jocul este disponibil în Google Play Store (Android) și în App Store (iPhone
+  și iPad).
 sections:
   highlights: Puncte-cheie
   platforms: Platforme
@@ -30,7 +30,7 @@ highlights:
   - 'O piață între jucători (vânzări și licitații) și schimburi directe între prieteni, exclusiv pe monedă virtuală: fără retrageri de bani reali.'
   - Dezvoltat de Chocky Dev, un studio independent format din două persoane.
 platforms:
-  android: Beta închisă în desfășurare; în curând în Google Play Store.
+  android: Disponibil în Google Play Store, pentru telefoane și tablete.
   ios: Disponibil în App Store, pentru iPhone și iPad.
 galleryNote: Fiecare imagine se descarcă la rezoluție maximă.
 downloadLabel: Descarcă
@@ -69,7 +69,7 @@ facts:
   - label: Model de business
     value: Gratuit, cu achiziții în aplicație
   - label: Stadiu
-    value: Disponibil pe iOS, beta închisă pe Android
+    value: Disponibil pe Android și iOS
   - label: Studio
     value: Chocky Dev
   - label: Limbi

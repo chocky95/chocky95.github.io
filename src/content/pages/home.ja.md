@@ -6,7 +6,7 @@ h1: 'Chocky Dev：役に立つアプリとゲーム'
 lead: >-
   Android と iPhone 向けの 6 本のアプリです。カードゲームが2本、車をテーマにしたトレーディングカードゲーム、モルックの得点計算アプリ、書類スキャナー、そして個人事業主向けの会計アプリ。どれも無料でダウンロードできます。
 translationStatus: authored
-updatedOn: 2026-11-12
+updatedOn: 2026-11-14
 faq:
   - q: Chocky Dev のアプリは無料ですか？
     a: >-
@@ -21,10 +21,9 @@ faq:
       は最初の起動時に Google アカウント、または iPhone なら Apple アカウントが必要です。コレクション、マーケット、トレードがサーバー上にあるためです。
   - q: これらのアプリはどの環境で動きますか？
     a: >-
-      Papayoo、Mojogo、ScanFree、Mölkky Score は Android 向けに Google Play で配信しています。Papayoo、ScanFree、Mölkky
-      Score は Apple の App Store でも配信中で、Mojogo は App Store の審査待ちです。Garage Master TCG と EasyCompta
-      は App Store で iPhone と iPad 向けに配信しています。Garage Master TCG は Android ではクローズドベータ中で、EasyCompta
-      には無料のウェブ版もあり、インストールせずブラウザで使えます。
+      Papayoo、Mojogo、ScanFree、Mölkky Score、Garage Master TCG は Android 向けに Google Play で配信しています。Papayoo、ScanFree、Mölkky
+      Score、Garage Master TCG は Apple の App Store でも配信中で、Mojogo は App Store の審査待ちです。EasyCompta
+      は App Store で iPhone と iPad 向けに配信しており、無料のウェブ版もあるので、インストールせずブラウザで使えます。
 ---
 
 ## 遊ぶためのアプリが4本
@@ -42,8 +41,8 @@ Mojo と、組み合わせをつくる Jungo です。ボットを相手にひ�
 
 [Garage Master TCG](/ja/apps/garage-master-tcg/)
 は、車をテーマにしたトレーディングカードゲームです。2 時間ごとにもらえる無料のブースター、Standard から番号入りの Prestige
-まで 6 つのエディションで登場する実在の車、埋めていくアルバム、そしてダブったカードをほかのプレイヤーに売ったり交換したりできるマーケット。やりとりは仮想コインだけです。iPhone
-と iPad で配信中、Android ではクローズドベータ中です。
+まで 6 つのエディションで登場する実在の車、埋めていくアルバム、そしてダブったカードをほかのプレイヤーに売ったり交換したりできるマーケット。やりとりは仮想コインだけです。Android、iPhone、iPad
+で配信中です。
 
 ## 毎日づかいの道具が2本
 

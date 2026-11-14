@@ -1,12 +1,12 @@
 ---
 title: Garage Master TCG — 車のトレーディングカードゲーム
 metaDescription: >-
-  無料ブースター、6つのエディションで登場する実在の車、埋めていくアルバム、プレイヤー同士のマーケット。取引は仮想コインのみ。iPhone・iPad対応、Androidはベータ版。
+  無料ブースター、6つのエディションで登場する実在の車、埋めていくアルバム、プレイヤー同士のマーケット。取引は仮想コインのみ。Android・iPhone・iPadで無料。
 h1: Garage Master TCG — クルマ好きのためのトレーディングカードゲーム
 lead: >-
-  Garage Master TCGは、車をテーマにしたトレーディングカードゲームです。無料のブースターを開封し、Standardから番号入りのPrestigeまで6つのエディションで実在の車をコレクションし、アルバムを完成させ、ダブったカードをほかのプレイヤーに売ったり交換したりできます。やりとりはすべて仮想コインです。App StoreでiPhone・iPad向けに配信中で、AndroidではGoogle Playでクローズドベータを実施しています。
+  Garage Master TCGは、車をテーマにしたトレーディングカードゲームです。無料のブースターを開封し、Standardから番号入りのPrestigeまで6つのエディションで実在の車をコレクションし、アルバムを完成させ、ダブったカードをほかのプレイヤーに売ったり交換したりできます。やりとりはすべて仮想コインです。Google PlayでAndroid向けに、App StoreでiPhone・iPad向けに配信中です。
 translationStatus: authored
-updatedOn: 2026-11-12
+updatedOn: 2026-11-14
 highlights:
   - 2時間ごとに補充される無料ブースターと、最初にもらえるウェルカムブースター
   - シティカーからハイパーカーまで、実在の車をレア度に応じてクラスDからSに分類
@@ -19,7 +19,7 @@ highlights:
 faq:
   - q: Garage Master TCGはどの端末で遊べますか？
     a: >-
-      iPhoneとiPadで遊べます。App Storeからダウンロードできます。AndroidではGoogle Playでクローズドベータ中です。参加登録ページへのリンクはこのページの上部にあり、一般公開と同時にPlayストアへのリンクをここに掲載します。
+      AndroidのスマートフォンとタブレットではGoogle Playから、iPhoneとiPadではApp Storeからダウンロードできます。どちらのリンクもこのページの上部にあります。
   - q: Garage Master TCGは無料ですか？
     a: >-
       はい。毎日のブースター、アルバム、マーケット、トレードはすべて無料です。運営費は、見たいときだけ見るリワード動画、アプリ内課金のジェムパック、そして任意の月額サブスクリプションであるPremium Passでまかなっています。Premium Passは進行を早めますが、何かを限定にすることはありません。ゲーム内のものを現実のお金に換えることは一切できません。
@@ -115,4 +115,4 @@ faq:
 
 ## 配信状況
 
-Garage Master TCGは**App Store**で**iPhone・iPad**向けに配信中です。Androidでは**Google Play**でクローズドベータを実施しています。参加登録ページへのリンクはこのページの上部にあり、一般公開と同時にPlayストアへのリンクをここに掲載します。
+Garage Master TCGは**Google Play**で**Android**のスマートフォン・タブレット向けに、**App Store**で**iPhone・iPad**向けに配信中です。どちらのストアでも無料でダウンロードできます。

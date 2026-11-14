@@ -2,18 +2,17 @@
 title: 'Garage Master TCG: autoteemaline kogumiskaardimäng'
 metaDescription: >-
   Tasuta boosterpakid, päris autod kuues väljaandes, täidetavad albumid ja
-  mängijatevaheline turg virtuaalrahas. iPhone'ile ja iPadile, Androidis
-  beetatestis.
+  mängijatevaheline turg virtuaalrahas. Tasuta Androidile, iPhone'ile ja
+  iPadile.
 h1: 'Garage Master TCG: kogumiskaardimäng autosõpradele'
 lead: >-
   Garage Master TCG on autoteemaline kogumiskaardimäng. Avad tasuta
   boosterpakke, kogud päris autode kollektsiooni kuues väljaandes, Standardist
   kuni nummerdatud Prestige'ini, täidad albumeid ning müüd või vahetad oma
-  topeltkaarte teiste mängijatega – ainult virtuaalrahas. Mäng on saadaval App
-  Store'is iPhone'ile ja iPadile; Androidis on see Google Plays suletud
-  beetatestis.
+  topeltkaarte teiste mängijatega – ainult virtuaalrahas. Mäng on saadaval
+  Google Plays Androidile ning App Store'is iPhone'ile ja iPadile.
 translationStatus: authored
-updatedOn: 2026-11-12
+updatedOn: 2026-11-14
 highlights:
   - Tasuta booster täitub iga kahe tunni järel, lisaks kingitud tervitusbooster
   - Päris autod linnaautodest hüperautodeni, harulduse järgi klassides D kuni S
@@ -26,10 +25,8 @@ highlights:
 faq:
   - q: Millistel seadmetel saab Garage Master TCG-d mängida?
     a: >-
-      iPhone'is ja iPadis, kus mäng on saadaval App Store'is. Androidis on see
-      Google Plays suletud beetatestis: registreerumislehe link on selle lehe
-      ülaosas ja Play Store'i link ilmub siia kohe, kui mäng avalikult välja
-      tuleb.
+      Androidi telefonides ja tahvelarvutites Google Play kaudu ning iPhone'is
+      ja iPadis App Store'i kaudu. Mõlemad lingid on selle lehe ülaosas.
   - q: Kas Garage Master TCG on tasuta?
     a: >-
       Jah. Igapäevased boosterid, albumid, turg ja vahetused on tasuta. Mängu
@@ -190,7 +187,6 @@ tasuta mängija saab täita mis tahes albumi.
 
 ## Saadavus
 
-Garage Master TCG on saadaval **App Store'is** **iPhone'ile ja iPadile**.
-Androidis on mäng **Google Plays** suletud beetatestis: registreerumislehe link
-on selle lehe ülaosas ja Play Store'i link ilmub siia kohe, kui mäng avalikult
-välja tuleb.
+Garage Master TCG on saadaval **Google Plays** **Androidi** telefonidele ja
+tahvelarvutitele ning **App Store'is** **iPhone'ile ja iPadile**. Mõlemas poes
+saab mängu tasuta alla laadida.

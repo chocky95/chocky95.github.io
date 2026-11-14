@@ -11,7 +11,7 @@ lead: >-
   táž informace rozložená do plochy: co která dělá, jak se financuje, v kolika
   jazycích její rozhraní skutečně existuje a o co žádá váš telefon.
 translationStatus: authored
-updatedOn: 2026-11-12
+updatedOn: 2026-11-14
 faq:
   - q: Kterou aplikaci vybrat na počítání bodů v Mölkky?
     a: >-
@@ -53,8 +53,8 @@ postup, aniž by cokoli činil exkluzivním. Ostatní čtyři žádné nemají.
 - **Hrajete Mölkky** a máte dost tužky a papíru → Mölkky Score.
 - **Chcete karetní hru**, sami proti umělé inteligenci nebo po síti s přáteli →
   Papayoo, nebo Mojogo se dvěma hrami v jedné aplikaci.
-- **Milujete auta** a sběratelské karty → Garage Master TCG pro iPhone a iPad
-  (na Androidu v betě).
+- **Milujete auta** a sběratelské karty → Garage Master TCG pro Android, iPhone
+  a iPad.
 - **Musíte poslat naskenovaný dokument** bez instalace placené služby → ScanFree.
 - **Jste francouzský mikropodnikatel** a vedete knihu příjmů → EasyCompta.
 

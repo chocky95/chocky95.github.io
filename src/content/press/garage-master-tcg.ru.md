@@ -10,12 +10,11 @@ lead: >-
   разной редкости (Standard, Silver, Gold, Platinum, Diamond, Prestige),
   заполняют альбомы и обмениваются картами с друзьями.
 translationStatus: authored
-updatedOn: 2026-11-13
+updatedOn: 2026-11-14
 slug: pressa
 navLabel: Пресс-кит
 status: >-
-  Игра доступна в App Store (iPhone и iPad). На Android она проходит закрытое
-  бета-тестирование и скоро появится в Google Play.
+  Игра доступна в Google Play (Android) и в App Store (iPhone и iPad).
 sections:
   highlights: Главное
   platforms: Платформы
@@ -30,7 +29,7 @@ highlights:
   - 'Рынок между игроками (продажи и аукционы) и прямые обмены с друзьями, только за виртуальную валюту: вывести реальные деньги нельзя.'
   - Разработчик — Chocky Dev, независимая студия из двух человек.
 platforms:
-  android: Идёт закрытое бета-тестирование; скоро в Google Play.
+  android: Доступна в Google Play для телефонов и планшетов.
   ios: Доступна в App Store для iPhone и iPad.
 galleryNote: Каждое изображение скачивается в полном разрешении.
 downloadLabel: Скачать
@@ -68,7 +67,7 @@ facts:
   - label: Модель монетизации
     value: Бесплатная игра, встроенные покупки
   - label: Статус
-    value: Доступна на iOS, закрытая бета на Android
+    value: Доступна на Android и iOS
   - label: Студия
     value: Chocky Dev
   - label: Языки

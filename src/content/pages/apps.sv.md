@@ -11,7 +11,7 @@ lead: >-
   samma information platt: vad var och en gör, hur den finansieras, i hur många
   språk dess gränssnitt faktiskt finns, och vad den begär av din telefon.
 translationStatus: authored
-updatedOn: 2026-11-12
+updatedOn: 2026-11-14
 faq:
   - q: Vilken app väljer man för att räkna poäng i Mölkky?
     a: >-
@@ -55,8 +55,8 @@ har inget.
 - **Du spelar Mölkky** och har tröttnat på penna och papper → Mölkky Score.
 - **Du vill ha ett kortspel** att spela solo mot AI eller online med vänner →
   Papayoo, eller Mojogo för två spel i en app.
-- **Du älskar bilar** och samlarkort → Garage Master TCG, på iPhone och iPad
-  (beta på Android).
+- **Du älskar bilar** och samlarkort → Garage Master TCG, på Android, iPhone
+  och iPad.
 - **Du behöver skicka ett skannat dokument** utan att installera en betaltjänst →
   ScanFree.
 - **Du är fransk mikroföretagare** och för en inkomstbok → EasyCompta.

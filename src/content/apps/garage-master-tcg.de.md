@@ -2,18 +2,17 @@
 title: 'Garage Master TCG: das Sammelkartenspiel rund ums Auto'
 metaDescription: >-
   Kostenlose Booster, echte Autos in sechs Editionen, Alben zum Vervollständigen
-  und ein Marktplatz mit virtuellen Münzen. Für iPhone und iPad, Beta für Android.
+  und ein Marktplatz mit virtuellen Münzen. Gratis für Android, iPhone und iPad.
 h1: 'Garage Master TCG: das Sammelkartenspiel für alle, die Autos lieben'
 lead: >-
   Garage Master TCG ist ein Sammelkartenspiel rund ums Auto. Sie öffnen
   kostenlose Booster, bauen eine Sammlung echter Autos in sechs Editionen auf,
   von Standard bis zur nummerierten Prestige, vervollständigen Alben und
   verkaufen oder tauschen Ihre Doppelten mit anderen Spielern, ausschließlich
-  gegen virtuelle Währung. Das Spiel ist im App Store für iPhone und iPad
-  erhältlich; unter Android läuft es in einer geschlossenen Beta auf Google
-  Play.
+  gegen virtuelle Währung. Das Spiel ist bei Google Play für Android und im
+  App Store für iPhone und iPad erhältlich.
 translationStatus: authored
-updatedOn: 2026-11-12
+updatedOn: 2026-11-14
 highlights:
   - Kostenlose Booster, die sich alle zwei Stunden auffüllen, dazu ein Willkommensbooster gratis
   - Echte Autos vom Kleinwagen bis zum Hypercar, nach Seltenheit in die Klassen D bis S eingeteilt
@@ -26,10 +25,9 @@ highlights:
 faq:
   - q: Auf welchen Geräten kann ich Garage Master TCG spielen?
     a: >-
-      Auf iPhone und iPad, wo das Spiel im App Store erhältlich ist. Unter
-      Android läuft es in einer geschlossenen Beta auf Google Play: Die
-      Anmeldeseite ist oben auf dieser Seite verlinkt, und der Link zum Play
-      Store erscheint hier, sobald das Spiel öffentlich verfügbar ist.
+      Auf Android-Smartphones und -Tablets über Google Play sowie auf iPhone
+      und iPad über den App Store. Beide Links finden Sie oben auf dieser
+      Seite.
   - q: Ist Garage Master TCG kostenlos?
     a: >-
       Ja. Die täglichen Booster, die Alben, der Marktplatz und der Tausch sind
@@ -201,7 +199,6 @@ spielt, kann jedes Album vervollständigen.
 
 ## Verfügbarkeit
 
-Garage Master TCG ist im **App Store** erhältlich, für **iPhone und iPad**.
-Unter Android läuft das Spiel in einer geschlossenen Beta auf **Google Play**:
-Die Anmeldeseite ist oben auf dieser Seite verlinkt, und der Link zum Play
-Store erscheint hier, sobald das Spiel öffentlich verfügbar ist.
+Garage Master TCG ist bei **Google Play** erhältlich, für **Android**-Smartphones
+und -Tablets, und im **App Store**, für **iPhone und iPad**. Der Download ist in
+beiden Stores kostenlos.

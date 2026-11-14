@@ -11,12 +11,12 @@ lead: >-
   Platinum, Diamond, Prestige), täyttävät albumeita ja vaihtavat kortteja
   kavereidensa kanssa.
 translationStatus: authored
-updatedOn: 2026-11-13
+updatedOn: 2026-11-14
 slug: lehdisto
 navLabel: Lehdistömateriaali
 status: >-
-  Peli on saatavilla App Storesta (iPhone ja iPad). Androidilla se on
-  suljetussa beetatestissä ja tulee pian Google Play Kauppaan.
+  Peli on saatavilla Google Play Kaupasta (Android) ja App Storesta (iPhone ja
+  iPad).
 sections:
   highlights: Pääkohdat
   platforms: Alustat
@@ -31,7 +31,7 @@ highlights:
   - 'Pelaajien välinen markkinapaikka (myynnit ja huutokaupat) ja suorat vaihdot kavereiden kesken pelkällä virtuaalivaluutalla: oikeaa rahaa ei voi nostaa.'
   - Kehittäjä on Chocky Dev, kahden hengen itsenäinen studio.
 platforms:
-  android: Suljettu beetatesti käynnissä; tulossa pian Google Play Kauppaan.
+  android: Saatavilla Google Play Kaupasta puhelimille ja tableteille.
   ios: Saatavilla App Storesta iPhonelle ja iPadille.
 galleryNote: Kaikki kuvat voi ladata täydellä resoluutiolla.
 downloadLabel: Lataa
@@ -69,7 +69,7 @@ facts:
   - label: Ansaintamalli
     value: Ilmainen, sovelluksen sisäiset ostot
   - label: Tila
-    value: Saatavilla iOS:lle, suljettu beetatesti Androidilla
+    value: Saatavilla Androidille ja iOS:lle
   - label: Studio
     value: Chocky Dev
   - label: Kielet

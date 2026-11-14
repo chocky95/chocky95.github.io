@@ -12,7 +12,7 @@ lead: >-
   ta rahastub, mitmes keeles ta liides tõesti olemas on ja mida ta sinu
   telefonilt küsib.
 translationStatus: authored
-updatedOn: 2026-11-12
+updatedOn: 2026-11-14
 faq:
   - q: Millise rakenduse valida mölkky punktide lugemiseks?
     a: >-
@@ -56,8 +56,8 @@ Premium Pass kiirendab edenemist, ilma et miski muutuks eksklusiivseks.
 - **Mängid mölkkyt** ja pliiats-paber on tüütuks muutunud → Mölkky Score.
 - **Tahad kaardimängu**, üksi tehisintellekti vastu või võrgus sõpradega →
   Papayoo, või Mojogo, mis pakub kaht mängu ühes rakenduses.
-- **Armastad autosid** ja kogumiskaarte → Garage Master TCG, iPhone'ile ja
-  iPadile (Androidis beetatestis).
+- **Armastad autosid** ja kogumiskaarte → Garage Master TCG, Androidile,
+  iPhone'ile ja iPadile.
 - **Pead saatma skannitud dokumendi** ilma tasulist teenust paigaldamata →
   ScanFree.
 - **Oled Prantsuse mikroettevõtja** ja pead tuluraamatut → EasyCompta.

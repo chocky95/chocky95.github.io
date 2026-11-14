@@ -175,7 +175,7 @@ export const APPS: readonly AppFacts[] = [
     slug: 'garage-master-tcg',
     name: 'Garage Master TCG',
     packageId: 'com.chocky.tcg',
-        version: '0.1.30',
+    version: '0.1.34',
     // Rouge oxyde du thème « garage de nuit » (TcgColors.red, tcg_core). Il ne
     // donne que 4.47:1 sur l'encre, juste sous AA. La variante allumée du même
     // thème (TcgColors.redLit) porte le texte : 5.30:1.
@@ -185,20 +185,18 @@ export const APPS: readonly AppFacts[] = [
     schemaCategory: 'GameApplication',
     // FR + EN seulement : packages/tcg_core/lib/l10n/app_{fr,en}.arb.
     nativeLocales: ['fr', 'en'],
-        // Sortie à l'envers des autres : l'App Store d'abord (validée le
-    // 2026-11-12, id6828020937 = tcgAppStoreId de store_platform.dart), alors
-    // qu'Android est encore en test fermé Google Play (inscription par
-    // /tcg/beta.html, groupe testinggm). D'où une app « published » qui garde
-    // son betaUrl. À la sortie Play : betaUrl null, playUrl = PLAY +
-    // 'com.chocky.tcg' et 'play' dans stores — et la page bêta devient un
-    // renvoi vers la fiche Play, comme /mojogo/beta.html.
+    // Sortie à l'envers des autres : l'App Store d'abord (validée le
+    // 2026-11-12, id6828020937 = tcgAppStoreId de store_platform.dart), puis
+    // Google Play en production le 2026-11-14. L'ancienne page d'inscription
+    // au test fermé, /tcg/beta.html, renvoie désormais vers la fiche Play,
+    // comme /mojogo/beta.html.
     comingToIos: false,
     status: 'published',
-    playUrl: null,
+    playUrl: PLAY + 'com.chocky.tcg',
     appStoreUrl: APP_STORE + '6828020937',
-    betaUrl: '/tcg/beta.html',
+    betaUrl: null,
     webAppUrl: null,
-    stores: ['ios'],
+    stores: ['play', 'ios'],
     buildTargets: ['android', 'ios'],
     screenshotLocales: [],
     trademarkNotice:

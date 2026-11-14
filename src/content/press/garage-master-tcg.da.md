@@ -10,12 +10,12 @@ lead: >-
   (Standard, Silver, Gold, Platinum, Diamond, Prestige), fylder albummer ud og
   bytter med deres venner.
 translationStatus: authored
-updatedOn: 2026-11-13
+updatedOn: 2026-11-14
 slug: presse
 navLabel: Pressekit
 status: >-
-  Spillet findes i App Store (iPhone og iPad). På Android er det i lukket beta
-  og kommer snart i Google Play Store.
+  Spillet findes i Google Play Store (Android) og i App Store (iPhone og
+  iPad).
 sections:
   highlights: Højdepunkter
   platforms: Platforme
@@ -30,7 +30,7 @@ highlights:
   - 'Et marked mellem spillere (salg og auktioner) og direkte byttehandler mellem venner, udelukkende med virtuel valuta: ingen udbetaling af rigtige penge.'
   - Udviklet af Chocky Dev, et uafhængigt studie med to personer.
 platforms:
-  android: Lukket beta i gang; kommer snart i Google Play Store.
+  android: Findes i Google Play Store til telefoner og tablets.
   ios: Findes i App Store til iPhone og iPad.
 galleryNote: Alle billeder kan downloades i fuld opløsning.
 downloadLabel: Download
@@ -69,7 +69,7 @@ facts:
   - label: Forretningsmodel
     value: Gratis at spille, køb i appen
   - label: Status
-    value: Findes til iOS, lukket beta på Android
+    value: Findes til Android og iOS
   - label: Studie
     value: Chocky Dev
   - label: Sprog

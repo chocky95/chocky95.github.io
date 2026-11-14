@@ -10,12 +10,12 @@ lead: >-
   (Standard, Silver, Gold, Platinum, Diamond, Prestige), fyller album och byter
   med sina vänner.
 translationStatus: authored
-updatedOn: 2026-11-13
+updatedOn: 2026-11-14
 slug: press
 navLabel: Pressrum
 status: >-
-  Spelet finns i App Store (iPhone och iPad). På Android är det i stängd beta
-  och kommer snart till Google Play Store.
+  Spelet finns i Google Play Store (Android) och i App Store (iPhone och
+  iPad).
 sections:
   highlights: Höjdpunkter
   platforms: Plattformar
@@ -30,7 +30,7 @@ highlights:
   - 'En marknad mellan spelare (försäljning och auktioner) och direkta byten mellan vänner, enbart med virtuell valuta: inga uttag av riktiga pengar.'
   - Utvecklat av Chocky Dev, en oberoende studio med två personer.
 platforms:
-  android: Stängd beta pågår; kommer snart till Google Play Store.
+  android: Finns i Google Play Store, för telefoner och surfplattor.
   ios: Finns i App Store, för iPhone och iPad.
 galleryNote: Alla bilder laddas ner i full upplösning.
 downloadLabel: Ladda ner
@@ -68,7 +68,7 @@ facts:
   - label: Affärsmodell
     value: Gratis att spela, köp i appen
   - label: Status
-    value: Finns för iOS, stängd beta på Android
+    value: Finns för Android och iOS
   - label: Studio
     value: Chocky Dev
   - label: Språk

@@ -10,12 +10,12 @@ lead: >-
   väljaandes (Standard, Silver, Gold, Platinum, Diamond, Prestige), täidavad
   albumeid ja vahetavad kaarte sõpradega.
 translationStatus: authored
-updatedOn: 2026-11-13
+updatedOn: 2026-11-14
 slug: press
 navLabel: Pressimaterjalid
 status: >-
-  Mäng on saadaval App Store'is (iPhone ja iPad). Androidis on see suletud
-  beetatestis ja jõuab peagi Google Play Store'i.
+  Mäng on saadaval Google Play Store'is (Android) ja App Store'is (iPhone ja
+  iPad).
 sections:
   highlights: Põhipunktid
   platforms: Platvormid
@@ -30,7 +30,7 @@ highlights:
   - 'Mängijatevaheline turg (müük ja oksjonid) ning otsevahetused sõpradega, ainult virtuaalrahas: päris raha välja võtta ei saa.'
   - Arendaja on Chocky Dev, kaheliikmeline sõltumatu stuudio.
 platforms:
-  android: Suletud beetatest käib; peagi ka Google Play Store'is.
+  android: Saadaval Google Play Store'is telefonidele ja tahvelarvutitele.
   ios: Saadaval App Store'is iPhone'ile ja iPadile.
 galleryNote: Kõik pildid saab alla laadida täislahutusega.
 downloadLabel: Laadi alla
@@ -67,7 +67,7 @@ facts:
   - label: Ärimudel
     value: Tasuta mängitav, rakendusesisesed ostud
   - label: Olek
-    value: Saadaval iOS-is, Androidis suletud beetatest
+    value: Saadaval Androidis ja iOS-is
   - label: Stuudio
     value: Chocky Dev
   - label: Keeled

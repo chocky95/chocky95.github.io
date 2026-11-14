@@ -2,17 +2,17 @@
 title: 'Garage Master TCG: joc de cărți de colecție cu mașini'
 metaDescription: >-
   Pachete gratuite, mașini reale în șase ediții, albume de completat și o piață
-  între jucători, pe monedă virtuală. Pe iPhone și iPad, în beta pe Android.
+  între jucători, pe monedă virtuală. Gratuit pe Android, iPhone și iPad.
 h1: 'Garage Master TCG: jocul de cărți de colecție pentru pasionații de mașini'
 lead: >-
   Garage Master TCG este un joc de cărți de colecție cu mașini. Deschizi
   pachete gratuite, îți construiești o colecție de mașini reale în șase ediții,
   de la Standard la Prestige numerotată, completezi albume și îți vinzi sau îți
   schimbi dublurile cu alți jucători, doar pe monedă virtuală. Jocul este
-  disponibil în App Store pentru iPhone și iPad; pe Android, este în beta
-  închisă pe Google Play.
+  disponibil pe Google Play pentru Android și în App Store pentru iPhone și
+  iPad.
 translationStatus: authored
-updatedOn: 2026-11-12
+updatedOn: 2026-11-14
 highlights:
   - Pachete gratuite care se reîncarcă la fiecare două ore, plus un pachet de bun venit din partea casei
   - Mașini reale, de la mașini de oraș la hypercar-uri, clasate de la D la S după raritate
@@ -25,10 +25,9 @@ highlights:
 faq:
   - q: Pe ce dispozitive pot juca Garage Master TCG?
     a: >-
-      Pe iPhone și iPad, unde jocul este în App Store. Pe Android, este în
-      beta închisă pe Google Play: linkul către pagina de înscriere se află în
-      partea de sus a acestei pagini, iar linkul către Play Store va apărea
-      aici imediat ce jocul va fi lansat public.
+      Pe telefoanele și tabletele Android, prin Google Play, și pe iPhone și
+      iPad, prin App Store. Ambele linkuri se află în partea de sus a acestei
+      pagini.
   - q: Este Garage Master TCG gratuit?
     a: >-
       Da. Pachetele zilnice, albumele, piața și schimburile sunt gratuite.
@@ -194,7 +193,6 @@ cosmetice și de un progres mai rapid: un jucător gratuit poate completa orice 
 
 ## Disponibilitate
 
-Garage Master TCG este disponibil în **App Store**, pentru **iPhone și iPad**.
-Pe Android, jocul este în beta închisă pe **Google Play**: linkul către pagina
-de înscriere se află în partea de sus a acestei pagini, iar linkul către Play
-Store va apărea aici imediat ce jocul va fi lansat public.
+Garage Master TCG este disponibil pe **Google Play**, pentru telefoanele și
+tabletele **Android**, și în **App Store**, pentru **iPhone și iPad**. Se
+descarcă gratuit din ambele magazine.

@@ -11,7 +11,7 @@ lead: >-
   information laid flat: what each one does, how it is funded, how many
   languages its interface actually exists in, and what it asks of your phone.
 translationStatus: authored
-updatedOn: 2026-11-12
+updatedOn: 2026-11-14
 faq:
   - q: Which app should I use to keep score at Mölkky?
     a: >-
@@ -55,7 +55,7 @@ up progress without making anything exclusive. The other four have none.
 - **You play Mölkky** and you are tired of pen and paper → Mölkky Score.
 - **You want a card game** to play solo against the AI or online with friends →
   Papayoo, or Mojogo for two games in one app.
-- **You love cars** and trading cards → Garage Master TCG, on iPhone and iPad (beta on Android).
+- **You love cars** and trading cards → Garage Master TCG, on Android, iPhone and iPad.
 - **You need to send a scanned document** without installing a paid service →
   ScanFree.
 - **You are registered as a French micro-entrepreneur** and have to keep an

@@ -12,7 +12,7 @@ lead: >-
   gefinancierd, in hoeveel talen zijn interface werkelijk bestaat, en wat hij van
   je telefoon vraagt.
 translationStatus: authored
-updatedOn: 2026-11-12
+updatedOn: 2026-11-14
 faq:
   - q: Welke app kies je om punten te tellen bij Mölkky?
     a: >-
@@ -56,8 +56,8 @@ geen.
 - **Je speelt Mölkky** en bent pen en papier zat → Mölkky Score.
 - **Je wilt een kaartspel** om solo tegen de AI of online met vrienden te spelen →
   Papayoo, of Mojogo voor twee spellen in één app.
-- **Je houdt van auto's** en verzamelkaarten → Garage Master TCG, op iPhone en
-  iPad (bèta op Android).
+- **Je houdt van auto's** en verzamelkaarten → Garage Master TCG, op Android,
+  iPhone en iPad.
 - **Je moet een gescand document versturen** zonder een betaalde dienst te
   installeren → ScanFree.
 - **Je bent Frans micro-ondernemer** en houdt een inkomstenboek bij → EasyCompta.

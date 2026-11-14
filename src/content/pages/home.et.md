@@ -10,7 +10,7 @@ lead: >-
   kogumiskaardimäng, mölkky punktilugeja, dokumendiskanner ja raamatupidamine
   füüsilisest isikust ettevõtjale. Kõiki saab tasuta alla laadida.
 translationStatus: authored
-updatedOn: 2026-11-12
+updatedOn: 2026-11-14
 faq:
   - q: Kas Chocky Devi rakendused on tasuta?
     a: >-
@@ -32,12 +32,11 @@ faq:
       serveris.
   - q: Millistel platvormidel need rakendused töötavad?
     a: >-
-      Papayoo, Mojogo, ScanFree ja Mölkky Score on Androidis saadaval Google
-      Play kaudu; Papayoo, ScanFree ja Mölkky Score on ka Apple'i App Store'is,
-      kus Mojogo ootab kinnitamist. Garage Master TCG ja EasyCompta on App
-      Store'is iPhone'ile ja iPadile: Garage Master TCG on Androidis suletud
-      beetatestis, ja EasyComptal on lisaks tasuta veebiversioon, mis töötab
-      brauseris ilma midagi paigaldamata.
+      Papayoo, Mojogo, ScanFree, Mölkky Score ja Garage Master TCG on Androidis
+      saadaval Google Play kaudu; Papayoo, ScanFree, Mölkky Score ja Garage
+      Master TCG on ka Apple'i App Store'is, kus Mojogo ootab kinnitamist.
+      EasyCompta on App Store'is iPhone'ile ja iPadile ning sellel on lisaks
+      tasuta veebiversioon, mis töötab brauseris ilma midagi paigaldamata.
 ---
 
 ## Neli rakendust mängimiseks
@@ -62,8 +61,7 @@ kombinatsioonimäng. Üksi bottide vastu või võrgus koos sõpradega.
 kogumiskaardimäng. Tasuta boosterpakid iga kahe tunni järel, päris autod kuues
 väljaandes Standardist kuni nummerdatud Prestige'ini, täidetavad albumid ja
 turg, kus saad oma topeltkaarte teiste mängijatega müüa või vahetada, ainult
-virtuaalmüntides. Saadaval iPhone'ile ja iPadile, Androidis suletud
-beetatestis.
+virtuaalmüntides. Saadaval Androidile, iPhone'ile ja iPadile.
 
 ## Kaks igapäevast tööriista
 

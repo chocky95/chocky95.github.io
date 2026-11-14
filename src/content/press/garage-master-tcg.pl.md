@@ -10,12 +10,12 @@ lead: >-
   o rosnącej rzadkości (Standard, Silver, Gold, Platinum, Diamond, Prestige),
   kompletują albumy i wymieniają się kartami ze znajomymi.
 translationStatus: authored
-updatedOn: 2026-11-13
+updatedOn: 2026-11-14
 slug: prasa
 navLabel: Materiały prasowe
 status: >-
-  Gra jest dostępna w App Store (iPhone i iPad). Na Androidzie jest w
-  zamkniętej becie i wkrótce trafi do Sklepu Google Play.
+  Gra jest dostępna w Sklepie Google Play (Android) oraz w App Store (iPhone
+  i iPad).
 sections:
   highlights: Najważniejsze informacje
   platforms: Platformy
@@ -30,7 +30,7 @@ highlights:
   - 'Rynek między graczami (sprzedaż i aukcje) oraz bezpośrednie wymiany ze znajomymi, wyłącznie za wirtualną walutę: żadnych wypłat prawdziwych pieniędzy.'
   - Stworzona przez Chocky Dev, niezależne dwuosobowe studio.
 platforms:
-  android: Trwa zamknięta beta; wkrótce w Sklepie Google Play.
+  android: Dostępna w Sklepie Google Play na telefony i tablety.
   ios: Dostępna w App Store na iPhone'a i iPada.
 galleryNote: Każdą grafikę pobierzesz w pełnej rozdzielczości.
 downloadLabel: Pobierz
@@ -68,7 +68,7 @@ facts:
   - label: Model biznesowy
     value: Free-to-play, zakupy w aplikacji
   - label: Status
-    value: Dostępna na iOS, zamknięta beta na Androidzie
+    value: Dostępna na Androida i iOS
   - label: Studio
     value: Chocky Dev
   - label: Języki

@@ -12,7 +12,7 @@ lead: >-
   chacune, comment elle se finance, dans combien de langues son interface existe
   réellement, et ce qu'elle demande à votre téléphone.
 translationStatus: authored
-updatedOn: 2026-11-12
+updatedOn: 2026-11-14
 faq:
   - q: Quelle application choisir pour compter les points au Mölkky ?
     a: >-
@@ -59,7 +59,7 @@ ont aucun.
   Mölkky Score.
 - **Vous voulez un jeu de cartes** à jouer seul contre l'IA ou en ligne entre
   amis → Papayoo, ou Mojogo pour deux jeux en une application.
-- **Vous aimez les voitures** et les cartes à collectionner → Garage Master TCG, sur iPhone et iPad (bêta sur Android).
+- **Vous aimez les voitures** et les cartes à collectionner → Garage Master TCG, sur Android, iPhone et iPad.
 - **Vous devez envoyer un document scanné** sans installer un service payant →
   ScanFree.
 - **Vous êtes micro-entrepreneur en France** et vous tenez un livre des

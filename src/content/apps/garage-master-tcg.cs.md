@@ -2,17 +2,16 @@
 title: 'Garage Master TCG: sběratelská karetní hra o autech'
 metaDescription: >-
   Boostery zdarma, skutečná auta v šesti edicích, alba k zaplnění a tržiště
-  mezi hráči za virtuální měnu. Pro iPhone a iPad, na Androidu v betě.
+  mezi hráči za virtuální měnu. Zdarma pro Android, iPhone a iPad.
 h1: 'Garage Master TCG: sběratelská karetní hra pro milovníky aut'
 lead: >-
   Garage Master TCG je sběratelská karetní hra o autech. Otevíráte boostery
   zdarma, budujete sbírku skutečných aut v šesti edicích, od Standard po
   číslovanou Prestige, zaplňujete alba a své duplikáty prodáváte nebo
   vyměňujete s ostatními hráči, a to výhradně za virtuální měnu. Hra je
-  k dispozici v App Storu pro iPhone a iPad; na Androidu je v uzavřené betě
-  na Google Play.
+  k dispozici na Google Play pro Android a v App Storu pro iPhone a iPad.
 translationStatus: authored
-updatedOn: 2026-11-12
+updatedOn: 2026-11-14
 highlights:
   - Boostery zdarma, které se doplňují každé dvě hodiny, a k tomu uvítací booster jako dárek
   - Skutečná auta od malých městských vozů po hypersporty, řazená podle vzácnosti od třídy D po třídu S
@@ -25,9 +24,8 @@ highlights:
 faq:
   - q: Na jakých zařízeních lze Garage Master TCG hrát?
     a: >-
-      Na iPhonu a iPadu, kde je hra v App Storu. Na Androidu je v uzavřené
-      betě na Google Play: odkaz na registraci do bety najdete nahoře na této
-      stránce a odkaz na Play Store se tu objeví, jakmile hra vyjde veřejně.
+      Na telefonech a tabletech s Androidem, přes Google Play, a na iPhonu
+      a iPadu, přes App Store. Oba odkazy najdete nahoře na této stránce.
   - q: Je Garage Master TCG zdarma?
     a: >-
       Ano. Denní boostery, alba, tržiště i výměny jsou zdarma. Hru financují
@@ -185,7 +183,6 @@ který neplatí, může dokončit jakékoli album.
 
 ## Dostupnost
 
-Garage Master TCG je k dispozici v **App Storu** pro **iPhone a iPad**. Na
-Androidu je hra v uzavřené betě na **Google Play**: odkaz na registraci do bety
-najdete nahoře na této stránce a odkaz na Play Store se tu objeví, jakmile hra
-vyjde veřejně.
+Garage Master TCG je k dispozici na **Google Play** pro telefony a tablety
+s **Androidem** a v **App Storu** pro **iPhone a iPad**. V obou obchodech si ji
+stáhnete zdarma.

@@ -11,7 +11,7 @@ lead: >-
   tieto tasossa: mitä kukin tekee, miten se rahoittuu, monellako kielellä sen
   käyttöliittymä todella on, ja mitä se puhelimeltasi pyytää.
 translationStatus: authored
-updatedOn: 2026-11-12
+updatedOn: 2026-11-14
 faq:
   - q: Mikä sovellus mölkyn pisteiden laskemiseen?
     a: >-
@@ -54,8 +54,8 @@ etenemistä tekemättä mistään yksinoikeutta. Neljällä muulla ei ole yhtä�
 - **Pelaat mölkkyä** ja kynä ja paperi riittää → Mölkky Score.
 - **Haluat korttipelin**, yksin tekoälyä vastaan tai verkossa kavereiden kanssa →
   Papayoo, tai Mojogo, jossa on kaksi peliä yhdessä sovelluksessa.
-- **Pidät autoista** ja keräilykorteista → Garage Master TCG, iPhonelle ja
-  iPadille (Androidilla beetatestissä).
+- **Pidät autoista** ja keräilykorteista → Garage Master TCG, Androidille,
+  iPhonelle ja iPadille.
 - **Sinun on lähetettävä skannattu asiakirja** asentamatta maksullista palvelua →
   ScanFree.
 - **Olet ranskalainen mikroyrittäjä** ja pidät tulokirjaa → EasyCompta.
