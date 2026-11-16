@@ -23,7 +23,15 @@ import {
   type CatalogLocale,
 } from '~/data/catalog';
 import { CATALOG_STRINGS, REMOVAL_EMAIL } from '~/data/catalogStrings';
-import { carDescription, carTitle, formatCount, specRows, yearsLabel } from '~/data/catalogView';
+import {
+  carDescription,
+  carTitle,
+  formatCount,
+  rankRows,
+  rivals,
+  specRows,
+  yearsLabel,
+} from '~/data/catalogView';
 import { DEFAULT_LOCALE } from '~/i18n/locales';
 import { absolute, href, requireSite } from '~/i18n/routes';
 import { useTranslations } from '~/i18n/t';
@@ -73,6 +81,9 @@ const path = carPath(locale, car);
 const canonical = absolute(locale, path);
 const description = carDescription(locale, car);
 const rows = specRows(locale, car);
+const ranks = rankRows(locale, car);
+const showMakeRank = ranks.some((row) => row.inMake !== undefined);
+const comparable = rivals(car);
 
 /**
  * Jusqu'à huit autres modèles de la marque, les plus proches dans le temps :
@@ -236,6 +247,32 @@ const breadcrumbs = [
       </table>
     </section>
 
+    {
+      ranks.length > 0 && (
+        <section>
+          <h2>{s.rank.heading}</h2>
+          <table class="specs ranks">
+            <thead>
+              <tr>
+                <th scope="col">{s.rank.criterion}</th>
+                {showMakeRank && <th scope="col">{s.rank.inMake(make.name)}</th>}
+                <th scope="col">{s.rank.inCatalog}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {ranks.map((row) => (
+                <tr>
+                  <th scope="row">{row.label}</th>
+                  {showMakeRank && <td>{row.inMake ?? '—'}</td>}
+                  <td>{row.inCatalog}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </section>
+      )
+    }
+
     <section>
       <h2>{s.car.rarityHeading}</h2>
       <p class="prose">{car.rarityNote[locale]}</p>
@@ -264,6 +301,15 @@ const breadcrumbs = [
           <p class="all">
             <a href={href(locale, makePath(locale, make))}>{s.car.allModels(make.name)}</a>
           </p>
+        </section>
+      )
+    }
+
+    {
+      comparable.length > 0 && (
+        <section>
+          <h2>{s.car.rivalsHeading}</h2>
+          <CarGrid locale={locale} cars={comparable} />
         </section>
       )
     }
@@ -334,6 +380,10 @@ const breadcrumbs = [
   }
   .specs td {
     color: var(--text-100);
+  }
+  .ranks thead th {
+    font-size: var(--step--1);
+    vertical-align: bottom;
   }
   .all {
     margin-block-start: var(--space-3);

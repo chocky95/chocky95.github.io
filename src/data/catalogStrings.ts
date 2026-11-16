@@ -57,6 +57,18 @@ export interface CatalogStrings {
     ) => string;
     readonly otherHeading: (make: string) => string;
     readonly allModels: (make: string) => string;
+    /** Voitures d'autres marques, de la même catégorie et de la même époque. */
+    readonly rivalsHeading: string;
+  };
+
+  /** Tableau des rangs : la place du modèle dans sa marque et dans le catalogue. */
+  readonly rank: {
+    readonly heading: string;
+    readonly criterion: string;
+    readonly inMake: (make: string) => string;
+    readonly inCatalog: string;
+    /** « 3e sur 24 » : `shown` et `total` arrivent déjà mis en forme. */
+    readonly position: (rank: number, shown: string, total: string) => string;
   };
 
   readonly specs: {
@@ -66,6 +78,7 @@ export interface CatalogStrings {
     readonly accel: string;
     readonly topSpeed: string;
     readonly weight: string;
+    readonly powerToWeight: string;
     readonly engine: string;
     readonly drivetrain: string;
     readonly transmission: string;
@@ -137,6 +150,14 @@ export const CATALOG_STRINGS: Readonly<Record<CatalogLocale, CatalogStrings>> = 
         `${name} fait partie des ${total} voitures à collectionner de Garage Master TCG, le jeu de cartes automobile gratuit sur Android et iPhone. C'est la carte n° ${number} de la collection, en classe ${cls} (${clsName}).`,
       otherHeading: (make) => `Autres modèles ${make}`,
       allModels: (make) => `Tous les modèles ${make}`,
+      rivalsHeading: 'Voitures comparables de la même époque',
+    },
+    rank: {
+      heading: 'Classements',
+      criterion: 'Critère',
+      inMake: (make) => `Parmi les modèles ${make}`,
+      inCatalog: 'Dans tout le catalogue',
+      position: (rank, shown, total) => `${shown}${rank === 1 ? 'er' : 'e'} sur ${total}`,
     },
     specs: {
       production: 'Production',
@@ -145,6 +166,7 @@ export const CATALOG_STRINGS: Readonly<Record<CatalogLocale, CatalogStrings>> = 
       accel: '0 à 100 km/h',
       topSpeed: 'Vitesse maximale',
       weight: 'Poids',
+      powerToWeight: 'Rapport poids/puissance',
       engine: 'Moteur',
       drivetrain: 'Roues motrices',
       transmission: 'Boîte de vitesses',
@@ -220,6 +242,19 @@ export const CATALOG_STRINGS: Readonly<Record<CatalogLocale, CatalogStrings>> = 
         `${name} is one of the ${total} collectible cars in Garage Master TCG, the free car trading card game for Android and iPhone. It is card no. ${number} in the collection, in class ${cls} (${clsName}).`,
       otherHeading: (make) => `Other ${make} models`,
       allModels: (make) => `All ${make} models`,
+      rivalsHeading: 'Comparable cars of the same era',
+    },
+    rank: {
+      heading: 'Rankings',
+      criterion: 'Criterion',
+      inMake: (make) => `Among ${make} models`,
+      inCatalog: 'In the whole catalogue',
+      position: (rank, shown, total) => {
+        const tens = rank % 100;
+        const suffix =
+          tens >= 11 && tens <= 13 ? 'th' : (['th', 'st', 'nd', 'rd'][rank % 10] ?? 'th');
+        return `${shown}${suffix} of ${total}`;
+      },
     },
     specs: {
       production: 'Production',
@@ -228,6 +263,7 @@ export const CATALOG_STRINGS: Readonly<Record<CatalogLocale, CatalogStrings>> = 
       accel: '0–100 km/h (0–62 mph)',
       topSpeed: 'Top speed',
       weight: 'Weight',
+      powerToWeight: 'Weight-to-power ratio',
       engine: 'Engine',
       drivetrain: 'Driven wheels',
       transmission: 'Gearbox',
@@ -303,6 +339,14 @@ export const CATALOG_STRINGS: Readonly<Record<CatalogLocale, CatalogStrings>> = 
         `${name} gehört zu den ${total} Sammelautos in Garage Master TCG, dem kostenlosen Auto-Sammelkartenspiel für Android und iPhone. In der Sammlung trägt die Karte die Nr. ${number} und gehört zur Klasse ${cls} (${clsName}).`,
       otherHeading: (make) => `Weitere ${make}-Modelle`,
       allModels: (make) => `Alle ${make}-Modelle`,
+      rivalsHeading: 'Vergleichbare Autos derselben Zeit',
+    },
+    rank: {
+      heading: 'Ranglisten',
+      criterion: 'Kriterium',
+      inMake: (make) => `Unter den ${make}-Modellen`,
+      inCatalog: 'Im gesamten Katalog',
+      position: (_rank, shown, total) => `Platz ${shown} von ${total}`,
     },
     specs: {
       production: 'Bauzeit',
@@ -311,6 +355,7 @@ export const CATALOG_STRINGS: Readonly<Record<CatalogLocale, CatalogStrings>> = 
       accel: '0–100 km/h',
       topSpeed: 'Höchstgeschwindigkeit',
       weight: 'Gewicht',
+      powerToWeight: 'Leistungsgewicht',
       engine: 'Motor',
       drivetrain: 'Antrieb',
       transmission: 'Getriebe',
@@ -386,6 +431,14 @@ export const CATALOG_STRINGS: Readonly<Record<CatalogLocale, CatalogStrings>> = 
         `${name} es uno de los ${total} coches coleccionables de Garage Master TCG, el juego gratuito de cartas coleccionables de coches para Android y iPhone. Es la carta n.º ${number} de la colección, de clase ${cls} (${clsName}).`,
       otherHeading: (make) => `Otros modelos de ${make}`,
       allModels: (make) => `Todos los modelos de ${make}`,
+      rivalsHeading: 'Coches comparables de la misma época',
+    },
+    rank: {
+      heading: 'Clasificaciones',
+      criterion: 'Criterio',
+      inMake: (make) => `Entre los modelos de ${make}`,
+      inCatalog: 'En todo el catálogo',
+      position: (_rank, shown, total) => `Puesto ${shown} de ${total}`,
     },
     specs: {
       production: 'Producción',
@@ -394,6 +447,7 @@ export const CATALOG_STRINGS: Readonly<Record<CatalogLocale, CatalogStrings>> = 
       accel: '0 a 100 km/h',
       topSpeed: 'Velocidad máxima',
       weight: 'Peso',
+      powerToWeight: 'Relación peso/potencia',
       engine: 'Motor',
       drivetrain: 'Tracción',
       transmission: 'Caja de cambios',
@@ -469,6 +523,14 @@ export const CATALOG_STRINGS: Readonly<Record<CatalogLocale, CatalogStrings>> = 
         `${name} è una delle ${total} auto da collezione di Garage Master TCG, il gioco gratuito di carte collezionabili sulle auto per Android e iPhone. È la carta n. ${number} della collezione, in classe ${cls} (${clsName}).`,
       otherHeading: (make) => `Altri modelli ${make}`,
       allModels: (make) => `Tutti i modelli ${make}`,
+      rivalsHeading: 'Auto paragonabili della stessa epoca',
+    },
+    rank: {
+      heading: 'Classifiche',
+      criterion: 'Criterio',
+      inMake: (make) => `Tra i modelli ${make}`,
+      inCatalog: 'In tutto il catalogo',
+      position: (_rank, shown, total) => `${shown}º su ${total}`,
     },
     specs: {
       production: 'Produzione',
@@ -477,6 +539,7 @@ export const CATALOG_STRINGS: Readonly<Record<CatalogLocale, CatalogStrings>> = 
       accel: '0–100 km/h',
       topSpeed: 'Velocità massima',
       weight: 'Peso',
+      powerToWeight: 'Rapporto peso/potenza',
       engine: 'Motore',
       drivetrain: 'Trazione',
       transmission: 'Cambio',

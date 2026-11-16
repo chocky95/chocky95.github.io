@@ -1,7 +1,9 @@
 import {
+  CARS,
   carName,
   categoryName,
   countryName,
+  makeOf,
   type Car,
   type CatalogLocale,
 } from '~/data/catalog';
@@ -58,6 +60,12 @@ export function specRows(locale: CatalogLocale, car: Car): readonly SpecRow[] {
   if (specs.weightKg !== undefined) {
     rows.push({ label: s.specs.weight, value: `${number(locale, specs.weightKg)} kg` });
   }
+  if (specs.weightKg !== undefined && specs.hp !== undefined && specs.hp > 0) {
+    rows.push({
+      label: s.specs.powerToWeight,
+      value: `${number(locale, specs.weightKg / specs.hp, 1)} kg/${s.hpUnit}`,
+    });
+  }
   if (specs.drivetrain) {
     rows.push({
       label: s.specs.drivetrain,
@@ -74,6 +82,107 @@ export function specRows(locale: CatalogLocale, car: Car): readonly SpecRow[] {
   rows.push({ label: s.specs.category, value: categoryName(locale, car) });
 
   return rows;
+}
+
+/* ── Classements ─────────────────────────────────────────────────────────── */
+
+export interface RankRow {
+  readonly label: string;
+  /** Absent quand la marque compte moins de trois modèles chiffrés sur ce critère. */
+  readonly inMake: string | undefined;
+  readonly inCatalog: string;
+}
+
+const RANKED = [
+  { key: 'hp', lowerIsBetter: false },
+  { key: 'topSpeed', lowerIsBetter: false },
+  { key: 'zeroTo100', lowerIsBetter: true },
+] as const;
+
+/** Rang parmi `cars` : 1 + le nombre de voitures strictement meilleures (les ex æquo partagent leur rang). */
+function rankAmong(
+  cars: readonly Car[],
+  value: number,
+  key: (typeof RANKED)[number]['key'],
+  lowerIsBetter: boolean,
+): { rank: number; total: number } {
+  let better = 0;
+  let total = 0;
+  for (const other of cars) {
+    const otherValue = other.specs[key];
+    if (otherValue === undefined) continue;
+    total += 1;
+    if (lowerIsBetter ? otherValue < value : otherValue > value) better += 1;
+  }
+  return { rank: better + 1, total };
+}
+
+/**
+ * La place du modèle dans sa marque et dans le catalogue, critère par critère.
+ *
+ * C'est une information que le catalogue seul permet de calculer, et qui n'est
+ * la même sur aucune autre fiche.
+ */
+export function rankRows(locale: CatalogLocale, car: Car): readonly RankRow[] {
+  const s = CATALOG_STRINGS[locale];
+  const labels = { hp: s.specs.power, topSpeed: s.specs.topSpeed, zeroTo100: s.specs.accel };
+  const makeCars = makeOf(car).cars;
+  const rows: RankRow[] = [];
+
+  for (const { key, lowerIsBetter } of RANKED) {
+    const value = car.specs[key];
+    if (value === undefined) continue;
+    const inMake = rankAmong(makeCars, value, key, lowerIsBetter);
+    const inCatalog = rankAmong(CARS, value, key, lowerIsBetter);
+    rows.push({
+      label: labels[key],
+      inMake:
+        inMake.total >= 3 ? s.rank.position(inMake.rank, number(locale, inMake.rank), number(locale, inMake.total)) : undefined,
+      inCatalog: s.rank.position(
+        inCatalog.rank,
+        number(locale, inCatalog.rank),
+        number(locale, inCatalog.total),
+      ),
+    });
+  }
+  return rows;
+}
+
+/* ── Voitures comparables ────────────────────────────────────────────────── */
+
+const rivalsCache = new Map<string, readonly Car[]>();
+
+/**
+ * Six voitures d'autres marques, de la même catégorie, les plus proches par
+ * l'année de lancement puis par la puissance.
+ *
+ * Sans elles, une fiche ne lie que sa propre marque et le catalogue forme 119
+ * silos : ces liens font passer d'une marque à l'autre, pour le lecteur comme
+ * pour le robot.
+ */
+export function rivals(car: Car): readonly Car[] {
+  const cached = rivalsCache.get(car.id);
+  if (cached) return cached;
+
+  const distance = (other: Car): number => {
+    const years = Math.abs(other.yearStart - car.yearStart);
+    const power =
+      car.specs.hp !== undefined && other.specs.hp !== undefined && car.specs.hp > 0 && other.specs.hp > 0
+        ? Math.abs(Math.log(other.specs.hp / car.specs.hp)) * 10
+        : 5;
+    return years + power;
+  };
+
+  const picked = CARS.filter(
+    (other) => other.makeSlug !== car.makeSlug && other.category === car.category,
+  )
+    .map((other) => ({ other, d: distance(other) }))
+    .sort((a, b) => a.d - b.d || a.other.id.localeCompare(b.other.id))
+    .slice(0, 6)
+    .map(({ other }) => other);
+
+  rivalsCache.set(car.id, picked);
+  return picked;
 }
 
 /** Google tronque les titres vers 60 : au-delà de 65, on retombe sur une forme plus courte. */
