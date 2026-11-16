@@ -1,0 +1,73 @@
+---
+import { carName, carPath, carThumb, type Car, type CatalogLocale } from '~/data/catalog';
+import { powerLabel, yearsLabel } from '~/data/catalogView';
+import { href } from '~/i18n/routes';
+
+/**
+ * Grille de voitures : vignette, nom, années et puissance.
+ *
+ * L'ancre porte le nom complet du modèle, et la vignette a un `alt` vide : le
+ * nom est juste à côté, et le répéter ferait lire deux fois chaque carte aux
+ * lecteurs d'écran.
+ */
+interface Props {
+  locale: CatalogLocale;
+  cars: readonly Car[];
+}
+
+const { locale, cars } = Astro.props;
+---
+
+<ul role="list" class="car-grid">
+  {
+    cars.map((car) => (
+      <li>
+        <a href={href(locale, carPath(locale, car))}>
+          <img src={carThumb(car)} alt="" width="256" height="192" loading="lazy" decoding="async" />
+          <span class="car-grid__name">{carName(car)}</span>
+        </a>
+        <span class="car-grid__meta">
+          {yearsLabel(locale, car)}
+          {car.specs.hp !== undefined && ` · ${powerLabel(locale, car.specs.hp)}`}
+        </span>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .car-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+    gap: var(--space-3);
+    padding: 0;
+    margin-block-start: var(--space-3);
+  }
+  .car-grid li {
+    display: grid;
+    gap: 0.3rem;
+    align-content: start;
+  }
+  .car-grid a {
+    display: grid;
+    gap: 0.5rem;
+    color: var(--text-100);
+    font-weight: 700;
+    text-decoration: none;
+  }
+  .car-grid a:hover .car-grid__name {
+    text-decoration: underline;
+  }
+  .car-grid img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: var(--radius);
+    border: 1px solid var(--glass-border);
+  }
+  .car-grid__meta {
+    font-size: var(--step--1);
+    color: var(--text-500);
+  }
+</style>

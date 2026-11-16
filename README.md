@@ -23,6 +23,7 @@ npm run verify       # astro check + build + audit-dist
 | `npm run check:i18n` | Couverture de traduction de l'interface |
 | `npm run check:contrast` | Contrastes WCAG de la palette |
 | `npm run assets:sync` | Importe icônes et captures depuis les projets Flutter |
+| `npm run catalog:sync` | Importe le catalogue de voitures de Garage Master TCG |
 | `npm run versions:drift` | Compare les versions `pubspec.yaml` ↔ `apps.ts` |
 | `node scripts/generate-og.mjs` | Régénère les images Open Graph |
 
@@ -110,6 +111,31 @@ page n'existe que dans les langues où ce fichier est écrit, sans repli ailleur
   de la carte d'accueil dans sa langue.
 - **Audit** : déclarer les URL dans la table `PRESS` de
   `scripts/audit-dist.mjs`, comme pour les guides.
+
+### Catalogue de voitures
+
+Les voitures de Garage Master TCG ont chacune leur fiche, dans les cinq langues
+où le jeu les rédige (`fr en de es it`) :
+
+| Page | Exemple |
+|---|---|
+| Index | `/voitures/`, `/en/cars/`, `/de/autos/`, `/es/coches/`, `/it/auto/` |
+| Marque | `/voitures/ferrari/` |
+| Voiture | `/voitures/ferrari/f40-1987/` |
+
+`npm run catalog:sync` lit une version du catalogue dans le dépôt voisin
+`../tcg` et écrit `src/data/catalog/cars.json` et les photos de
+`public/img/cars/`, qui sont commités : le dépôt `tcg` n'existe pas dans
+GitHub Actions. Ne synchroniser qu'une version **en ligne en production**.
+
+Ce que le script laisse dehors, par décision du 16/11/2026 : la Formule 1, les
+séries `premium` et `gift`, et toute carte sans photo sous licence. Chaque
+fiche porte le crédit de sa photo (auteur, licence, source) et la mention de
+non-affiliation ; l'audit échoue si l'un des deux manque.
+
+Après une synchronisation, reportez les deux totaux affichés (`cars`, `makes`)
+dans `CATALOG` de `scripts/audit-dist.mjs`. Une page de marque de moins de
+trois modèles est en `noindex`, et c'est voulu.
 
 ### Deux rôles de couleur, à ne pas confondre
 

@@ -18,7 +18,7 @@
  */
 
 import { readFile, readdir, stat } from 'node:fs/promises';
-import { existsSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
@@ -103,6 +103,44 @@ const GUIDES = {
     ko: 'molkky-rules',
     cs: 'pravidla-molkky',
   },
+  // Les 15 langues de Mojogo (pas cs, et, fi). Slugs repris du titre de l'ecran
+  // de regles de l'application (`mojoRulesTitle` des .arb).
+  'mojo-rules': {
+    fr: 'regles-du-mojo',
+    en: 'mojo-rules',
+    de: 'mojo-regeln',
+    es: 'reglas-del-mojo',
+    it: 'regole-di-mojo',
+    nl: 'mojo-regels',
+    pt: 'regras-do-mojo',
+    sv: 'mojo-regler',
+    da: 'mojo-regler',
+    nb: 'mojo-regler',
+    pl: 'zasady-mojo',
+    ro: 'reguli-mojo',
+    ru: 'pravila-mojo',
+    ja: 'mojo-rules',
+    ko: 'mojo-rules',
+  },
+  // Les 15 langues de Mojogo (pas cs, et, fi). Slugs repris du titre de l'ecran
+  // de regles de l'application (`jungoRulesTitle` des .arb).
+  'jungo-rules': {
+    fr: 'regles-du-jungo',
+    en: 'jungo-rules',
+    de: 'jungo-regeln',
+    es: 'reglas-del-jungo',
+    it: 'regole-di-jungo',
+    nl: 'jungo-regels',
+    pt: 'regras-do-jungo',
+    sv: 'jungo-regler',
+    da: 'jungo-regler',
+    nb: 'jungo-regler',
+    pl: 'zasady-jungo',
+    ro: 'reguli-jungo',
+    ru: 'pravila-jungo',
+    ja: 'jungo-rules',
+    ko: 'jungo-rules',
+  },
 };
 
 /**
@@ -168,6 +206,13 @@ const NAMED_CASES = [
   { url: '/fi/molkky-saannot/', expectAlternates: 19 },
   // Slug PARTAGÉ par da, nb et sv : le plugin en tirait un faux cluster de 3.
   { url: '/sv/molkky-regler/', expectAlternates: 19 },
+  // Mojo et Jungo : 15 langues + x-default.
+  { url: '/regles-du-mojo/', expectAlternates: 16 },
+  { url: '/sv/jungo-regler/', expectAlternates: 16 },
+  // Catalogue de voitures : 5 langues + x-default, premier segment traduit.
+  { url: '/voitures/', expectAlternates: 6 },
+  { url: '/de/autos/ferrari/', expectAlternates: 6 },
+  { url: '/it/auto/ferrari/f40-1987/', expectAlternates: 6 },
   // Espace presse : dernier segment traduit (presse/, stampa/, lehdisto/…),
   // que le plugin de sitemap, qui regroupe par préfixe de locale, n'a aucun
   // moyen de relier.
@@ -200,6 +245,50 @@ const NAMED_CASES = [
  *                       renvoi vers la fiche Play, gardé pour les testeurs.
  */
 const FLAT_PAGES = new Set(['/mojogo/beta.html', '/tcg/beta.html']);
+
+/**
+ * Catalogue de voitures de Garage Master TCG : un index, une page par marque
+ * et une fiche par voiture, dans cinq langues.
+ *
+ * ── La seconde clé, ici ──────────────────────────────────────────────────
+ * 7 100 URL ne se saisissent pas à la main comme les slugs des guides. Les
+ * identifiants sont donc relus dans l'instantané (`src/data/catalog/cars.json`),
+ * mais ce que l'audit en attend reste saisi ici : les segments d'URL, et
+ * surtout les DEUX TOTAUX. Un instantané tronqué, une synchronisation sur la
+ * mauvaise version ou un filtre qui laisse passer une série exclue changent
+ * ces nombres, et le build s'arrête. `npm run catalog:sync` affiche les
+ * valeurs à reporter après une synchronisation voulue.
+ */
+const CATALOG = {
+  segments: { fr: 'voitures', en: 'cars', de: 'autos', es: 'coches', it: 'auto' },
+  cars: 1300,
+  makes: 119,
+  /** En dessous, la page de marque est en `noindex` (liste d'un ou deux liens). */
+  makeIndexThreshold: 3,
+  /** Catégories qui ne doivent jamais atteindre le site. */
+  forbiddenCategories: ['formula'],
+};
+
+function readCatalog() {
+  const file = path.join(ROOT, 'src', 'data', 'catalog', 'cars.json');
+  const cars = JSON.parse(readFileSync(file, 'utf8')).cars;
+  const makes = new Map();
+  for (const car of cars) makes.set(car.makeSlug, (makes.get(car.makeSlug) ?? 0) + 1);
+  return { cars, makes };
+}
+
+const catalog = readCatalog();
+
+/** Le chemin (sans locale) est-il sous le catalogue de cette langue ? */
+function catalogDepth(url) {
+  const locale = localeOf(url);
+  const segment = CATALOG.segments[locale];
+  if (!segment) return 0;
+  const base = urlFor(locale, segment);
+  if (!url.startsWith(base)) return 0;
+  // 1 = index, 2 = marque, 3 = voiture.
+  return 1 + url.slice(base.length).split('/').filter(Boolean).length;
+}
 
 /* ── Utilitaires ─────────────────────────────────────────────────────────── */
 
@@ -259,7 +348,101 @@ function buildExpectedUrls() {
       urls.add(urlFor(locale, `apps/${app}/${segment}`));
     }
   }
+  // Le catalogue de voitures : index, marques, fiches.
+  for (const [locale, segment] of Object.entries(CATALOG.segments)) {
+    urls.add(urlFor(locale, segment));
+    for (const make of catalog.makes.keys()) urls.add(urlFor(locale, `${segment}/${make}`));
+    for (const car of catalog.cars) {
+      urls.add(urlFor(locale, `${segment}/${car.makeSlug}/${car.slug}`));
+    }
+  }
   return urls;
+}
+
+/**
+ * Les pages de marque trop courtes pour être indexées : les seules pages du
+ * catalogue autorisées en `noindex`.
+ */
+function buildThinMakeUrls() {
+  const urls = new Set();
+  for (const [locale, segment] of Object.entries(CATALOG.segments)) {
+    for (const [make, count] of catalog.makes) {
+      if (count < CATALOG.makeIndexThreshold) urls.add(urlFor(locale, `${segment}/${make}`));
+    }
+  }
+  return urls;
+}
+
+/**
+ * Le catalogue tient ses promesses : les totaux saisis, aucune série exclue,
+ * et sur chaque fiche le crédit de la photo et la mention de non-affiliation.
+ *
+ * Ces deux mentions ne sont pas de la présentation. Les licences CC BY et
+ * CC BY-SA imposent le crédit là où l'image est affichée, et la page cite une
+ * marque qui n'est pas la nôtre : un gabarit modifié qui les ferait
+ * disparaître de 6 500 pages doit arrêter le déploiement.
+ */
+async function checkCatalog(noindexUrls) {
+  const before = errors.length;
+
+  if (catalog.cars.length !== CATALOG.cars) {
+    fail(`Catalogue : ${catalog.cars.length} voitures dans l'instantané, ${CATALOG.cars} attendues.`);
+  }
+  if (catalog.makes.size !== CATALOG.makes) {
+    fail(`Catalogue : ${catalog.makes.size} marques dans l'instantané, ${CATALOG.makes} attendues.`);
+  }
+
+  const ids = new Set();
+  for (const car of catalog.cars) {
+    if (ids.has(car.id)) fail(`Catalogue : identifiant en double — ${car.id}`);
+    ids.add(car.id);
+    if (CATALOG.forbiddenCategories.includes(car.category)) {
+      fail(`Catalogue : ${car.id} est de catégorie « ${car.category} », exclue du site.`);
+    }
+    if (!car.image?.license || !car.image?.sourceUrl) {
+      fail(`Catalogue : ${car.id} n'a pas de licence ou de source pour sa photo.`);
+    }
+    for (const sub of ['', 'thumb/']) {
+      if (!existsSync(path.join(DIST, 'img', 'cars', `${sub}${car.id}.webp`))) {
+        fail(`Catalogue : photo absente de dist/ — img/cars/${sub}${car.id}.webp`);
+      }
+    }
+  }
+
+  const thin = buildThinMakeUrls();
+  for (const [locale, segment] of Object.entries(CATALOG.segments)) {
+    for (const car of catalog.cars) {
+      const url = urlFor(locale, `${segment}/${car.makeSlug}/${car.slug}`);
+      const file = distPathFor(url);
+      if (!existsSync(file)) continue; // déjà signalé par checkInventory
+
+      const html = await readFile(file, 'utf8');
+      if (!html.includes(`href="${car.image.sourceUrl.replace(/&/g, '&amp;')}"`)) {
+        fail(`${url} : lien vers la source de la photo absent (crédit exigé par la licence).`);
+      }
+      if (!html.includes(car.image.license) && car.image.license !== 'Public domain') {
+        fail(`${url} : licence « ${car.image.license} » absente du crédit de la photo.`);
+      }
+      if (!/<footer class="notice"/.test(html)) {
+        fail(`${url} : mention de non-affiliation absente.`);
+      }
+      if (noindexUrls.has(url)) fail(`${url} : fiche de voiture en noindex.`);
+    }
+    if (noindexUrls.has(urlFor(locale, segment))) fail(`Index du catalogue en noindex (${locale}).`);
+    for (const make of catalog.makes.keys()) {
+      const url = urlFor(locale, `${segment}/${make}`);
+      if (noindexUrls.has(url) !== thin.has(url)) {
+        fail(`${url} : noindex ${noindexUrls.has(url) ? 'inattendu' : 'attendu (marque de moins de ' + CATALOG.makeIndexThreshold + ' modèles)'}.`);
+      }
+    }
+  }
+
+  if (errors.length === before) {
+    note(
+      `Catalogue : ${catalog.cars.length} voitures et ${catalog.makes.size} marques en ` +
+        `${Object.keys(CATALOG.segments).length} langues, crédit photo et mention sur chaque fiche.`,
+    );
+  }
 }
 
 /** Toute combinaison locale x app qui n'est PAS dans un sous-ensemble. */
@@ -299,7 +482,9 @@ async function checkInventory(expected, forbidden) {
   // /404.html que depuis la racine de l'hôte.
   if (!existsSync(path.join(DIST, '404.html'))) fail('dist/404.html manquant.');
   const strays = files.filter(
-    (f) => /404/.test(path.basename(path.dirname(f))) || (f.endsWith('404.html') && path.dirname(f) !== DIST),
+    // Dossier nommé exactement « 404 » : la fiche de la Peugeot 404 (`404-1960`)
+    // est une vraie page, pas une page d'erreur égarée.
+    (f) => /^404$/.test(path.basename(path.dirname(f))) || (f.endsWith('404.html') && path.dirname(f) !== DIST),
   );
   for (const s of strays) fail(`404 égaré (Pages ne le servira jamais) : ${path.relative(DIST, s)}`);
 
@@ -548,13 +733,21 @@ function checkInternalMesh(expected, linksByUrl) {
 
     if (sameLocale.length === 0) {
       fail(`${url} : orpheline — aucun lien intra-langue ne la désigne.`);
+    } else if (catalogDepth(url) > 1) {
+      // Une marque ou une fiche : l'accueil ne peut pas lier 1 300 voitures.
+      // La règle devient une chaîne — l'index lie la marque, la marque lie la
+      // fiche — ce qui borne la profondeur à trois clics.
+      const parent = url.replace(/[^/]+\/$/, '');
+      if (!sameLocale.includes(parent)) {
+        fail(`${url} : sa page parente (${parent}) ne la lie pas.`);
+      }
     } else if (url !== home && !sameLocale.includes(home)) {
       fail(`${url} : à plus d'un clic de ${home} — l'accueil de sa langue ne la lie pas.`);
     }
   }
 
   if (errors.length === before) {
-    note('Maillage : aucune orpheline, toutes les pages à 1 clic de leur accueil.');
+    note('Maillage : aucune orpheline, toutes les pages à 1 clic de leur accueil (catalogue : 3 au plus).');
   }
 }
 
@@ -725,7 +918,7 @@ async function checkSitemap(xml, noindexUrls, altsByUrl, expected) {
   const locs = all(xml, /<loc>([^<]+)<\/loc>/g).map((m) => m[1]);
   const inSitemap = new Set(locs.map((l) => l.replace(SITE, '')));
 
-  if (locs.some((l) => l.includes('/404'))) fail('Le sitemap contient la page 404.');
+  if (locs.some((l) => /\/404(\.html|\/)?$/.test(l))) fail('Le sitemap contient la page 404.');
 
   const forbidden = buildForbiddenUrls();
   for (const loc of locs) {
@@ -844,6 +1037,7 @@ const sitemapXml = existsSync(sitemapFile) ? await readFile(sitemapFile, 'utf8')
 await checkNoClientJs();
 checkInternalMesh(expected, linksByUrl);
 await checkNamedCases(sitemapXml);
+await checkCatalog(noindexUrls);
 await checkLanguageFallback();
 await checkSitemap(sitemapXml, noindexUrls, altsByUrl, expected);
 
@@ -854,7 +1048,11 @@ const distSize = (await Promise.all((await walk(DIST)).map((f) => stat(f)))).red
 
 console.log('\n─── audit-dist ───');
 for (const n of notes) console.log(`  · ${n}`);
-console.log(`  · ${noindexCount} page(s) en noindex (traduction non rédigée ou non relue).`);
+const thinMakes = [...buildThinMakeUrls()].filter((url) => noindexUrls.has(url)).length;
+console.log(
+  `  · ${noindexCount - thinMakes} page(s) en noindex (traduction non rédigée ou non relue)` +
+    `, plus ${thinMakes} page(s) de marque de moins de ${CATALOG.makeIndexThreshold} modèles.`,
+);
 console.log(`  · dist/ : ${(distSize / 1024 / 1024).toFixed(2)} Mo`);
 
 if (errors.length > 0) {

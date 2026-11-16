@@ -169,7 +169,8 @@ export const APPS: readonly AppFacts[] = [
     stores: ['play'],
     buildTargets: ALL_PLATFORMS,
     screenshotLocales: [],
-    trademarkNotice: null,
+    trademarkNotice:
+      'Mojo est un jeu édité par The Flying Games et Jungo un jeu édité par Cocktail Games. Mojogo est une adaptation indépendante, non affiliée à ces éditeurs.',
   },
   {
     slug: 'garage-master-tcg',

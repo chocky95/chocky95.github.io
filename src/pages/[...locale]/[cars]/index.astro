@@ -1,0 +1,183 @@
+---
+import type { GetStaticPaths } from 'astro';
+
+import CarGrid from '~/components/catalog/CarGrid.astro';
+import JsonLd from '~/components/seo/JsonLd.astro';
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { getApp } from '~/data/apps';
+import {
+  CARS,
+  CATALOG_LOCALES,
+  CATALOG_SEGMENT,
+  CATALOG_UPDATED_ON,
+  MAKES,
+  catalogIndexPath,
+  catalogIndexPaths,
+  makePath,
+  type CatalogLocale,
+} from '~/data/catalog';
+import { CATALOG_STRINGS, REMOVAL_EMAIL } from '~/data/catalogStrings';
+import { formatCount } from '~/data/catalogView';
+import { DEFAULT_LOCALE } from '~/i18n/locales';
+import { absolute, href, requireSite } from '~/i18n/routes';
+import { useTranslations } from '~/i18n/t';
+
+/**
+ * Index du catalogue de voitures : `/voitures/`, `/en/cars/`…
+ *
+ * C'est la porte d'entrée du catalogue : chaque accueil la lie par le pied de
+ * page, elle lie toutes les marques, et chaque marque lie ses modèles. Toute
+ * fiche est donc à trois clics de l'accueil de sa langue, pas plus.
+ */
+export const getStaticPaths = (() =>
+  CATALOG_LOCALES.map((locale) => ({
+    params: {
+      locale: locale === DEFAULT_LOCALE ? undefined : locale,
+      cars: CATALOG_SEGMENT[locale],
+    },
+    props: { locale },
+  }))) satisfies GetStaticPaths;
+
+interface Props {
+  locale: CatalogLocale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+const s = CATALOG_STRINGS[locale];
+const site = requireSite(Astro.site);
+const app = getApp('garage-master-tcg');
+
+const path = catalogIndexPath(locale);
+const canonical = absolute(locale, path);
+
+const total = formatCount(locale, CARS.length);
+const yearMin = Math.min(...CARS.map((car) => car.yearStart));
+const yearMax = Math.max(...CARS.map((car) => car.yearStart));
+
+/** Les modèles que le jeu marque comme emblématiques, les plus connus d'abord. */
+const iconic = CARS.filter((car) => car.iconic)
+  .sort((a, b) => b.popularity - a.popularity || a.id.localeCompare(b.id))
+  .slice(0, 24);
+
+const breadcrumbs = [
+  { name: t('nav.home'), url: absolute(locale, '') },
+  { name: s.navLabel, url: canonical },
+];
+---
+
+<BaseLayout
+  locale={locale}
+  paths={catalogIndexPaths()}
+  path={path}
+  title={s.index.title(total)}
+  description={s.index.description(total, MAKES.length)}
+  ogImage={new URL('og/garage-master-tcg.png', site).href}
+  updatedOn={CATALOG_UPDATED_ON}
+  accent={app?.accent}
+  accentText={app?.accentText}
+>
+  <JsonLd
+    locale={locale}
+    url={canonical}
+    siteUrl={site.href}
+    siteName={t('site.name')}
+    breadcrumbs={breadcrumbs}
+  />
+
+  <article class="wrap">
+    <nav aria-label={t('breadcrumb.label')} class="crumbs">
+      <a href={href(locale, '')}>{t('nav.home')}</a>
+      <span aria-hidden="true">›</span>
+      <span aria-current="page">{s.navLabel}</span>
+    </nav>
+
+    <header>
+      <h1>{s.index.h1(total)}</h1>
+      <p class="lead prose">{s.index.lead(total, MAKES.length, yearMin, yearMax)}</p>
+      <p class="prose game">
+        <a href={href(locale, 'apps/garage-master-tcg')}>Garage Master TCG</a>
+      </p>
+    </header>
+
+    <section>
+      <h2>{s.index.makesHeading}</h2>
+      <ul role="list" class="makes">
+        {
+          MAKES.map((make) => (
+            <li>
+              <a href={href(locale, makePath(locale, make))}>{make.name}</a>
+              <span>{s.models(make.cars.length)}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section>
+      <h2>{s.index.iconicHeading}</h2>
+      <CarGrid locale={locale} cars={iconic} />
+    </section>
+
+    <footer class="notice">
+      <p>{s.trademark}</p>
+      <p>{s.removal} <a href={`mailto:${REMOVAL_EMAIL}`}>{REMOVAL_EMAIL}</a>.</p>
+    </footer>
+  </article>
+</BaseLayout>
+
+<style>
+  article {
+    padding-block: var(--space-4) var(--space-6);
+  }
+  .crumbs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1);
+    align-items: center;
+    font-size: var(--step--1);
+    color: var(--text-500);
+    margin-block-end: var(--space-4);
+  }
+  .lead {
+    margin-block-start: var(--space-3);
+    font-size: var(--step-1);
+  }
+  .game {
+    margin-block-start: var(--space-2);
+  }
+  section {
+    margin-block-start: var(--space-5);
+  }
+  .makes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+    gap: var(--space-2) var(--space-3);
+    padding: 0;
+    margin-block-start: var(--space-3);
+  }
+  .makes li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--space-2);
+    padding-block-end: 0.4rem;
+    border-bottom: 1px solid var(--glass-border);
+  }
+  .makes a {
+    font-weight: 700;
+  }
+  .makes span {
+    font-size: var(--step--1);
+    color: var(--text-500);
+    white-space: nowrap;
+  }
+  .notice {
+    margin-block-start: var(--space-5);
+    font-size: var(--step--1);
+    color: var(--text-500);
+  }
+  .notice p + p {
+    margin-block-start: var(--space-1);
+  }
+</style>

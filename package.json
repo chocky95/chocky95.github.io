@@ -16,6 +16,7 @@
     "check:i18n": "node scripts/check-i18n.mjs",
     "check:contrast": "node scripts/check-contrast.mjs",
     "assets:sync": "node scripts/sync-assets.mjs",
+    "catalog:sync": "node scripts/sync-catalog.mjs",
     "versions:drift": "node scripts/sync-versions.mjs",
     "verify": "astro check && npm run build && node scripts/audit-dist.mjs"
   },

@@ -28,6 +28,8 @@
  * `audit-dist.mjs` refuserait le build, ce qui est le comportement correct.
  */
 import { appsForLocale } from '~/data/apps';
+import { catalogIndexPath, isCatalogLocale } from '~/data/catalog';
+import { CATALOG_STRINGS } from '~/data/catalogStrings';
 import { guidesForLocale } from '~/data/content';
 import type { Locale } from '~/i18n/locales';
 import { href } from '~/i18n/routes';
@@ -43,6 +45,14 @@ const { locale, path } = Astro.props;
 const t = useTranslations(locale);
 const apps = appsForLocale(locale);
 const guides = await guidesForLocale(locale);
+
+/**
+ * Le catalogue de voitures, dans les cinq langues où il existe. C'est ce lien,
+ * présent sur chaque accueil, qui rattache les fiches au reste du site.
+ */
+const catalog = isCatalogLocale(locale)
+  ? { path: catalogIndexPath(locale), label: CATALOG_STRINGS[locale].navLabel }
+  : undefined;
 ---
 
 <footer class="site-footer">
@@ -60,6 +70,17 @@ const guides = await guidesForLocale(locale);
               )}
             </li>
           ))
+        }
+        {
+          catalog && (
+            <li>
+              {path === catalog.path ? (
+                <span aria-current="page">{catalog.label}</span>
+              ) : (
+                <a href={href(locale, catalog.path)}>{catalog.label}</a>
+              )}
+            </li>
+          )
         }
         <li>
           {

@@ -44,6 +44,8 @@ interface Props {
   breadcrumbs?: readonly Crumb[];
   /** N'émettre que si ces questions sont VISIBLES dans la page. */
   faq?: readonly FaqItem[];
+  /** Noeuds schema.org propres à la page (fiche de voiture, liste de modèles). */
+  extra?: readonly Record<string, unknown>[];
 }
 
 const {
@@ -58,6 +60,7 @@ const {
   appImage,
   breadcrumbs = [],
   faq = [],
+  extra = [],
 } = Astro.props;
 
 const graph: Record<string, unknown>[] = [];
@@ -144,6 +147,8 @@ if (faq.length > 0) {
     })),
   });
 }
+
+graph.push(...extra);
 
 const payload = { '@context': 'https://schema.org', '@graph': graph };
 ---

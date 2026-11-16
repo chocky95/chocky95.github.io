@@ -7,6 +7,9 @@ import JsonLd from '~/components/seo/JsonLd.astro';
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import { APPS, appHasLocale, type AppFacts } from '~/data/apps';
 import { appDiagrams, appHeroImage, appIcon, appScreenshots } from '~/data/appAssets';
+import { CARS, catalogIndexPath, isCatalogLocale } from '~/data/catalog';
+import { CATALOG_STRINGS } from '~/data/catalogStrings';
+import { formatCount } from '~/data/catalogView';
 import { appContent, guideContent, pressLink, toAppView } from '~/data/content';
 import { DEFAULT_LOCALE, LOCALE_NAMES, LOCALES, type Locale } from '~/i18n/locales';
 import { absolute, appPaths, href, requireSite } from '~/i18n/routes';
@@ -96,6 +99,24 @@ const press = await pressLink(app.slug, locale);
 const relatedGuides = [...(await guideContent()).values()]
   .map((byLocale) => byLocale.get(locale))
   .filter((entry) => entry !== undefined && entry.data.relatedApp === app.slug);
+
+/**
+ * Le catalogue de voitures, lié depuis la fiche de Garage Master TCG dans les
+ * cinq langues où il existe : c'est le lien de contexte qui dit à Google que
+ * ces 1 300 fiches appartiennent au jeu.
+ */
+const catalog =
+  app.slug === 'garage-master-tcg' && isCatalogLocale(locale)
+    ? {
+        path: catalogIndexPath(locale),
+        heading: CATALOG_STRINGS[locale].navLabel,
+        label: CATALOG_STRINGS[locale].index.h1(formatCount(locale, CARS.length)),
+        description: CATALOG_STRINGS[locale].index.description(
+          formatCount(locale, CARS.length),
+          new Set(CARS.map((car) => car.makeSlug)).size,
+        ),
+      }
+    : undefined;
 
 const breadcrumbs = [
   { name: t('nav.home'), url: absolute(locale, '') },
@@ -386,6 +407,20 @@ const languageFallback = appHasLocale(app.slug, locale)
                   <p>{guide!.data.metaDescription}</p>
                 </li>
               ))}
+            </ul>
+          </section>
+        )
+      }
+
+      {
+        catalog && (
+          <section class="guides">
+            <h2>{catalog.heading}</h2>
+            <ul role="list">
+              <li>
+                <a href={href(locale, catalog.path)}>{catalog.label}</a>
+                <p>{catalog.description}</p>
+              </li>
             </ul>
           </section>
         )

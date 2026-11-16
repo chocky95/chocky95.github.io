@@ -1,0 +1,206 @@
+---
+import type { GetStaticPaths } from 'astro';
+
+import CarGrid from '~/components/catalog/CarGrid.astro';
+import JsonLd from '~/components/seo/JsonLd.astro';
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { getApp } from '~/data/apps';
+import {
+  CATALOG_LOCALES,
+  CATALOG_SEGMENT,
+  CATALOG_UPDATED_ON,
+  MAKES,
+  MAKE_INDEX_THRESHOLD,
+  carName,
+  carPath,
+  catalogIndexPath,
+  makePath,
+  makePaths,
+  type Car,
+  type CatalogLocale,
+  type Make,
+} from '~/data/catalog';
+import { CATALOG_STRINGS, REMOVAL_EMAIL } from '~/data/catalogStrings';
+import { powerLabel, speedLabel } from '~/data/catalogView';
+import { DEFAULT_LOCALE } from '~/i18n/locales';
+import { absolute, href, requireSite } from '~/i18n/routes';
+import { useTranslations } from '~/i18n/t';
+
+/**
+ * Page d'une marque : `/voitures/ferrari/`, `/en/cars/ferrari/`…
+ *
+ * Le slug de marque ne se traduit pas : c'est un nom propre. Seul le premier
+ * segment change avec la langue.
+ */
+export const getStaticPaths = (() =>
+  CATALOG_LOCALES.flatMap((locale) =>
+    MAKES.map((make) => ({
+      params: {
+        locale: locale === DEFAULT_LOCALE ? undefined : locale,
+        cars: CATALOG_SEGMENT[locale],
+        make: make.slug,
+      },
+      props: { locale, make },
+    })),
+  )) satisfies GetStaticPaths;
+
+interface Props {
+  locale: CatalogLocale;
+  make: Make;
+}
+
+const { locale, make } = Astro.props;
+const t = useTranslations(locale);
+const s = CATALOG_STRINGS[locale];
+const site = requireSite(Astro.site);
+const app = getApp('garage-master-tcg');
+
+const path = makePath(locale, make);
+const canonical = absolute(locale, path);
+const count = make.cars.length;
+
+/** Le meilleur modèle selon un critère, parmi ceux qui le renseignent. */
+function best(key: 'hp' | 'topSpeed'): Car | undefined {
+  let top: Car | undefined;
+  for (const car of make.cars) {
+    const value = car.specs[key];
+    if (value !== undefined && value > (top?.specs[key] ?? -1)) top = car;
+  }
+  return top;
+}
+const mostPowerful = count > 1 ? best('hp') : undefined;
+const fastest = count > 1 ? best('topSpeed') : undefined;
+
+const records = [
+  mostPowerful?.specs.hp !== undefined
+    ? { label: s.make.mostPowerful, car: mostPowerful, value: powerLabel(locale, mostPowerful.specs.hp) }
+    : undefined,
+  fastest?.specs.topSpeed !== undefined
+    ? { label: s.make.fastest, car: fastest, value: speedLabel(locale, fastest.specs.topSpeed) }
+    : undefined,
+].filter((record) => record !== undefined);
+
+const breadcrumbs = [
+  { name: t('nav.home'), url: absolute(locale, '') },
+  { name: s.navLabel, url: absolute(locale, catalogIndexPath(locale)) },
+  { name: make.name, url: canonical },
+];
+
+const itemList = {
+  '@type': 'ItemList',
+  '@id': `${canonical}#models`,
+  name: s.make.listHeading(make.name),
+  numberOfItems: count,
+  itemListElement: make.cars.map((car, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: carName(car),
+    url: absolute(locale, carPath(locale, car)),
+  })),
+};
+---
+
+<BaseLayout
+  locale={locale}
+  paths={makePaths(make)}
+  path={path}
+  title={s.make.title(make.name, count)}
+  description={s.make.description(make.name, count)}
+  ogImage={new URL('og/garage-master-tcg.png', site).href}
+  noindex={count < MAKE_INDEX_THRESHOLD}
+  updatedOn={CATALOG_UPDATED_ON}
+  accent={app?.accent}
+  accentText={app?.accentText}
+>
+  <JsonLd
+    locale={locale}
+    url={canonical}
+    siteUrl={site.href}
+    siteName={t('site.name')}
+    breadcrumbs={breadcrumbs}
+    extra={[itemList]}
+  />
+
+  <article class="wrap">
+    <nav aria-label={t('breadcrumb.label')} class="crumbs">
+      <a href={href(locale, '')}>{t('nav.home')}</a>
+      <span aria-hidden="true">›</span>
+      <a href={href(locale, catalogIndexPath(locale))}>{s.navLabel}</a>
+      <span aria-hidden="true">›</span>
+      <span aria-current="page">{make.name}</span>
+    </nav>
+
+    <header>
+      <h1>{s.make.title(make.name, count)}</h1>
+      <p class="lead prose">{s.make.lead(make.name, count, make.yearMin, make.yearMax)}</p>
+      {
+        records.length > 0 && (
+          <dl class="records">
+            {records.map((record) => (
+              <div>
+                <dt>{record.label}</dt>
+                <dd>
+                  <a href={href(locale, carPath(locale, record.car))}>{carName(record.car)}</a>
+                  {` (${record.value})`}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        )
+      }
+    </header>
+
+    <section>
+      <h2>{s.make.listHeading(make.name)}</h2>
+      <CarGrid locale={locale} cars={make.cars} />
+    </section>
+
+    <footer class="notice">
+      <p>{s.trademark}</p>
+      <p>{s.removal} <a href={`mailto:${REMOVAL_EMAIL}`}>{REMOVAL_EMAIL}</a>.</p>
+    </footer>
+  </article>
+</BaseLayout>
+
+<style>
+  article {
+    padding-block: var(--space-4) var(--space-6);
+  }
+  .crumbs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1);
+    align-items: center;
+    font-size: var(--step--1);
+    color: var(--text-500);
+    margin-block-end: var(--space-4);
+  }
+  .lead {
+    margin-block-start: var(--space-3);
+    font-size: var(--step-1);
+  }
+  .records {
+    display: grid;
+    gap: var(--space-2);
+    margin-block-start: var(--space-3);
+  }
+  .records dt {
+    font-size: var(--step--1);
+    color: var(--text-500);
+  }
+  .records dd {
+    margin: 0;
+    color: var(--text-100);
+  }
+  section {
+    margin-block-start: var(--space-5);
+  }
+  .notice {
+    margin-block-start: var(--space-5);
+    font-size: var(--step--1);
+    color: var(--text-500);
+  }
+  .notice p + p {
+    margin-block-start: var(--space-1);
+  }
+</style>

@@ -1,0 +1,349 @@
+---
+import type { GetStaticPaths } from 'astro';
+
+import CarGrid from '~/components/catalog/CarGrid.astro';
+import JsonLd from '~/components/seo/JsonLd.astro';
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { getApp } from '~/data/apps';
+import {
+  CARS,
+  CATALOG_LOCALES,
+  CATALOG_SEGMENT,
+  CATALOG_UPDATED_ON,
+  carImage,
+  carName,
+  carPath,
+  carPaths,
+  catalogIndexPath,
+  className,
+  licenseUrl,
+  makeOf,
+  makePath,
+  type Car,
+  type CatalogLocale,
+} from '~/data/catalog';
+import { CATALOG_STRINGS, REMOVAL_EMAIL } from '~/data/catalogStrings';
+import { carDescription, carTitle, formatCount, specRows, yearsLabel } from '~/data/catalogView';
+import { DEFAULT_LOCALE } from '~/i18n/locales';
+import { absolute, href, requireSite } from '~/i18n/routes';
+import { useTranslations } from '~/i18n/t';
+
+/**
+ * Fiche d'une voiture : `/voitures/ferrari/f40-1987/`.
+ *
+ * ── Ce qui rend chaque page propre à sa voiture ──────────────────────────
+ * Une page de gabarit ne se classe pas, et 1 300 pages qui ne diffèrent que
+ * par un nom exposent tout le domaine. Ici, le gabarit ne fournit que les
+ * intitulés : la photo, les chiffres, l'histoire, la note de rareté et
+ * l'anecdote viennent du catalogue et sont rédigés modèle par modèle.
+ *
+ * ── Ce que chaque page doit porter ───────────────────────────────────────
+ * Le crédit de la photo (auteur, licence, source, mention de modification) :
+ * les licences CC BY et CC BY-SA l'exigent là où l'image est affichée. Et la
+ * mention de non-affiliation : la page cite une marque qui n'est pas la nôtre.
+ */
+export const getStaticPaths = (() =>
+  CATALOG_LOCALES.flatMap((locale) =>
+    CARS.map((car) => ({
+      params: {
+        locale: locale === DEFAULT_LOCALE ? undefined : locale,
+        cars: CATALOG_SEGMENT[locale],
+        make: car.makeSlug,
+        car: car.slug,
+      },
+      props: { locale, car },
+    })),
+  )) satisfies GetStaticPaths;
+
+interface Props {
+  locale: CatalogLocale;
+  car: Car;
+}
+
+const { locale, car } = Astro.props;
+const t = useTranslations(locale);
+const s = CATALOG_STRINGS[locale];
+const site = requireSite(Astro.site);
+const app = getApp('garage-master-tcg');
+
+const make = makeOf(car);
+const name = carName(car);
+const years = yearsLabel(locale, car);
+const path = carPath(locale, car);
+const canonical = absolute(locale, path);
+const description = carDescription(locale, car);
+const rows = specRows(locale, car);
+
+/**
+ * Jusqu'à huit autres modèles de la marque, les plus proches dans le temps :
+ * une Golf de 1998 renvoie vers celles de 1991 et 2003 plutôt que vers la
+ * première venue dans l'ordre alphabétique.
+ */
+const position = make.cars.findIndex((other) => other.id === car.id);
+const others = make.cars
+  .map((other, index) => ({ other, distance: Math.abs(index - position) }))
+  .filter(({ other }) => other.id !== car.id)
+  .sort((a, b) => a.distance - b.distance)
+  .slice(0, 8)
+  .map(({ other }) => other)
+  .sort((a, b) => a.yearStart - b.yearStart || a.model.localeCompare(b.model));
+
+/* ── Photo et crédit ─────────────────────────────────────────────────────── */
+
+const imageUrl = new URL(carImage(car).slice(1), site).href;
+const author = car.image.author ?? s.photo.unknownAuthor;
+const licenseHref = licenseUrl(car.image.license);
+const licenseLabel =
+  car.image.license === 'Public domain' ? s.photo.publicDomain : car.image.license;
+
+/* ── Données structurées ─────────────────────────────────────────────────── */
+
+const quantity = (value: number, unitCode: string) => ({
+  '@type': 'QuantitativeValue',
+  value,
+  unitCode,
+});
+
+const photoNode = {
+  '@type': 'ImageObject',
+  '@id': `${canonical}#photo`,
+  contentUrl: imageUrl,
+  width: 640,
+  height: 480,
+  caption: `${name} (${years})`,
+  creditText: `${author} / Wikimedia Commons`,
+  ...(car.image.author
+    ? { creator: { '@type': 'Person', name: car.image.author }, copyrightNotice: car.image.author }
+    : {}),
+  ...(licenseHref ? { license: licenseHref } : {}),
+  acquireLicensePage: car.image.sourceUrl,
+};
+
+const carNode = {
+  '@type': 'Car',
+  '@id': `${canonical}#car`,
+  name,
+  url: canonical,
+  description: car.story[locale],
+  brand: { '@type': 'Brand', name: car.make },
+  manufacturer: { '@type': 'Organization', name: car.make },
+  model: car.model,
+  vehicleModelDate: String(car.yearStart),
+  image: { '@id': `${canonical}#photo` },
+  ...(car.specs.engine || car.specs.hp !== undefined
+    ? {
+        vehicleEngine: {
+          '@type': 'EngineSpecification',
+          ...(car.specs.engine ? { name: car.specs.engine } : {}),
+          ...(car.specs.hp !== undefined
+            ? {
+                enginePower: {
+                  '@type': 'QuantitativeValue',
+                  value: car.specs.hp,
+                  unitText: 'PS',
+                },
+              }
+            : {}),
+          ...(car.specs.torqueNm !== undefined ? { torque: quantity(car.specs.torqueNm, 'NU') } : {}),
+        },
+      }
+    : {}),
+  ...(car.specs.topSpeed !== undefined ? { speed: quantity(car.specs.topSpeed, 'KMH') } : {}),
+  ...(car.specs.zeroTo100 !== undefined
+    ? { accelerationTime: quantity(car.specs.zeroTo100, 'SEC') }
+    : {}),
+  ...(car.specs.weightKg !== undefined ? { weight: quantity(car.specs.weightKg, 'KGM') } : {}),
+};
+
+const breadcrumbs = [
+  { name: t('nav.home'), url: absolute(locale, '') },
+  { name: s.navLabel, url: absolute(locale, catalogIndexPath(locale)) },
+  { name: make.name, url: absolute(locale, makePath(locale, make)) },
+  { name, url: canonical },
+];
+---
+
+<BaseLayout
+  locale={locale}
+  paths={carPaths(car)}
+  path={path}
+  title={carTitle(locale, car)}
+  description={description}
+  ogType="article"
+  ogImage={new URL('og/garage-master-tcg.png', site).href}
+  updatedOn={CATALOG_UPDATED_ON}
+  accent={app?.accent}
+  accentText={app?.accentText}
+>
+  <JsonLd
+    locale={locale}
+    url={canonical}
+    siteUrl={site.href}
+    siteName={t('site.name')}
+    breadcrumbs={breadcrumbs}
+    extra={[photoNode, carNode]}
+  />
+
+  <article class="wrap">
+    <nav aria-label={t('breadcrumb.label')} class="crumbs">
+      <a href={href(locale, '')}>{t('nav.home')}</a>
+      <span aria-hidden="true">›</span>
+      <a href={href(locale, catalogIndexPath(locale))}>{s.navLabel}</a>
+      <span aria-hidden="true">›</span>
+      <a href={href(locale, makePath(locale, make))}>{make.name}</a>
+      <span aria-hidden="true">›</span>
+      <span aria-current="page">{car.model}</span>
+    </nav>
+
+    <header>
+      <h1>{name} <span class="years">({years})</span></h1>
+    </header>
+
+    <figure class="photo">
+      <img
+        src={carImage(car)}
+        alt={`${name} (${years})`}
+        width="640"
+        height="480"
+        loading="eager"
+        decoding="async"
+      />
+      <figcaption>
+        {s.photo.label}{s.colon}{author},{' '}
+        {licenseHref ? <a href={licenseHref} rel="license noopener">{licenseLabel}</a> : licenseLabel},{' '}
+        <a href={car.image.sourceUrl} rel="noopener">{s.photo.via}</a>. {s.photo.modified}
+      </figcaption>
+    </figure>
+
+    <section>
+      <h2>{s.car.storyHeading}</h2>
+      <p class="prose">{car.story[locale]}</p>
+    </section>
+
+    <section>
+      <h2>{s.car.specsHeading}</h2>
+      <table class="specs">
+        <tbody>
+          {
+            rows.map((row) => (
+              <tr>
+                <th scope="row">{row.label}</th>
+                <td>{row.value}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>{s.car.rarityHeading}</h2>
+      <p class="prose">{car.rarityNote[locale]}</p>
+    </section>
+
+    <section>
+      <h2>{s.car.funFactHeading}</h2>
+      <p class="prose">{car.funFact[locale]}</p>
+    </section>
+
+    <aside class="game">
+      <h2>{s.car.gameHeading}</h2>
+      <p class="prose">
+        {s.car.gameText(name, formatCount(locale, CARS.length), car.number, car.class, className(locale, car))}
+      </p>
+      <p>
+        <a href={href(locale, 'apps/garage-master-tcg')}>Garage Master TCG</a>
+      </p>
+    </aside>
+
+    {
+      others.length > 0 && (
+        <section>
+          <h2>{s.car.otherHeading(make.name)}</h2>
+          <CarGrid locale={locale} cars={others} />
+          <p class="all">
+            <a href={href(locale, makePath(locale, make))}>{s.car.allModels(make.name)}</a>
+          </p>
+        </section>
+      )
+    }
+
+    <footer class="notice">
+      <p>{s.trademark}</p>
+      <p>{s.removal} <a href={`mailto:${REMOVAL_EMAIL}`}>{REMOVAL_EMAIL}</a>.</p>
+    </footer>
+  </article>
+</BaseLayout>
+
+<style>
+  article {
+    padding-block: var(--space-4) var(--space-6);
+  }
+  .crumbs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1);
+    align-items: center;
+    font-size: var(--step--1);
+    color: var(--text-500);
+    margin-block-end: var(--space-4);
+  }
+  .years {
+    color: var(--text-500);
+    font-weight: 400;
+    white-space: nowrap;
+  }
+  .photo {
+    margin: var(--space-4) 0 0;
+    max-inline-size: 40rem;
+  }
+  .photo img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--glass-border);
+  }
+  .photo figcaption {
+    margin-block-start: var(--space-1);
+    font-size: var(--step--1);
+    color: var(--text-500);
+  }
+  section,
+  .game {
+    margin-block-start: var(--space-5);
+  }
+  section p,
+  .game p {
+    margin-block-start: var(--space-2);
+  }
+  .specs {
+    width: 100%;
+    max-inline-size: 40rem;
+    margin-block-start: var(--space-2);
+    border-collapse: collapse;
+  }
+  .specs th,
+  .specs td {
+    padding: 0.5em 0.8em 0.5em 0;
+    border-bottom: 1px solid var(--glass-border);
+    text-align: start;
+  }
+  .specs th {
+    font-weight: 400;
+    color: var(--text-500);
+  }
+  .specs td {
+    color: var(--text-100);
+  }
+  .all {
+    margin-block-start: var(--space-3);
+  }
+  .notice {
+    margin-block-start: var(--space-5);
+    font-size: var(--step--1);
+    color: var(--text-500);
+  }
+  .notice p + p {
+    margin-block-start: var(--space-1);
+  }
+</style>
